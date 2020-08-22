@@ -1,0 +1,323 @@
+#!/usr/bin/env bash
+
+codeAppiumPlaylist() {
+  code ~/_workspace/appium-playlist
+}
+
+codeAR9331Playlist() {
+  code ~/_workspace/AR9331-playlist
+}
+
+codeArduinoPlaylist() {
+  code ~/_workspace/arduino-playlist
+}
+
+codeBotPlaylist() {
+  code ~/_workspace/bot-playlist
+}
+
+codeBuildkitePlaylist() {
+  code ~/_workspace/buildkite-playlist
+}
+
+codeCalibrePlaylist() {
+  code ~/_workspace/calibre-playlist
+}
+
+codeCNCPlaylist() {
+  code ~/_workspace/CNC-playlist
+}
+
+codeCubieboardPlaylist() {
+  code ~/_workspace/cubieboard2-playlist
+}
+
+codeCubieboard2Playlist() {
+  code ~/_workspace/cubieboard-playlist
+}
+
+codeD3Playlist() {
+  code ~/_workspace/d3-playlist
+}
+
+codeDenoPlaylist() {
+  code ~/_workspace/deno-playlist
+}
+
+codeDockerPlaylist() {
+  code ~/_workspace/docker-playlist
+}
+
+codeDocsifyPlaylist() {
+  code ~/_workspace/docsify-playlist
+}
+
+codeDoczPlaylist() {
+  code ~/_workspace/docz-playlist
+}
+
+codeEsp32CamPlaylist() {
+  code ~/_workspace/esp32-cam-playlist
+}
+
+codeExpoPlaylist() {
+  code ~/_workspace/expo-playlist
+}
+
+codeFirebasePlaylist() {
+  code ~/_workspace/firebase-playlist
+}
+
+codeFreecadPlaylist() {
+  code ~/_workspace/freecad-playlist
+}
+
+codeGatsbyjsPlaylist() {
+  code ~/_workspace/gatsbyjs-playlist
+}
+
+codeGithubPlaylist() {
+  code ~/_workspace/github-playlist
+}
+
+codeHugoPlaylist() {
+  code ~/_workspace/hugo-playlist
+}
+
+codeI3megaPlaylist() {
+  code ~/_workspace/i3mega-playlist
+}
+
+codeJsPlaylist() {
+  code ~/_workspace/js-playlist
+}
+
+codeJsonPlaylist() {
+  code ~/_workspace/json-playlist
+}
+
+codeKicadPlaylist() {
+  code ~/_workspace/kicad-playlist
+}
+
+codeMakefilePlaylist() {
+  code ~/_workspace/Makefile-playlist
+}
+
+codeMicropythonPlaylist() {
+  code ~/_workspace/micropython-playlist
+}
+
+codeNextjsPlaylist() {
+  code ~/_workspace/nextjs-playlist
+}
+
+codeNmapPlaylist() {
+  code ~/_workspace/nmap-playlist
+}
+
+codeOrangePiZeroPlaylist() {
+  code ~/_workspace/orange-pi-zero-playlist
+}
+
+codePcbantPlaylist() {
+  code ~/_workspace/pcbant-playlist
+}
+
+codePlatformioPlaylist() {
+  code ~/_workspace/platformio-playlist
+}
+
+codePreactjsPlaylist() {
+  code ~/_workspace/preactjs-playlist
+}
+
+codePuppeteerPlaylist() {
+  code ~/_workspace/puppeteer-playlist
+}
+
+codePythonPlaylist() {
+  code ~/_workspace/python-playlist
+}
+
+codeRaspberryPiPlaylist() {
+  code ~/_workspace/raspberry-pi-playlist
+}
+
+codeReactNativePlaylist() {
+  code ~/_workspace/react-native-playlist
+}
+
+codeReactPlaylist() {
+  code ~/_workspace/react-playlist
+}
+
+codeRustPlaylist() {
+  code ~/_workspace/rust-playlist
+}
+
+codeSeleniumPlaylist() {
+  code ~/_workspace/selenium-playlist
+}
+
+codeSfxPowerSupplyPlaylist() {
+  code ~/_workspace/sfx-power-supply-playlist
+}
+
+codeTraefikPlaylist() {
+  code ~/_workspace/traefik-playlist
+}
+
+codeTravisPlaylist() {
+  code ~/_workspace/travis-playlist
+}
+
+codeVuePlaylist() {
+  code ~/_workspace/vue-playlist
+}
+
+codeWebPlaylist() {
+  code ~/_workspace/webpack-playlist
+}
+
+codeWebpackPlaylist() {
+  code ~/_workspace/web-playlist
+}
+
+codeCiPlaylist() {
+  code ~/_workspace/ci-playlist
+}
+
+codeDroneCiPlaylist() {
+  code ~/_workspace/drone-ci-playlist
+}
+
+goGist(){
+  $DEFAULT_BROWSER https://gist.github.com/louiscklaw &
+}
+
+goGithubNewRepo(){
+  $DEFAULT_BROWSER https://github.com/new &
+}
+
+goGithubPage(){
+  REMOTE_GET_URL=$(git remote get-url origin 2>&1)
+  if [[ $REMOTE_GET_URL =~ .*fatal.* ]]; then
+    echo "cannot find remote origin"
+  else
+    echo "remote origin " $REMOTE_GET_URL
+
+REMOTE_GET_URL=$REMOTE_GET_URL python3 << END
+import os,sys
+import subprocess
+
+REMOTE_GET_URL=os.environ['REMOTE_GET_URL']
+repo = REMOTE_GET_URL.split('/')[-1].replace('.git','')
+github_page_address = 'https://louiscklaw.github.io/{}/'.format(repo)
+firefox_command = 'firefox {}'.format(github_page_address)
+subprocess.Popen(firefox_command.split(' '))
+END
+  fi
+}
+
+goGithubSettings(){
+  remote_get_url=$(git remote get-url origin 2>&1)
+  if [[ $remote_get_url =~ .*fatal.* ]]; then
+    echo "cannot find remote origin"
+  else
+    echo "remote origin " $remote_get_url
+    http_link=${remote_get_url/git@/https://}
+    http_link=${http_link/.com:/.com/}
+    http_link=${http_link/.git/\/settings/}
+    firefox $http_link &
+  fi
+}
+
+goGithubRepo(){
+  remote_get_url=$(git remote get-url origin 2>&1)
+  if [[ $remote_get_url =~ .*fatal.* ]]; then
+    echo "cannot find remote origin"
+  else
+    echo "remote origin " $remote_get_url
+    http_link=${remote_get_url/git@/https://}
+    http_link=${http_link/.com:/.com/}
+    firefox $http_link &
+  fi
+}
+
+installDroneCli(){
+  aria2c -x 16 -s 99999 https://github.com/drone/drone-cli/releases/latest/download/drone_linux_amd64.tar.gz
+  tar -xf drone_linux_amd64.tar.gz
+  sudo install -t /usr/local/bin drone
+}
+
+buildDockerUbuntuLouis(){
+  cd /home/logic/_workspace/drone-ci-playlist/hello-ubuntu
+    docker build -t logickee/ubuntu-basic .
+  cd -
+}
+
+dockerNodeLts(){
+  # node:lts
+  touch .env.docker
+  docker run -it --env-file .env.docker -v $PWD:/root --rm node:lts bash
+  sudo rm -rf .bash_history
+  sudo rm -rf .ssh
+  sudo rm -rf .local
+  sudo rm -rf .python_history
+}
+
+dockerRun(){
+  touch .env.docker
+  #docker run -it --env-file .env.docker -v $PWD:/root -v /var/run/docker.sock:/var/run/docker.sock --rm $@
+}
+
+dockerUbuntuLouis(){
+  # dockerRun logickee/ubuntu-basic bash
+  dockerRun logickee/ubuntu-with-systemd bash
+}
+
+initGhPages(){
+  git checkout --orphan gh-pages
+  rm .git/index
+  git clean -fdx
+  echo "My GitHub Page" > index.html
+  git add .
+  git commit -a -m "First pages commit"
+  git push origin gh-pages
+}
+
+dockerClear(){
+  docker container prune -f
+
+  docker system prune -a -f
+
+}
+
+goJSONToJs(){
+  firefox https://json-to-js.com/ &
+}
+
+reYarn(){
+  rm -rf node_modules
+  yarn
+}
+
+goGithubIssueTemplate(){
+  firefox https://github.com/stevemao/github-issue-templates &
+}
+
+
+travisRoutine() {
+  firefox https://travis-ci.com/github/louiscklaw/github-playlist/branches &
+  firefox https://travis-ci.com/github/louiscklaw/travis-playlist/branches &
+  wait
+}
+
+initWorkspace(){
+  touch ws.code-workspace
+}
+
+getDefaultCommitLintConfig(){
+  cp /home/logic/_workspace/travis-playlist/commitlint.config.js .
+}

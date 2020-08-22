@@ -1,0 +1,439 @@
+#!/usr/bin/env python
+
+
+"""
+i am currently working on the ~/_workspace directory
+this file is intented to save and run there for simplifying daily job.
+
+expected path: ~/_workspace/fabfile.py
+
+"""
+
+# from invoke import run,task
+import os
+import sys
+
+from fabric.api import *
+from fabric.colors import *
+
+from datetime import datetime
+
+
+from multiprocessing import Pool
+import multiprocessing
+total_cpu_threads = multiprocessing.cpu_count()
+
+
+DOCKER_CONTAINER = r'docker-portfolio-ghost'
+PATH_DOCKER_FILE_DIRECTORY = r'/srv/docker-files'
+
+PATH_CONTAINER_DIRECTORY = os.path.join(PATH_DOCKER_FILE_DIRECTORY, DOCKER_CONTAINER)
+
+epoch_datetime = datetime.now().strftime('%s')
+
+env.use_ssh_config = True
+
+env.hosts=['localhost']
+
+# EditorConfig helps developers define and maintain consistent
+# coding styles between different editors and IDEs
+# editorconfig.org
+
+
+EDITORCONFIG_TEMPLATE = """root = true
+
+[*]
+charset = utf - 8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.md]
+trim_trailing_whitespace = false
+"""
+# @task
+
+
+def print_status(status_text):
+    print(green(status_text))
+
+
+def dockercompose_restart():
+    """
+        intent to restart container
+    """
+    with cd(PATH_CONTAINER_DIRECTORY):
+        dockercompose_stop()
+        dockercompose_start()
+
+# @task
+
+
+def git_pull():
+    """
+        intent to pull source from origin
+    """
+    run('git pull --all')
+
+# @task
+
+
+def git_push():
+    """
+        intent to push source from origin
+    """
+    run('git push --all')
+
+
+def git_checkout(repo):
+    run('git checkout -f %s' % repo)
+
+# @task
+
+
+def checkout_master():
+    """-
+        pull host -> production
+    """
+    checkout_test('master')
+
+
+def checkout_develop():
+    """
+        pull host -> testing
+    """
+    checkout_test('develop')
+
+
+def checkout_test(repo):
+    """
+        checkout specific repo
+    """
+    with cd(PATH_CONTAINER_DIRECTORY):
+        dockercompose_down()
+        git_pull()
+        git_checkout(repo)
+        dockercompose_up()
+
+# @task
+
+
+def backup():
+    """
+        NOTE: do i need a backup script here ?
+    """
+    archive_filename = '%s-%s.tar.gz' % (DOCKER_CONTAINER, epoch_datetime)
+
+    with cd(PATH_CONTAINER_DIRECTORY):
+        dockercompose_stop()
+
+        with cd(PATH_DOCKER_FILE_DIRECTORY):
+            run('tar -zcvf %s %s' % (archive_filename, PATH_CONTAINER_DIRECTORY))
+
+        dockercompose_start()
+
+    pass
+
+
+def dockercompose_stop():
+    run('docker-compose stop')
+    pass
+
+
+def dockercompose_start():
+    run('docker-compose start')
+    pass
+
+
+def dockercompose_down():
+    run('docker-compose down')
+    pass
+
+
+def dockercompose_up():
+    run('docker-compose up -d')
+    pass
+
+
+@task()
+def create_empty_vscode_ws(proj_name):
+
+    WORK_DIR = os.path.sep.join([os.environ['PWD'], proj_name])
+
+    # utilities file
+    GITIGNORE_PATH = os.path.sep.join([WORK_DIR, '.gitignore'])
+    EDITORCONFIG_PATH = os.path.sep.join([WORK_DIR, '.editorconfig'])
+
+    run('mkdir %s' % WORK_DIR)
+
+    with cd(WORK_DIR):
+        run('git init')
+        run('git flow init -d ')
+
+    print(green('initialize .gitignore', True))
+    with open(GITIGNORE_PATH, 'w') as f:
+        f.writelines([
+            '.vscode'
+        ])
+
+    print(green('initialize .editorconfig', True))
+    with open(EDITORCONFIG_PATH, 'w') as f:
+        for line in EDITORCONFIG_TEMPLATE.split('\n'):
+            f.write(line + '\n')
+
+    print(green('Done. ', True))
+
+
+@task
+def syncme():
+    with lcd('/home/logic/_workspace/workspace_fabfile'):
+        local('git pull')
+        local('git push')
+        local('rm -rf /home/logic/_workspace/fabfile.py')
+        local('ln -s $PWD/fabfile.py /home/logic/_workspace/fabfile.py ')
+
+    print_status('done')
+
+
+
+@task
+def backup():
+    backup_command = 'rsync -azh --progress  /home/logic/_workspace/  /mnt/192.168.88.6/var/nfs/usb_drive/_workspace'
+    local(backup_command)
+
+
+@task
+@hosts(['localhost'])
+def mount_share():
+    MOUNT_COMMAND = 'mount.nfs  192.168.88.6:/var/nfs/usb_drive /mnt/192.168.88.6'
+    sudo(MOUNT_COMMAND)
+
+
+def get_hostname():
+    return local('hostname', capture=True)
+
+
+@task
+def test_get_hostname():
+    print(get_hostname())
+
+
+@task
+def backup_home():
+    hostname = get_hostname()
+    excludes = ' '.join(
+        ['--exclude "{}"'.format(exclude) for exclude in [
+            '*cache', '*tmp', '*temp', '*.pyc', '*pycache*','.dbus','*log','*chromium','*mozilla','*cache','*caches','*Trash','.zsh_history','.z','*Zeal','*Trash*','snap'
+        ]]
+    )
+    backup_destination = '/mnt/backup/_backup/{}@{}'.format('logic', get_hostname())
+
+    # WORKSPACE_BACKUP_TO_NETWORK = 'rsync -azhW --progress --del {} /home/logic/_workspace logic@192.168.88.6:{}/_workspace'.format(excludes, backup_destination)
+    # print(WORKSPACE_BACKUP_TO_NETWORK)
+    # local(WORKSPACE_BACKUP_TO_NETWORK)
+
+    BACKUP_TO_NETWORK = 'rsync -azhW --progress --del {} /home/logic logic@192.168.88.6:{}'.format( excludes, backup_destination)
+    print(BACKUP_TO_NETWORK)
+    local(BACKUP_TO_NETWORK)
+
+
+@task
+@hosts('logic@192.168.88.6')
+def backup_gcp_louislabs_com():
+    """expecting running from gcp to backup to HK"""
+
+    backup_paths_list = [
+        '/srv',
+        '/home/logic',
+        '/var/lib/docker/volumes',
+    ]
+    for backup_path in backup_paths_list:
+        backup_para = {
+            'backup_from': backup_path,
+            'backup_to': '/mnt/backup/_backup/logic@www-louislabs-com{}'.format(backup_path)
+        }
+
+        run('mkdir -p {backup_to}'.format(**backup_para))
+        run('rsync -azh --progress logic@aboutme.louislabs.com:{backup_from}/ {backup_to} '.format(**backup_para))
+
+@task
+@hosts('logic@192.168.88.6')
+def backup_docker():
+    """expecting running from gcp to backup to HK"""
+
+    backup_paths_list = [
+        '/srv/docker-files',
+        '/var/lib/docker/volumes',
+    ]
+    for backup_path in backup_paths_list:
+        backup_para = {
+            'backup_from': backup_path,
+            'backup_to': '/mnt/backup/_backup/logic@www-louislabs-com{}'.format(backup_path)
+        }
+
+        with settings(warn_only=True):
+            run('mkdir -p {backup_to}'.format(**backup_para))
+        run('rsync -azh --progress logic@aboutme.louislabs.com:{backup_from}/ {backup_to} '.format(**backup_para))
+
+
+@task
+def update_gcp_backup():
+    SSH_PARA = '-e "ssh -p {}"'.format(os.environ['HOME_SSH_PORT'])
+    RSYNC_COMMAND = 'rsync -azh --progress  {} logic@aboutme.louislabs.com:{}'.format('/home/logic/_workspace/fabfile.py', '/home/logic/_workspace/fabfile.py')
+    local(RSYNC_COMMAND)
+
+@task
+def poweroff():
+    sudo('poweroff')
+
+@task
+def upgrade_poweroff():
+    sudo('apt upgrade -y')
+
+
+MAX_COPROCESS = 20
+
+WORKSPACE_PATH=[
+    '/home/logic/_workspace/kicad/kicad_library',
+    '/home/logic/_workspace/chrome-ext-search-parts',
+    '/home/logic/_workspace/chrome-ext-search-stock',
+    '/home/logic/_workspace/chrome-ext-taobao-search',
+    '/home/logic/_workspace/kicad',
+    '/home/logic/_workspace/kicad/lib_value_generator',
+    '/home/logic/_workspace/kicad/PCBs/ESP12-breakout',
+    '/home/logic/_workspace/kicad/PCBs/fe11_usbhub_tryout',
+    '/home/logic/_workspace/kicad/PCBs/power-board-tryout',
+    '/home/logic/_workspace/kicad/PCBs/SHT30_tryout',
+    '/home/logic/_workspace/kicad/PCBs/stm32_aux_keyboard',
+    '/home/logic/_workspace/kicad/PCBs/stm32-hid-tryout',
+    '/home/logic/_workspace/kicad/PCBs/TPS54335-2A_tryout',
+    '/home/logic/_workspace/libopencm3-tryout',
+    '/home/logic/_workspace/linux_postinstall',
+    '/home/logic/_workspace/louiscklaw.github.io-hugo',
+    '/home/logic/arduino_toolchain',
+]
+
+
+def f(git_command,kicad_proj_path):
+    try:
+        with lcd(kicad_proj_path):
+            local(git_command)
+        pass
+    except Exception as e:
+        print('error running command %s on %s' % (git_command, kicad_proj_path))
+        pass
+    return True
+
+
+def paralllel_helper(c): return f(*c)
+
+@task
+def gitDoAll(git_command):
+    for kicad_proj_path in set(WORKSPACE_PATH):
+        print('updating {}'.format(kicad_proj_path))
+        with lcd(kicad_proj_path):
+            local(git_command)
+
+@task
+def gitPullAll(paths):
+    # p.map(threaded_local,['id'])
+    # p = Pool(MAX_COPROCESS)
+    # git_commands = ["git pull"]
+    # for git_command in git_commands:
+    #     p.map(paralllel_helper, [(git_command, WORKSPACE_PATH[i]) for i in range(0, len(WORKSPACE_PATH)) ])
+    #     p.close()
+    #     p.join()
+
+    for kicad_path in paths:
+        with lcd(kicad_path):
+            print(green('pulling directory %s' % kicad_path))
+            local('git remote prune origin')
+            local('git fetch --all')
+            local('git pull')
+            local('git status')
+
+@task
+def gitPushAll(paths):
+    p = Pool(MAX_COPROCESS)
+    git_commands = ["git push"]
+
+    for kicad_path in paths:
+        with lcd(kicad_path):
+            print(green('pushing directory %s' % kicad_path))
+            print('listing directory %s' % kicad_path)
+            local('git status')
+            local('git push')
+
+@task
+def gitStatusAll(paths):
+    # gitDoAll('git push')
+    for kicad_path in paths:
+        with lcd(kicad_path):
+            print('listing directory %s' % kicad_path)
+            local('git status')
+
+@task
+def updateWorkspace():
+    for workspace_path in WORKSPACE_PATH:
+        if os.path.exists(workspace_path):
+            with lcd(workspace_path):
+                print('listing directory %s' % workspace_path)
+                local('git status')
+        else:
+            print(red('%s not found' % workspace_path, True))
+            sys.exit()
+
+
+    gitPullAll(WORKSPACE_PATH)
+    gitPushAll(WORKSPACE_PATH)
+
+@task
+def updateWorkspaceKicad():
+    with lcd('/home/logic/_workspace/kicad'):
+        local('fab updateGitWork')
+
+@task
+def updateGitWork():
+    updateWorkspace()
+    updateWorkspaceKicad()
+
+@task
+def mountNFS():
+    sudo('mount -t nfs -o proto=tcp,port=2049 192.168.1.194:/export/logic /home/logic/remote_logic')
+
+@task
+def startSTM32():
+    local('/home/logic/STM32Toolchain/STM32CubeMX/STM32CubeMX')
+
+
+@task
+def mountNFS():
+    local('sudo mount --bind /home/logic/_workspace /export/logic/_workspace')
+    run('sudo mount -t nfs -o proto=tcp,port=2049 192.168.1.194:/export/logic/_workspace /home/logic/_workspace')
+
+WORKSPACE_DIR_LIST=[
+    '/home/logic/_workspace',
+    # '/home/logic/_workspace/laravel_tryout',
+    '/home/logic/.Slic3rPE'   # to backup slic3r settings
+]
+
+@task
+def updateGitWork():
+    for workspace_dir in WORKSPACE_DIR_LIST:
+        with lcd(workspace_dir):
+            print(workspace_dir)
+            local('git pull')
+            local('git push')
+            local('git status')
+
+@task
+def cronUpdate():
+    syncme()
+    with lcd('/home/logic/_workspace'):
+        local('fab updateWorkspace')
+
+@task
+def editme():
+    local('code %s' % __file__)

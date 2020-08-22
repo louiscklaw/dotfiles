@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../drone-ci-playlist/hello-ubuntu"
+		},
+		{
+			"path": "../todo_list"
+		}
+	],
+	"settings": {}
+}

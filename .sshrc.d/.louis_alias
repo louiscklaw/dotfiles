@@ -1,0 +1,107 @@
+#!/usr/bin/env bash
+
+# set -x
+
+source ~/.credentials.rc
+
+MkCd () {
+  mkdir -p $1
+  cd $1
+}
+
+goGithubPage(){
+  remote_get_url=$(git remote get-url origin 2>&1)
+  if [[ $remote_get_url =~ .*fatal.* ]]; then
+    echo "cannot find remote origin"
+  else
+    echo "remote origin " $remote_get_url
+    http_link=${remote_get_url/git@/https://}
+    http_link=${http_link/.com:/.com/}
+    firefox $http_link &
+  fi
+}
+
+travisHistory(){
+  travis history --com
+}
+
+travisOpen(){
+  travis open --com
+}
+
+syncDotFiles(){
+  set -x
+  cd /home/logic
+    git pull
+    git add -f /home/logic/.louis_alias .gitignore
+    git commit -m"update dot files,"
+    git push
+  cd -
+}
+
+initHusky(){
+  yarn add -D husky @commitlint/{config-conventional,cli}
+  MkCd scripts
+  touch pre-commit.sh pre-push.sh
+  chmod +x pre-commit.sh pre-push.sh
+  cd ..
+}
+
+gitPushNewBranch() {
+  set -ex
+  CURR_REPO=`git rev-parse --abbrev-ref HEAD`
+  git push --set-upstream origin $CURR_REPO
+}
+
+updateCredentials() {
+  rsync -a -e "ssh -p $HOME_SSH_PORT" /home/logic/.credentials.rc logic@$HOME_IP:/home/logic
+}
+
+gitResetCommits(){
+  git branch -D latest_branch
+  git checkout --orphan latest_branch
+  git add -A
+  git commit -am "reset commit"
+  git branch -D master
+  git branch -m master
+  git push -f origin master
+
+}
+
+findAllHost() {
+  nmap -sP 192.168.88.0/24
+  nmap -sP 192.168.99.0/24
+}
+
+cleanNodeModules(){
+  find . -name "node_modules" -type d -prune -exec rm -rf '{}' +
+}
+
+gitSync(){
+  git pull
+  git push
+}
+
+updateAndPowerOff(){
+  sudo apt update
+  sudo apt upgrade -y
+  sudo poweroff
+}
+
+codeDotFiles(){
+  code /home/logic/.louis_alias
+}
+
+alias genTravisToken=/home/logic/_workspace/travis-playlist/gen_travis_token/.gen_travis_token.py
+alias getTravisHelloworld=/home/logic/_workspace/travis-playlist/scripts/get_travis_helloworld.sh
+alias getTravisMerger=/home/logic/_workspace/travis-playlist/travis-build-merger/get_merge_yml.sh
+
+alias createReactApp='npx create-react-app .'
+
+source /home/logic/_workspace/github-playlist/gitignore-template/scripts.rc
+source /home/logic/_workspace/travis-playlist/travis-yml-template/scripts.rc
+
+source /home/logic/_workspace/github-playlist/editorconfig/scripts.rc
+source /home/logic/_workspace/docker-playlist/scripts.rc
+
+true

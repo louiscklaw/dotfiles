@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+codeInventory(){
+  code /home/logic/_workspace/my-new-inventory
+}
+
+syncInventory(){
+  OWD=$PWD
+  cd /home/logic/_workspace/my-new-inventory
+
+    git pull
+
+    git push &
+
+  cd $OWD
+}
+
+kicadPlaylist(){
+  git pull
+  nautilus /home/logic/_workspace/kicad_workspace/kicad-playlist &
+}
+
+kicadLibrary(){
+  cd /home/logic/_workspace/kicad/kicad_library
+}

@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+sshHome(){
+  ssh logic@$HOME_IP -p $HOME_SSH_PORT
+}
+
+sshHardConnect(){
+  while true; do
+    ssh $@
+
+    testFlashRedBackground 'will reconnect to '$@
+    sleep 5
+  done
+
+  testFlashGreenBackground 'bye ... '
+
+}
+
+sshVoron(){
+  sshHardConnect pi@voronoctopi.local
+}
+
+sshI3mega(){
+  sshHardConnect pi@i3mega.local
+}
+
+sshRpi1(){
+  sshHardConnect pi@rpi1.local
+}
+
+sshX201(){
+  sshHardConnect logic@192.168.99.98
+}

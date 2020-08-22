@@ -1,0 +1,98 @@
+cleanCache(){
+  find . -name ".cache" -type d -prune -exec rm -rf '{}' +
+}
+
+initHusky(){
+  yarn add -D husky @commitlint/{config-conventional,cli}
+  MkCd scripts
+  touch pre-commit.sh pre-push.sh
+  chmod +x pre-commit.sh pre-push.sh
+  cd ..
+}
+
+initGatsbyHelloworld(){
+  set -x
+
+  gatsby new . https://github.com/gatsbyjs/gatsby-starter-hello-world
+
+  git init
+
+  yarn
+  yarn add prettier --dev --exact
+  yarn add gatsby-plugin-offline
+
+  git add .
+  git commit -m"init gatsby helloworld,"
+
+  yarn build
+
+  testFlashGreenBackground "Done !"
+
+  set +x
+}
+
+nodemonPugAndRun(){
+  # html for pyunittest template
+  nodemon -w . -e "pug,js" --ignore './node_modules' --ignore './public' --ignore './reports'  --delay 500ms --exec "$@"
+}
+
+nodemonPyAndRun(){
+  # html for pyunittest template
+  nodemon -w . -e "py,sh" --ignore './node_modules' --ignore './public' --ignore './reports'  --delay 500ms --exec "$@"
+}
+
+nodemonJsBuild(){
+  nodemon -w . --ignore './node_modules' --ignore './public' --exec "$@"
+}
+
+nodemonReactBuild(){
+  nodemon -w . --ext "mdx,scss,css,js,html" --ignore './node_modules' --ignore './build'  --ignore './.cache' --exec "$1"
+}
+
+nodemonGatsbyBuild(){
+  nodemon -w . --ext "mdx,scss,css,js,html" --ignore './node_modules' --ignore './public'  --ignore './.cache' --exec "$1"
+}
+
+# ga . && git commit -m "troubleshoot build: can build"
+nodemonGatsbyBuildO(){
+  git init
+  yarn
+  nodemon -w . --ext "scss,css,js,html" --ignore './node_modules' --ignore './public' --exec "\
+  git add . && \
+  yarn build && \
+  git commit -m \"$1\" && \
+  live-server --https=/usr/lib/node_modules/live-server-https public --browser=/usr/bin/chromium-browser
+  "
+}
+
+yarnCleanAndBuild(){
+  rm -rf public
+  rm -rf .cache
+  yarn && yarn clean && yarn build
+}
+
+initReactHelloworld(){
+  npx create-react-app helloworld
+  cd helloworld
+  npm start
+}
+
+gatsbyCleanAndDeployGhPage(){
+  set -x
+
+  yarn clean
+  yarn deploy
+
+  set +x
+}
+
+gatsbyLocalProduction(){
+  set -x
+
+  yarn build
+
+  liveServerHttps ./public
+
+  set +x
+
+}

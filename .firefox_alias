@@ -1,0 +1,122 @@
+#!/usr/bin/env bash
+
+# set -x
+
+DEFAULT_BROWSER=firefox
+
+goSlackLouisLabs(){
+  firefox https://app.slack.com/client/T3NSVC55K/C3N4B63MX &
+}
+
+goRpi1Cron(){
+  firefox http://rpi1.local:8000 &
+}
+
+goGoogleCalendar(){
+  firefox https://calendar.google.com/calendar &
+}
+
+firefoxYoutube(){
+  firefox https://www.youtube.com
+}
+
+goFontAwesome(){
+  firefox https://fontawesome.com/icons/github-square &
+}
+
+hkexStat(){
+  firefox https://www.hkex.com.hk/Market-Data/Statistics/Consolidated-Reports/Securities-Statistics-Archive/Trading_Value_Volume_And_Number_Of_Deals\?sc_lang=zh-HK#select1=0
+}
+
+goBashCheat(){
+  firefox https://devhints.io/bash &
+}
+
+goSedCheat(){
+  firefox https://devhints.io/sed &
+}
+
+goMarkdownCheatSheet(){
+  firefox https://guides.github.com/features/mastering-markdown/ &
+}
+
+goRouterSetup(){
+  firefox https://192.168.99.1 &
+}
+
+showDocTravisEnv(){
+  firefox https://docs.travis-ci.com/user/environment-variables/ &
+}
+
+goFirebaseConsole(){
+  firefox https://console.firebase.google.com/u/1/project/fir-tryout-f4e7a/overview &
+}
+
+goTradingViewHK(){
+  set -x
+  $DEFAULT_BROWSER https://www.tradingview.com/chart\?symbol\=HKEX%3A$@ &
+}
+
+goTradingViewUS(){
+  set -x
+  $DEFAULT_BROWSER https://www.tradingview.com/chart\?symbol\=NYSE%3A$@ &
+}
+
+goTradingViewBABA(){
+  goTradingViewHK 9988
+  goTradingViewUS BABA
+
+  wait
+}
+
+goAastock(){
+  $DEFAULT_BROWSER http://www.aastocks.com/tc/stocks/quote/detailchart.aspx\?symbol\=$@ &
+}
+
+yahooHKDJPY(){
+  $DEFAULT_BROWSER https://hk.finance.yahoo.com/quote/HKDJPY\=X/ &
+}
+
+yahooHKDEUR(){
+  $DEFAULT_BROWSER https://hk.finance.yahoo.com/quote/HKDEUR\=X/ &
+}
+
+findDocs(){
+
+SEARCH_TERMS=$@ python3 << END
+import os,sys
+import subprocess
+
+SEARCH_TERMS=os.environ['SEARCH_TERMS']
+
+def openFirefox(url):
+  firefox_command = 'firefox {}'.format(url)
+  subprocess.Popen(firefox_command.split(' '))
+
+openFirefox('https://www.google.com/search?q={}+quickstart'.format(SEARCH_TERMS))
+openFirefox('https://www.google.com/search?q={}+tutorial'.format(SEARCH_TERMS))
+openFirefox('https://www.google.com/search?q={}+documentation'.format(SEARCH_TERMS))
+openFirefox('https://www.google.com/search?q={}+github'.format(SEARCH_TERMS))
+END
+
+}
+
+goi3Mega(){
+  firefox http://i3mega.local &
+}
+
+goVoron(){
+  firefox http://voronoctopi.local &
+}
+
+goRouterSetupHome(){
+  firefox http://192.168.88.1:50080 &
+}
+
+cloneDotFiles(){
+  echo 'git clone git@github.com:louiscklaw/dotfiles.git'
+}
+
+goJSONExample(){
+  firefox https://json.org/example.html &
+}

@@ -1,0 +1,615 @@
+#!/usr/bin/env bash
+
+# set -x
+
+if [[ -e $HOME/.common.rc ]]; then
+  source $HOME/.common.rc
+fi
+
+installCUHKUbuntuRepo(){
+
+LSB_RELEASE_NAME=`lsb_release -cs`
+
+sudo bash -c "cat > /etc/apt/sources.list.d/cuhk.list" <<EOF
+deb http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ $LSB_RELEASE_NAME main
+deb-src http://ftp.cuhk.edu.hk/pub/Linux/ubuntu/ $LSB_RELEASE_NAME main
+EOF
+
+}
+
+# System limit for number of file watchers reached
+increaseFileWatchers(){
+  echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+
+  cat /etc/sysctl.conf
+}
+
+
+incraseSwapSpace(){
+  set -ex
+
+  sudo swapoff -a
+  sudo dd if=/dev/zero of=/swapfile bs=1G count=8
+  sudo mkswap /swapfile
+  sudo swapon /swapfile
+  grep SwapTotal /proc/meminfo
+
+  set +ex
+}
+
+setSwappiness(){
+  set -x
+
+  sudo sh -c 'echo 5 > /proc/sys/vm/swappiness'
+  sudo cp -p /etc/sysctl.conf /etc/sysctl.conf.`date +%Y%m%d-%H:%M`
+
+  sudo sh -c 'echo "" >> /etc/sysctl.conf'
+  sudo sh -c 'echo "#Set swappiness to 5 to avoid swapping" >> /etc/sysctl.conf'
+  sudo sh -c 'echo "vm.swappiness = 5" >> /etc/sysctl.conf'
+
+  set +x
+}
+
+setSnapPackageHistory(){
+  set -x
+
+  sudo snap set system refresh.retain=2
+
+  set +x
+}
+
+installPowerLineFonts(){
+  cd /tmp
+    wget https://github.com/powerline/fonts/archive/2015-12-04.zip
+    unzip 2015-12-04.zip
+    cd fonts-2015-12-04
+      ./install.sh
+      # All Powerline fonts installed to /home/logic/.local/share/fonts
+      sudo fc-cache -f -v
+    cd ..
+  cd ~
+}
+
+installDocker(){
+  set -x
+
+  sudo apt-get remove docker docker-engine docker.io
+  sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu  $(lsb_release -cs)  stable"
+  sudo apt-get update
+  sudo apt-get install -y docker-ce
+
+  # install linter
+  sudo npm install -g dockerlint
+
+  set +x
+}
+
+installDockerCompose(){
+  set -x
+
+  sudo rm -rf /usr/local/bin/docker-compose
+
+  sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  sudo chmod +x /usr/local/bin/docker-compose
+  sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+  docker-compose --version
+
+  set +x
+}
+
+installSsh(){
+  set -x
+
+  sudo apt-get install -y ssh
+  sudo apt-get install -y openssh-server
+  sudo apt-get install -y ssh
+  sudo apt-get install -y ssh
+
+  sudo systemctl enable ssh
+  sudo systemctl start ssh
+
+  set +x
+}
+
+installInkscape(){
+  sudo add-apt-repository universe
+  sudo add-apt-repository -y ppa:inkscape.dev/stable
+  sudo apt-get update
+  sudo apt-get install -y inkscape
+}
+
+installKrita(){
+  sudo add-apt-repository -y ppa:kritalime/ppa
+  sudo apt-get update
+  sudo apt-get install -y krita
+}
+
+installPython(){
+  set -x
+
+  sudo apt-get install -y python python-dev python-pip
+  sudo apt-get install -y python3 python3-dev python3-pip
+
+  sudo python3 -m pip install --upgrade pip
+  sudo python3 -m pip install pipenv
+
+  set +x
+}
+
+installLibreoffice(){
+  sudo add-apt-repository -y ppa:libreoffice/ppa
+  sudo apt install -y libreoffice
+}
+
+installAndroidStudio(){
+  sudo apt-add-repository -y ppa:maarten-fonville/android-studio
+  sudo apt-get install -y android-studio
+}
+
+installIntellij(){
+  set -x
+  curl -s https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc | sudo apt-key add -
+  echo "deb http://jetbrains-ppa.s3-website.eu-central-1.amazonaws.com bionic main" | sudo tee /etc/apt/sources.list.d/jetbrains-ppa.list > /dev/null
+  sudo apt-get install -y pycharm-community intellij-idea-community
+
+  set +x
+}
+
+installNetworkManager(){
+  set -x
+  sudo apt-get install -y network-manager-gnome
+  sudo apt-get install -y network-manager-ssh
+  sudo apt-get install -y network-manager-ssh-gnome
+  sudo apt-get install -y network-manager-sstp
+  sudo apt-get install -y network-manager-sstp-gnome
+  sudo apt-get install -y network-manager-openvpn
+  sudo apt-get install -y network-manager-openvpn-gnome
+  sudo apt-get install -y network-manager-openconnect
+  sudo apt-get install -y network-manager-openconnect-gnome
+  sudo apt-get install -y network-manager-l2tp
+  sudo apt-get install -y network-manager-l2tp-gnome
+  sudo apt-get install -y network-manager-fortisslvpn
+  sudo apt-get install -y network-manager-fortisslvpn-gnome
+
+
+
+  set +ex
+}
+
+installGit(){
+  sudo apt-get install -y git git-flow tig
+
+  git config --global core.editor "vim"
+  git config --global user.email "louiscklaw@gmail.com"
+  git config --global user.name "louiscklaw"
+
+}
+
+  # installGestures(){
+  #   sudo apt-get install -y touchegg
+  # }
+
+installTilix(){
+  sudo apt-get install -y tilix
+  sudo ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
+  wget -qO $HOME"/.config/tilix/schemes/arthur.json" https://git.io/v7QV1
+  wget -qO $HOME"/.config/tilix/schemes/brogrammer.json" https://git.io/v7Qa3
+  wget -qO $HOME"/.config/tilix/schemes/highway.json" https://git.io/v7QV7
+  wget -qO $HOME"/.config/tilix/schemes/molokai.json" https://git.io/v7QVE
+  wget -qO $HOME"/.config/tilix/schemes/one-dark.json" https://git.io/v7Qaw
+  wget -qO $HOME"/.config/tilix/schemes/sea-shells.json" https://git.io/v7Qay
+  wget -qO $HOME"/.config/tilix/schemes/solarized-dark-higher-contrast.json" https://git.io/v7Qa5
+}
+
+installChinese(){
+  sudo apt-get install -y ibus-cangjie
+
+  sudo apt-get install -y ibus-rime
+  ibus engine rime &
+  sudo apt-get install -y librime-data-cangjie5
+  sudo apt-get install -y librime-data-quick5
+
+}
+
+installStacer(){
+
+  cd /tmp
+  wget https://jaist.dl.sourceforge.net/project/stacer/v1.0.9/stacer_1.0.9_amd64.deb
+  sudo dpkg -i stacer_1.0.9_amd64.deb
+  cd -
+
+}
+
+
+
+installFresh(){
+  set -ex
+
+  installGit
+  sudo apt-get install -y curl wget vim openssh-server httpie tree aria2
+
+
+
+  # install for prusa slic3r
+  sudo apt-get install -y libcanberra-gtk-module
+  sudo apt-get install -y p7zip-full
+  sudo apt-get install -y entr
+  sudo apt-get install -y htop glances
+  sudo apt-get install -y chromium-browser chrome-gnome-shell
+  sudo apt-get install -y filezilla
+  sudo apt-get install -y vlc
+  sudo apt-get install -y mplayer
+  sudo apt-get install -y mpv gnome-mpv
+  sudo apt-get install -y ffmpeg
+
+  sudo apt-get install -y tmux
+  sudo apt-get install -y traceroute
+
+  sudo apt-get install -y gedit-plugins
+  sudo apt-get install -y gedit-plugin-bracket-completion
+  sudo apt-get install -y gedit-plugin-code-comment
+  sudo apt-get install -y gedit-plugin-text-size
+  sudo apt-get install -y gedit-source-code-browser-plugin
+
+
+  sudo apt-get install -y arc-theme
+  sudo apt-get install -y imwheel
+  sudo apt-get install -y gnome-tweaks gnome-tweak-tool
+  sudo apt-get install -y gnome-shell-extensions
+  sudo apt-get install -y gnome-extra-icons
+
+  sudo apt-get install -y fabric
+
+  sudo apt-get install -y flameshot
+  sudo apt-get install -y kazam
+  sudo apt-get install -y rsync
+  sudo apt-get install -y neofetch
+  sudo apt-get install -y caffeine
+
+  sudo apt-get install -y flameshot
+  sudo apt-get install -y imwheel
+
+
+  sudo apt-get install -y lm-sensors
+
+  # installFranz
+  # installFreecad
+  # installKicad
+  # installLaCapitaine
+  # installMagicWormHole
+  # installNautilus
+  # installNode
+  # installObsStudio
+  # installPaperIcon
+  # installRclone
+  # installSpf13
+  # installSynergy
+  # installTmate
+  # installTmateWrapper &
+  # installXnView
+  # installZsh
+
+  # installDocker
+
+  # # before exit
+  sudo apt upgrade -y
+  sudo apt autoremove -y
+
+  wait
+
+  set +ex
+}
+
+installCode(){
+  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+  sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+  sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+
+  sudo apt-get install apt-transport-https
+  sudo apt-get update
+  sudo apt-get install code
+
+}
+
+installNgrok(){
+  # usage installNgrok <authtoken>
+  set -x
+
+  cd /tmp
+    ariaDownload https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+    sudo unzip ngrok-stable-linux-amd64.zip /usr/local/bin
+    sudo chmod +x /usr/local/bin/ngrok
+    /usr/local/bin/ngrok authtoken $@
+  cd -
+
+  set +x
+}
+
+installAliWangWang(){
+  cd /tmp
+    rm -rf deepin-wine-ubuntu
+    git clone https://github.com/wszqkzqk/deepin-wine-ubuntu.git
+  cd -
+
+  cd /tmp/deepin-wine-ubuntu
+    sudo apt install -y --no-install-recommends xdotool
+    ./install.sh
+  cd -
+}
+
+installTmate(){
+  sudo apt-get install -y tmate
+}
+
+installOhMyTmux(){
+  # oh-my-tmux
+  cd
+    git clone https://github.com/gpakosz/.tmux.git
+    ln -s -f .tmux/.tmux.conf
+    cp .tmux/.tmux.conf.local .
+  cd -
+}
+
+installTmateWrapper(){
+  cd /opt
+    sudo git clone --depth=1 https://github.com/bobbyno/tmate-wrapper.git
+    cd tmate-wrapper
+      sudo make install
+    cd ..
+
+  cd -
+}
+
+installSpf13(){
+  sudo curl https://j.mp/spf13-vim3 -L > /tmp/spf13-vim.sh
+  sudo sh /tmp/spf13-vim.sh
+}
+
+installLaCapitaine(){
+  sudo add-apt-repository -y ppa:dyatlov-igor/la-capitaine
+  sudo apt-get update
+  sudo apt-get install -y la-capitaine-cursor-theme
+}
+
+installNautilus(){
+  sudo apt-get install -y curl python-nautilus
+  sudo add-apt-repository -y ppa:daniel-marynicz/filemanager-actions
+  sudo apt-get install -y filemanager-actions-nautilus-extension
+  sudo apt-get install -y folder-color
+  wget -qO- https://raw.githubusercontent.com/cra0zy/code-nautilus/master/install.sh | bash
+}
+
+installXnView(){
+  sudo add-apt-repository -y ppa:dhor/myway
+  sudo apt-get update
+  sudo apt-get install -y xnview
+}
+
+installSynergy(){
+  sudo apt-get install -y sni-qt
+  sudo apt-get install -y libcanberra-gtk-module
+  sudo wget -O /tmp/tmp.deb http://security.ubuntu.com/ubuntu/pool/universe/s/synergy/synergy_1.8.8-stable+dfsg.1-1build1_amd64.deb
+  sudo apt-get install -y /tmp/tmp.deb
+}
+
+installZsh(){
+  installGit
+  sudo apt-get install -y zsh
+  sudo apt-get install -y fonts-powerline
+  sudo apt-get install -y zsh-syntax-highlighting
+
+  sudo chsh -s $(which zsh)
+
+  git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+  ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+
+  # install oh-my-zsh
+  sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+  git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+}
+
+installFranz(){
+  sudo wget -O /tmp/franz.deb https://github.com/meetfranz/franz/releases/download/v5.2.0/franz_5.2.0_amd64.deb
+  sudo apt-get install -y /tmp/franz.deb
+}
+
+installPaperIcon(){
+  sudo add-apt-repository -y  ppa:papirus/papirus
+  sudo apt update
+  sudo apt install  -y  papirus-icon-theme
+}
+
+installObsStudio(){
+  sudo add-apt-repository -y ppa:obsproject/obs-studio
+  sudo apt update
+  sudo apt install -y obs-studio
+}
+
+installMagicWormHole(){
+  # sudo pip install --user magic-wormhole
+  sudo apt install magic-wormhole
+}
+
+installFreecad(){
+  sudo add-apt-repository -y ppa:freecad-maintainers/freecad-stable
+  sudo apt-get update
+  sudo apt install -y freecad
+}
+
+installGnomeUtil(){
+  sudo apt install -y gnome-sushi
+  sudo apt install -y gnome-contacts
+  sudo apt install -y gnome-extra-icons
+}
+
+installRclone(){
+  sudo curl https://rclone.org/install.sh | sudo bash
+}
+
+installTmux(){
+  sudo apt-get install -y tmux
+
+  cd
+  git clone https://github.com/gpakosz/.tmux.git
+  ln -s -f .tmux/.tmux.conf
+  cp .tmux/.tmux.conf.local .
+}
+
+installKicad(){
+  set -x
+
+  sudo add-apt-repository --yes ppa:js-reynaud/kicad-5.1
+  sudo apt-get update
+  sudo apt-get install -y kicad
+
+  set +x
+
+}
+
+installNode(){
+  set -x
+
+  curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+  sudo apt update
+  sudo apt install -y nodejs npm
+
+  sudo npm install -g gatsby-cli
+
+  sudo npm install -g live-server
+  sudo npm install -g live-server-https
+  sudo npm install -g nodemon
+
+
+  set +x
+}
+
+installFirebaseTools(){
+  curl -sL https://firebase.tools | sudo upgrade=true bash
+  curl -sL firebase.tools | upgrade=true bash
+}
+
+installGesture(){
+  sudo apt-get install -y xdotool wmctrl
+  sudo apt-get install -y libinput-tools
+
+  cd /tmp
+    git clone https://github.com/bulletmark/libinput-gestures.git
+    cd libinput-gestures
+      sudo ./libinput-gestures-setup install
+    cd ..
+  cd ~
+
+  libinput-gestures-setup autostart
+  libinput-gestures-setup start
+
+}
+
+installNoMachine(){
+  cd /tmp
+  wget https://download.nomachine.com/download/6.11/Linux/nomachine_6.11.2_1_amd64.deb
+  sudo dpkg -i nomachine_6.11.2_1_amd64.deb
+  cd -
+
+}
+
+installMeld(){
+  sudo apt-get install -y meld
+}
+
+installYarn(){
+  set -x
+
+  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+  sudo apt update
+  sudo apt remove cmdtest
+  sudo apt install -y yarn
+
+  set +x
+
+}
+
+getUbuntu2004(){
+  set -x
+
+  testFlashGreenBackground '10 seconds to start download ubuntu 20.04.1'
+  testFlashRedBackground 'writing to ' $@
+  sleep 10
+
+  cd /tmp
+
+    rm -rf ubuntu-20.04.1-desktop-amd64*
+
+    wget http://ftp.cuhk.edu.hk/pub/Linux/ubuntu-releases/20.04.1/ubuntu-20.04.1-desktop-amd64.iso
+
+
+    testFlashBlueBackground "download done, starting dd"
+    sleep 3
+
+    sudo dd if=ubuntu-20.04.1-desktop-amd64.iso of=$@ bs=99M
+
+    sync
+
+  cd -
+
+  set +x
+}
+
+installArgos(){
+  mkdir -p $HOME/.local/share/gnome-shell/extensions
+  cd /tmp
+    git clone https://github.com/p-e-w/argos.git
+    cp -r argos/argos@pew.worldwidemann.com $HOME/.local/share/gnome-shell/extensions/argos@pew.worldwidemann.com
+  cd -
+}
+
+installOpenWeather(){
+  cd /tmp && git clone git://gitlab.com/jenslody/gnome-shell-extension-openweather.git
+  cd /tmp/gnome-shell-extension-openweather
+  ./autogen.sh && make local-install
+}
+
+installCaffeine(){
+  git clone git://github.com/eonpatapon/gnome-shell-extension-caffeine.git
+  cd gnome-shell-extension-caffeine
+  ./update-locale.sh
+  glib-compile-schemas --strict --targetdir=caffeine@patapon.info/schemas/ caffeine@patapon.info/schemas
+  cp -r caffeine@patapon.info ~/.local/share/gnome-shell/extensions
+}
+
+installGsconnect(){
+  # https://github.com/andyholmes/gnome-shell-extension-gsconnect/wiki/Installation#install-from-git
+}
+
+installOpenSCAD(){
+  sudo add-apt-repository -y ppa:openscad/releases
+  sudo apt-get install -y openscad
+}
+
+installDynamicTopBar(){
+  cd /tmp
+    ariaDownload https://github.com/AMDG2/GnomeShell_DynamicTopBar/releases/download/3.3.1/DynamicTopBar_19.zip
+    mkdir -p ~/.local/share/gnome-shell/extensions
+    rm -rf ~/.local/share/gnome-shell/extensions/dynamicTopBar@gnomeshell.feildel.fr
+    unzip -o /tmp/DynamicTopBar_19.zip -d ~/.local/share/gnome-shell/extensions/dynamicTopBar@gnomeshell.feildel.fr
+}
+
+installGnomeAnimations(){
+  rm -rf ~/.local/share/gnome-shell/extensions/animation-tweaks@Selenium-H
+  cd /tmp/Animation-Tweaks-master
+  cp -r animation-tweaks@Selenium-H/ ~/.local/share/gnome-shell/extensions/animation-tweaks@Selenium-H
+}
+
+
+installScreenSaver(){
+  CWD=$PWD
+  cd /home/logic/Videos
+    youtube-dl -f 'bestvideo[height<=1920]+bestaudio/best[height<=1920]' https://www.youtube.com/watch\?v\=gYO1uk7vIcc
+
+  cp /home/logic/_workspace/dotfiles/screensaver/.xscreensaver /home/logic/.xscreensaver
+}

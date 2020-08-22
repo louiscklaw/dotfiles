@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+fabList(){
+  cd $HOME/_workspace/dotfiles
+    fab -l
+  cd -
+}
+
+
+fabRun(){
+  cd $HOME/_workspace/dotfiles
+    fab $@
+  cd -
+}
