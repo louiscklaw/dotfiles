@@ -633,6 +633,13 @@ rsyncHome(){
   wait
 }
 
+syncCredentialsHome(){
+  rsync -avzhu --progress -e "ssh -p $HOME_SSH_PORT" /home/logic/.credentials.rc logic@$HOME_IP:/home/logic/.credentials.rc
+  rsync -avzhu --progress -e "ssh -p $HOME_SSH_PORT" logic@$HOME_IP:/home/logic/.credentials.rc /home/logic/.credentials.rc
+
+  echo 'done'
+}
+
 alias createReactApp='npx create-react-app .'
 
 if [[ -e $HOME/_workspace/github-playlist/gitignore-template/scripts.rc ]]; then
