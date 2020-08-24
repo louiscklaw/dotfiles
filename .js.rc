@@ -42,7 +42,7 @@ nodemonPyAndRun(){
 }
 
 nodemonJsBuild(){
-  nodemon -w . --ignore './node_modules' --ignore './public' --exec "$@"
+  nodemon -w . -e 'js' --ignore './node_modules' --ignore './public' --exec "$@"
 }
 
 nodemonReactBuild(){
