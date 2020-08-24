@@ -57,13 +57,17 @@ def readCredentialFile(filepath):
 def parseCredentialFile():
   try:
     filepath='/home/logic/.credentials.rc'
-    if os.path.exists(filepath):
-
-      content = readCredentialFile(filepath)
-      content = map(lambda x: x.strip(), content)
-      return map(lambda x: x.replace('export ',''), content)
+    if os.getenv('CI',False):
+      # for checking happening on travis
+      return ['SLACK_TOKEN={}'.format(os.environ['SLACK_TOKEN'])]
     else:
-      raise 'filepath not found'
+      if os.path.exists(filepath):
+
+        content = readCredentialFile(filepath)
+        content = map(lambda x: x.strip(), content)
+        return map(lambda x: x.replace('export ',''), content)
+      else:
+        raise 'credentials filepath not found'
   except Exception as e:
     raise e
 
