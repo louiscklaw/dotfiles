@@ -56,6 +56,10 @@ codeDoczPlaylist() {
   code ~/_workspace/docz-playlist
 }
 
+codeEsp32Playlist(){
+  code ~/_workspace/esp32-playlist
+}
+
 codeEsp32CamPlaylist() {
   code ~/_workspace/esp32-cam-playlist
 }
@@ -320,4 +324,11 @@ initWorkspace(){
 
 getDefaultCommitLintConfig(){
   cp /home/logic/_workspace/travis-playlist/commitlint.config.js .
+}
+
+cloneToWorkspace(){
+  cd /home/logic/_workspace
+    git clone $@
+
+  cd -
 }
