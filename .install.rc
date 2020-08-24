@@ -613,3 +613,9 @@ installScreenSaver(){
 
   cp /home/logic/_workspace/dotfiles/screensaver/.xscreensaver /home/logic/.xscreensaver
 }
+
+installGitKraken(){
+  ariaDownload https://release.gitkraken.com/linux/gitkraken-amd64.deb
+  sudo dpkg -i gitkraken-amd64.deb
+
+}
