@@ -1,14 +1,5 @@
 os: linux
 
-language: node_js
-
-node_js:
-  - 12
-
-cache:
-  - npm
-  - pip
-
 script:
   - sudo apt update
   - sudo apt install -y \
