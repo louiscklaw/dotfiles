@@ -59,7 +59,9 @@ def parseCredentialFile():
     filepath='/home/logic/.credentials.rc'
     if os.getenv('CI',False):
       # for checking happening on travis
-      return ['SLACK_TOKEN={}'.format(os.environ['SLACK_TOKEN'])]
+      # TODO: better handling on this
+      env_names = ['DOCKERHUB_PASSWORD', 'DOCKERHUB_USER', 'GITHUB_TOKEN', 'SLACK_TOKEN', 'TRAVIS_AUTH_TOKEN', 'TRAVIS_TOKEN']
+      return ['{}={}'.format(env_name, os.environ[env_name]) for env_name in env_names]
     else:
       if os.path.exists(filepath):
 
