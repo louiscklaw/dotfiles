@@ -20,12 +20,12 @@ script:
   - python3 -m pip install pipenv
 
   - mkdir -p tmp
-  # - cd tmp
-  # -   rsync -avzh ../travis-check-leak/ .
-  # -   pipenv sync
-  # -   pipenv run python3 main.py
-  # -   pipenv run python3 main.py $TRAVIS_BUILD_DIR
-  # - cd ..
+  - cd tmp
+  -   rsync -avzh ../travis-check-leak/ .
+  -   pipenv sync
+  -   pipenv run python3 main.py
+  -   pipenv run python3 main.py $TRAVIS_BUILD_DIR
+  - cd ..
 
 import:
   - credentials.yml
