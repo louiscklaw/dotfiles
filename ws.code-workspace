@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "../todo_list"
+		},
+		{
+			"path": "../travis-playlist"
 		}
 	],
 	"settings": {}

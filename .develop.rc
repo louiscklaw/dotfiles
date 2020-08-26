@@ -332,3 +332,7 @@ cloneToWorkspace(){
 
   cd -
 }
+
+code_del(){
+  code /home/logic/_del
+}
