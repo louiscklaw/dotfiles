@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# coding:utf-8
 
 import os
 import sys
@@ -6,9 +7,9 @@ import logging
 import traceback
 from pprint import pprint
 import shlex
-
 from subprocess import run, PIPE, Popen
-from parseCredentialFile import *
+
+from tqdm import tqdm, trange
 
 def checkPythonVersion():
   import platform
@@ -37,7 +38,9 @@ def checkLeak(should_not_appear, filepath_to_check):
   else:
     # e.g. 3.6 for ubuntu 18.04
     result = run(command, stdout=PIPE)
-    print(result.stdout)
+
+    # DEBUG:
+    # print(result.stdout)
 
   terms_found = result.stdout != b''
 
@@ -46,6 +49,28 @@ def checkLeak(should_not_appear, filepath_to_check):
     print(result.stdout)
     # print('{}:{}, {}, {}'.format(word, result.returncode, result.stdout, result.args))
     raise 'leakage found'
+
+def readCredentialFile(filepath):
+  file_content = open(filepath,'r').readlines()
+  file_content = filter(lambda x: x.strip(), file_content)
+  file_content = filter(lambda x: x[0] != '#', file_content)
+
+  return set(file_content)
+
+def parseCredentialFile():
+  try:
+    HOME=os.environ['HOME']
+    filepath=HOME+'/.credentials.rc'
+    if os.path.exists(filepath):
+
+      content = readCredentialFile(filepath)
+      content = map(lambda x: x.strip(), content)
+      return map(lambda x: x.replace('export ',''), content)
+    else:
+      print('filepath wanted: {}'.format(filepath))
+      raise 'filepath not found'
+  except Exception as e:
+    raise e
 
 def clearBashValue(txt_value_in):
   output = txt_value_in
@@ -83,15 +108,16 @@ def printBanner(text, text1):
 
 
 def main():
-    printBanner('scanning for sensitive words', SCAN_DIR)
     should_not_appear = list(credentialValue())
 
-    print('num of sensitive word {}'.format(len(should_not_appear)))
+    printBanner('scanning for sensitive words', SCAN_DIR)
     print('scan start')
-    for word in should_not_appear:
+
+    for word in tqdm(should_not_appear):
       if word not in SKIP_LIST:
         try:
           checkLeak(word, SCAN_DIR)
+
         except Exception as e:
           print('sensitive word found')
           raise e
