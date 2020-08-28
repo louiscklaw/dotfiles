@@ -592,6 +592,7 @@ installCaffeine(){
 
 installGsconnect(){
   # https://github.com/andyholmes/gnome-shell-extension-gsconnect/wiki/Installation#install-from-git
+  echo 'not implemented'
 }
 
 installOpenSCAD(){
@@ -626,4 +627,8 @@ installGitKraken(){
   ariaDownload https://release.gitkraken.com/linux/gitkraken-amd64.deb
   sudo dpkg -i gitkraken-amd64.deb
 
+}
+
+installHelloworld(){
+  echo "helloworld"
 }
