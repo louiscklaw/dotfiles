@@ -396,7 +396,9 @@ installXnView(){
 }
 
 installSynergy(){
-  sudo apt-get install -y sni-qt
+  # TODO: resume this on 20.04
+  # sudo apt-get install -y sni-qt
+
   sudo apt-get install -y libcanberra-gtk-module
   sudo wget -O /tmp/tmp.deb http://security.ubuntu.com/ubuntu/pool/universe/s/synergy/synergy_1.8.8-stable+dfsg.1-1build1_amd64.deb
   sudo apt-get install -y /tmp/tmp.deb
