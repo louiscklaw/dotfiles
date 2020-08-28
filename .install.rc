@@ -573,6 +573,8 @@ getUbuntu2004(){
 }
 
 installArgos(){
+  installGit
+
   mkdir -p $HOME/.local/share/gnome-shell/extensions
   cd /tmp
     git clone https://github.com/p-e-w/argos.git
