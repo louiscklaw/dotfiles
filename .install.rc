@@ -192,6 +192,8 @@ installGit(){
   # }
 
 installTilix(){
+  export DEBIAN_FRONTEND=noninteractive
+
   sudo apt-get install -y tilix
   sudo ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
   wget -qO $HOME"/.config/tilix/schemes/arthur.json" https://git.io/v7QV1
