@@ -51,7 +51,7 @@ jobs:
         # - docker run -it logickee/ubuntu-1804-zsh /installOpenWeather.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installPaperIcon.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installPowerLineFonts.sh
-        # - docker run -it logickee/ubuntu-1804-zsh /installPycharm.sh
+        - docker run -it logickee/ubuntu-1804-zsh /installPycharm.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installPython.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installRclone.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installScreenSaver.sh
