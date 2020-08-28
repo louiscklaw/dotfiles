@@ -377,8 +377,11 @@ installTmateWrapper(){
 }
 
 installSpf13(){
+  installCurl
+
   sudo curl https://j.mp/spf13-vim3 -L > /tmp/spf13-vim.sh
   sudo sh /tmp/spf13-vim.sh
+
 }
 
 installLaCapitaine(){
