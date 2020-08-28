@@ -65,5 +65,5 @@ jobs:
         # - docker run -it logickee/ubuntu-1804-zsh /installTmux.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installXnView.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installYarn.sh
-        # - docker run -it logickee/ubuntu-1804-zsh /installZsh.sh
+        - docker run -it logickee/ubuntu-1804-zsh /installZsh.sh
         - echo 'helloworld'
