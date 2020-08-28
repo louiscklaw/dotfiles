@@ -21,7 +21,7 @@ jobs:
         # - docker run -it logickee/ubuntu-1804-zsh /installDocker.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installDockerCompose.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installDynamicTopBar.sh
-        # - docker run -it logickee/ubuntu-1804-zsh /installFirebaseTools.sh
+        - docker run -it logickee/ubuntu-1804-zsh /installFirebaseTools.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installFranz.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installFreecad.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installFresh.sh
