@@ -361,6 +361,8 @@ installOhMyTmux(){
 }
 
 installTmateWrapper(){
+  installGit
+
   cd /opt
     sudo git clone --depth=1 https://github.com/bobbyno/tmate-wrapper.git
     cd tmate-wrapper
