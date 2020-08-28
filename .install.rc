@@ -581,6 +581,8 @@ installArgos(){
 }
 
 installOpenWeather(){
+  installGit
+
   cd /tmp && git clone git://gitlab.com/jenslody/gnome-shell-extension-openweather.git
   cd /tmp/gnome-shell-extension-openweather
   ./autogen.sh && make local-install
