@@ -61,7 +61,7 @@ jobs:
         # - docker run -it logickee/ubuntu-1804-zsh /installSynergy.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installTilix.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installTmate.sh
-        # - docker run -it logickee/ubuntu-1804-zsh /installTmateWrapper.sh
+        - docker run -it logickee/ubuntu-1804-zsh /installTmateWrapper.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installTmux.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installXnView.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installYarn.sh
