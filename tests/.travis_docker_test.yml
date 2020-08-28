@@ -43,7 +43,7 @@ jobs:
         # - docker run -it logickee/ubuntu-1804-zsh /installNautilus.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installNetworkManager.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installNgrok.sh
-        # - docker run -it logickee/ubuntu-1804-zsh /installNode.sh
+        - docker run -it logickee/ubuntu-1804-zsh /installNode.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installNoMachine.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installObsStudio.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installOhMyTmux.sh
