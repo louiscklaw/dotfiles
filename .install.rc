@@ -622,11 +622,15 @@ installGnomeAnimations(){
 
 
 installScreenSaver(){
-  CWD=$PWD
-  cd /home/logic/Videos
-    youtube-dl -f 'bestvideo[height<=1920]+bestaudio/best[height<=1920]' https://www.youtube.com/watch\?v\=gYO1uk7vIcc
+  sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+  sudo chmod a+rx /usr/local/bin/youtube-dl
 
-  cp /home/logic/_workspace/dotfiles/screensaver/.xscreensaver /home/logic/.xscreensaver
+  youtube-dl --help
+  # CWD=$PWD
+  #   cd /home/logic/Videos
+  #     youtube-dl -f 'bestvideo[height<=1920]+bestaudio/best[height<=1920]' https://www.youtube.com/watch\?v\=gYO1uk7vIcc
+
+  #   cp /home/logic/_workspace/dotfiles/screensaver/.xscreensaver /home/logic/.xscreensaver
 }
 
 installGitKraken(){
