@@ -29,3 +29,4 @@ script:
 
 import:
   - credentials.yml
+  - tests/.travis_docker_test.yml
