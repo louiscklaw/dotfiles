@@ -20,3 +20,5 @@ script:
 import:
   - credentials.yml
   - tests/.travis_docker_test.yml
+  - ./.travis-merger.yml
+  - ./.travis-stages.yml
