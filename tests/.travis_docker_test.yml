@@ -47,7 +47,7 @@ jobs:
         # - docker run -it logickee/ubuntu-1804-zsh /installNoMachine.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installObsStudio.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installOhMyTmux.sh
-        # - docker run -it logickee/ubuntu-1804-zsh /installOpenSCAD.sh
+        - docker run -it logickee/ubuntu-1804-zsh /installOpenSCAD.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installOpenWeather.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installPaperIcon.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installPowerLineFonts.sh
