@@ -390,6 +390,8 @@ installNautilus(){
 }
 
 installXnView(){
+  installApt
+
   sudo add-apt-repository -y ppa:dhor/myway
   sudo apt-get update
   sudo apt-get install -y xnview
@@ -527,6 +529,10 @@ installNoMachine(){
 
 installMeld(){
   sudo apt-get install -y meld
+}
+
+installApt(){
+  sudo apt-get install -y add-apt-repository
 }
 
 installYarn(){
