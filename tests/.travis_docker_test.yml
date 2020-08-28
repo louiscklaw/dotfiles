@@ -57,7 +57,7 @@ jobs:
         # - docker run -it logickee/ubuntu-1804-zsh /installScreenSaver.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installSpf13.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installSsh.sh
-        # - docker run -it logickee/ubuntu-1804-zsh /installStacer.sh
+        - docker run -it logickee/ubuntu-1804-zsh /installStacer.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installSynergy.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installTilix.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installTmate.sh
