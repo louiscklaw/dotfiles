@@ -6,7 +6,7 @@ before_install:
   - docker build -t logickee/ubuntu-1804-zsh .
 
 script:
-  - docker run -it logickee/ubuntu-1804-zsh /installAliWangWang.sh.sh
+  - docker run -it logickee/ubuntu-1804-zsh /installAliWangWang.sh
   # - docker run -it logickee/ubuntu-1804-zsh /installAndroidStudio.sh
   # - docker run -it logickee/ubuntu-1804-zsh /installArgos.sh
   # - docker run -it logickee/ubuntu-1804-zsh /installCaffeine.sh
