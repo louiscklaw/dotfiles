@@ -151,6 +151,8 @@ installLibreoffice(){
 }
 
 installAndroidStudio(){
+  installApt
+
   sudo apt-add-repository -y ppa:maarten-fonville/android-studio
   sudo apt-get install -y android-studio
 }
