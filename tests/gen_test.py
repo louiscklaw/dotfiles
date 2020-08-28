@@ -27,10 +27,11 @@ before_install:
   - docker pull ubuntu
   - docker build -t logickee/ubuntu-1804-zsh .
 
+script:
+{{docker_commands}}
+
 '''.strip()
 
-# script:
-# {{docker_commands}}
 
 # docker_test_command='docker run -it logickee/ubuntu-1804-zsh /{{install}}.sh'
 
