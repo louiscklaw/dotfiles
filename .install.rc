@@ -528,7 +528,7 @@ installNoMachine(){
 }
 
 installMeld(){
-  sudo apt-get install -y meld
+  sudo apt-get install -qqy meld
 }
 
 installYarn(){
