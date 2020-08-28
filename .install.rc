@@ -59,6 +59,8 @@ setSnapPackageHistory(){
 }
 
 installPowerLineFonts(){
+  installWget
+
   cd /tmp
     wget https://github.com/powerline/fonts/archive/2015-12-04.zip
     unzip 2015-12-04.zip
