@@ -39,7 +39,7 @@ jobs:
         # - docker run -it logickee/ubuntu-1804-zsh /installLaCapitaine.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installLibreoffice.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installMagicWormHole.sh
-        # - docker run -it logickee/ubuntu-1804-zsh /installMeld.sh
+        - docker run -it logickee/ubuntu-1804-zsh /installMeld.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installNautilus.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installNetworkManager.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installNgrok.sh
