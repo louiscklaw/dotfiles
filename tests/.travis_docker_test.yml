@@ -32,7 +32,7 @@ jobs:
         # - docker run -it logickee/ubuntu-1804-zsh /installGnomeUtil.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installGsconnect.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installHelloworld.sh
-        # - docker run -it logickee/ubuntu-1804-zsh /installInkscape.sh
+        - docker run -it logickee/ubuntu-1804-zsh /installInkscape.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installIntellij.sh
         - docker run -it logickee/ubuntu-1804-zsh /installKicad.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installKrita.sh
