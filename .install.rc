@@ -351,6 +351,10 @@ installTmate(){
   sudo apt-get install -y tmate
 }
 
+installGit(){
+  sudo apt-get install -y git
+}
+
 installOhMyTmux(){
   # oh-my-tmux
   cd
