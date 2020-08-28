@@ -26,7 +26,7 @@ jobs:
         # - docker run -it logickee/ubuntu-1804-zsh /installFreecad.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installFresh.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installGestureDelete.sh
-        # - docker run -it logickee/ubuntu-1804-zsh /installGit.sh
+        - docker run -it logickee/ubuntu-1804-zsh /installGit.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installGitKraken.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installGnomeAnimations.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installGnomeUtil.sh
