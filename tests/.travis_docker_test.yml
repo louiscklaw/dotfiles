@@ -1,3 +1,6 @@
+services:
+  - docker
+
 script:
   - docker run -it logickee/ubuntu-1804-zsh /installCUHKUbuntuRepo.sh
   - docker run -it logickee/ubuntu-1804-zsh /installPowerLineFonts.sh
