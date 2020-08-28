@@ -13,7 +13,7 @@ jobs:
       script:
         # - docker run -it logickee/ubuntu-1804-zsh /installAliWangWang.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installAndroidStudio.sh
-        # - docker run -it logickee/ubuntu-1804-zsh /installArgos.sh
+        - docker run -it logickee/ubuntu-1804-zsh /installArgos.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installCaffeine.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installChinese.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installCode.sh
