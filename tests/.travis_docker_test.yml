@@ -6,58 +6,59 @@ before_install:
   - docker build -t logickee/ubuntu-1804-zsh .
 
 script:
-  - docker run -it logickee/ubuntu-1804-zsh /installCUHKUbuntuRepo.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installPowerLineFonts.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installDocker.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installDockerCompose.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installSsh.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installInkscape.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installKrita.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installPython.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installLibreoffice.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installAndroidStudio.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installIntellij.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installNetworkManager.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installGit.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installTilix.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installChinese.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installStacer.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installFresh.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installCode.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installNgrok.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installPycharm.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installAliWangWang.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installTmate.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installOhMyTmux.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installTmateWrapper.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installSpf13.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installLaCapitaine.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installNautilus.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installXnView.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installSynergy.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installZsh.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installFranz.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installPaperIcon.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installObsStudio.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installMagicWormHole.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installFreecad.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installGnomeUtil.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installRclone.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installTmux.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installKicad.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installNode.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installFirebaseTools.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installGestureDelete.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installNoMachine.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installMeld.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installYarn.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installArgos.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installOpenWeather.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installCaffeine.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installGsconnect.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installOpenSCAD.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installDynamicTopBar.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installGnomeAnimations.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installScreenSaver.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installGitKraken.sh
-  - docker run -it logickee/ubuntu-1804-zsh /installHelloworld.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installCUHKUbuntuRepo.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installPowerLineFonts.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installDocker.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installDockerCompose.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installSsh.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installInkscape.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installKrita.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installPython.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installLibreoffice.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installAndroidStudio.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installIntellij.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installNetworkManager.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installGit.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installTilix.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installChinese.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installStacer.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installFresh.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installCode.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installNgrok.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installPycharm.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installAliWangWang.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installTmate.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installOhMyTmux.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installTmateWrapper.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installSpf13.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installLaCapitaine.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installNautilus.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installXnView.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installSynergy.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installZsh.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installFranz.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installPaperIcon.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installObsStudio.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installMagicWormHole.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installFreecad.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installGnomeUtil.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installRclone.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installTmux.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installKicad.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installNode.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installFirebaseTools.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installGestureDelete.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installNoMachine.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installMeld.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installYarn.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installArgos.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installOpenWeather.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installCaffeine.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installGsconnect.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installOpenSCAD.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installDynamicTopBar.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installGnomeAnimations.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installScreenSaver.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installGitKraken.sh
+  # - docker run -it logickee/ubuntu-1804-zsh /installHelloworld.sh
+  - echo 'helloworld'
