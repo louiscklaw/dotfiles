@@ -16,7 +16,7 @@ RUN apt-get update && \
   apt-get install -y zsh sudo
 
 COPY ./.louis_alias /root/.louis_alias
-COPY ./tests/test-inside-docker.sh /test-inside-docker.sh
+# COPY ./tests/test-inside-docker.sh /test-inside-docker.sh
 
 COPY ./.common.rc /root/_workspace/dotfiles/.common.rc
 COPY ./.develop.rc /root/_workspace/dotfiles/.develop.rc
