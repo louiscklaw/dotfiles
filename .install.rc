@@ -488,7 +488,7 @@ installNode(){
 
   curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
   sudo apt-get update
-  sudo apt-get install -qqy nodejs
+  sudo DEBIAN_FRONTEND=noninteractive sudo apt-get install -qqy nodejs
 
   sudo npm install -g gatsby-cli
 
