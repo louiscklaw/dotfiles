@@ -36,7 +36,7 @@ jobs:
         # - docker run -it logickee/ubuntu-1804-zsh /installIntellij.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installKicad.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installKrita.sh
-        # - docker run -it logickee/ubuntu-1804-zsh /installLaCapitaine.sh
+        - docker run -it logickee/ubuntu-1804-zsh /installLaCapitaine.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installLibreoffice.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installMagicWormHole.sh
         # - docker run -it logickee/ubuntu-1804-zsh /installMeld.sh
