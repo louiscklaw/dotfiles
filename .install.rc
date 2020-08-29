@@ -645,6 +645,8 @@ installOpenSCAD(){
 }
 
 installDynamicTopBar(){
+  installAria2c
+
   cd /tmp
     ariaDownload https://github.com/AMDG2/GnomeShell_DynamicTopBar/releases/download/3.3.1/DynamicTopBar_19.zip
     mkdir -p ~/.local/share/gnome-shell/extensions
