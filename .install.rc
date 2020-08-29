@@ -486,13 +486,30 @@ installNautilus(){
   wget -qO- https://raw.githubusercontent.com/cra0zy/code-nautilus/master/install.sh | bash
 }
 
-installXnView(){
-  installTzdata
-  installApt
+# ubuntu 20.04
+checkFocal(){
+  installLsbCore
 
-  sudo add-apt-repository -y ppa:dhor/myway
-  sudo apt-get update
-  sudo apt-get install -y xnview
+  UBUNTU_VERSION=$(lsb_release -cs)
+
+  # if [[ UBUNTU_VERSION=='focal' ]]; then
+  #   echo 'true'
+  # elif
+  #   echo 'false'
+  # fi
+  echo 'true'
+}
+
+installXnView(){
+  if [[ checkFocal=='false' ]]; then
+    installTzdata
+    installApt
+
+
+    sudo add-apt-repository -y ppa:dhor/myway
+    sudo apt-get update
+    sudo apt-get install -y xnview
+  fi
 }
 
 installSynergy(){
