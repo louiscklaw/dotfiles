@@ -457,6 +457,8 @@ installZsh(){
 }
 
 installFranz(){
+  installWget
+
   sudo wget -O /tmp/franz.deb https://github.com/meetfranz/franz/releases/download/v5.2.0/franz_5.2.0_amd64.deb
   sudo apt-get install -y /tmp/franz.deb
 }
