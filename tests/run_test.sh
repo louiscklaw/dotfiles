@@ -11,7 +11,7 @@ docker container prune -f
 
 docker build -t logickee/ubuntu-1804-zsh .
 
-# rm -rf /home/logic/_workspace/dotfiles/logs/*.log
+rm -rf /home/logic/_workspace/dotfiles/logs/*.log
 
 cat tests/full_docker_commands.sh | while read i; do printf "%q\n" "$i"; done | xargs --max-procs=99 -I CMD bash -c CMD
 
