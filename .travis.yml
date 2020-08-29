@@ -14,8 +14,12 @@ cache:
   - npm
   - pip
 
-script:
-  - echo 'helloworld'
+jobs:
+  include:
+    # stage_template_start
+    - stage: Unit_test
+      before_install:
+        - echo 'hello unit_test placeholder'
 
 import:
   - credentials.yml
