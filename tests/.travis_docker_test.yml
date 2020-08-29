@@ -18,5 +18,15 @@ jobs:
         - docker run -t logickee/ubuntu-1804-zsh /installHelloworld.sh | tee logs/docker_installHelloworld.log
         - docker run -t logickee/ubuntu-1804-zsh /installCode.sh | tee logs/docker_installCode.log
 
+
+
+        - docker run -t logickee/ubuntu-1804-zsh /installAliWangWang.sh | tee logs/docker_installAliWangWang.log
+        - docker run -t logickee/ubuntu-1804-zsh /installAndroidStudio.sh | tee logs/docker_installAndroidStudio.log
+        - docker run -t logickee/ubuntu-1804-zsh /installArgos.sh | tee logs/docker_installArgos.log
+        - docker run -t logickee/ubuntu-1804-zsh /installCaffeine.sh | tee logs/docker_installCaffeine.log
+        - docker run -t logickee/ubuntu-1804-zsh /installChinese.sh | tee logs/docker_installChinese.log
+
+
+
       after_script:
         - docker container prune -f
