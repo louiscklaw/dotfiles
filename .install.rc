@@ -8,6 +8,8 @@ fi
 
 installCUHKUbuntuRepo(){
 
+installLsbCore
+
 LSB_RELEASE_NAME=`lsb_release -cs`
 
 sudo bash -c "cat > /etc/apt/sources.list.d/cuhk.list" <<EOF
@@ -593,6 +595,8 @@ getUbuntu2004(){
 }
 
 installArgos(){
+  installGit
+
   mkdir -p $HOME/.local/share/gnome-shell/extensions
   cd /tmp
     git clone https://github.com/p-e-w/argos.git
@@ -606,7 +610,14 @@ installOpenWeather(){
   ./autogen.sh && make local-install
 }
 
+installLsbCore(){
+  sudo apt-get update
+  sudo apt-get install lsb-core
+}
+
 installCaffeine(){
+  installGit
+
   git clone git://github.com/eonpatapon/gnome-shell-extension-caffeine.git
   cd gnome-shell-extension-caffeine
   ./update-locale.sh
