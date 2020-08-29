@@ -23,5 +23,5 @@ import:
   - ./.travis-merger.yml
   - ./.travis-stages.yml
 
-after_success:
+after_failure:
   - cat logs/*.log
