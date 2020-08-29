@@ -94,6 +94,10 @@ installDocker(){
   # install linter
   sudo npm install -g dockerlint
 
+  mkdir -p /etc/docker
+
+  sudo cp $HOME/_workspace/dotfiles/my_config/docker/daemon.json /etc/docker/daemon.json
+
   set +x
 }
 
@@ -237,13 +241,18 @@ installTilix(){
 
   sudo apt-get install -y tilix
   sudo ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
-  wget -qO $HOME"/.config/tilix/schemes/arthur.json" https://git.io/v7QV1
-  wget -qO $HOME"/.config/tilix/schemes/brogrammer.json" https://git.io/v7Qa3
-  wget -qO $HOME"/.config/tilix/schemes/highway.json" https://git.io/v7QV7
-  wget -qO $HOME"/.config/tilix/schemes/molokai.json" https://git.io/v7QVE
-  wget -qO $HOME"/.config/tilix/schemes/one-dark.json" https://git.io/v7Qaw
-  wget -qO $HOME"/.config/tilix/schemes/sea-shells.json" https://git.io/v7Qay
-  wget -qO $HOME"/.config/tilix/schemes/solarized-dark-higher-contrast.json" https://git.io/v7Qa5
+
+  mkdir -p $HOME"/.config/tilix/schemes"
+
+  wget -qO $HOME"/.config/tilix/schemes/arthur.json" https://git.io/v7QV1  &
+  wget -qO $HOME"/.config/tilix/schemes/brogrammer.json" https://git.io/v7Qa3  &
+  wget -qO $HOME"/.config/tilix/schemes/highway.json" https://git.io/v7QV7  &
+  wget -qO $HOME"/.config/tilix/schemes/molokai.json" https://git.io/v7QVE  &
+  wget -qO $HOME"/.config/tilix/schemes/one-dark.json" https://git.io/v7Qaw  &
+  wget -qO $HOME"/.config/tilix/schemes/sea-shells.json" https://git.io/v7Qay  &
+  wget -qO $HOME"/.config/tilix/schemes/solarized-dark-higher-contrast.json" https://git.io/v7Qa5  &
+
+  wait
 }
 
 installChinese(){
@@ -259,10 +268,11 @@ installChinese(){
 }
 
 installStacer(){
-  installWget
+  # installWget
+  installAria2c
 
   cd /tmp
-  wget https://jaist.dl.sourceforge.net/project/stacer/v1.0.9/stacer_1.0.9_amd64.deb
+  ariaDownload https://jaist.dl.sourceforge.net/project/stacer/v1.0.9/stacer_1.0.9_amd64.deb
   sudo dpkg -i stacer_1.0.9_amd64.deb
   cd -
 
@@ -366,6 +376,7 @@ installCode(){
 }
 
 installAria2c(){
+  installTzdata
   sudo apt-get update
   sudo apt-get install -y aria2
 }
@@ -510,9 +521,9 @@ installXnView(){
     installApt
 
 
-    sudo add-apt-repository -y ppa:dhor/myway
-    sudo apt-get update
-    sudo apt-get install -y xnview
+    # sudo add-apt-repository -y ppa:dhor/myway
+    # sudo apt-get update
+    # sudo apt-get install -y xnview
   fi
 }
 
@@ -635,7 +646,7 @@ installNode(){
   sudo apt-get update
 
   sudo apt-get install -qqy nodejs
-  sudo apt-get install -qqy npm
+  # sudo apt-get install -qqy npm
 
   sudo npm install -g gatsby-cli
 
@@ -675,10 +686,12 @@ installWget(){
 }
 
 installNoMachine(){
-  installWget
+  # installWget
+  installAria2c
 
   cd /tmp
-  wget https://download.nomachine.com/download/6.11/Linux/nomachine_6.11.2_1_amd64.deb
+  # wget https://download.nomachine.com/download/6.11/Linux/nomachine_6.11.2_1_amd64.deb
+  ariaDownload https://download.nomachine.com/download/6.11/Linux/nomachine_6.11.2_1_amd64.deb
   sudo dpkg -i nomachine_6.11.2_1_amd64.deb
   cd -
 
@@ -743,11 +756,14 @@ installArgos(){
 }
 
 installOpenWeather(){
-  installGit
+  sudo apt-get install -y gnome-shell-extension-weather
 
-  cd /tmp && git clone git://gitlab.com/jenslody/gnome-shell-extension-openweather.git
-  cd /tmp/gnome-shell-extension-openweather
-  ./autogen.sh && make local-install
+  # installGit
+
+  # cd /tmp && git clone https://gitlab.com/jenslody/gnome-shell-extension-openweather.git
+  # cd /tmp/gnome-shell-extension-openweather
+  # ./autogen.sh
+  # make local-install
 }
 
 installLsbCore(){
