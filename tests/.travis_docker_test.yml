@@ -43,5 +43,17 @@ jobs:
         - docker run -t logickee/ubuntu-1804-zsh /installGsconnect.sh | tee logs/docker_installGsconnect.log
 
 
+
+        - docker run -t logickee/ubuntu-1804-zsh /installInkscape.sh | tee logs/docker_installInkscape.log
+        - docker run -t logickee/ubuntu-1804-zsh /installIntellij.sh | tee logs/docker_installIntellij.log
+        - docker run -t logickee/ubuntu-1804-zsh /installKicad.sh | tee logs/docker_installKicad.log
+        - docker run -t logickee/ubuntu-1804-zsh /installKrita.sh | tee logs/docker_installKrita.log
+        - docker run -t logickee/ubuntu-1804-zsh /installLaCapitaine.sh | tee logs/docker_installLaCapitaine.log
+        - docker run -t logickee/ubuntu-1804-zsh /installLibreoffice.sh | tee logs/docker_installLibreoffice.log
+        - docker run -t logickee/ubuntu-1804-zsh /installMagicWormHole.sh | tee logs/docker_installMagicWormHole.log
+        - docker run -t logickee/ubuntu-1804-zsh /installMeld.sh | tee logs/docker_installMeld.log
+        - docker run -t logickee/ubuntu-1804-zsh /installNautilus.sh | tee logs/docker_installNautilus.log
+
+
       after_script:
         - docker container prune -f
