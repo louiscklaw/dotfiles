@@ -9,7 +9,7 @@ if [[ -e $HOME/.common.rc ]]; then
 fi
 
 installCUHKUbuntuRepo(){
-
+installTzdata
 installLsbCore
 
 LSB_RELEASE_NAME=`lsb_release -cs`
@@ -64,6 +64,7 @@ setSnapPackageHistory(){
 
 installPowerLineFonts(){
   installWget
+  installUnzip
 
   cd /tmp
     wget https://github.com/powerline/fonts/archive/2015-12-04.zip
@@ -134,8 +135,8 @@ installApt(){
 }
 
 installInkscape(){
-  installApt
   installTzdata
+  installApt
 
   sudo add-apt-repository universe
   sudo add-apt-repository -y ppa:inkscape.dev/stable
@@ -144,6 +145,7 @@ installInkscape(){
 }
 
 installKrita(){
+  installTzdata
   installApt
 
   sudo add-apt-repository -y ppa:kritalime/ppa
@@ -164,6 +166,7 @@ installPython(){
 }
 
 installLibreoffice(){
+  installTzdata
   installApt
 
   sudo add-apt-repository -y ppa:libreoffice/ppa
@@ -191,6 +194,8 @@ installIntellij(){
 }
 
 installNetworkManager(){
+  installTzdata
+
   set -x
   sudo apt-get install -y network-manager-gnome
   sudo apt-get install -y network-manager-ssh
@@ -224,6 +229,7 @@ installGit(){
 
 installTilix(){
   installTzdata
+  installWget
 
   sudo apt-get install -y tilix
   sudo ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
@@ -348,9 +354,9 @@ installCode(){
   sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
   sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
-  sudo apt-get install apt-transport-https
   sudo apt-get update
-  sudo apt-get install code
+  sudo apt-get install -qqy apt-transport-https
+  sudo apt-get install -qqy code
 
 }
 
@@ -362,6 +368,7 @@ installAria2c(){
 installNgrok(){
   # usage installNgrok <authtoken>
   installTzdata
+  installUnzip
 
   set -x
 
@@ -402,7 +409,7 @@ installAliWangWang(){
   cd -
 
   cd /tmp/deepin-wine-ubuntu
-    sudo apt install -y --no-install-recommends xdotool
+    sudo apt-get install -y --no-install-recommends xdotool
     ./install.sh
   cd -
 }
@@ -422,8 +429,15 @@ installOhMyTmux(){
   cd -
 }
 
+installMake(){
+  sudo apt-get update
+  sudo apt-get install -qqy build-essential
+
+}
+
 installTmateWrapper(){
   installGit
+  installMake
 
   cd /opt
     sudo git clone --depth=1 https://github.com/bobbyno/tmate-wrapper.git
@@ -442,12 +456,14 @@ installVim(){
 installSpf13(){
   installCurl
   installVim
+  installGit
 
   sudo curl https://j.mp/spf13-vim3 -L > /tmp/spf13-vim.sh
   sudo sh /tmp/spf13-vim.sh
 }
 
 installLaCapitaine(){
+  installTzdata
   installApt
 
   sudo add-apt-repository -y ppa:dyatlov-igor/la-capitaine
@@ -457,6 +473,7 @@ installLaCapitaine(){
 
 installNautilus(){
   installTzdata
+  installApt
 
   sudo apt-get install -y curl python-nautilus
   sudo add-apt-repository -y ppa:daniel-marynicz/filemanager-actions
@@ -466,6 +483,7 @@ installNautilus(){
 }
 
 installXnView(){
+  installTzdata
   installApt
 
   sudo add-apt-repository -y ppa:dhor/myway
@@ -507,6 +525,7 @@ installFranz(){
 }
 
 installPaperIcon(){
+  installTzdata
   installApt
 
   sudo add-apt-repository -y  ppa:papirus/papirus
@@ -515,6 +534,7 @@ installPaperIcon(){
 }
 
 installObsStudio(){
+  installTzdata
   installApt
 
   sudo add-apt-repository -y ppa:obsproject/obs-studio
@@ -537,6 +557,8 @@ installFreecad(){
 }
 
 installGnomeUtil(){
+  installTzdata
+
   sudo apt install -y gnome-sushi
   sudo apt install -y gnome-contacts
   sudo apt install -y gnome-extra-icons
@@ -559,6 +581,7 @@ installTmux(){
 
 installKicad(){
   installApt
+  installTzdata
 
   set -x
 
@@ -640,6 +663,7 @@ installMeld(){
 
 installYarn(){
   set -x
+  installCurl
   installGNUPG2
 
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
@@ -701,8 +725,14 @@ installLsbCore(){
   sudo apt-get install -qqy lsb-core
 }
 
+installLigblib2(){
+  sudo apt-get update
+  sudo apt-get install -qqy libglib2.0-dev
+}
+
 installCaffeine(){
   installGit
+  installLigblib2
 
   git clone git://github.com/eonpatapon/gnome-shell-extension-caffeine.git
   cd gnome-shell-extension-caffeine
@@ -717,15 +747,23 @@ installGsconnect(){
 }
 
 installOpenSCAD(){
+  installTzdata
   installApt
 
   sudo add-apt-repository -y ppa:openscad/releases
   sudo apt-get install -y openscad
 }
 
+installUnzip(){
+  sudo apt-get update
+  sudo apt-get install -qqy unzip
+  unzip -v
+}
+
 installDynamicTopBar(){
   installTzdata
   installAria2c
+  installUnzip
 
   cd /tmp
     ariaDownload https://github.com/AMDG2/GnomeShell_DynamicTopBar/releases/download/3.3.1/DynamicTopBar_19.zip
