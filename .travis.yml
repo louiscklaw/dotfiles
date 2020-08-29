@@ -1,15 +1,24 @@
+# https://docs.travis-ci.com/user/docker/
+# https://docs.travis-ci.com/user/environment-variables/
+# https://docs.travis-ci.com/user/job-lifecycle/
 
-# https://docs.travis-ci.com/user/conditional-builds-stages-jobs/
-# https://docs.travis-ci.com/user/conditions-v1
-stages:
+# You can import up to 25 other configs in total.
+os: linux
 
-# docker_build_stages_start
+language: node_js
 
-  - name: installPycharm
-# docker_build_stages_end
+node_js:
+  - 12
 
-  - name: Build_docker
-  - name: Unit_test
-  - name: Merge
-  - name: Cron
-    if: type = cron
+cache:
+  - npm
+  - pip
+
+script:
+  - echo 'helloworld'
+
+import:
+  - credentials.yml
+  - tests/.travis_docker_test.yml
+  - ./.travis-merger.yml
+  - ./.travis-stages.yml

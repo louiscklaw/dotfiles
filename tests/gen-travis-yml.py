@@ -52,43 +52,43 @@ jobs:
 '''
 
 
+def yml1():
 
-all_file_in_tests_dir = check_output(shlex.split('ls -1 tests')).decode('utf-8').split()
-install_sh_files = filter(lambda x: x.find('install') > -1, all_file_in_tests_dir)
+  all_file_in_tests_dir = check_output(shlex.split('ls -1 tests')).decode('utf-8').split()
+  install_sh_files = filter(lambda x: x.find('install') > -1, all_file_in_tests_dir)
 
-# pprint(list(install_sh_files))
-stage_names = map(lambda x: x.replace('.sh',''), install_sh_files)
-stage_in_main_yml = map(lambda x: '  - name: {}'.format(x), stage_names)
+  list_stage_content = []
+  for i in install_sh_files:
+    file_name_without_ext = i.replace('.sh','')
+    script_content = SCRIPT_CONTENT_TEMPLATE.replace('{{test_sh}}',file_name_without_ext)
 
-test='\n'.join(list(stage_in_main_yml))
-# sys.exit()
+    stage_content = STAGE_TEMPLATE.replace('{{stage_name}}',file_name_without_ext).replace('{{script_content}}',script_content).replace('{{branch_to_build}}','test/{}'.format(file_name_without_ext))
 
-fo_main_yml=open('/home/logic/_workspace/dotfiles/.travis.yml','r+')
-fo_main_yml.truncate(0)
+    list_stage_content.append(stage_content)
 
-fo_main_yml.write(MAIN_YML_TEMPLATE.replace('{{docker_build_stages}}', test ))
+  fo_docker_yml = open('tests/.travis_docker_test.yml','r+')
+  fo_docker_yml.truncate(0)
+
+  fo_docker_yml.writelines([
+    DOCKER_BUILD_YML_TEMPLATE
+      .replace('{{stage_content}}','\n'.join(list_stage_content))
+  ])
+
+def yml2():
+  all_file_in_tests_dir = check_output(shlex.split('ls -1 tests')).decode('utf-8').split()
+  install_sh_files = filter(lambda x: x.find('install') > -1, all_file_in_tests_dir)
+
+  stage_names = map(lambda x: x.replace('.sh',''), install_sh_files)
+  stage_in_main_yml = map(lambda x: '  - name: {}'.format(x), stage_names)
+  test='\n'.join(list(stage_in_main_yml))
+
+  fo_main_yml=open('/home/logic/_workspace/dotfiles/.travis-stages.yml','r+')
+  fo_main_yml.truncate(0)
+
+  fo_main_yml.write(MAIN_YML_TEMPLATE.replace('{{docker_build_stages}}', test ))
 
 
-sys.exit()
-
-
-list_stage_content = []
-for i in install_sh_files:
-  file_name_without_ext = i.replace('.sh','')
-  script_content = SCRIPT_CONTENT_TEMPLATE.replace('{{test_sh}}',file_name_without_ext)
-
-  stage_content = STAGE_TEMPLATE.replace('{{stage_name}}',file_name_without_ext).replace('{{script_content}}',script_content).replace('{{branch_to_build}}','test/{}'.format(file_name_without_ext))
-
-  list_stage_content.append(stage_content)
-
-
-
-fo_docker_yml = open('tests/.travis_docker_test.yml','r+')
-fo_docker_yml.truncate(0)
-
-fo_docker_yml.writelines([
-  DOCKER_BUILD_YML_TEMPLATE
-    .replace('{{stage_content}}','\n'.join(list_stage_content))
-])
+yml1()
+yml2()
 
 print('done')
