@@ -22,3 +22,6 @@ import:
   - tests/.travis_docker_test.yml
   - ./.travis-merger.yml
   - ./.travis-stages.yml
+
+after_success:
+  - cat logs/*.log
