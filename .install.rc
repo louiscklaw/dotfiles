@@ -114,6 +114,7 @@ installSsh(){
 }
 
 installCurl(){
+  sudo apt-get update
   sudo apt-get install -y curl
 }
 
@@ -334,8 +335,14 @@ installNgrok(){
   set +x
 }
 
+installGNUPG2(){
+  sudo apt-get update
+  sudo apt-get install -y gnupg2
+}
+
 installPycharm(){
   installCurl
+  installGNUPG2
 
   curl -s https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc | sudo apt-key add -
   echo "deb http://jetbrains-ppa.s3-website.eu-central-1.amazonaws.com bionic main" | sudo tee /etc/apt/sources.list.d/jetbrains-ppa.list > /dev/null
