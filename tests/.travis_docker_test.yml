@@ -27,6 +27,21 @@ jobs:
         - docker run -t logickee/ubuntu-1804-zsh /installChinese.sh | tee logs/docker_installChinese.log
 
 
+        - docker run -t logickee/ubuntu-1804-zsh /installCUHKUbuntuRepo.sh | tee logs/docker_installCUHKUbuntuRepo.log
+        - docker run -t logickee/ubuntu-1804-zsh /installDocker.sh | tee logs/docker_installDocker.log
+        - docker run -t logickee/ubuntu-1804-zsh /installDockerCompose.sh | tee logs/docker_installDockerCompose.log
+        - docker run -t logickee/ubuntu-1804-zsh /installDynamicTopBar.sh | tee logs/docker_installDynamicTopBar.log
+        - docker run -t logickee/ubuntu-1804-zsh /installFirebaseTools.sh | tee logs/docker_installFirebaseTools.log
+        - docker run -t logickee/ubuntu-1804-zsh /installFranz.sh | tee logs/docker_installFranz.log
+        - docker run -t logickee/ubuntu-1804-zsh /installFreecad.sh | tee logs/docker_installFreecad.log
+        - docker run -t logickee/ubuntu-1804-zsh /installFresh.sh | tee logs/docker_installFresh.log
+        - docker run -t logickee/ubuntu-1804-zsh /installGestureDelete.sh | tee logs/docker_installGestureDelete.log
+        - docker run -t logickee/ubuntu-1804-zsh /installGit.sh | tee logs/docker_installGit.log
+        - docker run -t logickee/ubuntu-1804-zsh /installGitKraken.sh | tee logs/docker_installGitKraken.log
+        - docker run -t logickee/ubuntu-1804-zsh /installGnomeAnimations.sh | tee logs/docker_installGnomeAnimations.log
+        - docker run -t logickee/ubuntu-1804-zsh /installGnomeUtil.sh | tee logs/docker_installGnomeUtil.log
+        - docker run -t logickee/ubuntu-1804-zsh /installGsconnect.sh | tee logs/docker_installGsconnect.log
+
 
       after_script:
         - docker container prune -f
