@@ -55,5 +55,36 @@ jobs:
         - docker run -t logickee/ubuntu-1804-zsh /installNautilus.sh | tee logs/docker_installNautilus.log
 
 
+
+
+        - docker run -t logickee/ubuntu-1804-zsh /installNetworkManager.sh | tee logs/docker_installNetworkManager.log
+        - docker run -t logickee/ubuntu-1804-zsh /installNgrok.sh | tee logs/docker_installNgrok.log
+        - docker run -t logickee/ubuntu-1804-zsh /installNode.sh | tee logs/docker_installNode.log
+        - docker run -t logickee/ubuntu-1804-zsh /installNoMachine.sh | tee logs/docker_installNoMachine.log
+        - docker run -t logickee/ubuntu-1804-zsh /installObsStudio.sh | tee logs/docker_installObsStudio.log
+        - docker run -t logickee/ubuntu-1804-zsh /installOhMyTmux.sh | tee logs/docker_installOhMyTmux.log
+        - docker run -t logickee/ubuntu-1804-zsh /installOpenSCAD.sh | tee logs/docker_installOpenSCAD.log
+        - docker run -t logickee/ubuntu-1804-zsh /installOpenWeather.sh | tee logs/docker_installOpenWeather.log
+        - docker run -t logickee/ubuntu-1804-zsh /installPaperIcon.sh | tee logs/docker_installPaperIcon.log
+        - docker run -t logickee/ubuntu-1804-zsh /installPowerLineFonts.sh | tee logs/docker_installPowerLineFonts.log
+        - docker run -t logickee/ubuntu-1804-zsh /installPycharm.sh | tee logs/docker_installPycharm.log
+        - docker run -t logickee/ubuntu-1804-zsh /installPython.sh | tee logs/docker_installPython.log
+        - docker run -t logickee/ubuntu-1804-zsh /installRclone.sh | tee logs/docker_installRclone.log
+
+
+
+        - docker run -t logickee/ubuntu-1804-zsh /installScreenSaver.sh | tee logs/docker_installScreenSaver.log
+        - docker run -t logickee/ubuntu-1804-zsh /installSpf13.sh | tee logs/docker_installSpf13.log
+        - docker run -t logickee/ubuntu-1804-zsh /installSsh.sh | tee logs/docker_installSsh.log
+        - docker run -t logickee/ubuntu-1804-zsh /installStacer.sh | tee logs/docker_installStacer.log
+        - docker run -t logickee/ubuntu-1804-zsh /installSynergy.sh | tee logs/docker_installSynergy.log
+        - docker run -t logickee/ubuntu-1804-zsh /installTilix.sh | tee logs/docker_installTilix.log
+        - docker run -t logickee/ubuntu-1804-zsh /installTmate.sh | tee logs/docker_installTmate.log
+        - docker run -t logickee/ubuntu-1804-zsh /installTmateWrapper.sh | tee logs/docker_installTmateWrapper.log
+        - docker run -t logickee/ubuntu-1804-zsh /installTmux.sh | tee logs/docker_installTmux.log
+        - docker run -t logickee/ubuntu-1804-zsh /installXnView.sh | tee logs/docker_installXnView.log
+        - docker run -t logickee/ubuntu-1804-zsh /installYarn.sh | tee logs/docker_installYarn.log
+        - docker run -t logickee/ubuntu-1804-zsh /installZsh.sh | tee logs/docker_installZsh.log
+
       after_script:
         - docker container prune -f
