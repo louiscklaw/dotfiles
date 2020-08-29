@@ -315,7 +315,8 @@ installCode(){
 }
 
 installAria2c(){
-  sudo apt-get install -y aria2c
+  sudo apt-get update
+  sudo apt-get install -y aria2
 }
 
 installNgrok(){
