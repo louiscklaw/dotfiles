@@ -89,6 +89,8 @@ installDocker(){
 }
 
 installDockerCompose(){
+  installCurl
+
   set -x
 
   sudo rm -rf /usr/local/bin/docker-compose
