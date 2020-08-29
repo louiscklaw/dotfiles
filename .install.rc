@@ -90,6 +90,7 @@ installDocker(){
   sudo apt-get update
   sudo apt-get install -y docker-ce
 
+  installNode
   # install linter
   sudo npm install -g dockerlint
 
@@ -407,6 +408,7 @@ installPycharm(){
 }
 
 installAliWangWang(){
+  installTzdata
   installGit
 
   cd /tmp
