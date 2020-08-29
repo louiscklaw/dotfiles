@@ -1,27 +1,68 @@
-# https://docs.travis-ci.com/user/docker/
-# https://docs.travis-ci.com/user/environment-variables/
-# https://docs.travis-ci.com/user/job-lifecycle/
 
-# You can import up to 25 other configs in total.
-os: linux
+# https://docs.travis-ci.com/user/conditional-builds-stages-jobs/
+# https://docs.travis-ci.com/user/conditions-v1
+stages:
 
-language: node_js
+# docker_build_stages_start
+  - name: installAliWangWang
+  - name: installAndroidStudio
+  - name: installArgos
+  - name: installCaffeine
+  - name: installChinese
+  - name: installCode
+  - name: installCUHKUbuntuRepo
+  - name: installDockerCompose
+  - name: installDocker
+  - name: installDynamicTopBar
+  - name: installFirebaseTools
+  - name: installFranz
+  - name: installFreecad
+  - name: installFresh
+  - name: installGestureDelete
+  - name: installGitKraken
+  - name: installGit
+  - name: installGnomeAnimations
+  - name: installGnomeUtil
+  - name: installGsconnect
+  - name: installHelloworld
+  - name: installInkscape
+  - name: installIntellij
+  - name: installKicad
+  - name: installKrita
+  - name: installLaCapitaine
+  - name: installLibreoffice
+  - name: installMagicWormHole
+  - name: installMeld
+  - name: installNautilus
+  - name: installNetworkManager
+  - name: installNgrok
+  - name: installNode
+  - name: installNoMachine
+  - name: installObsStudio
+  - name: installOhMyTmux
+  - name: installOpenSCAD
+  - name: installOpenWeather
+  - name: installPaperIcon
+  - name: installPowerLineFonts
+  - name: installPycharm
+  - name: installPython
+  - name: installRclone
+  - name: installScreenSaver
+  - name: installSpf13
+  - name: installSsh
+  - name: installStacer
+  - name: installSynergy
+  - name: installTilix
+  - name: installTmate
+  - name: installTmateWrapper
+  - name: installTmux
+  - name: installXnView
+  - name: installYarn
+  - name: installZsh
+# docker_build_stages_end
 
-node_js:
-  - 12
-
-cache:
-  - npm
-  - pip
-
-script:
-  - echo 'helloworld'
-
-import:
-  - credentials.yml
-  - tests/.travis_docker_test.yml
-  - ./.travis-merger.yml
-  - ./.travis-stages.yml
-
-after_failure:
-  - cat logs/*.log
+  - name: Build_docker
+  - name: Unit_test
+  - name: Merge
+  - name: Cron
+    if: type = cron
