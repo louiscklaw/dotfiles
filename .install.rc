@@ -481,21 +481,29 @@ installKicad(){
 
 }
 
-installNode(){
+installTzdata(){
   export DEBIAN_FRONTEND=noninteractive
+  ln -fs /usr/share/zoneinfo/Asia/Hong_Kong /etc/localtime
+}
+
+installNode(){
+  # export DEBIAN_FRONTEND=noninteractive
+
+  installTzdata
 
   set -x
 
   curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
   sudo apt-get update
-  sudo DEBIAN_FRONTEND=noninteractive sudo apt-get install -qqy nodejs
+
+  sudo apt-get install -qqy nodejs
+  sudo apt-get install -qqy npm
 
   sudo npm install -g gatsby-cli
 
   sudo npm install -g live-server
   sudo npm install -g live-server-https
   sudo npm install -g nodemon
-
 
   set +x
 }
