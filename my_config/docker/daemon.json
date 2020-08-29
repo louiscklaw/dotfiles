@@ -1,0 +1,9 @@
+{
+  "default-address-pools":
+  [
+    {"base":"10.10.0.0/16","size":24}
+  ],
+  "graph": "/tmp/var/lib/docker",
+  "max-concurrent-uploads": 99,
+  "max-concurrent-downloads": 99
+}
