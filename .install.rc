@@ -179,6 +179,7 @@ installNetworkManager(){
 }
 
 installGit(){
+  sudo apt-get update
   sudo apt-get install -y git git-flow tig
 
   git config --global core.editor "vim"
