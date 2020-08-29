@@ -118,7 +118,14 @@ installCurl(){
   sudo apt-get install -y curl
 }
 
+installApt(){
+  sudo apt-get update
+  sudo apt-get install -y software-properties-common
+}
+
 installInkscape(){
+  installApt
+
   sudo add-apt-repository universe
   sudo add-apt-repository -y ppa:inkscape.dev/stable
   sudo apt-get update
@@ -149,6 +156,8 @@ installLibreoffice(){
 }
 
 installAndroidStudio(){
+  installApt
+
   sudo apt-add-repository -y ppa:maarten-fonville/android-studio
   sudo apt-get install -y android-studio
 }
