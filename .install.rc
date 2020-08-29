@@ -63,6 +63,8 @@ setSnapPackageHistory(){
 }
 
 installPowerLineFonts(){
+  installWget
+
   cd /tmp
     wget https://github.com/powerline/fonts/archive/2015-12-04.zip
     unzip 2015-12-04.zip
@@ -106,6 +108,8 @@ installDockerCompose(){
 }
 
 installSsh(){
+  installTzdata
+
   set -x
 
   sudo apt-get install -y ssh
@@ -131,6 +135,7 @@ installApt(){
 
 installInkscape(){
   installApt
+  installTzdata
 
   sudo add-apt-repository universe
   sudo add-apt-repository -y ppa:inkscape.dev/stable
@@ -139,6 +144,8 @@ installInkscape(){
 }
 
 installKrita(){
+  installApt
+
   sudo add-apt-repository -y ppa:kritalime/ppa
   sudo apt-get update
   sudo apt-get install -y krita
@@ -157,11 +164,14 @@ installPython(){
 }
 
 installLibreoffice(){
+  installApt
+
   sudo add-apt-repository -y ppa:libreoffice/ppa
   sudo apt install -y libreoffice
 }
 
 installAndroidStudio(){
+  installTzdata
   installApt
 
   sudo apt-add-repository -y ppa:maarten-fonville/android-studio
@@ -171,6 +181,7 @@ installAndroidStudio(){
 installIntellij(){
   set -x
   installCurl
+  installGNUPG2
 
   curl -s https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc | sudo apt-key add -
   echo "deb http://jetbrains-ppa.s3-website.eu-central-1.amazonaws.com bionic main" | sudo tee /etc/apt/sources.list.d/jetbrains-ppa.list > /dev/null
@@ -195,9 +206,7 @@ installNetworkManager(){
   sudo apt-get install -y network-manager-fortisslvpn
   sudo apt-get install -y network-manager-fortisslvpn-gnome
 
-
-
-  set +ex
+  set +x
 }
 
 installGit(){
@@ -214,6 +223,8 @@ installGit(){
   # }
 
 installTilix(){
+  installTzdata
+
   sudo apt-get install -y tilix
   sudo ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
   wget -qO $HOME"/.config/tilix/schemes/arthur.json" https://git.io/v7QV1
@@ -226,6 +237,8 @@ installTilix(){
 }
 
 installChinese(){
+  installTzdata
+
   sudo apt-get install -y ibus-cangjie
 
   sudo apt-get install -y ibus-rime
@@ -236,6 +249,7 @@ installChinese(){
 }
 
 installStacer(){
+  installWget
 
   cd /tmp
   wget https://jaist.dl.sourceforge.net/project/stacer/v1.0.9/stacer_1.0.9_amd64.deb
@@ -248,8 +262,9 @@ installStacer(){
 
 installFresh(){
   set -ex
-
+  installTzdata
   installGit
+
   sudo apt-get install -y curl wget vim openssh-server httpie tree aria2
 
 
@@ -325,7 +340,10 @@ installFresh(){
 }
 
 installCode(){
-  sudo apt-get install -y curl git
+  installCurl
+  installGit
+  installGNUPG2
+
   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
   sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
   sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
@@ -343,6 +361,8 @@ installAria2c(){
 
 installNgrok(){
   # usage installNgrok <authtoken>
+  installTzdata
+
   set -x
 
   installAria2c
@@ -365,6 +385,7 @@ installGNUPG2(){
 installPycharm(){
   installCurl
   installGNUPG2
+  installTzdata
 
   curl -s https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc | sudo apt-key add -
   echo "deb http://jetbrains-ppa.s3-website.eu-central-1.amazonaws.com bionic main" | sudo tee /etc/apt/sources.list.d/jetbrains-ppa.list > /dev/null
@@ -373,6 +394,8 @@ installPycharm(){
 }
 
 installAliWangWang(){
+  installGit
+
   cd /tmp
     rm -rf deepin-wine-ubuntu
     git clone https://github.com/wszqkzqk/deepin-wine-ubuntu.git
@@ -389,6 +412,8 @@ installTmate(){
 }
 
 installOhMyTmux(){
+  installGit
+
   # oh-my-tmux
   cd
     git clone https://github.com/gpakosz/.tmux.git
@@ -398,6 +423,8 @@ installOhMyTmux(){
 }
 
 installTmateWrapper(){
+  installGit
+
   cd /opt
     sudo git clone --depth=1 https://github.com/bobbyno/tmate-wrapper.git
     cd tmate-wrapper
@@ -407,18 +434,30 @@ installTmateWrapper(){
   cd -
 }
 
+installVim(){
+  sudo apt-get update
+  sudo apt-get install -y vim
+}
+
 installSpf13(){
+  installCurl
+  installVim
+
   sudo curl https://j.mp/spf13-vim3 -L > /tmp/spf13-vim.sh
   sudo sh /tmp/spf13-vim.sh
 }
 
 installLaCapitaine(){
+  installApt
+
   sudo add-apt-repository -y ppa:dyatlov-igor/la-capitaine
   sudo apt-get update
   sudo apt-get install -y la-capitaine-cursor-theme
 }
 
 installNautilus(){
+  installTzdata
+
   sudo apt-get install -y curl python-nautilus
   sudo add-apt-repository -y ppa:daniel-marynicz/filemanager-actions
   sudo apt-get install -y filemanager-actions-nautilus-extension
@@ -427,6 +466,8 @@ installNautilus(){
 }
 
 installXnView(){
+  installApt
+
   sudo add-apt-repository -y ppa:dhor/myway
   sudo apt-get update
   sudo apt-get install -y xnview
@@ -466,12 +507,16 @@ installFranz(){
 }
 
 installPaperIcon(){
+  installApt
+
   sudo add-apt-repository -y  ppa:papirus/papirus
   sudo apt update
   sudo apt install  -y  papirus-icon-theme
 }
 
 installObsStudio(){
+  installApt
+
   sudo add-apt-repository -y ppa:obsproject/obs-studio
   sudo apt update
   sudo apt install -y obs-studio
@@ -479,10 +524,11 @@ installObsStudio(){
 
 installMagicWormHole(){
   # sudo pip install --user magic-wormhole
-  sudo apt install magic-wormhole
+  sudo apt install -qqy magic-wormhole
 }
 
 installFreecad(){
+  installTzdata
   installApt
 
   sudo add-apt-repository -y ppa:freecad-maintainers/freecad-stable
@@ -501,6 +547,8 @@ installRclone(){
 }
 
 installTmux(){
+  installGit
+
   sudo apt-get install -y tmux
 
   cd
@@ -510,6 +558,8 @@ installTmux(){
 }
 
 installKicad(){
+  installApt
+
   set -x
 
   sudo add-apt-repository --yes ppa:js-reynaud/kicad-5.1
@@ -590,6 +640,7 @@ installMeld(){
 
 installYarn(){
   set -x
+  installGNUPG2
 
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
@@ -638,6 +689,8 @@ installArgos(){
 }
 
 installOpenWeather(){
+  installGit
+
   cd /tmp && git clone git://gitlab.com/jenslody/gnome-shell-extension-openweather.git
   cd /tmp/gnome-shell-extension-openweather
   ./autogen.sh && make local-install
@@ -645,7 +698,7 @@ installOpenWeather(){
 
 installLsbCore(){
   sudo apt-get update
-  sudo apt-get install lsb-core
+  sudo apt-get install -qqy lsb-core
 }
 
 installCaffeine(){
@@ -664,11 +717,14 @@ installGsconnect(){
 }
 
 installOpenSCAD(){
+  installApt
+
   sudo add-apt-repository -y ppa:openscad/releases
   sudo apt-get install -y openscad
 }
 
 installDynamicTopBar(){
+  installTzdata
   installAria2c
 
   cd /tmp
@@ -694,6 +750,7 @@ installScreenSaver(){
 }
 
 installGitKraken(){
+  installTzdata
   installAria2c
 
   ariaDownload https://release.gitkraken.com/linux/gitkraken-amd64.deb
