@@ -34,7 +34,6 @@ jobs:
         - docker run -t logickee/ubuntu-1804-zsh /installFirebaseTools.sh | tee logs/docker_installFirebaseTools.log
         - docker run -t logickee/ubuntu-1804-zsh /installFranz.sh | tee logs/docker_installFranz.log
         - docker run -t logickee/ubuntu-1804-zsh /installFreecad.sh | tee logs/docker_installFreecad.log
-        - docker run -t logickee/ubuntu-1804-zsh /installFresh.sh | tee logs/docker_installFresh.log
         - docker run -t logickee/ubuntu-1804-zsh /installGestureDelete.sh | tee logs/docker_installGestureDelete.log
         - docker run -t logickee/ubuntu-1804-zsh /installGit.sh | tee logs/docker_installGit.log
         - docker run -t logickee/ubuntu-1804-zsh /installGitKraken.sh | tee logs/docker_installGitKraken.log
