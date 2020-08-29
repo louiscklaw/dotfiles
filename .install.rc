@@ -410,7 +410,7 @@ installAliWangWang(){
 
   cd /tmp/deepin-wine-ubuntu
     sudo apt-get install -y --no-install-recommends xdotool
-    ./install.sh
+    echo Y | ./install.sh
   cd -
 }
 
@@ -626,6 +626,8 @@ installFirebaseTools(){
 }
 
 installGestureDelete(){
+  installTzdata
+
   sudo apt-get install -y xdotool wmctrl
   sudo apt-get install -y libinput-tools
 
