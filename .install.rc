@@ -482,11 +482,13 @@ installKicad(){
 }
 
 installNode(){
+  export DEBIAN_FRONTEND=noninteractive
+
   set -x
 
   curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-  sudo apt update
-  sudo apt install -y nodejs
+  sudo apt-get update
+  sudo DEBIAN_FRONTEND=noninteractive sudo apt-get install -qqy nodejs
 
   sudo npm install -g gatsby-cli
 
