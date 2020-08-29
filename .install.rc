@@ -621,7 +621,6 @@ installKicad(){
   installApt
 
   set -x
-  installApt
 
   sudo add-apt-repository --yes ppa:js-reynaud/kicad-5.1
   sudo apt-get update
