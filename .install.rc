@@ -378,9 +378,11 @@ installNgrok(){
 
   cd /tmp
     ariaDownload https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
-    sudo unzip ngrok-stable-linux-amd64.zip /usr/local/bin
+    sudo unzip ngrok-stable-linux-amd64.zip
+    sudo mv ngrok  /usr/local/bin
+    ls -l /usr/local/bin/ngrok
     sudo chmod +x /usr/local/bin/ngrok
-    /usr/local/bin/ngrok authtoken $@
+    # /usr/local/bin/ngrok authtoken $@
   cd -
 
   set +x
@@ -583,8 +585,8 @@ installTmux(){
 }
 
 installKicad(){
-  installApt
   installTzdata
+  installApt
 
   set -x
 
@@ -630,6 +632,7 @@ installFirebaseTools(){
 
 installGestureDelete(){
   installTzdata
+  installGit
 
   sudo apt-get install -y xdotool wmctrl
   sudo apt-get install -y libinput-tools
