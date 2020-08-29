@@ -78,6 +78,7 @@ installPowerLineFonts(){
 }
 
 installDocker(){
+  installTzdata
   set -x
 
   # sudo apt-get remove docker docker-engine docker.io
@@ -346,6 +347,7 @@ installFresh(){
 }
 
 installCode(){
+  installTzdata
   installCurl
   installGit
   installGNUPG2
@@ -518,6 +520,7 @@ installZsh(){
 }
 
 installFranz(){
+  installTzdata
   installWget
 
   sudo wget -O /tmp/franz.deb https://github.com/meetfranz/franz/releases/download/v5.2.0/franz_5.2.0_amd64.deb
@@ -665,6 +668,7 @@ installMeld(){
 
 installYarn(){
   set -x
+  installTzdata
   installCurl
   installGNUPG2
 
@@ -733,6 +737,7 @@ installLigblib2(){
 }
 
 installCaffeine(){
+  installTzdata
   installGit
   installLigblib2
 
