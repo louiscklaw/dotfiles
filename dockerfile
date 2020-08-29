@@ -1,4 +1,5 @@
-FROM ubuntu:latest
+# FROM ubuntu:latest
+FROM ubuntudesktop/gnome-3-28-1804
 
 # Set default user and workdir
 USER root
@@ -37,6 +38,8 @@ COPY ./.ssh_alias.rc /root/_workspace/dotfiles/.ssh_alias.rc
 COPY ./.sshrc /root/_workspace/dotfiles/.sshrc
 COPY ./.sshrc.d /root/_workspace/dotfiles/.sshrc.d
 COPY ./.travis.rc /root/_workspace/dotfiles/.travis.rc
+
+COPY ./my_config /root/_workspace/dotfiles/my_config
 
 COPY ./tests /
 
