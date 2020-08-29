@@ -4,10 +4,8 @@
 stages:
 
 # docker_build_stages_start
-  - name: installAliWangWang
-  - name: installAndroidStudio
-  - name: installArgos
 
+  - name: installPycharm
 # docker_build_stages_end
 
   - name: Build_docker
