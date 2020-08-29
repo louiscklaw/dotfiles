@@ -2,11 +2,15 @@
 
 # set -x
 
+export DEBIAN_FRONTEND=noninteractive
+
 if [[ -e $HOME/.common.rc ]]; then
   source $HOME/.common.rc
 fi
 
 installCUHKUbuntuRepo(){
+installTzdata
+installLsbCore
 
 LSB_RELEASE_NAME=`lsb_release -cs`
 
@@ -59,6 +63,11 @@ setSnapPackageHistory(){
 }
 
 installPowerLineFonts(){
+  installWget
+  installUnzip
+
+  sudo apt install -qqy fontconfig
+
   cd /tmp
     wget https://github.com/powerline/fonts/archive/2015-12-04.zip
     unzip 2015-12-04.zip
@@ -71,22 +80,30 @@ installPowerLineFonts(){
 }
 
 installDocker(){
+  installTzdata
   set -x
 
-  sudo apt-get remove docker docker-engine docker.io
+  # sudo apt-get remove docker docker-engine docker.io
   sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
   sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu  $(lsb_release -cs)  stable"
   sudo apt-get update
   sudo apt-get install -y docker-ce
 
+  installNode
   # install linter
   sudo npm install -g dockerlint
+
+  mkdir -p /etc/docker
+
+  sudo cp $HOME/_workspace/dotfiles/my_config/docker/daemon.json /etc/docker/daemon.json
 
   set +x
 }
 
 installDockerCompose(){
+  installCurl
+
   set -x
 
   sudo rm -rf /usr/local/bin/docker-compose
@@ -100,6 +117,8 @@ installDockerCompose(){
 }
 
 installSsh(){
+  installTzdata
+
   set -x
 
   sudo apt-get install -y ssh
@@ -113,7 +132,20 @@ installSsh(){
   set +x
 }
 
+installCurl(){
+  sudo apt-get update
+  sudo apt-get install -y curl
+}
+
+installApt(){
+  sudo apt-get update
+  sudo apt-get install -y software-properties-common
+}
+
 installInkscape(){
+  installTzdata
+  installApt
+
   sudo add-apt-repository universe
   sudo add-apt-repository -y ppa:inkscape.dev/stable
   sudo apt-get update
@@ -121,6 +153,9 @@ installInkscape(){
 }
 
 installKrita(){
+  installTzdata
+  installApt
+
   sudo add-apt-repository -y ppa:kritalime/ppa
   sudo apt-get update
   sudo apt-get install -y krita
@@ -139,17 +174,26 @@ installPython(){
 }
 
 installLibreoffice(){
+  installTzdata
+  installApt
+
   sudo add-apt-repository -y ppa:libreoffice/ppa
   sudo apt install -y libreoffice
 }
 
 installAndroidStudio(){
+  installTzdata
+  installApt
+
   sudo apt-add-repository -y ppa:maarten-fonville/android-studio
   sudo apt-get install -y android-studio
 }
 
 installIntellij(){
   set -x
+  installCurl
+  installGNUPG2
+
   curl -s https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc | sudo apt-key add -
   echo "deb http://jetbrains-ppa.s3-website.eu-central-1.amazonaws.com bionic main" | sudo tee /etc/apt/sources.list.d/jetbrains-ppa.list > /dev/null
   sudo apt-get install -y pycharm-community intellij-idea-community
@@ -158,6 +202,8 @@ installIntellij(){
 }
 
 installNetworkManager(){
+  installTzdata
+
   set -x
   sudo apt-get install -y network-manager-gnome
   sudo apt-get install -y network-manager-ssh
@@ -173,9 +219,7 @@ installNetworkManager(){
   sudo apt-get install -y network-manager-fortisslvpn
   sudo apt-get install -y network-manager-fortisslvpn-gnome
 
-
-
-  set +ex
+  set +x
 }
 
 installGit(){
@@ -192,18 +236,28 @@ installGit(){
   # }
 
 installTilix(){
+  installTzdata
+  installWget
+
   sudo apt-get install -y tilix
   sudo ln -s /etc/profile.d/vte-2.91.sh /etc/profile.d/vte.sh
-  wget -qO $HOME"/.config/tilix/schemes/arthur.json" https://git.io/v7QV1
-  wget -qO $HOME"/.config/tilix/schemes/brogrammer.json" https://git.io/v7Qa3
-  wget -qO $HOME"/.config/tilix/schemes/highway.json" https://git.io/v7QV7
-  wget -qO $HOME"/.config/tilix/schemes/molokai.json" https://git.io/v7QVE
-  wget -qO $HOME"/.config/tilix/schemes/one-dark.json" https://git.io/v7Qaw
-  wget -qO $HOME"/.config/tilix/schemes/sea-shells.json" https://git.io/v7Qay
-  wget -qO $HOME"/.config/tilix/schemes/solarized-dark-higher-contrast.json" https://git.io/v7Qa5
+
+  mkdir -p $HOME"/.config/tilix/schemes"
+
+  wget -qO $HOME"/.config/tilix/schemes/arthur.json" https://git.io/v7QV1  &
+  wget -qO $HOME"/.config/tilix/schemes/brogrammer.json" https://git.io/v7Qa3  &
+  wget -qO $HOME"/.config/tilix/schemes/highway.json" https://git.io/v7QV7  &
+  wget -qO $HOME"/.config/tilix/schemes/molokai.json" https://git.io/v7QVE  &
+  wget -qO $HOME"/.config/tilix/schemes/one-dark.json" https://git.io/v7Qaw  &
+  wget -qO $HOME"/.config/tilix/schemes/sea-shells.json" https://git.io/v7Qay  &
+  wget -qO $HOME"/.config/tilix/schemes/solarized-dark-higher-contrast.json" https://git.io/v7Qa5  &
+
+  wait
 }
 
 installChinese(){
+  installTzdata
+
   sudo apt-get install -y ibus-cangjie
 
   sudo apt-get install -y ibus-rime
@@ -214,9 +268,11 @@ installChinese(){
 }
 
 installStacer(){
+  # installWget
+  installAria2c
 
   cd /tmp
-  wget https://jaist.dl.sourceforge.net/project/stacer/v1.0.9/stacer_1.0.9_amd64.deb
+  ariaDownload https://jaist.dl.sourceforge.net/project/stacer/v1.0.9/stacer_1.0.9_amd64.deb
   sudo dpkg -i stacer_1.0.9_amd64.deb
   cd -
 
@@ -226,8 +282,9 @@ installStacer(){
 
 installFresh(){
   set -ex
-
+  installTzdata
   installGit
+
   sudo apt-get install -y curl wget vim openssh-server httpie tree aria2
 
 
@@ -303,32 +360,58 @@ installFresh(){
 }
 
 installCode(){
-  sudo apt-get install -y curl git
+  installTzdata
+  installCurl
+  installGit
+  installGNUPG2
+
   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
   sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
   sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 
-  sudo apt-get install apt-transport-https
   sudo apt-get update
-  sudo apt-get install code
+  sudo apt-get install -qqy apt-transport-https
+  sudo apt-get install -qqy code
 
+}
+
+installAria2c(){
+  installTzdata
+  sudo apt-get update
+  sudo apt-get install -y aria2
 }
 
 installNgrok(){
   # usage installNgrok <authtoken>
+  installTzdata
+  installUnzip
+
   set -x
+
+  installAria2c
 
   cd /tmp
     ariaDownload https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
-    sudo unzip ngrok-stable-linux-amd64.zip /usr/local/bin
+    sudo unzip ngrok-stable-linux-amd64.zip
+    sudo mv ngrok  /usr/local/bin
+    ls -l /usr/local/bin/ngrok
     sudo chmod +x /usr/local/bin/ngrok
-    /usr/local/bin/ngrok authtoken $@
+    # /usr/local/bin/ngrok authtoken $@
   cd -
 
   set +x
 }
 
+installGNUPG2(){
+  sudo apt-get update
+  sudo apt-get install -y gnupg2
+}
+
 installPycharm(){
+  installCurl
+  installGNUPG2
+  installTzdata
+
   curl -s https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc | sudo apt-key add -
   echo "deb http://jetbrains-ppa.s3-website.eu-central-1.amazonaws.com bionic main" | sudo tee /etc/apt/sources.list.d/jetbrains-ppa.list > /dev/null
   sudo apt-get update
@@ -336,14 +419,17 @@ installPycharm(){
 }
 
 installAliWangWang(){
+  installTzdata
+  installGit
+
   cd /tmp
     rm -rf deepin-wine-ubuntu
     git clone https://github.com/wszqkzqk/deepin-wine-ubuntu.git
   cd -
 
   cd /tmp/deepin-wine-ubuntu
-    sudo apt install -y --no-install-recommends xdotool
-    ./install.sh
+    sudo apt-get install -y --no-install-recommends xdotool
+    echo Y | ./install.sh
   cd -
 }
 
@@ -352,6 +438,8 @@ installTmate(){
 }
 
 installOhMyTmux(){
+  installGit
+
   # oh-my-tmux
   cd
     git clone https://github.com/gpakosz/.tmux.git
@@ -360,7 +448,16 @@ installOhMyTmux(){
   cd -
 }
 
+installMake(){
+  sudo apt-get update
+  sudo apt-get install -qqy build-essential
+
+}
+
 installTmateWrapper(){
+  installGit
+  installMake
+
   cd /opt
     sudo git clone --depth=1 https://github.com/bobbyno/tmate-wrapper.git
     cd tmate-wrapper
@@ -370,18 +467,33 @@ installTmateWrapper(){
   cd -
 }
 
+installVim(){
+  sudo apt-get update
+  sudo apt-get install -y vim
+}
+
 installSpf13(){
+  installCurl
+  installVim
+  installGit
+
   sudo curl https://j.mp/spf13-vim3 -L > /tmp/spf13-vim.sh
   sudo sh /tmp/spf13-vim.sh
 }
 
 installLaCapitaine(){
+  installTzdata
+  installApt
+
   sudo add-apt-repository -y ppa:dyatlov-igor/la-capitaine
   sudo apt-get update
   sudo apt-get install -y la-capitaine-cursor-theme
 }
 
 installNautilus(){
+  installTzdata
+  installApt
+
   sudo apt-get install -y curl python-nautilus
   sudo add-apt-repository -y ppa:daniel-marynicz/filemanager-actions
   sudo apt-get install -y filemanager-actions-nautilus-extension
@@ -389,10 +501,30 @@ installNautilus(){
   wget -qO- https://raw.githubusercontent.com/cra0zy/code-nautilus/master/install.sh | bash
 }
 
+# ubuntu 20.04
+checkFocal(){
+  installLsbCore
+
+  UBUNTU_VERSION=$(lsb_release -cs)
+
+  # if [[ UBUNTU_VERSION=='focal' ]]; then
+  #   echo 'true'
+  # elif
+  #   echo 'false'
+  # fi
+  echo 'true'
+}
+
 installXnView(){
-  sudo add-apt-repository -y ppa:dhor/myway
-  sudo apt-get update
-  sudo apt-get install -y xnview
+  if [[ checkFocal=='false' ]]; then
+    installTzdata
+    installApt
+
+
+    # sudo add-apt-repository -y ppa:dhor/myway
+    # sudo apt-get update
+    # sudo apt-get install -y xnview
+  fi
 }
 
 installSynergy(){
@@ -422,17 +554,26 @@ installZsh(){
 }
 
 installFranz(){
+  installTzdata
+  installWget
+
   sudo wget -O /tmp/franz.deb https://github.com/meetfranz/franz/releases/download/v5.2.0/franz_5.2.0_amd64.deb
   sudo apt-get install -y /tmp/franz.deb
 }
 
 installPaperIcon(){
+  installTzdata
+  installApt
+
   sudo add-apt-repository -y  ppa:papirus/papirus
   sudo apt update
   sudo apt install  -y  papirus-icon-theme
 }
 
 installObsStudio(){
+  installTzdata
+  installApt
+
   sudo add-apt-repository -y ppa:obsproject/obs-studio
   sudo apt update
   sudo apt install -y obs-studio
@@ -440,16 +581,21 @@ installObsStudio(){
 
 installMagicWormHole(){
   # sudo pip install --user magic-wormhole
-  sudo apt install magic-wormhole
+  sudo apt install -qqy magic-wormhole
 }
 
 installFreecad(){
+  installTzdata
+  installApt
+
   sudo add-apt-repository -y ppa:freecad-maintainers/freecad-stable
   sudo apt-get update
   sudo apt install -y freecad
 }
 
 installGnomeUtil(){
+  installTzdata
+
   sudo apt install -y gnome-sushi
   sudo apt install -y gnome-contacts
   sudo apt install -y gnome-extra-icons
@@ -460,6 +606,8 @@ installRclone(){
 }
 
 installTmux(){
+  installGit
+
   sudo apt-get install -y tmux
 
   cd
@@ -469,6 +617,9 @@ installTmux(){
 }
 
 installKicad(){
+  installTzdata
+  installApt
+
   set -x
 
   sudo add-apt-repository --yes ppa:js-reynaud/kicad-5.1
@@ -479,19 +630,29 @@ installKicad(){
 
 }
 
+installTzdata(){
+  export DEBIAN_FRONTEND=noninteractive
+  ln -fs /usr/share/zoneinfo/Asia/Hong_Kong /etc/localtime
+}
+
 installNode(){
+  # export DEBIAN_FRONTEND=noninteractive
+
+  installTzdata
+
   set -x
 
   curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-  sudo apt update
-  sudo apt install -y nodejs
+  sudo apt-get update
+
+  sudo apt-get install -qqy nodejs
+  # sudo apt-get install -qqy npm
 
   sudo npm install -g gatsby-cli
 
   sudo npm install -g live-server
   sudo npm install -g live-server-https
   sudo npm install -g nodemon
-
 
   set +x
 }
@@ -502,6 +663,9 @@ installFirebaseTools(){
 }
 
 installGestureDelete(){
+  installTzdata
+  installGit
+
   sudo apt-get install -y xdotool wmctrl
   sudo apt-get install -y libinput-tools
 
@@ -517,20 +681,33 @@ installGestureDelete(){
 
 }
 
+installWget(){
+  sudo apt-get install -y wget
+}
+
 installNoMachine(){
+  # installWget
+  installAria2c
+
   cd /tmp
-  wget https://download.nomachine.com/download/6.11/Linux/nomachine_6.11.2_1_amd64.deb
+  # wget https://download.nomachine.com/download/6.11/Linux/nomachine_6.11.2_1_amd64.deb
+  ariaDownload https://download.nomachine.com/download/6.11/Linux/nomachine_6.11.2_1_amd64.deb
   sudo dpkg -i nomachine_6.11.2_1_amd64.deb
   cd -
 
 }
 
 installMeld(){
-  sudo apt-get install -y meld
+  installTzdata
+
+  sudo apt-get install -qqy meld
 }
 
 installYarn(){
   set -x
+  installTzdata
+  installCurl
+  installGNUPG2
 
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
@@ -569,6 +746,8 @@ getUbuntu2004(){
 }
 
 installArgos(){
+  installGit
+
   mkdir -p $HOME/.local/share/gnome-shell/extensions
   cd /tmp
     git clone https://github.com/p-e-w/argos.git
@@ -577,12 +756,31 @@ installArgos(){
 }
 
 installOpenWeather(){
-  cd /tmp && git clone git://gitlab.com/jenslody/gnome-shell-extension-openweather.git
-  cd /tmp/gnome-shell-extension-openweather
-  ./autogen.sh && make local-install
+  sudo apt-get install -y gnome-shell-extension-weather
+
+  # installGit
+
+  # cd /tmp && git clone https://gitlab.com/jenslody/gnome-shell-extension-openweather.git
+  # cd /tmp/gnome-shell-extension-openweather
+  # ./autogen.sh
+  # make local-install
+}
+
+installLsbCore(){
+  sudo apt-get update
+  sudo apt-get install -qqy lsb-core
+}
+
+installLigblib2(){
+  sudo apt-get update
+  sudo apt-get install -qqy libglib2.0-dev
 }
 
 installCaffeine(){
+  installTzdata
+  installGit
+  installLigblib2
+
   git clone git://github.com/eonpatapon/gnome-shell-extension-caffeine.git
   cd gnome-shell-extension-caffeine
   ./update-locale.sh
@@ -596,11 +794,24 @@ installGsconnect(){
 }
 
 installOpenSCAD(){
+  installTzdata
+  installApt
+
   sudo add-apt-repository -y ppa:openscad/releases
   sudo apt-get install -y openscad
 }
 
+installUnzip(){
+  sudo apt-get update
+  sudo apt-get install -qqy unzip
+  unzip -v
+}
+
 installDynamicTopBar(){
+  installTzdata
+  installAria2c
+  installUnzip
+
   cd /tmp
     ariaDownload https://github.com/AMDG2/GnomeShell_DynamicTopBar/releases/download/3.3.1/DynamicTopBar_19.zip
     mkdir -p ~/.local/share/gnome-shell/extensions
@@ -624,6 +835,9 @@ installScreenSaver(){
 }
 
 installGitKraken(){
+  installTzdata
+  installAria2c
+
   ariaDownload https://release.gitkraken.com/linux/gitkraken-amd64.deb
   sudo dpkg -i gitkraken-amd64.deb
 
