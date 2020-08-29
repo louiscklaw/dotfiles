@@ -334,9 +334,16 @@ installCode(){
 
 }
 
+installAria2c(){
+  sudo apt-get update
+  sudo apt-get install -y aria2
+}
+
 installNgrok(){
   # usage installNgrok <authtoken>
   set -x
+
+  installAria2c
 
   cd /tmp
     ariaDownload https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
