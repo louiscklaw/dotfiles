@@ -538,6 +538,8 @@ installNoMachine(){
 }
 
 installMeld(){
+  installTzdata
+
   sudo apt-get install -qqy meld
 }
 
