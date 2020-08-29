@@ -18,7 +18,7 @@ docker run -t logickee/ubuntu-1804-zsh /installGitKraken.sh | tee logs/docker_in
 docker run -t logickee/ubuntu-1804-zsh /installGnomeAnimations.sh | tee logs/docker_installGnomeAnimations.log
 docker run -t logickee/ubuntu-1804-zsh /installGnomeUtil.sh | tee logs/docker_installGnomeUtil.log
 docker run -t logickee/ubuntu-1804-zsh /installGsconnect.sh | tee logs/docker_installGsconnect.log
-docker run -t logickee/ubuntu-1804-zsh /installHelloworld.sh | tee logs/docker_installHelloworld.log
+
 docker run -t logickee/ubuntu-1804-zsh /installInkscape.sh | tee logs/docker_installInkscape.log
 docker run -t logickee/ubuntu-1804-zsh /installIntellij.sh | tee logs/docker_installIntellij.log
 docker run -t logickee/ubuntu-1804-zsh /installKicad.sh | tee logs/docker_installKicad.log

@@ -14,7 +14,8 @@ jobs:
 
       script:
         # - tests/run_test.sh
-        - travis_wait 50 cat tests/full_docker_commands.sh | while read i; do printf "%q\n" "$i"; done | xargs --max-procs=99 -I CMD bash -c CMD
+        # - travis_wait 50 cat tests/full_docker_commands.sh | while read i; do printf "%q\n" "$i"; done | xargs --max-procs=99 -I CMD bash -c CMD
+        - docker run -t logickee/ubuntu-1804-zsh /installHelloworld.sh | tee logs/docker_installHelloworld.log
 
       after_script:
         - docker container prune -f
