@@ -11,5 +11,5 @@ jobs:
         - docker build -t logickee/ubuntu-1804-zsh .
 
       script:
-        - sh tests/run_test.sh
+        - tests/run_test.sh
         - echo 'helloworld'
