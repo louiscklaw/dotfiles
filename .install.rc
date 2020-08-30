@@ -831,6 +831,8 @@ installScreenSaver(){
   cd /home/logic/Videos
     youtube-dl -f 'bestvideo[height<=1920]+bestaudio/best[height<=1920]' https://www.youtube.com/watch\?v\=gYO1uk7vIcc
 
+    mv "Magic of Hong Kong. Mind-blowing cyberpunk drone video of the craziest Asia’s city by Timelab.pro-gYO1uk7vIcc.webm" hong-kong-screen-saver.webm
+
   cp /home/logic/_workspace/dotfiles/screensaver/.xscreensaver /home/logic/.xscreensaver
 }
 

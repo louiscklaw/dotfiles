@@ -76,7 +76,8 @@ PushingToGithub(){
 
 initPipenv(){
   touch Pipfile
-  pipenv shell --three
+  pipenv check
+  pipenv lock
 }
 
 sendTmateAddrToSlack(){
