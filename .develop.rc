@@ -336,3 +336,11 @@ cloneToWorkspace(){
 code_del(){
   code /home/logic/_del
 }
+
+
+initPipenv(){
+  touch Pipfile
+  pipenv lock
+  pipenv shell --three
+
+}
