@@ -845,6 +845,11 @@ installGitKraken(){
 
 }
 
+installGhCli(){
+  ariaDownload https://github.com/cli/cli/releases/download/v0.11.1/gh_0.11.1_linux_amd64.deb
+  sudo apt install ./gh_*_linux_amd64.deb
+}
+
 installHelloworld(){
   echo "helloworld"
 }
