@@ -39,6 +39,23 @@ jobs:
     # stage_template_end
 
     # stage_template_start
+    - stage: installApt
+      if: branch == test/installApt
+
+      before_install:
+        - docker pull ubuntu
+        - docker build -t logickee/ubuntu-1804-zsh .
+        - docker container prune -f
+        - rm -rf /home/logic/_workspace/dotfiles/logs/*.log
+
+      script:
+        #SCRIPT_CONTENT_START
+        - docker run -t logickee/ubuntu-1804-zsh /installApt.sh | tee logs/docker_installApt.log
+        #SCRIPT_CONTENT_END
+
+    # stage_template_end
+
+    # stage_template_start
     - stage: installArgos
       if: branch == test/installArgos
 
@@ -51,6 +68,23 @@ jobs:
       script:
         #SCRIPT_CONTENT_START
         - docker run -t logickee/ubuntu-1804-zsh /installArgos.sh | tee logs/docker_installArgos.log
+        #SCRIPT_CONTENT_END
+
+    # stage_template_end
+
+    # stage_template_start
+    - stage: installAria2c
+      if: branch == test/installAria2c
+
+      before_install:
+        - docker pull ubuntu
+        - docker build -t logickee/ubuntu-1804-zsh .
+        - docker container prune -f
+        - rm -rf /home/logic/_workspace/dotfiles/logs/*.log
+
+      script:
+        #SCRIPT_CONTENT_START
+        - docker run -t logickee/ubuntu-1804-zsh /installAria2c.sh | tee logs/docker_installAria2c.log
         #SCRIPT_CONTENT_END
 
     # stage_template_end
@@ -119,6 +153,23 @@ jobs:
       script:
         #SCRIPT_CONTENT_START
         - docker run -t logickee/ubuntu-1804-zsh /installCUHKUbuntuRepo.sh | tee logs/docker_installCUHKUbuntuRepo.log
+        #SCRIPT_CONTENT_END
+
+    # stage_template_end
+
+    # stage_template_start
+    - stage: installCurl
+      if: branch == test/installCurl
+
+      before_install:
+        - docker pull ubuntu
+        - docker build -t logickee/ubuntu-1804-zsh .
+        - docker container prune -f
+        - rm -rf /home/logic/_workspace/dotfiles/logs/*.log
+
+      script:
+        #SCRIPT_CONTENT_START
+        - docker run -t logickee/ubuntu-1804-zsh /installCurl.sh | tee logs/docker_installCurl.log
         #SCRIPT_CONTENT_END
 
     # stage_template_end
@@ -260,6 +311,23 @@ jobs:
     # stage_template_end
 
     # stage_template_start
+    - stage: installGhCli
+      if: branch == test/installGhCli
+
+      before_install:
+        - docker pull ubuntu
+        - docker build -t logickee/ubuntu-1804-zsh .
+        - docker container prune -f
+        - rm -rf /home/logic/_workspace/dotfiles/logs/*.log
+
+      script:
+        #SCRIPT_CONTENT_START
+        - docker run -t logickee/ubuntu-1804-zsh /installGhCli.sh | tee logs/docker_installGhCli.log
+        #SCRIPT_CONTENT_END
+
+    # stage_template_end
+
+    # stage_template_start
     - stage: installGitKraken
       if: branch == test/installGitKraken
 
@@ -323,6 +391,23 @@ jobs:
       script:
         #SCRIPT_CONTENT_START
         - docker run -t logickee/ubuntu-1804-zsh /installGnomeUtil.sh | tee logs/docker_installGnomeUtil.log
+        #SCRIPT_CONTENT_END
+
+    # stage_template_end
+
+    # stage_template_start
+    - stage: installGNUPG2
+      if: branch == test/installGNUPG2
+
+      before_install:
+        - docker pull ubuntu
+        - docker build -t logickee/ubuntu-1804-zsh .
+        - docker container prune -f
+        - rm -rf /home/logic/_workspace/dotfiles/logs/*.log
+
+      script:
+        #SCRIPT_CONTENT_START
+        - docker run -t logickee/ubuntu-1804-zsh /installGNUPG2.sh | tee logs/docker_installGNUPG2.log
         #SCRIPT_CONTENT_END
 
     # stage_template_end
@@ -464,6 +549,40 @@ jobs:
     # stage_template_end
 
     # stage_template_start
+    - stage: installLigblib2
+      if: branch == test/installLigblib2
+
+      before_install:
+        - docker pull ubuntu
+        - docker build -t logickee/ubuntu-1804-zsh .
+        - docker container prune -f
+        - rm -rf /home/logic/_workspace/dotfiles/logs/*.log
+
+      script:
+        #SCRIPT_CONTENT_START
+        - docker run -t logickee/ubuntu-1804-zsh /installLigblib2.sh | tee logs/docker_installLigblib2.log
+        #SCRIPT_CONTENT_END
+
+    # stage_template_end
+
+    # stage_template_start
+    - stage: installLsbCore
+      if: branch == test/installLsbCore
+
+      before_install:
+        - docker pull ubuntu
+        - docker build -t logickee/ubuntu-1804-zsh .
+        - docker container prune -f
+        - rm -rf /home/logic/_workspace/dotfiles/logs/*.log
+
+      script:
+        #SCRIPT_CONTENT_START
+        - docker run -t logickee/ubuntu-1804-zsh /installLsbCore.sh | tee logs/docker_installLsbCore.log
+        #SCRIPT_CONTENT_END
+
+    # stage_template_end
+
+    # stage_template_start
     - stage: installMagicWormHole
       if: branch == test/installMagicWormHole
 
@@ -476,6 +595,23 @@ jobs:
       script:
         #SCRIPT_CONTENT_START
         - docker run -t logickee/ubuntu-1804-zsh /installMagicWormHole.sh | tee logs/docker_installMagicWormHole.log
+        #SCRIPT_CONTENT_END
+
+    # stage_template_end
+
+    # stage_template_start
+    - stage: installMake
+      if: branch == test/installMake
+
+      before_install:
+        - docker pull ubuntu
+        - docker build -t logickee/ubuntu-1804-zsh .
+        - docker container prune -f
+        - rm -rf /home/logic/_workspace/dotfiles/logs/*.log
+
+      script:
+        #SCRIPT_CONTENT_START
+        - docker run -t logickee/ubuntu-1804-zsh /installMake.sh | tee logs/docker_installMake.log
         #SCRIPT_CONTENT_END
 
     # stage_template_end
@@ -889,6 +1025,74 @@ jobs:
     # stage_template_end
 
     # stage_template_start
+    - stage: installTzdata
+      if: branch == test/installTzdata
+
+      before_install:
+        - docker pull ubuntu
+        - docker build -t logickee/ubuntu-1804-zsh .
+        - docker container prune -f
+        - rm -rf /home/logic/_workspace/dotfiles/logs/*.log
+
+      script:
+        #SCRIPT_CONTENT_START
+        - docker run -t logickee/ubuntu-1804-zsh /installTzdata.sh | tee logs/docker_installTzdata.log
+        #SCRIPT_CONTENT_END
+
+    # stage_template_end
+
+    # stage_template_start
+    - stage: installUnzip
+      if: branch == test/installUnzip
+
+      before_install:
+        - docker pull ubuntu
+        - docker build -t logickee/ubuntu-1804-zsh .
+        - docker container prune -f
+        - rm -rf /home/logic/_workspace/dotfiles/logs/*.log
+
+      script:
+        #SCRIPT_CONTENT_START
+        - docker run -t logickee/ubuntu-1804-zsh /installUnzip.sh | tee logs/docker_installUnzip.log
+        #SCRIPT_CONTENT_END
+
+    # stage_template_end
+
+    # stage_template_start
+    - stage: installVim
+      if: branch == test/installVim
+
+      before_install:
+        - docker pull ubuntu
+        - docker build -t logickee/ubuntu-1804-zsh .
+        - docker container prune -f
+        - rm -rf /home/logic/_workspace/dotfiles/logs/*.log
+
+      script:
+        #SCRIPT_CONTENT_START
+        - docker run -t logickee/ubuntu-1804-zsh /installVim.sh | tee logs/docker_installVim.log
+        #SCRIPT_CONTENT_END
+
+    # stage_template_end
+
+    # stage_template_start
+    - stage: installWget
+      if: branch == test/installWget
+
+      before_install:
+        - docker pull ubuntu
+        - docker build -t logickee/ubuntu-1804-zsh .
+        - docker container prune -f
+        - rm -rf /home/logic/_workspace/dotfiles/logs/*.log
+
+      script:
+        #SCRIPT_CONTENT_START
+        - docker run -t logickee/ubuntu-1804-zsh /installWget.sh | tee logs/docker_installWget.log
+        #SCRIPT_CONTENT_END
+
+    # stage_template_end
+
+    # stage_template_start
     - stage: installXnView
       if: branch == test/installXnView
 
@@ -938,3 +1142,4 @@ jobs:
         #SCRIPT_CONTENT_END
 
     # stage_template_end
+

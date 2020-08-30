@@ -6,11 +6,14 @@ stages:
 # docker_build_stages_start
   - name: installAliWangWang
   - name: installAndroidStudio
+  - name: installApt
   - name: installArgos
+  - name: installAria2c
   - name: installCaffeine
   - name: installChinese
   - name: installCode
   - name: installCUHKUbuntuRepo
+  - name: installCurl
   - name: installDockerCompose
   - name: installDocker
   - name: installDynamicTopBar
@@ -19,10 +22,12 @@ stages:
   - name: installFreecad
   - name: installFresh
   - name: installGestureDelete
+  - name: installGhCli
   - name: installGitKraken
   - name: installGit
   - name: installGnomeAnimations
   - name: installGnomeUtil
+  - name: installGNUPG2
   - name: installGsconnect
   - name: installHelloworld
   - name: installInkscape
@@ -31,7 +36,10 @@ stages:
   - name: installKrita
   - name: installLaCapitaine
   - name: installLibreoffice
+  - name: installLigblib2
+  - name: installLsbCore
   - name: installMagicWormHole
+  - name: installMake
   - name: installMeld
   - name: installNautilus
   - name: installNetworkManager
@@ -56,6 +64,10 @@ stages:
   - name: installTmate
   - name: installTmateWrapper
   - name: installTmux
+  - name: installTzdata
+  - name: installUnzip
+  - name: installVim
+  - name: installWget
   - name: installXnView
   - name: installYarn
   - name: installZsh
