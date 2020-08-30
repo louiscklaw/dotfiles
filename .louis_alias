@@ -633,6 +633,10 @@ rsyncHome(){
   wait
 }
 
+codePortfolio(){
+  code /home/logic/_workspace/portfolio-gatsby
+}
+
 syncCredentialsHome(){
   rsync -avzhu --progress -e "ssh -p $HOME_SSH_PORT" /home/logic/.credentials.rc logic@$HOME_IP:/home/logic/.credentials.rc
   rsync -avzhu --progress -e "ssh -p $HOME_SSH_PORT" logic@$HOME_IP:/home/logic/.credentials.rc /home/logic/.credentials.rc
