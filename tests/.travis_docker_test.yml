@@ -1025,6 +1025,23 @@ jobs:
     # stage_template_end
 
     # stage_template_start
+    - stage: installTravis
+      if: branch == test/installTravis
+
+      before_install:
+        - docker pull ubuntu
+        - docker build -t logickee/ubuntu-1804-zsh .
+        - docker container prune -f
+        - rm -rf /home/logic/_workspace/dotfiles/logs/*.log
+
+      script:
+        #SCRIPT_CONTENT_START
+        - docker run -t logickee/ubuntu-1804-zsh /installTravis.sh | tee logs/docker_installTravis.log
+        #SCRIPT_CONTENT_END
+
+    # stage_template_end
+
+    # stage_template_start
     - stage: installTzdata
       if: branch == test/installTzdata
 

@@ -64,6 +64,7 @@ stages:
   - name: installTmate
   - name: installTmateWrapper
   - name: installTmux
+  - name: installTravis
   - name: installTzdata
   - name: installUnzip
   - name: installVim
