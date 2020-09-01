@@ -29,6 +29,7 @@ travisLogin(){
 installTravis(){
   sudo apt-get install -y ruby ruby-dev
   sudo gem install travis
+  sudo gem install travis-conditions
 
 }
 
