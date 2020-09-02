@@ -431,6 +431,12 @@ installAliWangWang(){
     sudo apt-get install -y --no-install-recommends xdotool
     echo Y | ./install.sh
   cd -
+
+  cd /tmp
+    ariaDownload https://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.taobao.wangwang/deepin.com.taobao.wangwang_9.12.03Cdeepin0_i386.deb
+
+    sudo dpkg -i deepin.com.taobao.wangwang_9.12.03Cdeepin0_i386.deb
+  cd -
 }
 
 installTmate(){
