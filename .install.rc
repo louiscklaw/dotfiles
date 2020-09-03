@@ -864,6 +864,18 @@ installMitmProxy(){
     ariaDownload https://snapshot.debian.org/archive/debian/20180319T215732Z/pool/main/m/mitmproxy/mitmproxy_2.0.2-4_all.deb
 
     echo y | sudo gdebi -q mitmproxy_2.0.2-4_all.deb
+
+
+    # https://askubuntu.com/questions/73287/how-do-i-install-a-root-certificate/94861#94861
+
+    # cd /home/logic/.mitmproxy
+    #   openssl x509 -in /home/logic/.mitmproxy/mitmproxy-ca-cert.pem -inform PEM -out /home/logic/.mitmproxy/mitmproxy-ca-cert.crt
+    #   sudo mkdir /usr/share/ca-certificates/extra
+    #   sudo cp /home/logic/.mitmproxy/mitmproxy-ca-cert.crt /usr/share/ca-certificates/extra/mitmproxy-ca-cert.crt
+
+    #   sudo dpkg-reconfigure -p critical ca-certificates
+
+
   cd -
 }
 
