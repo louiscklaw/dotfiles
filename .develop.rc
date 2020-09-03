@@ -342,7 +342,7 @@ code_del(){
 }
 
 checkoutOrphanBranch(){
-  # git symbolic-ref HEAD refs/heads/newbranch
+  # git checkout --orphan test_db
   # rm .git/index
   # git clean -fdx
   # ...  # 加新檔案
