@@ -341,6 +341,14 @@ code_del(){
   code /home/logic/_del
 }
 
+checkoutOrphanBranch(){
+  # git symbolic-ref HEAD refs/heads/newbranch
+  # rm .git/index
+  # git clean -fdx
+  # ...  # 加新檔案
+  # git add .
+  # git commit -m 'create new branch'
+}
 
 initPipenv(){
   touch Pipfile

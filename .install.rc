@@ -879,6 +879,10 @@ installMitmProxy(){
   cd -
 }
 
+installNmap(){
+  sudo apt-get install -y nmap
+}
+
 installHelloworld(){
   echo "helloworld"
 }
