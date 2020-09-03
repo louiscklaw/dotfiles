@@ -852,8 +852,19 @@ installGhCli(){
   sudo apt install ./gh_*_linux_amd64.deb
 }
 
+installGdebi(){
+  sudo apt-get install -y gdebi
+}
+
 installMitmProxy(){
-  sudo apt-get install -y mitmproxy
+  installGdebi
+
+  TMP_DIR=$(mktemp -d)
+  cd $TMP_DIR
+    ariaDownload https://snapshot.debian.org/archive/debian/20180319T215732Z/pool/main/m/mitmproxy/mitmproxy_2.0.2-4_all.deb
+
+    echo y | sudo gdebi -q mitmproxy_2.0.2-4_all.deb
+  cd -
 }
 
 installHelloworld(){
