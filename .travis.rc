@@ -6,6 +6,18 @@ if [[ -e $HOME/.common.rc ]]; then
   source $HOME/.common.rc
 fi
 
+travisConditionTests(){
+  set -x
+  travis-conditions eval "branch = master" --data '{"branch": "master"}'
+  travis-conditions eval "branch = develop" --data '{"branch": "develop"}'
+  travis-conditions eval "branch =~ /test\/\.*/" --data '{"branch": "test/123"}'
+  travis-conditions eval "NOT branch =~ /test\/\.*/" --data '{"branch": "tes1t/123"}'
+  travis-conditions eval "NOT branch =~ /cron\/1/ OR branch =~ /cron\/2/" --data '{"branch": "cron/1"}'
+  travis-conditions eval "NOT branch =~ /routine\/.*/" --data '{"branch": "master"}'
+  travis-conditions eval "NOT branch =~ /routine\/.*/" --data '{"branch": "routine/1"}'
+  travis-conditions eval "NOT branch =~ /cron\/1/ OR branch =~ /cron\/2/" --data '{"branch": "master"}'
+}
+
 travisHistory(){
   travis history --com
 }
