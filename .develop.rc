@@ -348,6 +348,7 @@ checkoutOrphanBranch(){
   # ...  # 加新檔案
   # git add .
   # git commit -m 'create new branch'
+  echo 'not implemented'
 }
 
 initPipenv(){

@@ -21,6 +21,7 @@ stages:
   - name: installFranz
   - name: installFreecad
   - name: installFresh
+  - name: installGdebi
   - name: installGestureDelete
   - name: installGhCli
   - name: installGitKraken
@@ -41,9 +42,11 @@ stages:
   - name: installMagicWormHole
   - name: installMake
   - name: installMeld
+  - name: installMitmProxy
   - name: installNautilus
   - name: installNetworkManager
   - name: installNgrok
+  - name: installNmap
   - name: installNode
   - name: installNoMachine
   - name: installObsStudio

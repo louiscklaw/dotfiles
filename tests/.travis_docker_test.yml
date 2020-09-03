@@ -294,6 +294,23 @@ jobs:
     # stage_template_end
 
     # stage_template_start
+    - stage: installGdebi
+      if: branch == test/installGdebi
+
+      before_install:
+        - docker pull ubuntu
+        - docker build -t logickee/ubuntu-1804-zsh .
+        - docker container prune -f
+        - rm -rf /home/logic/_workspace/dotfiles/logs/*.log
+
+      script:
+        #SCRIPT_CONTENT_START
+        - docker run -t logickee/ubuntu-1804-zsh /installGdebi.sh | tee logs/docker_installGdebi.log
+        #SCRIPT_CONTENT_END
+
+    # stage_template_end
+
+    # stage_template_start
     - stage: installGestureDelete
       if: branch == test/installGestureDelete
 
@@ -634,6 +651,23 @@ jobs:
     # stage_template_end
 
     # stage_template_start
+    - stage: installMitmProxy
+      if: branch == test/installMitmProxy
+
+      before_install:
+        - docker pull ubuntu
+        - docker build -t logickee/ubuntu-1804-zsh .
+        - docker container prune -f
+        - rm -rf /home/logic/_workspace/dotfiles/logs/*.log
+
+      script:
+        #SCRIPT_CONTENT_START
+        - docker run -t logickee/ubuntu-1804-zsh /installMitmProxy.sh | tee logs/docker_installMitmProxy.log
+        #SCRIPT_CONTENT_END
+
+    # stage_template_end
+
+    # stage_template_start
     - stage: installNautilus
       if: branch == test/installNautilus
 
@@ -680,6 +714,23 @@ jobs:
       script:
         #SCRIPT_CONTENT_START
         - docker run -t logickee/ubuntu-1804-zsh /installNgrok.sh | tee logs/docker_installNgrok.log
+        #SCRIPT_CONTENT_END
+
+    # stage_template_end
+
+    # stage_template_start
+    - stage: installNmap
+      if: branch == test/installNmap
+
+      before_install:
+        - docker pull ubuntu
+        - docker build -t logickee/ubuntu-1804-zsh .
+        - docker container prune -f
+        - rm -rf /home/logic/_workspace/dotfiles/logs/*.log
+
+      script:
+        #SCRIPT_CONTENT_START
+        - docker run -t logickee/ubuntu-1804-zsh /installNmap.sh | tee logs/docker_installNmap.log
         #SCRIPT_CONTENT_END
 
     # stage_template_end

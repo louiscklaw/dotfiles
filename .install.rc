@@ -858,6 +858,7 @@ installGdebi(){
 
 installMitmProxy(){
   installGdebi
+  installAria2c
 
   TMP_DIR=$(mktemp -d)
   cd $TMP_DIR
