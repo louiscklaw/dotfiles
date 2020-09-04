@@ -53,18 +53,16 @@ goFirebaseConsole(){
 }
 
 goTradingViewHK(){
-  set -x
   $DEFAULT_BROWSER https://www.tradingview.com/chart\?symbol\=HKEX%3A$@ &
 }
 
 goTradingViewUS(){
-  set -x
   $DEFAULT_BROWSER https://www.tradingview.com/chart\?symbol\=NYSE%3A$@ &
 }
 
 goTradingViewBABA(){
-  goTradingViewHK 9988
-  goTradingViewUS BABA
+  goTradingViewHK 9988 &
+  goTradingViewUS BABA &
 
   wait
 }

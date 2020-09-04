@@ -355,6 +355,10 @@ code_del(){
   code /home/logic/_del
 }
 
+codeWorkspace(){
+  code /home/logic/_workspace
+}
+
 checkoutOrphanBranch(){
   # git checkout --orphan test_db
   # rm .git/index
