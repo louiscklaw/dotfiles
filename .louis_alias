@@ -646,6 +646,9 @@ syncCredentialsHome(){
   rsync -avzhu --progress -e "ssh -p $HOME_SSH_PORT" /home/logic/.credentials.rc logic@$HOME_IP:/home/logic/.credentials.rc
   rsync -avzhu --progress -e "ssh -p $HOME_SSH_PORT" logic@$HOME_IP:/home/logic/.credentials.rc /home/logic/.credentials.rc
 
+  rsync -avzhu --progress -e "ssh -p $HOME_SSH_PORT" /home/logic/.credentials/ logic@$HOME_IP:/home/logic/.credentials
+  rsync -avzhu --progress -e "ssh -p $HOME_SSH_PORT" logic@$HOME_IP:/home/logic/.credentials/ /home/logic/.credentials
+
   echo 'done'
 }
 
