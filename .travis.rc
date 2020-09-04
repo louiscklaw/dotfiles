@@ -36,7 +36,7 @@ travisOpen(){
     http_link=${remote_get_url/git@github\.com:/https:\/\/travis-ci.com\/github/}
     http_link=${http_link/.com:/.com/}
     http_link=${http_link/.git//builds}
-    echo $http_link &
+    firefox $http_link &
   fi
 
 }
