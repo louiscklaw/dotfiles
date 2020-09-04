@@ -4,8 +4,8 @@ initCodeWorkspace(){
   touch ./ws.code-workspace
 }
 
-codeAppiumPlaylist() {
-  code ~/_workspace/appium-playlist
+codeAiPlaylist() {
+  code ~/_workspace/ai-playlist
 }
 
 codeAR9331Playlist() {
