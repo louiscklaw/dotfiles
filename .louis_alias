@@ -618,7 +618,10 @@ codeSongList(){
 }
 
 syncLouis(){
-  syncDotFiles &
+  syncDotFiles
+
+  resourceMe
+
   syncTodo &
   syncInventory &
   syncStock &
