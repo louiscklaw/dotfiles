@@ -294,11 +294,6 @@ dockerNodeLts(){
   sudo rm -rf .python_history
 }
 
-dockerRun(){
-  touch .env.docker
-  #docker run -it --env-file .env.docker -v $PWD:/root -v /var/run/docker.sock:/var/run/docker.sock --rm $@
-}
-
 dockerUbuntuLouis(){
   # dockerRun logickee/ubuntu-basic bash
   dockerRun logickee/ubuntu-with-systemd bash
