@@ -200,6 +200,10 @@ codeDroneCiPlaylist() {
   code ~/_workspace/drone-ci-playlist
 }
 
+codeFirewallConfig(){
+  code ~/_workspace/firewall-config
+}
+
 goGist(){
   $DEFAULT_BROWSER https://gist.github.com/louiscklaw &
 }
