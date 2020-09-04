@@ -880,6 +880,14 @@ installMitmProxy(){
   cd -
 }
 
+installHping3(){
+  sudo apt-get install -y hping3
+}
+
+installBats(){
+  sudo apt-get install -y bats
+}
+
 codeCommand(){
   # grep -ri inithusky | head -1 |awk -F: '{print $1}'
   FILE=$(grep -ri $@|head -1|awk -F: '{print $1}')

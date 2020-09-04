@@ -1,3 +1,5 @@
+// https://docs.docker.com/engine/reference/commandline/dockerd/
+// https://gist.github.com/melozo/6de91558242fb8ca4212e4a73fbddde6
 {
   "default-address-pools":
   [
