@@ -880,6 +880,55 @@ installMitmProxy(){
   cd -
 }
 
+codeCommand(){
+  # grep -ri inithusky | head -1 |awk -F: '{print $1}'
+  FILE=$(grep -ri $@|head -1|awk -F: '{print $1}')
+  code $FILE
+}
+
+initTravisCheckLeak(){
+  rsync -avzh --progress /home/logic/_workspace/travis-playlist/travis-check-leak .
+
+  rsync -avzh --progress /home/logic/_workspace/travis-playlist/scripts/test_check_leak.sh scripts/
+
+
+  bash -c "cat > scripts/test_check_leak.sh" <<EOF
+#!/usr/bin/env bash
+
+set -ex
+
+TMP_DIR=\$(mktemp -d)
+
+rsync -avzh travis-check-leak/ \$TMP_DIR
+
+cd \$TMP_DIR
+
+  pipenv sync
+
+  pipenv run python3 main.py
+
+cd ..
+EOF
+
+  bash -c "cat > scripts/pre-commit.travis-check-leak.sh" <<EOF
+#!/usr/bin/env bash
+
+set -ex
+
+PROJ_HOME=$PWD
+
+# pre-commit check
+
+# check_leak self check
+scripts/test_check_leak.sh $PROJ_HOME
+
+# done
+EOF
+
+  chmod +x ./scripts/*.sh
+
+}
+
 installNmap(){
   sudo apt-get install -y nmap
 }
