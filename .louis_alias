@@ -190,6 +190,9 @@ checkLeaking(){
     pipenv sync
     pipenv run python3 main.py $PWD
   cd -
+
+  trap 'rm -rf $TMP_DIR' EXIT
+
 }
 
 gitPushNewBranch() {
