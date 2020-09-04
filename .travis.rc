@@ -43,6 +43,8 @@ installTravis(){
   sudo gem install travis
   sudo gem install travis-conditions
 
+  travis endpoint --com --set-default
+
 }
 
 alias genTravisToken=/home/logic/_workspace/travis-playlist/gen_travis_token/.gen_travis_token.py
