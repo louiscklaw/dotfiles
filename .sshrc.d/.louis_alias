@@ -48,7 +48,8 @@ initHusky(){
 }
 
 gitPushNewBranch() {
-  set -ex
+  set -e
+
   CURR_REPO=`git rev-parse --abbrev-ref HEAD`
   git push --set-upstream origin $CURR_REPO
 }

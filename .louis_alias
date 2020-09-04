@@ -181,23 +181,33 @@ syncDotFiles(){
   set +ex
 }
 
+checkLeaking(){
+  TMP_DIR=$(mktemp -d)
+
+  cd $TMP_DIR
+    rsync -avzh --progress /home/logic/_workspace/travis-playlist/travis-check-leak/ .
+
+    pipenv sync
+    pipenv run python3 main.py $PWD
+  cd -
+}
+
 gitPushNewBranch() {
-  set -ex
+  set -e
 
   CURR_REPO=`git rev-parse --abbrev-ref HEAD`
   git push -f --set-upstream origin $CURR_REPO  $@ &
 
   PushingToGithub
 
-  set +ex
+  set +e
 }
 
 gitPush(){
-  testFlashGreenBackground "git push, bye... "
 
   git push &
+  testFlashGreenBackground "git push in background , bye... "
 
-  testFlashGreenBackground "push done"
 }
 
 updateCredentials() {
