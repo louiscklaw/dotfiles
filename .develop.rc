@@ -204,6 +204,10 @@ codeFirewallConfig(){
   code ~/_workspace/firewall-config
 }
 
+codeWorkspace(){
+  code /home/logic/_workspace
+}
+
 goGist(){
   $DEFAULT_BROWSER https://gist.github.com/louiscklaw &
 }
