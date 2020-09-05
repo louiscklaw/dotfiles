@@ -630,11 +630,16 @@ codeSongList(){
   code /home/logic/_workspace/dotfiles/.songlist.rc
 }
 
+syncWorkspace(){
+  echo 'helloworld syncWorkspace'
+}
+
 syncLouis(){
   syncDotFiles &
   syncTodo &
   syncInventory &
   syncStock &
+  syncWorkspace &
 
   wait
 }
