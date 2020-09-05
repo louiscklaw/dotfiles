@@ -118,3 +118,7 @@ cloneDotFiles(){
 goJSONExample(){
   firefox https://json.org/example.html &
 }
+
+goTravisDashboard(){
+  firefox https://travis-ci.com/github/louiscklaw &
+}
