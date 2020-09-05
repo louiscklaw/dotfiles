@@ -40,3 +40,7 @@ dockerRunPython(){
 dockerRunUbuntu1804(){
   docker run -it --env-file .env.docker -v $PWD:/root -v /var/run/docker.sock:/var/run/docker.sock --rm ubuntu:18.04
 }
+
+dockerRunNode(){
+  docker run -it --env-file .env.docker -v $PWD:/root -v /var/run/docker.sock:/var/run/docker.sock --rm node:latest bash
+}
