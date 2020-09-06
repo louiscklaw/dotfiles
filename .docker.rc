@@ -26,21 +26,35 @@ droneCiHelloworld(){
 
 dockerRun(){
   touch .env.docker
-  docker run -it --env-file .env.docker -v $PWD:/root -v /var/run/docker.sock:/var/run/docker.sock --rm $@
+  TMP_DIR=$(mktemp -d)
+  TMP_BASH_HISTORY=$TMP_DIR/.bash_history
+
+  docker run -it \
+    --env-file .env.docker \
+    -v $TMP_DIR:/root \
+    -v $PWD:/root/work_dir \
+    -v $TMP_BASH_HISTORY:/root/.bash_history \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    --rm \
+    $@
 }
 
 dockerRunUbuntu(){
-  docker run -it --env-file .env.docker -v $PWD:/root -v /var/run/docker.sock:/var/run/docker.sock --rm ubuntu:latest
+  dockerRun ubuntu:latest bash
 }
 
 dockerRunPython(){
-  docker run -it --env-file .env.docker -v $PWD:/root -v /var/run/docker.sock:/var/run/docker.sock --rm python:latest bash
+  dockerRun python:latest bash
 }
 
 dockerRunUbuntu1804(){
-  docker run -it --env-file .env.docker -v $PWD:/root -v /var/run/docker.sock:/var/run/docker.sock --rm ubuntu:18.04
+  dockerRun ubuntu:18.04
 }
 
 dockerRunNode(){
-  docker run -it --env-file .env.docker -v $PWD:/root -v /var/run/docker.sock:/var/run/docker.sock --rm node:latest bash
+  dockerRun node:latest bash
+}
+
+dockerRunGithubActionsUbuntu(){
+  dockerRun logickee/github_ubuntu
 }

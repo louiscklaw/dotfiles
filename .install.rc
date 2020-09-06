@@ -231,6 +231,17 @@ installGit(){
 
 }
 
+installGhCli(){
+  installAria2c
+
+  TMP_DIR=$(mktemp -d)
+
+  cd $TMP_DIR
+    ariaDownload https://github.com/cli/cli/releases/download/v0.11.1/gh_0.11.1_linux_amd64.deb
+    sudo apt install -qqy ./gh_*_linux_amd64.deb
+  cd -
+}
+
   # installGestures(){
   #   sudo apt-get install -y touchegg
   # }
@@ -846,6 +857,8 @@ installGitKraken(){
 }
 
 installGhCli(){
+  export DEBIAN_FRONTEND=noninteractive
+  installTzdata
   installAria2c
 
   ariaDownload https://github.com/cli/cli/releases/download/v0.11.1/gh_0.11.1_linux_amd64.deb
