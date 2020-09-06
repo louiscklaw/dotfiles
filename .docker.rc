@@ -58,3 +58,8 @@ dockerRunNode(){
 dockerRunGithubActionsUbuntu(){
   dockerRun logickee/github_ubuntu
 }
+
+
+nodemonDockerBuild(){
+  nodemon -w . --ext "dockerfile" --ignore './node_modules' --ignore './public'  --ignore './.cache' --exec "$1"
+}
