@@ -222,6 +222,11 @@ installNetworkManager(){
   set +x
 }
 
+installGnomeTerminalTheme(){
+  sudo apt-get install dconf-cli uuid-runtime
+  bash -c  "$(wget -qO- https://git.io/vQgMr)"
+}
+
 installGit(){
   sudo apt-get install -y git git-flow tig
 

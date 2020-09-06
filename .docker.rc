@@ -48,18 +48,28 @@ dockerRunPython(){
 }
 
 dockerRunUbuntu1804(){
-  dockerRun ubuntu:18.04
+  dockerRun logickee/ubuntu_1804
 }
 
 dockerRunNode(){
   dockerRun node:latest bash
 }
 
-dockerRunGithubActionsUbuntu(){
-  dockerRun logickee/github_ubuntu
+dockerRunGithub(){
+  touch .env.docker
+  TMP_DIR=$(mktemp -d)
+  TMP_BASH_HISTORY=$TMP_DIR/.bash_history
+
+  docker run -it \
+    --env-file .env.docker \
+    -v $TMP_DIR:/home/runner \
+    -v $PWD:/home/runner/work_dir \
+    -v $TMP_BASH_HISTORY:/root/.bash_history \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    --rm \
+    $@
 }
 
-
-nodemonDockerBuild(){
-  nodemon -w . --ext "dockerfile" --ignore './node_modules' --ignore './public'  --ignore './.cache' --exec "$1"
+dockerRunGithubActionsUbuntu(){
+  dockerRunGithub logickee/github_ubuntu
 }
