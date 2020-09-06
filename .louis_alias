@@ -692,6 +692,7 @@ syncWorkspace(){
   # syncWorkDir "/home/logic/_workspace/vue-playlist" &
   # syncWorkDir "/home/logic/_workspace/web-playlist" &
   # syncWorkDir "/home/logic/_workspace/webpack-playlist" &
+  syncWorkDir "/home/logic/_workspace/DS213-playlist" &
 
   # gen_syncWorkDir_end
 
