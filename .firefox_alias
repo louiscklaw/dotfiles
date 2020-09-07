@@ -126,3 +126,7 @@ goTravisDashboard(){
 
   echo "done"
 }
+
+goSlackLouisLabsAppsManager(){
+  firefox https://app.slack.com/apps-manage/T3NSVC55K &
+}

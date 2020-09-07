@@ -63,9 +63,8 @@ dockerRunGithub(){
   docker run -it \
     --env-file /home/logic/.credentials/.env.docker \
     --env-file .env.docker \
-    -v $TMP_DIR:/home/runner \
     -v $PWD:/home/runner/work_dir \
-    -v $TMP_BASH_HISTORY:/root/.bash_history \
+    -v $TMP_BASH_HISTORY:/home/runner/.bash_history \
     -v /var/run/docker.sock:/var/run/docker.sock \
     --rm \
     $@
