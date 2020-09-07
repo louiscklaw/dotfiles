@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 codeInventory(){
-  code /home/logic/_workspace/my-new-inventory
+  code /home/logic/_workspace/my-inventory
 }
 
 syncInventory(){
   OWD=$PWD
-  cd /home/logic/_workspace/my-new-inventory
+  cd /home/logic/_workspace/my-inventory
 
     git pull
 

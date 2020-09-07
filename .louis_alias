@@ -696,6 +696,8 @@ syncWorkspace(){
 
   # gen_syncWorkDir_end
 
+  syncWorkDir "/home/logic/_workspace/my-inventory" &
+
   wait
 
   cd $OWD
