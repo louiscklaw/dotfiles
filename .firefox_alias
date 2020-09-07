@@ -121,4 +121,7 @@ goJSONExample(){
 
 goTravisDashboard(){
   firefox https://travis-ci.com/github/louiscklaw &
+  firefox https://louiscklaw.github.io/travis-playlist/ &
+
+  echo "done"
 }
