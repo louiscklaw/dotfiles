@@ -898,6 +898,29 @@ installMitmProxy(){
   cd -
 }
 
+installNvidia(){
+  hwinfo --gfxcard --short
+
+  # sudo su
+  # for FILE in $(dpkg-divert --list | grep nvidia-340 | awk '{print $3}'); do dpkg-divert --remove $FILE; done
+  # exit
+
+
+  sudo add-apt-repository -y ppa:graphics-drivers/ppa
+  sudo apt update
+  sudo apt install ubuntu-drivers-common
+
+  sudo ubuntu-drivers devices
+
+  apt-cache search nvidia-driver
+  sudo apt install nvidia-driver-450
+
+
+
+  # try using offical 340 driver
+  sudo apt install -y xserver-xorg-video-nouveau
+}
+
 codeCommand(){
   # grep -ri inithusky | head -1 |awk -F: '{print $1}'
   FILE=$(grep -ri $@|head -1|awk -F: '{print $1}')
