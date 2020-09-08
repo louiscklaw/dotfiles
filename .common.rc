@@ -102,17 +102,29 @@ codeZshrc(){
   code ~/.zshrc
 }
 
-syncTodo(){
+pullTodo(){
   cd /home/logic/_workspace/todo_list
-    git fetch --all
     git pull
-
-    git add todo.md
-
-    git commit -m"update,"
-    git push &
-
-    PushingToGithub
-
   cd -
+}
+
+commitNewTodoFile(){
+  cd /home/logic/_workspace/todo_list
+    git add todo.md
+    git commit -m"update,"
+  cd -
+}
+
+pushTodo(){
+  cd /home/logic/_workspace/todo_list
+    git push &
+  cd -
+
+  PushingToGithub
+}
+
+syncTodo(){
+  pullTodo
+  commitNewTodoFile
+  pushTodo
 }
