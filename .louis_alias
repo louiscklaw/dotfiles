@@ -637,6 +637,10 @@ syncWorkDir(){
     git pull
 }
 
+codeHist(){
+  code "$HISTFILE"
+}
+
 syncWorkspace(){
   OWD=$PWD
 
