@@ -58,6 +58,52 @@ installTravis(){
 
 }
 
+runTravisDockerImage(){
+  docker kill travis-build
+  docker rm travis-build
+
+  docker pull $@
+  set -e
+  DOCKER_TAG=${1:-$@}
+  docker run --rm --name travis-build -dit \
+    --mount type=bind,source=`pwd`,target=/home/travis/work_dir \
+    $DOCKER_TAG /bin/bash
+
+  echo "Now run 'su - travis', followed by all the steps from your Travis CI log."
+  echo "The project is mounted in /home/travis/work_dir."
+  docker exec -it travis-build bash -l
+  docker kill travis-build
+}
+
+dockerTravisUbuntuSystemd1804(){
+  runTravisDockerImage travisci/ubuntu-systemd:18.04
+}
+
+dockerTravisUbuntuSystemd1604(){
+  runTravisDockerImage travisci/ubuntu-systemd:16.04
+}
+
+dockerTravisUbuntu1804(){
+  runTravisDockerImage travisci/ci-ubuntu-1804:packer-1593521720-ca42795e
+}
+
+dockerTravisUbuntu2004(){
+  runTravisDockerImage travisci/ci-ubuntu-2004:packer-1593521720-ca42795e
+
+  # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+}
+
+dockerTravisNodejs12(){
+  touch .env.docker
+  docker run -it \
+    --env-file .env.docker \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v $PWD:/root/work_dir \
+    --rm \
+    logickee/travis_node12 \
+    /bin/bash
+}
+
 alias genTravisToken=/home/logic/_workspace/travis-playlist/gen_travis_token/.gen_travis_token.py
 # genTravisToken(){
 #   TARGET_DIR=$PWD
