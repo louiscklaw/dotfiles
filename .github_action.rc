@@ -1,0 +1,4 @@
+
+initGithubActionMerger(){
+  rsync -avzh --progress /home/logic/_workspace/github-playlist/github-build-merger-tryout/ ./github-build-merger
+}
