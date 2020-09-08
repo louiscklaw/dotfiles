@@ -56,9 +56,20 @@ dockerRunNode(){
 }
 
 dockerRunGithub(){
-  touch .env.docker
+  touch ./.env.docker
   TMP_DIR=$(mktemp -d)
+
   TMP_BASH_HISTORY=$TMP_DIR/.bash_history
+  touch $TEMP_BASH_HISTORY
+
+  NODE_REPL_HISTORY=$TMP_DIR/.node_repl_history
+  touch $NODE_REPL_HISTORY
+
+  DOT_CONFIG=$TMP_DIR/.dot_config
+  touch $DOT_CONFIG
+
+  DOT_NPM=$TMP_DIR/.dot_npm
+  touch $DOT_NPM
 
   docker run -it \
     --env-file /home/logic/.credentials/.env.docker \
@@ -66,6 +77,9 @@ dockerRunGithub(){
     -v $PWD:/home/runner/work_dir \
     -v $TMP_BASH_HISTORY:/home/runner/.bash_history \
     -v /var/run/docker.sock:/var/run/docker.sock \
+    -v $NODE_REPL_HISTORY:/root/.node_repl_history \
+    -v $DOT_CONFIG:/home/runner/.config \
+    -v $DOT_NPM:/home/runner/.npm \
     --rm \
     $@
 }
