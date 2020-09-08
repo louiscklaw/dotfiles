@@ -121,4 +121,12 @@ goJSONExample(){
 
 goTravisDashboard(){
   firefox https://travis-ci.com/github/louiscklaw &
+  firefox https://travis-ci.com/github/louiscklaw?tab=insights &
+  firefox https://louiscklaw.github.io/travis-playlist/ &
+
+  echo "done"
+}
+
+goSlackLouisLabsAppsManager(){
+  firefox https://app.slack.com/apps-manage/T3NSVC55K &
 }

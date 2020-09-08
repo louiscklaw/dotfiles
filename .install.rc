@@ -222,6 +222,11 @@ installNetworkManager(){
   set +x
 }
 
+installGnomeTerminalTheme(){
+  sudo apt-get install dconf-cli uuid-runtime
+  bash -c  "$(wget -qO- https://git.io/vQgMr)"
+}
+
 installGit(){
   sudo apt-get install -y git git-flow tig
 
@@ -229,6 +234,17 @@ installGit(){
   git config --global user.email "louiscklaw@gmail.com"
   git config --global user.name "louiscklaw"
 
+}
+
+installGhCli(){
+  installAria2c
+
+  TMP_DIR=$(mktemp -d)
+
+  cd $TMP_DIR
+    ariaDownload https://github.com/cli/cli/releases/download/v0.11.1/gh_0.11.1_linux_amd64.deb
+    sudo apt install -qqy ./gh_*_linux_amd64.deb
+  cd -
 }
 
   # installGestures(){
@@ -846,6 +862,8 @@ installGitKraken(){
 }
 
 installGhCli(){
+  export DEBIAN_FRONTEND=noninteractive
+  installTzdata
   installAria2c
 
   ariaDownload https://github.com/cli/cli/releases/download/v0.11.1/gh_0.11.1_linux_amd64.deb
@@ -878,6 +896,29 @@ installMitmProxy(){
 
 
   cd -
+}
+
+installNvidia(){
+  hwinfo --gfxcard --short
+
+  # sudo su
+  # for FILE in $(dpkg-divert --list | grep nvidia-340 | awk '{print $3}'); do dpkg-divert --remove $FILE; done
+  # exit
+
+
+  sudo add-apt-repository -y ppa:graphics-drivers/ppa
+  sudo apt update
+  sudo apt install ubuntu-drivers-common
+
+  sudo ubuntu-drivers devices
+
+  apt-cache search nvidia-driver
+  sudo apt install nvidia-driver-450
+
+
+
+  # try using offical 340 driver
+  sudo apt install -y xserver-xorg-video-nouveau
 }
 
 codeCommand(){

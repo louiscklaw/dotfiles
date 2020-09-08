@@ -53,8 +53,8 @@ if [[ -e $HOME/_workspace/dotfiles/.develop.rc ]]; then
 fi
 
 
-if [[ -e $HOME/_workspace/dotfiles/.firefox_alias ]]; then
-  source $HOME/_workspace/dotfiles/.firefox_alias
+if [[ -e $HOME/_workspace/dotfiles/.firefox_alias.rc ]]; then
+  source $HOME/_workspace/dotfiles/.firefox_alias.rc
 fi
 
 if [[ -e $HOME/_workspace/dotfiles/.fabric.rc ]]; then
@@ -131,7 +131,7 @@ syncDotFiles(){
     rm -rf .raspi.rc
 
     # alias
-    rm -rf .firefox_alias
+    rm -rf .firefox_alias.rc
     rm -rf .ssh_alias.rc
 
     rm -rf .bash-palette.sh
@@ -141,7 +141,7 @@ syncDotFiles(){
     ln -s  $HOME/_workspace/dotfiles/.sshrc.d .sshrc.d
 
     ln -s  $HOME/_workspace/dotfiles/.ssh_alias.rc .ssh_alias.rc
-    ln -s  $HOME/_workspace/dotfiles/.firefox_alias .firefox_alias
+    ln -s  $HOME/_workspace/dotfiles/.firefox_alias.rc .firefox_alias.rc
 
     ln -s  $HOME/_workspace/dotfiles/.bash-palette.sh .bash-palette.sh
     ln -s  $HOME/_workspace/dotfiles/.raspi.rc .raspi.rc
@@ -157,7 +157,7 @@ syncDotFiles(){
     git add -f $HOME/_workspace/dotfiles/.sshrc.d
 
     git add -f $HOME/_workspace/dotfiles/.ssh_alias.rc
-    git add -f $HOME/_workspace/dotfiles/.firefox_alias
+    git add -f $HOME/_workspace/dotfiles/.firefox_alias.rc
     git add -f $HOME/_workspace/dotfiles/.develop.rc
 
     git add -f $HOME/_workspace/dotfiles/.bash-palette.sh
@@ -696,8 +696,11 @@ syncWorkspace(){
   # syncWorkDir "/home/logic/_workspace/vue-playlist" &
   # syncWorkDir "/home/logic/_workspace/web-playlist" &
   # syncWorkDir "/home/logic/_workspace/webpack-playlist" &
+  syncWorkDir "/home/logic/_workspace/DS213-playlist" &
 
   # gen_syncWorkDir_end
+
+  syncWorkDir "/home/logic/_workspace/my-inventory" &
 
   wait
 
