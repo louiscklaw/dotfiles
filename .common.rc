@@ -80,7 +80,7 @@ codeFirefoxAlias(){
 }
 
 codeDotFiles(){
-  code /home/logic/_workspace/dotfiles/
+  code -n /home/logic/_workspace/dotfiles/
 }
 
 codeLouisAlias(){
@@ -94,7 +94,7 @@ codeDotFirefox(){
 codeTodo(){
   cd /home/logic/_workspace/todo_list
     git pull
-    code /home/logic/_workspace/todo_list/todo.md
+    code -n /home/logic/_workspace/todo_list/todo.md
   cd -
 }
 
