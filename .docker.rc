@@ -87,3 +87,7 @@ dockerRunGithub(){
 dockerRunGithubActionsUbuntu(){
   dockerRunGithub logickee/github_ubuntu
 }
+
+dockerRunGithubActionsPython(){
+  dockerRunGithub logickee/github_python
+}
