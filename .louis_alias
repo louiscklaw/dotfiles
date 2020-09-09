@@ -513,14 +513,14 @@ gitClone(){
 }
 
 syncAll_delete(){
-  set -x
+  set -e
 
   syncGitWorks
   syncTodo
   syncStock
   syncDotFiles
 
-  set +ex
+  set +e
 
   echo "syncall done"
 
@@ -716,12 +716,13 @@ syncLouis(){
 
   resourceMe
 
-  syncTodo &
-  syncInventory &
-  syncStock &
-  syncWorkspace &
+  syncTodo
+  syncInventory
+  syncStock
+  syncWorkspace
 
-  wait
+  echo 'syncdone'
+
 }
 
 listAlias(){
