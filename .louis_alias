@@ -684,10 +684,10 @@ syncWorkspace(){
   syncWorkDir "/home/logic/_workspace/json-playlist" &
   # syncWorkDir "/home/logic/_workspace/markdown-playlist" &
   # syncWorkDir "/home/logic/_workspace/my-github-endpoint-playlist" &
-  # syncWorkDir "/home/logic/_workspace/nextjs-playlist" &
+  syncWorkDir "/home/logic/_workspace/nextjs-playlist" &
   # syncWorkDir "/home/logic/_workspace/nmap-playlist" &
   # syncWorkDir "/home/logic/_workspace/orange-pi-zero-playlist" &
-  # syncWorkDir "/home/logic/_workspace/preactjs-playlist" &
+  syncWorkDir "/home/logic/_workspace/preactjs-playlist" &
   # syncWorkDir "/home/logic/_workspace/puppeteer-playlist" &
   # syncWorkDir "/home/logic/_workspace/python-playlist" &
   # syncWorkDir "/home/logic/_workspace/raspberry-pi-playlist" &
