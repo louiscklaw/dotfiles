@@ -513,14 +513,14 @@ gitClone(){
 }
 
 syncAll_delete(){
-  set -x
+  set -e
 
   syncGitWorks
   syncTodo
   syncStock
   syncDotFiles
 
-  set +ex
+  set +e
 
   echo "syncall done"
 
@@ -655,7 +655,7 @@ syncWorkspace(){
   # syncWorkDir "/home/logic/_workspace/CNC-playlist" &
   # syncWorkDir "/home/logic/_workspace/Makefile-playlist" &
   # syncWorkDir "/home/logic/_workspace/aastock-playlist" &
-  # syncWorkDir "/home/logic/_workspace/ai-playlist" &
+  syncWorkDir "/home/logic/_workspace/ai-playlist" &
   # syncWorkDir "/home/logic/_workspace/appium-playlist" &
   # syncWorkDir "/home/logic/_workspace/arduino-playlist" &
   # syncWorkDir "/home/logic/_workspace/buildkite-playlist" &
@@ -677,17 +677,17 @@ syncWorkspace(){
   # syncWorkDir "/home/logic/_workspace/google-api-playlist" &
   # syncWorkDir "/home/logic/_workspace/graphQL-playlist" &
   # syncWorkDir "/home/logic/_workspace/hugo-playlist" &
-  # syncWorkDir "/home/logic/_workspace/i3mega-playlist" &
+  syncWorkDir "/home/logic/_workspace/i3mega-playlist" &
   # syncWorkDir "/home/logic/_workspace/jenkins-playlist" &
   # syncWorkDir "/home/logic/_workspace/jobsdb-playlist" &
   syncWorkDir "/home/logic/_workspace/js-playlist" &
-  # syncWorkDir "/home/logic/_workspace/json-playlist" &
+  syncWorkDir "/home/logic/_workspace/json-playlist" &
   # syncWorkDir "/home/logic/_workspace/markdown-playlist" &
   # syncWorkDir "/home/logic/_workspace/my-github-endpoint-playlist" &
-  # syncWorkDir "/home/logic/_workspace/nextjs-playlist" &
+  syncWorkDir "/home/logic/_workspace/nextjs-playlist" &
   # syncWorkDir "/home/logic/_workspace/nmap-playlist" &
   # syncWorkDir "/home/logic/_workspace/orange-pi-zero-playlist" &
-  # syncWorkDir "/home/logic/_workspace/preactjs-playlist" &
+  syncWorkDir "/home/logic/_workspace/preactjs-playlist" &
   # syncWorkDir "/home/logic/_workspace/puppeteer-playlist" &
   # syncWorkDir "/home/logic/_workspace/python-playlist" &
   # syncWorkDir "/home/logic/_workspace/raspberry-pi-playlist" &
@@ -717,12 +717,13 @@ syncLouis(){
 
   resourceMe
 
-  syncTodo &
-  syncInventory &
-  syncStock &
-  syncWorkspace &
+  syncTodo
+  syncInventory
+  syncStock
+  syncWorkspace
 
-  wait
+  echo 'syncdone'
+
 }
 
 listAlias(){
