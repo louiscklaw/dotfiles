@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -ex
+set -e
 
 TMP_DIR=$(mktemp -d)
 
@@ -10,6 +10,6 @@ cd $TMP_DIR
 
   pipenv sync
 
-  pipenv run python3 main.py
+  pipenv run python3 main.py $@
 
 cd ..
