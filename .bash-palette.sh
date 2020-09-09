@@ -36,3 +36,5 @@ export PALETTE_BLUE_U='\e[44m'
 export PALETTE_PURPLE_U='\e[45m'
 export PALETTE_CYAN_U='\e[46m'
 export PALETTE_LIGHTGRAY_U='\e[47m'
+
+# 123456
