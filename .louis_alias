@@ -705,6 +705,7 @@ syncWorkspace(){
   # gen_syncWorkDir_end
 
   syncWorkDir "/home/logic/_workspace/my-inventory" &
+  syncWorkDir "/home/logic/_workspace/page-change-detect-tryout" &
 
   wait
 
