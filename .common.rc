@@ -93,7 +93,7 @@ codeDotFirefox(){
 
 codeTodo(){
   cd /home/logic/_workspace/todo_list
-    git pull
+    git pull &
     code -n /home/logic/_workspace/todo_list/todo.md
   cd -
 }
