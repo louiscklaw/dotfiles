@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# https://github.com/adammhaile/USBPiFi/blob/master/install.sh
+
 getRaspiWifi(){
   # download and write raspbian image
   # usage: getRaspiWifi /dev/sdb
