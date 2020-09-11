@@ -379,3 +379,22 @@ initPipenv(){
   pipenv shell --three
 
 }
+
+initXXXSh(){
+  touch ./$@
+  chmod +x ./$@
+  code ./$@
+}
+
+initRunSh(){
+  initXXXSh run.sh
+}
+
+initBuildSh(){
+  initXXXSh build.sh
+}
+
+initNpm(){
+  npm init -y
+  yarn
+}
