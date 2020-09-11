@@ -77,6 +77,13 @@ if [[ -e $HOME/_workspace/dotfiles/.directory.rc ]]; then
   source $HOME/_workspace/dotfiles/.directory.rc
 fi
 
+checkRoot(){
+  if [ "$(id -u)" != "0" ]; then
+    echo "This script must be run as root" 1>&2
+    exit 1
+  fi
+}
+
 PushingToGithub(){
   # echo -e ${PALETTE_REVERSE}${PALETTE_GREEN}${PALETTE_BOLD}${PALETTE_BLINK} Pushing to github, bye... ${PALETTE_RESET}
   testFlashGreenBackground "Pushing to github"
