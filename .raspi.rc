@@ -2,6 +2,8 @@
 
 # https://github.com/adammhaile/USBPiFi/blob/master/install.sh
 
+
+
 getRaspiWifi(){
   # download and write raspbian image
   # usage: getRaspiWifi /dev/sdb
@@ -162,4 +164,26 @@ helloworldRaspi(){
 
 syncCredentials(){
   rsync -avzh /home/logic/.credentials.rc pi@rpi1.local:/home/pi/.credentials.rc
+}
+
+installNFS(){
+  # https://vitux.com/install-nfs-server-and-client-on-ubuntu/
+
+  sudo apt-get update
+  sudo apt install nfs-kernel-server
+
+  sudo mkdir -p /mnt/sharedfolder
+  sudo chown nobody:nogroup /mnt/sharedfolder
+  sudo chmod 777 /mnt/sharedfolder
+
+  # on clients
+  # sudo nano /etc/exports
+  # /mnt/sharedfolder clientIP(rw,sync,no_subtree_check)
+  # /mnt/sharedfolder client1IP(rw,sync,no_subtree_check)
+  # /mnt/sharedfolder client2IP(rw,sync,no_subtree_check)
+  # /mnt/sharedfolder subnetIP/24(rw,sync,no_subtree_check)
+
+
+  sudo exportfs -a
+  sudo systemctl restart nfs-kernel-server
 }
