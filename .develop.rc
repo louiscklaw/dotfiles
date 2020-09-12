@@ -398,3 +398,9 @@ initNpm(){
   npm init -y
   yarn
 }
+
+gitCloneWork(){
+  cd /home/logic/_workspace
+    git clone --depth=10 $@ &
+  cd -
+}
