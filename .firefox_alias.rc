@@ -9,7 +9,7 @@ goSlackLouisLabs(){
 }
 
 goRpi1Cron(){
-  firefox http://rpi1.local:8000 &
+  firefox http://$RPI1_HOST:8000 &
 }
 
 goGoogleCalendar(){

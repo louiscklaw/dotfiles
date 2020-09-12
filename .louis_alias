@@ -632,7 +632,7 @@ codeGatsbyPlaylist(){
 
 testDNS(){
   while true; do
-    nslookup $@ 192.168.88.20
+    nslookup $@ $RPI1_HOST
     sleep 0.02
   done
 }
@@ -743,6 +743,17 @@ rsyncHome(){
   done
 
   wait
+}
+
+rsyncBackup(){
+  for i in $(ls -1 $@); do
+    rsync -avzh --progress -e "ssh -p 22" $i pi@$RPI1_HOST:/mnt/sdb1/_backup/test/ &
+  done
+  # rsync -avzh --progress -e "ssh -p 22" .zshrc pi@$RPI1_HOST:/mnt/sdb1/_backup/test
+
+  wait
+
+  sudo poweroff
 }
 
 codePortfolio(){

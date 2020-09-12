@@ -91,3 +91,32 @@ dockerRunGithubActionsUbuntu(){
 dockerRunGithubActionsPython(){
   dockerRunGithub logickee/github_python
 }
+
+dockerRunTravisUbuntuSystemd1804(){
+  runTravisDockerImage travisci/ubuntu-systemd:18.04
+}
+
+dockerRunTravisUbuntuSystemd1604(){
+  runTravisDockerImage travisci/ubuntu-systemd:16.04
+}
+
+dockerRunTravisUbuntu1804(){
+  runTravisDockerImage travisci/ci-ubuntu-1804:packer-1593521720-ca42795e
+}
+
+dockerRunTravisUbuntu2004(){
+  runTravisDockerImage travisci/ci-ubuntu-2004:packer-1593521720-ca42795e
+
+  # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+}
+
+dockerRunTravisNodejs12(){
+  touch .env.docker
+  docker run -it \
+    --env-file .env.docker \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v $PWD:/root/work_dir \
+    --rm \
+    logickee/travis_node12 \
+    /bin/bash
+}
