@@ -752,8 +752,6 @@ rsyncBackup(){
   # rsync -avzh --progress -e "ssh -p 22" .zshrc pi@$RPI1_HOST:/mnt/sdb1/_backup/test
 
   wait
-
-  sudo poweroff
 }
 
 codePortfolio(){
