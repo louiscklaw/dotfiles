@@ -8,6 +8,10 @@ codeAiPlaylist() {
   code ~/_workspace/ai-playlist
 }
 
+codeAppiumPlaylist() {
+  code ~/_workspace/appium-playlist
+}
+
 codeAR9331Playlist() {
   code ~/_workspace/AR9331-playlist
 }
