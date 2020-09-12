@@ -189,11 +189,11 @@ codeVuePlaylist() {
 }
 
 codeWebPlaylist() {
-  code ~/_workspace/webpack-playlist
+  code ~/_workspace/web-playlist
 }
 
 codeWebpackPlaylist() {
-  code ~/_workspace/web-playlist
+  code ~/_workspace/webpack-playlist
 }
 
 codeCiPlaylist() {
