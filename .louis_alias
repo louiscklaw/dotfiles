@@ -835,6 +835,10 @@ syncCredentialsHome(){
   echo 'done'
 }
 
+zettlrTodo(){
+  zettlr /home/logic/_workspace/todo_list/todo.md
+}
+
 alias createReactApp='npx create-react-app .'
 
 if [[ -e $HOME/_workspace/github-playlist/gitignore-template/scripts.rc ]]; then
