@@ -4,6 +4,10 @@
 
 DEFAULT_BROWSER=firefox
 
+goszjy(){
+  firefox https://www.szjy188.com/order-without-comment &
+}
+
 goSlackLouisLabs(){
   firefox https://app.slack.com/client/T3NSVC55K/C3N4B63MX &
 }

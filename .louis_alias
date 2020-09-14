@@ -336,7 +336,7 @@ resourceMe(){
 }
 
 liveServerHttps(){
-  live-server --https=/usr/lib/node_modules/live-server-https $1
+  live-server --https=/usr/local/lib/node_modules/live-server-https $1
 }
 
 wgetMirror(){
