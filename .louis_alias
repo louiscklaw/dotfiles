@@ -95,6 +95,13 @@ initPipenv(){
   pipenv lock
 }
 
+initGithubActionsMasterBuild(){
+  mkdir -p .github/workflows
+  rsync -avh --progress /home/logic/_workspace/github-playlist/_templates/.github/workflows/_master_build.yml .github/workflows/master_build.yml
+  code .github/workflows/master_build.yml
+
+}
+
 sendTmateAddrToSlack(){
   tm address
   tm slack send_file home
