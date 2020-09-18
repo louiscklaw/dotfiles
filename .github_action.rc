@@ -17,4 +17,9 @@ initGithubActionMerger(){
     /home/logic/_workspace/github-playlist/scripts/update_main_build_chain.py \
     ./scripts/update_main_build_chain.py
 
+  sed -i -e 's/github-build-merger-tryout/github-build-merger/' .github/workflows/master_build.yml
+
+  sed -i -e 's/github-build-merger-tryout/github-build-merger/' github-build-merger/subjob.yml
+  sed -i -e 's/github-build-merger-tryout/github-build-merger/' github-build-merger/test.sh
+
 }
