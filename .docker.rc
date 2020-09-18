@@ -55,6 +55,15 @@ dockerRunNode(){
   dockerRun node:latest bash
 }
 
+GET_FULL_REPOSITORY(){
+  git remote get-url origin
+}
+
+GET_SHORT_REPOSITORY(){
+  GET_FULL_REPOSITORY|cut -c16-99|awk -F"." '{print $1}'
+}
+
+
 dockerRunGithub(){
   touch ./.env.docker
   TMP_DIR=$(mktemp -d)
@@ -66,22 +75,27 @@ dockerRunGithub(){
   touch $NODE_REPL_HISTORY
 
   DOT_CONFIG=$TMP_DIR/.dot_config
-  touch $DOT_CONFIG
+  mkdir $DOT_CONFIG
 
   DOT_NPM=$TMP_DIR/.dot_npm
-  touch $DOT_NPM
+  mkdir $DOT_NPM
 
   docker run -it \
+    --user runner \
     --env-file /home/logic/.credentials/.env.docker \
     --env-file .env.docker \
     -v $PWD:/home/runner/work_dir \
     -v $TMP_BASH_HISTORY:/home/runner/.bash_history \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -v $NODE_REPL_HISTORY:/root/.node_repl_history \
-    -v $DOT_CONFIG:/home/runner/.config \
+    -v $DOT_CONFIG:/home/runner/.config/ \
     -v $DOT_NPM:/home/runner/.npm \
     --rm \
     $@
+}
+
+dockerRunGithubActionsNode(){
+  dockerRunGithub logickee/github_node
 }
 
 dockerRunGithubActionsUbuntu(){
@@ -90,4 +104,12 @@ dockerRunGithubActionsUbuntu(){
 
 dockerRunGithubActionsPython(){
   dockerRunGithub logickee/github_python
+}
+
+dockerRunGithubActionsGnome(){
+  dockerRunGithub logickee/docker_gnome
+}
+
+dockerRunGithubSeleniumClient(){
+  dockerRunGithub logickee/github_ubuntu
 }
