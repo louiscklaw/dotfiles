@@ -117,14 +117,31 @@ commitNewTodoFile(){
 
 pushTodo(){
   cd /home/logic/_workspace/todo_list
-    git push &
+    nohup git push > /tmp/push_todo.out &
   cd -
 
   PushingToGithub
 }
 
+longSleepProcess(){
+  sleep 30
+}
+
+testNoHup(){
+  nohup sleep 30 &
+}
+
+
 syncTodo(){
+  setopt NO_HUP
+  backgroundSyncTodo &
+  wait
+  unsetopt NO_HUP
+}
+
+backgroundSyncTodo(){
   pullTodo
   commitNewTodoFile
   pushTodo
+  sleep 30
 }

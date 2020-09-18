@@ -163,27 +163,16 @@ helloworldRaspi(){
 }
 
 syncCredentials(){
-  rsync -avzh /home/logic/.credentials.rc pi@rpi1.local:/home/pi/.credentials.rc
+  rsync -avzh /home/logic/.credentials.rc pi@$RPI1_HOST:/home/pi/.credentials.rc
 }
 
-installNFS(){
-  # https://vitux.com/install-nfs-server-and-client-on-ubuntu/
+# installNFS(){
+#   # https://help.ubuntu.com/community/SettingUpNFSHowTo
 
-  sudo apt-get update
-  sudo apt install nfs-kernel-server
+#   sudo apt-get install nfs-kernel-server
+#   sudo mkdir -p /export/users
+#   sudo mount --bind /home/users /export/users
 
-  sudo mkdir -p /mnt/sharedfolder
-  sudo chown nobody:nogroup /mnt/sharedfolder
-  sudo chmod 777 /mnt/sharedfolder
-
-  # on clients
-  # sudo nano /etc/exports
-  # /mnt/sharedfolder clientIP(rw,sync,no_subtree_check)
-  # /mnt/sharedfolder client1IP(rw,sync,no_subtree_check)
-  # /mnt/sharedfolder client2IP(rw,sync,no_subtree_check)
-  # /mnt/sharedfolder subnetIP/24(rw,sync,no_subtree_check)
-
-
-  sudo exportfs -a
-  sudo systemctl restart nfs-kernel-server
-}
+#   # add into /etc/fstab
+#   # /home/users    /export/users   none    bind  0  0
+# }

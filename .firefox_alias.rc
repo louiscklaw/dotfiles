@@ -4,12 +4,16 @@
 
 DEFAULT_BROWSER=firefox
 
+goszjy(){
+  firefox https://www.szjy188.com/order-without-comment &
+}
+
 goSlackLouisLabs(){
   firefox https://app.slack.com/client/T3NSVC55K/C3N4B63MX &
 }
 
 goRpi1Cron(){
-  firefox http://rpi1.local:8000 &
+  firefox http://$RPI1_HOST:8000 &
 }
 
 goGoogleCalendar(){

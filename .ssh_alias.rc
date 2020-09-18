@@ -25,7 +25,7 @@ sshI3mega(){
 }
 
 sshRpi1(){
-  sshHardConnect pi@rpi1.local
+  sshHardConnect pi@$RPI1_HOST
 }
 
 sshX201(){

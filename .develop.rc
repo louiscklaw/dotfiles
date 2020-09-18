@@ -8,6 +8,10 @@ codeAiPlaylist() {
   code ~/_workspace/ai-playlist
 }
 
+codeAppiumPlaylist() {
+  code ~/_workspace/appium-playlist
+}
+
 codeAR9331Playlist() {
   code ~/_workspace/AR9331-playlist
 }
@@ -185,11 +189,11 @@ codeVuePlaylist() {
 }
 
 codeWebPlaylist() {
-  code ~/_workspace/webpack-playlist
+  code ~/_workspace/web-playlist
 }
 
 codeWebpackPlaylist() {
-  code ~/_workspace/web-playlist
+  code ~/_workspace/webpack-playlist
 }
 
 codeCiPlaylist() {
