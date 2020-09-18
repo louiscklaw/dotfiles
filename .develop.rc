@@ -408,3 +408,23 @@ gitCloneWork(){
     git clone --depth=10 $@ &
   cd -
 }
+
+initPyProj(){
+
+  mkdir -p src
+  mkdir -p src/lib
+  mkdir -p test
+
+  touch src/main.py
+  touch src/lib/common.py
+
+  touch test/main.py
+  touch test/common.py
+
+  touch run.sh
+  touch test.sh
+
+  chmod +x run.sh
+  chmod +x test.sh
+
+}
