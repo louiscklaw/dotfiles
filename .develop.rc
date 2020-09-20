@@ -4,6 +4,10 @@ initCodeWorkspace(){
   touch ./ws.code-workspace
 }
 
+codePoc() {
+  code ~/_poc
+}
+
 codeAiPlaylist() {
   code ~/_workspace/ai-playlist
 }
