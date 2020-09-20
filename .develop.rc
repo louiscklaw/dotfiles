@@ -424,6 +424,10 @@ gitCloneWork(){
   cd -
 }
 
+codePortfolio(){
+  code /home/logic/_workspace/portfolio-gatsby
+}
+
 initPyProj(){
 
   mkdir -p src
