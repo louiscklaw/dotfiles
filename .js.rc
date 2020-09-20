@@ -45,12 +45,17 @@ initGatsbyHelloworld(){
   set +x
 }
 
-nodemonPugAndRun(){
+nodemonAllBuild(){
+  # html for pyunittest template
+  nodemon -w . -e "sh,js,html,css,scss,sass,yml,py" --ignore './node_modules' --ignore './public' --ignore './reports'  --delay 500ms --exec "$@"
+}
+
+nodemonPugBuild(){
   # html for pyunittest template
   nodemon -w . -e "pug,js" --ignore './node_modules' --ignore './public' --ignore './reports'  --delay 500ms --exec "$@"
 }
 
-nodemonPyAndRun(){
+nodemonPyBuild(){
   # html for pyunittest template
   nodemon -w . -e "py,sh" --ignore './node_modules' --ignore './public' --ignore './reports'  --delay 500ms --exec "$@"
 }
