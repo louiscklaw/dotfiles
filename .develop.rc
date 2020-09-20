@@ -253,6 +253,19 @@ goGithubSettings(){
   fi
 }
 
+goGithubSettingsSecrets(){
+  remote_get_url=$(git remote get-url origin 2>&1)
+  if [[ $remote_get_url =~ .*fatal.* ]]; then
+    echo "cannot find remote origin"
+  else
+    echo "remote origin " $remote_get_url
+    http_link=${remote_get_url/git@/https://}
+    http_link=${http_link/.com:/.com/}
+    http_link=${http_link/.git/\/settings/}
+    firefox $http_link/secrets &
+  fi
+}
+
 goGithubRepo(){
   remote_get_url=$(git remote get-url origin 2>&1)
   if [[ $remote_get_url =~ .*fatal.* ]]; then
@@ -279,6 +292,8 @@ goGithubActions(){
     firefox $http_link
   fi
 }
+
+
 
 installDroneCli(){
   aria2c -x 16 -s 99999 https://github.com/drone/drone-cli/releases/latest/download/drone_linux_amd64.tar.gz
