@@ -72,6 +72,7 @@ codeDotSecrets(){
 }
 
 codeDotCredentials(){
+  syncCredentialsHome
   code ~/.credentials.rc
 }
 
@@ -144,4 +145,9 @@ backgroundSyncTodo(){
   commitNewTodoFile
   pushTodo
   sleep 30
+}
+
+random-string()
+{
+  cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-32} | head -n 1
 }
