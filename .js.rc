@@ -69,7 +69,14 @@ nodemonReactBuild(){
 }
 
 nodemonGatsbyBuild(){
-  nodemon -w . --ext "mdx,scss,css,js,html" --ignore './node_modules' --ignore './public'  --ignore './.cache' --exec "$1"
+  YARN_BUILD='rm -rf /tmp/gatsby_build && rsync -avzh --exclude "**/node_modules" --exclude "*/build"  --exclude "*/.cache" --exclude "public" --progress ./ /tmp/gatsby_build && cd /tmp/gatsby_build && yarn && yarn build '
+
+  YARN_START='yarn start'
+
+  nodemon -w .  \
+    --ext "mdx,scss,css,js,html" \
+    --ignore './node_modules' --ignore './public'  --ignore './.cache' \
+    --exec 'concurrently -s first ' $YARN_BUILD  $YARN_START
 }
 
 # ga . && git commit -m "troubleshoot build: can build"
