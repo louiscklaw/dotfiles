@@ -69,7 +69,7 @@ nodemonReactBuild(){
 }
 
 nodemonGatsbyBuild(){
-  YARN_BUILD='rm -rf /tmp/gatsby_build && rsync -avzh --exclude "**/node_modules" --exclude "*/build"  --exclude "*/.cache" --exclude "public" --progress ./ /tmp/gatsby_build && cd /tmp/gatsby_build && yarn && yarn build '
+  YARN_BUILD='rm -rf /tmp/gatsby_build && rsync -avzh --exclude "node_modules" --exclude "build"  --exclude ".cache" --exclude "public" --progress ./ /tmp/gatsby_build && cd /tmp/gatsby_build && yarn && yarn build '
 
   YARN_START='yarn start'
 
