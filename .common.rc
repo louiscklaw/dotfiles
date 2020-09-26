@@ -72,7 +72,7 @@ codeDotSecrets(){
 }
 
 codeDotCredentials(){
-  syncCredentialsHome
+  # syncCredentialsHome
   code ~/.credentials.rc
 }
 
