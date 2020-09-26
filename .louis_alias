@@ -703,7 +703,7 @@ syncWorkspaceHome(){
   syncWorkDir "/home/logic/_workspace/i3mega-playlist" &
   syncWorkDir "/home/logic/_workspace/js-playlist" &
   syncWorkDir "/home/logic/_workspace/json-playlist" &
-  syncWorkDir "/home/logic/_workspace/Makefile-playlist" &
+  syncWorkDir "/home/logic/_workspace/Makefile-playlist"
   syncWorkDir "/home/logic/_workspace/nextjs-playlist" &
   syncWorkDir "/home/logic/_workspace/orange-pi-zero-playlist" &
   syncWorkDir "/home/logic/_workspace/preactjs-playlist" &
