@@ -3,6 +3,10 @@ initGithubActionMerger(){
   mkdir -p .github/workflows
   touch .github/workflows/master_build.yml
 
+  rsync -avzh --progress \
+    /home/logic/_workspace/github-playlist/github-build-merger-tryout/pull_request.yml \
+    ./.github/workflows/pull_request.yml
+
   mkdir -p scripts
 
   rsync -avzh --progress \
