@@ -99,6 +99,13 @@ codeTodo(){
   cd -
 }
 
+typoraTodo(){
+  cd /home/logic/_workspace/todo_list
+    git pull &
+    typora /home/logic/_workspace/todo_list/todo.md
+  cd -
+}
+
 codeZshrc(){
   code ~/.zshrc
 }

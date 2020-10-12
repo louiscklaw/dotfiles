@@ -64,8 +64,32 @@ nodemonJsBuild(){
   nodemon -w . -e 'js' --ignore './node_modules' --ignore './public' --exec "$@"
 }
 
+testReactBuild(){
+
+  rm -rf /tmp/react_build
+
+  rsync -avzh --exclude "node_modules" --exclude "build"  --exclude ".cache" --progress ./ /tmp/react_build
+
+  cd /tmp/react_build
+    yarn
+    yarn build
+
+  cd build
+    live-server --port=8001 .
+
+}
+
 nodemonReactBuild(){
-  nodemon -w . --ext "mdx,scss,css,js,html" --ignore './node_modules' --ignore './build'  --ignore './.cache' --exec "$1"
+  # nodemon -w . --ext "mdx,scss,css,js,html" --ignore './node_modules' --ignore './build'  --ignore './.cache' --exec "$1"
+
+# USAGE=$(cat <<-END
+#   hostname && \
+#   hostname
+# END
+# )
+
+testReactBuild
+
 }
 
 nodemonGatsbyBuild(){
