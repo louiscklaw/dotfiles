@@ -608,7 +608,7 @@ configUbuntu(){
 ariaDownload(){
   set -x
 
-  aria2c -x 16 -s 99999 $@
+  aria2c -x 16 -s 99999 --dht-listen-port=51000-51099 $@
 
   set +x
 }

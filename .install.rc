@@ -62,6 +62,10 @@ setSnapPackageHistory(){
   set +x
 }
 
+installChromium(){
+  firefox https://www.linuxuprising.com/2018/08/how-to-enable-hardware-accelerated.html &
+}
+
 installPowerLineFonts(){
   installWget
   installUnzip
