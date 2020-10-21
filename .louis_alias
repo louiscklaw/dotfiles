@@ -605,6 +605,10 @@ configUbuntu(){
 
 }
 
+codeImWheelRc(){
+  code ~/.imwheelrc
+}
+
 ariaDownload(){
   set -x
 

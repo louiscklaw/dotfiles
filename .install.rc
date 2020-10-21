@@ -64,6 +64,12 @@ setSnapPackageHistory(){
 
 installChromium(){
   firefox https://www.linuxuprising.com/2018/08/how-to-enable-hardware-accelerated.html &
+
+  sudo apt install vainfo
+
+  https://bbs.archlinux.org/viewtopic.php?id=244031
+  https://wiki.archlinux.org/index.php/Hardware_video_acceleration
+  https://bbs.archlinux.org/viewtopic.php?id=244906
 }
 
 installPowerLineFonts(){
