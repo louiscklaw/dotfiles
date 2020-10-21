@@ -10,6 +10,10 @@ codePoc() {
   code ~/_poc
 }
 
+codeJobSearchTryout(){
+  code /home/logic/_workspace/jobs_search_tryout
+}
+
 codeAiPlaylist() {
   code ~/_workspace/ai-playlist
 }

@@ -4,6 +4,14 @@
 
 DEFAULT_BROWSER=google-chrome
 
+go881(){
+  $DEFAULT_BROWSER https://www.881903.com/live/881
+}
+
+go903(){
+  $DEFAULT_BROWSER https://www.881903.com/live/903
+}
+
 goszjy(){
   $DEFAULT_BROWSER  https://www.szjy188.com/order-without-comment &
 }
