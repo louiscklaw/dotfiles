@@ -2,7 +2,7 @@
 
 # set -x
 
-DEFAULT_BROWSER=firefox
+DEFAULT_BROWSER=google-chrome
 
 if [[ -e $HOME/.credentials.rc ]]; then
   source $HOME/.credentials.rc

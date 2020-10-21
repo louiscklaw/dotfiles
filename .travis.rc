@@ -36,13 +36,13 @@ travisOpen(){
     http_link=${remote_get_url/git@github\.com:/https:\/\/travis-ci.com\/github/}
     http_link=${http_link/.com:/.com/}
     http_link=${http_link/.git//builds}
-    firefox $http_link &
+    $DEFAULT_BROWSER  $http_link &
   fi
 
 }
 
 travisRequests(){
-  firefox https://travis-ci.com/github/louiscklaw/company-background-search/requests &
+  $DEFAULT_BROWSER  https://travis-ci.com/github/louiscklaw/company-background-search/requests &
 }
 
 travisLogin(){

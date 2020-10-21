@@ -2,58 +2,58 @@
 
 # set -x
 
-DEFAULT_BROWSER=firefox
+DEFAULT_BROWSER=google-chrome
 
 goszjy(){
-  firefox https://www.szjy188.com/order-without-comment &
+  $DEFAULT_BROWSER  https://www.szjy188.com/order-without-comment &
 }
 
 goSlackLouisLabs(){
-  firefox https://app.slack.com/client/T3NSVC55K/C3N4B63MX &
+  $DEFAULT_BROWSER  https://app.slack.com/client/T3NSVC55K/C3N4B63MX &
 }
 
 goRpi1Cron(){
-  firefox http://$RPI1_HOST:8000 &
+  $DEFAULT_BROWSER  http://$RPI1_HOST:8000 &
 }
 
 goGoogleCalendar(){
-  firefox https://calendar.google.com/calendar &
+  $DEFAULT_BROWSER  https://calendar.google.com/calendar &
 }
 
 firefoxYoutube(){
-  firefox https://www.youtube.com
+  $DEFAULT_BROWSER  https://www.youtube.com
 }
 
 goFontAwesome(){
-  firefox https://fontawesome.com/icons/github-square &
+  $DEFAULT_BROWSER  https://fontawesome.com/icons/github-square &
 }
 
 hkexStat(){
-  firefox https://www.hkex.com.hk/Market-Data/Statistics/Consolidated-Reports/Securities-Statistics-Archive/Trading_Value_Volume_And_Number_Of_Deals\?sc_lang=zh-HK#select1=0
+  $DEFAULT_BROWSER  https://www.hkex.com.hk/Market-Data/Statistics/Consolidated-Reports/Securities-Statistics-Archive/Trading_Value_Volume_And_Number_Of_Deals\?sc_lang=zh-HK#select1=0
 }
 
 goBashCheat(){
-  firefox https://devhints.io/bash &
+  $DEFAULT_BROWSER  https://devhints.io/bash &
 }
 
 goSedCheat(){
-  firefox https://devhints.io/sed &
+  $DEFAULT_BROWSER  https://devhints.io/sed &
 }
 
 goMarkdownCheatSheet(){
-  firefox https://guides.github.com/features/mastering-markdown/ &
+  $DEFAULT_BROWSER  https://guides.github.com/features/mastering-markdown/ &
 }
 
 goRouterSetup(){
-  firefox https://192.168.99.1 &
+  $DEFAULT_BROWSER  https://192.168.99.1 &
 }
 
 showDocTravisEnv(){
-  firefox https://docs.travis-ci.com/user/environment-variables/ &
+  $DEFAULT_BROWSER  https://docs.travis-ci.com/user/environment-variables/ &
 }
 
 goFirebaseConsole(){
-  firefox https://console.firebase.google.com/u/1/project/fir-tryout-f4e7a/overview &
+  $DEFAULT_BROWSER  https://console.firebase.google.com/u/1/project/fir-tryout-f4e7a/overview &
 }
 
 goTradingViewHK(){
@@ -92,7 +92,7 @@ import subprocess
 SEARCH_TERMS=os.environ['SEARCH_TERMS']
 
 def openFirefox(url):
-  firefox_command = 'firefox {}'.format(url)
+  firefox_command = '$DEFAULT_BROWSER  {}'.format(url)
   subprocess.Popen(firefox_command.split(' '))
 
 openFirefox('https://www.google.com/search?q={}+quickstart'.format(SEARCH_TERMS))
@@ -104,15 +104,15 @@ END
 }
 
 goi3Mega(){
-  firefox http://i3mega.local &
+  $DEFAULT_BROWSER  http://i3mega.local &
 }
 
 goVoron(){
-  firefox http://voronoctopi.local &
+  $DEFAULT_BROWSER  http://voronoctopi.local &
 }
 
 goRouterSetupHome(){
-  firefox http://192.168.88.1:50080 &
+  $DEFAULT_BROWSER  http://192.168.88.1:50080 &
 }
 
 cloneDotFiles(){
@@ -120,17 +120,17 @@ cloneDotFiles(){
 }
 
 goJSONExample(){
-  firefox https://json.org/example.html &
+  $DEFAULT_BROWSER  https://json.org/example.html &
 }
 
 goTravisDashboard(){
-  firefox https://travis-ci.com/github/louiscklaw &
-  firefox https://travis-ci.com/github/louiscklaw?tab=insights &
-  firefox https://louiscklaw.github.io/travis-playlist/ &
+  $DEFAULT_BROWSER  https://travis-ci.com/github/louiscklaw &
+  $DEFAULT_BROWSER  https://travis-ci.com/github/louiscklaw?tab=insights &
+  $DEFAULT_BROWSER  https://louiscklaw.github.io/travis-playlist/ &
 
   echo "done"
 }
 
 goSlackLouisLabsAppsManager(){
-  firefox https://app.slack.com/apps-manage/T3NSVC55K &
+  $DEFAULT_BROWSER  https://app.slack.com/apps-manage/T3NSVC55K &
 }

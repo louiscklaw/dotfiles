@@ -63,7 +63,7 @@ setSnapPackageHistory(){
 }
 
 installChromium(){
-  firefox https://www.linuxuprising.com/2018/08/how-to-enable-hardware-accelerated.html &
+  $DEFAULT_BROWSER  https://www.linuxuprising.com/2018/08/how-to-enable-hardware-accelerated.html &
 
   sudo apt install vainfo
 

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+WEB_BROWSER=google-chrome
+
 initCodeWorkspace(){
   touch ./ws.code-workspace
 }
@@ -238,7 +240,7 @@ import subprocess
 REMOTE_GET_URL=os.environ['REMOTE_GET_URL']
 repo = REMOTE_GET_URL.split('/')[-1].replace('.git','')
 github_page_address = 'https://louiscklaw.github.io/{}/'.format(repo)
-firefox_command = 'firefox {}'.format(github_page_address)
+firefox_command = '$DEFAULT_BROWSER  {}'.format(github_page_address)
 subprocess.Popen(firefox_command.split(' '))
 END
   fi
@@ -253,7 +255,7 @@ goGithubSettings(){
     http_link=${remote_get_url/git@/https://}
     http_link=${http_link/.com:/.com/}
     http_link=${http_link/.git/\/settings/}
-    firefox $http_link &
+    $DEFAULT_BROWSER  $http_link &
   fi
 }
 
@@ -266,7 +268,7 @@ goGithubSettingsSecrets(){
     http_link=${remote_get_url/git@/https://}
     http_link=${http_link/.com:/.com/}
     http_link=${http_link/.git/\/settings/}
-    firefox $http_link/secrets &
+    $DEFAULT_BROWSER  $http_link/secrets &
   fi
 }
 
@@ -279,7 +281,7 @@ goGithubRepo(){
     http_link=${remote_get_url/git@/https://}
     http_link=${http_link/.com:/.com/}
     http_link=${http_link/.git//}
-    firefox $http_link &
+    $DEFAULT_BROWSER  $http_link &
   fi
 }
 
@@ -293,7 +295,7 @@ goGithubActions(){
     http_link=${http_link/.com:/.com/}
     http_link=${http_link/.git//}
     http_link=("${http_link}actions")
-    firefox $http_link
+    $DEFAULT_BROWSER  $http_link
   fi
 }
 
@@ -344,7 +346,7 @@ dockerClear(){
 }
 
 goJSONToJs(){
-  firefox https://json-to-js.com/ &
+  $DEFAULT_BROWSER  https://json-to-js.com/ &
 }
 
 reYarn(){
@@ -353,13 +355,13 @@ reYarn(){
 }
 
 goGithubIssueTemplate(){
-  firefox https://github.com/stevemao/github-issue-templates &
+  $DEFAULT_BROWSER  https://github.com/stevemao/github-issue-templates &
 }
 
 
 travisRoutine() {
-  firefox https://travis-ci.com/github/louiscklaw/github-playlist/branches &
-  firefox https://travis-ci.com/github/louiscklaw/travis-playlist/branches &
+  $DEFAULT_BROWSER  https://travis-ci.com/github/louiscklaw/github-playlist/branches &
+  $DEFAULT_BROWSER  https://travis-ci.com/github/louiscklaw/travis-playlist/branches &
   wait
 }
 
