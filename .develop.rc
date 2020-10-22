@@ -399,13 +399,15 @@ codeWorkspace(){
 }
 
 checkoutOrphanBranch(){
-  # git checkout --orphan test_db
-  # rm .git/index
-  # git clean -fdx
-  # ...  # 加新檔案
-  # git add .
-  # git commit -m 'create new branch'
-  echo 'not implemented'
+
+  git checkout --orphan $1
+  git rm -rf .
+  rm '.gitignore' | true
+  echo "# this is orphan branch" > README.md
+  git add README.md
+  git commit -a -m "init commit,"
+  git push origin $1
+  # echo 'not implemented'
 }
 
 initPipenv(){
