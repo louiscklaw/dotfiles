@@ -222,6 +222,10 @@ codeWorkspace(){
   code /home/logic/_workspace
 }
 
+codeYahooFinancePlaylist(){
+  code ~/_workspace/yahoo-finance-playlist
+}
+
 goGist(){
   $DEFAULT_BROWSER https://gist.github.com/louiscklaw &
 }
