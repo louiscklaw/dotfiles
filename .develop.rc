@@ -358,7 +358,9 @@ goJSONToJs(){
 }
 
 reYarn(){
-  rm -rf node_modules
+  rm -rf package-lock.json | true
+  rm -rf yarn.lock | true
+  rm -rf node_modules | true
   yarn
 }
 
