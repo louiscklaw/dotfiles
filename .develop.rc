@@ -130,6 +130,10 @@ codeMicropythonPlaylist() {
   code ~/_workspace/micropython-playlist
 }
 
+codeM5stackPlaylist(){
+  code ~/_workspace/m5stack-playlist
+}
+
 codeNextjsPlaylist() {
   code ~/_workspace/nextjs-playlist
 }
