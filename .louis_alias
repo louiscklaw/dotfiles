@@ -77,6 +77,31 @@ if [[ -e $HOME/_workspace/dotfiles/.directory.rc ]]; then
   source $HOME/_workspace/dotfiles/.directory.rc
 fi
 
+# https://medium.com/@k21_79139/%E9%A6%99%E6%B8%AF%E9%9B%BB%E5%8F%B0%E7%9B%B4%E6%92%AD%E6%BA%90%E5%88%97%E8%A1%A8-29ddf6591c14
+radio_rthk1(){
+  mpv http://rthk.hk/live1.m3u
+}
+
+radio_rthk2(){
+  mpv http://rthk.hk/live2.m3u
+}
+
+radio_997(){
+  mpv https://metroradio-lh.akamaihd.net/i/997_h@349799/master.m3u8
+}
+
+radio_881(){
+  mpv https://d2agljdoug3z0j.cloudfront.net/radio-HTTP/cr1-hd.3gp/chunklist.m3u8
+}
+
+radio_903(){
+  mpv https://d2agljdoug3z0j.cloudfront.net/radio-HTTP/cr2-hd.3gp/chunklist.m3u8
+}
+
+radio_104(){
+  mpv https://metroradio-lh.akamaihd.net/i/104_h@349798/master.m3u8
+}
+
 checkRoot(){
   if [ "$(id -u)" != "0" ]; then
     echo "This script must be run as root" 1>&2
