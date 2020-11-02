@@ -109,6 +109,10 @@ checkRoot(){
   fi
 }
 
+codeLibreofficeScript(){
+  code /home/logic/.config/libreoffice/4/user/Scripts
+}
+
 PushingToGithub(){
   # echo -e ${PALETTE_REVERSE}${PALETTE_GREEN}${PALETTE_BOLD}${PALETTE_BLINK} Pushing to github, bye... ${PALETTE_RESET}
   testFlashGreenBackground "Pushing to github"

@@ -28,7 +28,6 @@ increaseFileWatchers(){
   cat /etc/sysctl.conf
 }
 
-
 incraseSwapSpace(){
   set -ex
 
