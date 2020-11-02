@@ -47,7 +47,7 @@ initGatsbyHelloworld(){
 
 nodemonAllBuild(){
   # html for pyunittest template
-  nodemon -w . -e "sh,js,html,css,scss,sass,yml,py" --ignore './node_modules' --ignore './public' --ignore './reports'  --delay 500ms --exec "$@"
+  nodemon --delay 2 -w . -e "sh,js,html,css,scss,sass,yml,py" --ignore './node_modules' --ignore './public' --ignore './reports'  --delay 500ms --exec "$@"
 }
 
 nodemonPugBuild(){

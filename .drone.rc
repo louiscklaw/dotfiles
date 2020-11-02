@@ -1,6 +1,6 @@
 
 droneDoc(){
-  firefox https://docs.drone.io/pipeline/configuration/\#pipelines &
+  $DEFAULT_BROWSER  https://docs.drone.io/pipeline/configuration/\#pipelines &
 }
 
 droneOpen(){
@@ -17,12 +17,12 @@ import subprocess
 REMOTE_GET_URL=os.environ['REMOTE_GET_URL']
 repo = REMOTE_GET_URL.split('/')[-1].replace('.git','')
 github_page_address = 'https://cloud.drone.io/louiscklaw/{}/'.format(repo)
-firefox_command = 'firefox {}'.format(github_page_address)
+firefox_command = '$DEFAULT_BROWSER  {}'.format(github_page_address)
 subprocess.Popen(firefox_command.split(' '))
 END
   fi
 }
 
 goDroneCiCloud(){
-  firefox https://cloud.drone.io/louiscklaw/ &
+  $DEFAULT_BROWSER  https://cloud.drone.io/louiscklaw/ &
 }

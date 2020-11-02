@@ -1010,3 +1010,12 @@ installTypora(){
   sudo add-apt-repository 'deb https://typora.io/linux ./'
   sudo apt-get install -y typora
 }
+
+installPip2(){
+  cd /tmp
+    wget https://bootstrap.pypa.io/get-pip.py
+    sudo python2.7 get-pip.py
+
+    which pip2.7
+  cd -
+}
