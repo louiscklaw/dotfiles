@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+sshTv(){
+  ssh u0_a78@192.168.88.18 -p 8022
+}
+
 sshHome(){
   ssh logic@$HOME_IP -p $HOME_SSH_PORT
 }
