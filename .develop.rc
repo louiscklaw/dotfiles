@@ -2,6 +2,14 @@
 
 WEB_BROWSER=google-chrome
 
+codeYoutubePlaylist(){
+  code ~/_workspace/youtube-playlist
+}
+
+codeJob(){
+  code /media/logic/B829-3585/ws.code-workspace
+}
+
 initCodeWorkspace(){
   touch ./ws.code-workspace
 }

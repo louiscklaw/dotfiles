@@ -91,11 +91,11 @@ radio_997(){
 }
 
 radio_881(){
-  mpv https://d2agljdoug3z0j.cloudfront.net/radio-HTTP/cr1-hd.3gp/chunklist.m3u8
+  $DEFAULT_BROWSER https://www.881903.com/live/881
 }
 
 radio_903(){
-  mpv https://d2agljdoug3z0j.cloudfront.net/radio-HTTP/cr2-hd.3gp/chunklist.m3u8
+  $DEFAULT_BROWSER https://www.881903.com/live/903
 }
 
 radio_104(){
