@@ -2,6 +2,10 @@
 
 WEB_BROWSER=google-chrome
 
+codeTaobaoPlaylist(){
+  code ~/_workspace/taobao-playlist
+}
+
 codeYoutubePlaylist(){
   code ~/_workspace/youtube-playlist
 }
