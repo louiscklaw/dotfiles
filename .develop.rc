@@ -2,6 +2,7 @@
 
 WEB_BROWSER=google-chrome
 
+
 codeTaobaoPlaylist(){
   code ~/_workspace/taobao-playlist
 }
@@ -323,6 +324,10 @@ goGithubActions(){
   fi
 }
 
+goCoverallReport(){
+  REPO_NAME=$(basename $PWD)
+  $DEFAULT_BROWSER https://coveralls.io/github/louiscklaw/$REPO_NAME
+}
 
 
 installDroneCli(){
