@@ -2,6 +2,9 @@
 
 WEB_BROWSER=google-chrome
 
+codeLynkedQaProject(){
+  code ~/_workspace/LYNKED_QA.code-workspace
+}
 
 codeTaobaoPlaylist(){
   code ~/_workspace/taobao-playlist
