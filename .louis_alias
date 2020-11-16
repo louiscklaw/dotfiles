@@ -692,6 +692,10 @@ codeHist(){
   code "$HISTFILE"
 }
 
+open(){
+  nautilus . &
+}
+
 syncWorkspaceHome(){
   OWD=$PWD
 
