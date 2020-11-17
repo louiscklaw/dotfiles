@@ -4,6 +4,14 @@
 
 DEFAULT_BROWSER=google-chrome
 
+goTrello(){
+  $DEFAULT_BROWSER https://trello.com/b/JNF4AVto/lynked-insight
+}
+
+goQATrello(){
+  $DEFAULT_BROWSER https://trello.com/b/jPzTVREG/qahelloworld
+}
+
 go881(){
   $DEFAULT_BROWSER https://www.881903.com/live/881
 }
