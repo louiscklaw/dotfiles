@@ -8,6 +8,10 @@ if [[ -e $HOME/.credentials.rc ]]; then
   source $HOME/.credentials.rc
 fi
 
+if [[ -e $HOME/_workspace/dotfiles/.lynked_shortcut.rc ]]; then
+  source $HOME/_workspace/dotfiles/.lynked_shortcut.rc
+fi
+
 if [[ -e $HOME/_workspace/dotfiles/.github_action.rc ]]; then
   source $HOME/_workspace/dotfiles/.github_action.rc
 fi

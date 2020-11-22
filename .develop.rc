@@ -2,8 +2,17 @@
 
 WEB_BROWSER=google-chrome
 
+meldToLynkedQaProject(){
+  meld $PWD /home/logic/_workspace/LYNKED_QA_project
+}
+
 codeLynkedQaProject(){
   code ~/_workspace/LYNKED_QA.code-workspace
+  code /home/logic/_workspace/LYNKED_QA_project/LYNKED_QA.code-workspace
+}
+
+codeLynkedTicket(){
+  code /home/logic/_workspace/LYNKED_QA_project/_tickets
 }
 
 codeTaobaoPlaylist(){
