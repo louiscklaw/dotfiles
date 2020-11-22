@@ -2,6 +2,20 @@
 
 WEB_BROWSER=google-chrome
 
+gitCloneAllPlaylist(){
+
+  git clone --depth=3 git@github.com:louiscklaw/react-playlist.git  &
+  git clone --depth=3 git@github.com:louiscklaw/python-playlist.git  &
+  git clone --depth=3 git@github.com:louiscklaw/preactjs-playlist.git  &
+  git clone --depth=3 git@github.com:louiscklaw/nextjs-playlist.git  &
+  git clone --depth=3 git@github.com:louiscklaw/gatsbyjs-playlist.git  &
+  git clone --depth=3 git@github.com:louiscklaw/selenium-playlist.git  &
+  git clone --depth=3 git@github.com:louiscklaw/marp-playlist.git  &
+  git clone --depth=3 git@github.com:louiscklaw/docker-playlist.git  &
+
+  wait
+}
+
 meldToLynkedQaProject(){
   meld $PWD /home/logic/_workspace/LYNKED_QA_project
 }
