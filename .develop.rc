@@ -2,6 +2,10 @@
 
 WEB_BROWSER=google-chrome
 
+createReactNativeApp(){
+  npx create-react-native-app $@
+}
+
 gitCloneAllPlaylist(){
 
   git clone --depth=3 git@github.com:louiscklaw/react-playlist.git  &
