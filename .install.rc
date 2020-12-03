@@ -23,7 +23,7 @@ EOF
 
 # System limit for number of file watchers reached
 increaseFileWatchers(){
-  echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+  echo fs.inotify.max_user_watches=5242880 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
   cat /etc/sysctl.conf
 }
