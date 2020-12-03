@@ -92,6 +92,15 @@ codeDotFirefox(){
   code /home/logic/_workspace/dotfiles/.firefox_alias.rc
 }
 
+
+n(){
+  cd /home/logic/_workspace/todo_list
+    git pull &
+    code -n /home/logic/_workspace/todo_list/todo.md
+  cd -
+}
+
+
 codeTodo(){
   cd /home/logic/_workspace/todo_list
     git pull &
