@@ -29,7 +29,7 @@ increaseFileWatchers(){
 }
 
 incraseSwapSpace(){
-  set -ex
+  set -x
 
   sudo swapoff -a
   sudo dd if=/dev/zero of=/swapfile bs=1G count=8
@@ -37,7 +37,7 @@ incraseSwapSpace(){
   sudo swapon /swapfile
   grep SwapTotal /proc/meminfo
 
-  set +ex
+  set +x
 }
 
 setSwappiness(){
@@ -288,7 +288,7 @@ installChinese(){
   sudo apt-get install -y ibus-rime
   ibus engine rime &
   sudo apt-get install -y librime-data-cangjie5
-  sudo apt-get install -y librime-data-quick5
+  # sudo apt-get install -y librime-data-quick5
 
 }
 
@@ -319,7 +319,7 @@ installFresh(){
   sudo apt-get install -y p7zip-full
   sudo apt-get install -y entr
   sudo apt-get install -y htop glances
-  sudo apt-get install -y chromium-browser chrome-gnome-shell
+  # sudo apt-get install -y chromium-browser chrome-gnome-shell
   sudo apt-get install -y filezilla
   sudo apt-get install -y vlc
   sudo apt-get install -y mplayer
@@ -443,6 +443,17 @@ installPycharm(){
   sudo apt-get install -y pycharm-community
 }
 
+installWebStorm(){
+  installCurl
+  installGNUPG2
+  installTzdata
+
+  curl -s https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc | sudo apt-key add -
+  echo "deb http://jetbrains-ppa.s3-website.eu-central-1.amazonaws.com bionic main" | sudo tee /etc/apt/sources.list.d/jetbrains-ppa.list > /dev/null
+  sudo apt-get update
+  sudo apt-get install -y webstorm
+}
+
 installAliWangWang(){
   installTzdata
   installGit
@@ -550,6 +561,13 @@ installXnView(){
     # sudo apt-get update
     # sudo apt-get install -y xnview
   fi
+}
+
+installAutoEnv(){
+  git clone git://github.com/inishchith/autoenv.git ~/.autoenv
+  echo 'source ~/.autoenv/activate.sh' >> ~/.bashrc
+
+
 }
 
 installSynergy(){
