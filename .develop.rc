@@ -2,6 +2,10 @@
 
 WEB_BROWSER=google-chrome
 
+goFastMac(){
+  $WEB_BROWSER https://github.com/louiscklaw/fastmac
+}
+
 createReactNativeApp(){
   npx create-react-native-app $@
 }
