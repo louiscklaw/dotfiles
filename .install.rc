@@ -21,6 +21,12 @@ EOF
 
 }
 
+installSlack(){
+  ariaDownload https://downloads.slack-edge.com/linux_releases/slack-desktop-4.11.3-amd64.deb
+  sudo dpkg -i desktop-4.11.3-amd64.deb
+
+}
+
 # System limit for number of file watchers reached
 increaseFileWatchers(){
   echo fs.inotify.max_user_watches=5242880 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
