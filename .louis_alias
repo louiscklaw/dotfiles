@@ -2,6 +2,8 @@
 
 # set -x
 
+export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
+
 DEFAULT_BROWSER=google-chrome
 
 if [[ -e $HOME/.credentials.rc ]]; then

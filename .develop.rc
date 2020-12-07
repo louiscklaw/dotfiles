@@ -28,6 +28,10 @@ meldToLynkedQaProject(){
   meld $PWD /home/logic/_workspace/LYNKED_QA_project
 }
 
+codeGoPlaylist(){
+  code ~/_workspace/go-playlist
+}
+
 codeLynkedQaProject(){
   code ~/_workspace/LYNKED_QA.code-workspace
   code /home/logic/_workspace/LYNKED_QA_project/LYNKED_QA.code-workspace
