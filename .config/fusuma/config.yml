@@ -1,0 +1,72 @@
+swipe:
+  3: 
+    left:
+      workspace: 'next' # Switch to next workspace
+      keypress:
+        LEFTCTRL:
+          window: 'next' # Move window to next workspace
+    right:
+      workspace: 'prev' # Switch to previous workspace
+      keypress:
+        LEFTCTRL:
+          window: 'prev' # Move window to previous workspace
+    up: 
+      command: 'xdotool key super'
+    down: 
+      command: 'xdotool key super+a'
+  4:
+    left: 
+      command: 'xdotool key alt+Left'
+    right: 
+      command: 'xdotool key alt+Right'
+    up:
+      command: 'xdotool key --clearmodifiers XF86AudioRaiseVolume'
+      keypress:
+        LEFTCTRL:
+          command: 'xdotool key --clearmodifiers XF86MonBrightnessUp' # Brightness up
+    down:
+      command: 'xdotool key --clearmodifiers XF86AudioLowerVolume'
+      keypress:
+        LEFTCTRL:
+          command: 'xdotool key --clearmodifiers XF86MonBrightnessDown' # Brightness down
+
+
+rotate:
+  4:
+    clockwise:
+      command: 'for ((i = 0 ; i < 10 ; i++)); do xdotool key --clearmodifiers XF86AudioRaiseVolume done'
+      keypress:
+        LEFTCTRL:
+          command: 'xdotool key --clearmodifiers XF86MonBrightnessUp' # Brightness up
+    counterclockwise:
+      command: 'for ((i = 0 ; i < 10 ; i++)); do xdotool key --clearmodifiers XF86AudioLowerVolume done'
+      keypress:
+        LEFTCTRL:
+          command: 'xdotool key --clearmodifiers XF86MonBrightnessDown' # Brightness down
+
+plugin:
+  inputs:
+    libinput_command_input: # options for lib/plugin/inputs/libinput_command_input
+      enable-tap: true # click to tap
+      enable-dwt: true # disable tap while typing
+      show-keycodes: true # https://github.com/iberianpig/fusuma-plugin-keypress#add-show-keycode-option
+
+
+
+pinch:
+  4:
+    in:
+      command: 'xdotool key ctrl+plus'
+    out:
+      command: 'xdotool key ctrl+minus'
+
+threshold:
+  swipe: 0.5
+  pinch: 1.5
+  rotate: 0.5
+
+interval:
+  swipe: 0.8
+  pinch: 1.5
+  rotate: 0.5
+
