@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Exec=fusuma -d
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Phase=Applications
+X-GNOME-Autostart-Delay=2
+Name[en_HK]=fusuma touch gestures-d
+Name=fusuma touch gestures
+Comment[en_HK]=fusuma touch gestures
+Comment=fusuma touch gestures

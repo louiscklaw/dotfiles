@@ -1,16 +1,12 @@
 swipe:
   3: 
     left:
-      workspace: 'next' # Switch to next workspace
-      keypress:
-        LEFTCTRL:
-          window: 'next' # Move window to next workspace
+      command: 'xdotool key ctrl+alt+Right'
+          
     right:
-      workspace: 'prev' # Switch to previous workspace
-      keypress:
-        LEFTCTRL:
-          window: 'prev' # Move window to previous workspace
-    up: 
+      command: 'xdotool key ctrl+alt+Left'
+          
+    up:   
       command: 'xdotool key super'
     down: 
       command: 'xdotool key super+a'
