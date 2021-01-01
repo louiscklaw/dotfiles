@@ -4,7 +4,7 @@
 
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
 
-DEFAULT_BROWSER=google-chrome
+export DEFAULT_BROWSER=/usr/bin/google-chrome
 
 if [[ -e $HOME/.credentials.rc ]]; then
   source $HOME/.credentials.rc
