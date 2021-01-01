@@ -889,6 +889,12 @@ zettlrTodo(){
   zettlr /home/logic/_workspace/todo_list/todo.md
 }
 
+changeVoice(){
+  sox -t pulseaudio default -t pulseaudio null pitch +1200
+
+  pavucontrol
+}
+
 alias createReactApp='npx create-react-app .'
 
 if [[ -e $HOME/_workspace/github-playlist/gitignore-template/scripts.rc ]]; then
