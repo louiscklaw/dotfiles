@@ -890,9 +890,11 @@ zettlrTodo(){
 }
 
 changeVoice(){
-  sox -t pulseaudio default -t pulseaudio null pitch +1200
-
+  # https://itectec.com/ubuntu/ubuntu-is-there-a-way-to-modulate-the-voice-on-the-fly/
   pavucontrol
+
+  sox -t pulseaudio default -t pulseaudio null pitch +800
+
 }
 
 alias createReactApp='npx create-react-app .'
