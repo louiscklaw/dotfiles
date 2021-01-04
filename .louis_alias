@@ -4,7 +4,7 @@
 
 # export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
 
-DEFAULT_BROWSER=google-chrome
+export DEFAULT_BROWSER=/usr/bin/google-chrome
 
 export PATH=$PATH:/home/logic/.yarn/bin:/home/logic/node_modules/.bin
 
@@ -705,7 +705,7 @@ codeHist(){
 }
 
 open(){
-  nautilus . &
+  nohup nautilus . &
 }
 
 syncWorkspaceHome(){
@@ -893,6 +893,14 @@ syncCredentialsHome(){
 
 zettlrTodo(){
   zettlr /home/logic/_workspace/todo_list/todo.md
+}
+
+changeVoice(){
+  # https://itectec.com/ubuntu/ubuntu-is-there-a-way-to-modulate-the-voice-on-the-fly/
+  pavucontrol
+
+  sox -t pulseaudio default -t pulseaudio null pitch +800
+
 }
 
 alias createReactApp='npx create-react-app .'
