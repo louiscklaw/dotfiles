@@ -2,9 +2,11 @@
 
 # set -x
 
-export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
+# export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
 
 export DEFAULT_BROWSER=/usr/bin/google-chrome
+
+export PATH=$PATH:/home/logic/.yarn/bin:/home/logic/node_modules/.bin
 
 if [[ -e $HOME/.credentials.rc ]]; then
   source $HOME/.credentials.rc
@@ -82,6 +84,10 @@ fi
 if [[ -e $HOME/_workspace/dotfiles/.directory.rc ]]; then
   source $HOME/_workspace/dotfiles/.directory.rc
 fi
+
+codeQuotations(){
+  code ~/_workspace/quotations
+}
 
 # https://medium.com/@k21_79139/%E9%A6%99%E6%B8%AF%E9%9B%BB%E5%8F%B0%E7%9B%B4%E6%92%AD%E6%BA%90%E5%88%97%E8%A1%A8-29ddf6591c14
 radio_rthk1(){

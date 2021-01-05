@@ -496,6 +496,12 @@ installMake(){
 
 }
 
+installKineticScrolling(){
+  sudo apt-get remove xserver-xorg-input-libinput libinput-tools
+  sudo apt-get install xserver-xorg-input-all xserver-xorg-input-evdev xserver-xorg-input-synaptics
+
+}
+
 installTmateWrapper(){
   installGit
   installMake
