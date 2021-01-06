@@ -881,6 +881,15 @@ installGnomeAnimations(){
   cp -r animation-tweaks@Selenium-H/ ~/.local/share/gnome-shell/extensions/animation-tweaks@Selenium-H
 }
 
+# install on 20.04
+installGnomeExtensionsByUbuntu(){
+  sudo apt install -y gnome-shell-extension-bluetooth-quick-connect
+  sudo apt install -y gnome-shell-extension-disconnect-wifi
+  sudo apt install -y gnome-shell-extension-draw-on-your-screen
+  sudo apt install -y gnome-shell-extension-hide-activities
+  sudo apt install -y gnome-shell-extension-remove-dropdown-arrows
+
+}
 
 installScreenSaver(){
   CWD=$PWD
