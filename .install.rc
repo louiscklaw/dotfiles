@@ -862,17 +862,18 @@ installUnzip(){
   unzip -v
 }
 
-installDynamicTopBar(){
-  installTzdata
-  installAria2c
-  installUnzip
+# not working on 20.04
+# installDynamicTopBar(){
+#   installTzdata
+#   installAria2c
+#   installUnzip
 
-  cd /tmp
-    ariaDownload https://github.com/AMDG2/GnomeShell_DynamicTopBar/releases/download/3.3.1/DynamicTopBar_19.zip
-    mkdir -p ~/.local/share/gnome-shell/extensions
-    rm -rf ~/.local/share/gnome-shell/extensions/dynamicTopBar@gnomeshell.feildel.fr
-    unzip -o /tmp/DynamicTopBar_19.zip -d ~/.local/share/gnome-shell/extensions/dynamicTopBar@gnomeshell.feildel.fr
-}
+#   cd /tmp
+#     ariaDownload https://github.com/AMDG2/GnomeShell_DynamicTopBar/releases/download/3.3.1/DynamicTopBar_19.zip
+#     mkdir -p ~/.local/share/gnome-shell/extensions
+#     rm -rf ~/.local/share/gnome-shell/extensions/dynamicTopBar@gnomeshell.feildel.fr
+#     unzip -o /tmp/DynamicTopBar_19.zip -d ~/.local/share/gnome-shell/extensions/dynamicTopBar@gnomeshell.feildel.fr
+# }
 
 installGnomeAnimations(){
   rm -rf ~/.local/share/gnome-shell/extensions/animation-tweaks@Selenium-H
