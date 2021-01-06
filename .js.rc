@@ -60,6 +60,11 @@ nodemonAllBuild(){
   nodemon --delay 5 -w . -e "mmd,sh,js,ts,html,css,scss,sass,yml,py" --ignore './node_modules' --ignore './public' --ignore './reports'  --delay 250ms --exec "$@"
 }
 
+nodemonWebpackBuild(){
+  # html for pyunittest template
+  nodemon --delay 5 -w . -e "mmd,sh,js,ts,html,css,scss,sass,yml,py" --ignore './dist' --ignore './node_modules' --ignore './public' --ignore './reports'  --delay 250ms --exec "$@"
+}
+
 nodemonPugBuild(){
   # html for pyunittest template
   nodemon -w . -e "pug,js" --ignore './node_modules' --ignore './public' --ignore './reports'  --delay 500ms --exec "$@"
