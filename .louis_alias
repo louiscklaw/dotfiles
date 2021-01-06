@@ -896,8 +896,11 @@ zettlrTodo(){
 }
 
 changeVoice(){
+  set -ex
   # https://itectec.com/ubuntu/ubuntu-is-there-a-way-to-modulate-the-voice-on-the-fly/
-  pavucontrol
+  echo "start pavucontrol yourself"
+
+  pactl load-module module-null-sink
 
   sox -t pulseaudio default -t pulseaudio null pitch +800
 
