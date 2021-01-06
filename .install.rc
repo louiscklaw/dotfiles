@@ -800,6 +800,10 @@ getUbuntu2004(){
   set +x
 }
 
+installAudioSwitch(){
+  git clone git@github.com:AndresCidoncha/audio-switcher.git ~/.local/share/gnome-shell/extensions/audio-switcher@AndresCidoncha
+}
+
 installArgos(){
   installGit
 
