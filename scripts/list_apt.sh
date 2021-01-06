@@ -3,7 +3,7 @@
 set -ex
 
 THIS_HOSTNAME=`hostname`
-FILENAME=$THIS_HOSTNAME+'.apt.list'
+FILENAME=$THIS_HOSTNAME'.apt.list'
 
 echo 'hostname' > list-apt/$FILENAME
 
