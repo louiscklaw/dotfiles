@@ -1063,3 +1063,10 @@ installPip2(){
     which pip2.7
   cd -
 }
+
+installMagnifier(){
+  # https://github.com/minos-org/magnifier
+  sudo add-apt-repository ppa:minos-archive/main
+  sudo apt-get update && sudo apt-get install magnifier
+
+}
