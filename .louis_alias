@@ -85,6 +85,37 @@ if [[ -e $HOME/_workspace/dotfiles/.directory.rc ]]; then
   source $HOME/_workspace/dotfiles/.directory.rc
 fi
 
+mergeToMaster(){
+  set -ex
+  git fetch --all
+
+  CURRENT_BRANCH_RAW=`git branch |grep -i \* -`
+  CURRENT_BRANCH=`echo $CURRENT_BRANCH_RAW | sed 's/* //' - `
+
+  git merge --ff-only master
+  git merge --ff-only develop
+
+  git merge --ff-only origin/master
+  git merge --ff-only origin/develop
+
+  git checkout develop
+  git pull
+
+  git merge --ff-only  $CURRENT_BRANCH
+
+  git push &
+
+  git checkout master
+  git pull
+  git merge --ff-only develop
+
+  git push &
+
+  git checkout $CURRENT_BRANCH
+  wait
+  set +ex
+}
+
 codeQuotations(){
   code ~/_workspace/quotations
 }
