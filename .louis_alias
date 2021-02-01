@@ -736,7 +736,7 @@ codeHist(){
 }
 
 open(){
-  nohup nautilus . &
+  nohup nautilus . >/dev/null 2>&1 &
 }
 
 syncWorkspaceHome(){
