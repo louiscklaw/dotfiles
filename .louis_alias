@@ -85,6 +85,12 @@ if [[ -e $HOME/_workspace/dotfiles/.directory.rc ]]; then
   source $HOME/_workspace/dotfiles/.directory.rc
 fi
 
+clearChromeCache(){
+  rm -rf ~/.config/google-chrome/Default
+  rm -rf  "~/.config/google-chrome/Profile 1"
+  rm -rf ~/.cache/google-chrome
+}
+
 mergeToMaster(){
   set -ex
   git fetch --all
