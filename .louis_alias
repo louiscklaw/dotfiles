@@ -86,8 +86,10 @@ if [[ -e $HOME/_workspace/dotfiles/.directory.rc ]]; then
 fi
 
 clearChromeCache(){
-  rm -rf ~/.config/google-chrome/Default
-  rm -rf  "~/.config/google-chrome/Profile 1"
+  rm -rf ~/.config/google-chrome
+  rm -rf ~/.config/google-chrome-beta
+  rm -rf ~/.config/google-chrome-unstable
+
   rm -rf ~/.cache/google-chrome
 }
 
