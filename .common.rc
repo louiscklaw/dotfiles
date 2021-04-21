@@ -23,6 +23,10 @@ testFlashRedBackground(){
   echo -e ${PALETTE_REVERSE}${PALETTE_RED}${PALETTE_BOLD}${PALETTE_BLINK} $@ ${PALETTE_RESET}
 }
 
+slack_curl_messenger_helloworld(){
+  curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' $SLACK_CURL_MESSENGER
+}
+
 sendSlackMsg(){
   # usage: sendSlackMsg '#_debug' 'test username' '1233211234567 abcdefgDDD\n\n\n中文字'
 
