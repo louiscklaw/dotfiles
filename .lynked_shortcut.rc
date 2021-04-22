@@ -9,3 +9,23 @@ goNewTicket(){
   $DEFAULT_BROWSER https://drive.google.com/drive/u/1/folders/1vIeoTzijbG-_bcXuKR44v7VSJ0c-Xzd5
   code /home/logic/_workspace/LYNKED_QA_project/_tickets
 }
+
+codeMenyDbFiles(){
+  code /home/logic/_workspace/LynkedKK/db_backup
+}
+
+codeMenyTest(){
+  code /home/logic/_workspace/LynkedKK/lynked-demo-test-script-tryout
+}
+
+codeMenySrc(){
+  code /home/logic/_workspace/LynkedKK/lynked-demo-tryout
+}
+
+codeMenyGo(){
+  code /home/logic/_workspace/LynkedKK/meny-go/meny-light-demo
+}
+
+goMenyTicket(){
+  $DEFAULT_BROWSER https://lynked.atlassian.net/browse/$1 &
+}

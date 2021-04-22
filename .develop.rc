@@ -225,6 +225,10 @@ codeReactNativePlaylist() {
   code ~/_workspace/react-native-playlist
 }
 
+codeFigmaPlaylist() {
+  code ~/_workspace/figma-playlist
+}
+
 codeReactPlaylist() {
   code ~/_workspace/react-playlist
 }
