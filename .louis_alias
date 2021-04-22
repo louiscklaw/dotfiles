@@ -85,6 +85,10 @@ if [[ -e $HOME/_workspace/dotfiles/.directory.rc ]]; then
   source $HOME/_workspace/dotfiles/.directory.rc
 fi
 
+resetSwap(){
+  sudo swapoff -a && swapon
+}
+
 clearChromeCache(){
   rm -rf ~/.config/google-chrome
   rm -rf ~/.config/google-chrome-beta
