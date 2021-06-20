@@ -2,30 +2,50 @@
 
 # set -x
 
-DEFAULT_BROWSER=google-chrome
+START_CHROME='/usr/bin/google-chrome-stable'
+CODE_OPTS=('--disable-web-security' '--use-gl=desktop' '--enable-features=VaapiVideoDecoder' '--ignore-gpu-blacklist' '--enable-gpu-rasterization' '--enable-parallel-downloading' '--smooth-scrolling' '--enable-zero-copy')
 
-goNewTicket(){
-  $DEFAULT_BROWSER https://trello.com/b/JNF4AVto/lynked-insight
-  $DEFAULT_BROWSER https://drive.google.com/drive/u/1/folders/1vIeoTzijbG-_bcXuKR44v7VSJ0c-Xzd5
-  code /home/logic/_workspace/LYNKED_QA_project/_tickets
-}
+BROWSER_OPTS=('--disable-web-security' '--use-gl=desktop' '--enable-features=VaapiVideoDecoder' '--ignore-gpu-blacklist' '--enable-gpu-rasterization' '--enable-parallel-downloading' '--smooth-scrolling' '--enable-zero-copy')
+
+DEFAULT_BROWSER=$START_CHROME
+
 
 codeMenyDbFiles(){
-  code /home/logic/_workspace/LynkedKK/db_backup
+  code /home/logic/_workspace/LynkedKK/db_backup "${CODE_OPTS[@]}"
+
 }
 
 codeMenyTest(){
-  code /home/logic/_workspace/LynkedKK/lynked-demo-test-script-tryout
+  code /home/logic/_workspace/LynkedKK/lynked-demo-test-script-tryout "${CODE_OPTS[@]}"
 }
 
-codeMenySrc(){
-  code /home/logic/_workspace/LynkedKK/lynked-demo-tryout
+codeMenyDbBackup(){
+  code /home/logic/_workspace/LynkedKK/db_backup "${CODE_OPTS[@]}"
 }
+
+
+export MENY_WK_DIR='/home/logic/_workspace/LynkedKK/lynked-demo-tryout/meny-light-demo'
+codeMenySrc(){
+  code $MENY_WK_DIR/meny-admin "${CODE_OPTS[@]}"  &
+  code $MENY_WK_DIR/meny-client "${CODE_OPTS[@]}"  &
+  code $MENY_WK_DIR/meny-manage "${CODE_OPTS[@]}"  &
+  code $MENY_WK_DIR/firebase "${CODE_OPTS[@]}"  &
+}
+
+
+codeMenyFirebase(){
+  code /home/logic/_workspace/LynkedKK/lynked-demo-tryout/meny-light-demo/firebase "${CODE_OPTS[@]}"
+}
+
 
 codeMenyGo(){
-  code /home/logic/_workspace/LynkedKK/meny-go/meny-light-demo
+  code /home/logic/_workspace/LynkedKK/meny-go/meny-light-demo "${CODE_OPTS[@]}"
 }
 
 goMenyTicket(){
-  $DEFAULT_BROWSER https://lynked.atlassian.net/browse/$1 &
+  $DEFAULT_BROWSER  https://lynked.atlassian.net/browse/$1 "${BROWSER_OPTS[@]}" &
+}
+
+goMenyQuotation(){
+  open /home/logic/_workspace/louislabs/quotations/lynked-quote &
 }

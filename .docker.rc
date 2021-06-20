@@ -36,6 +36,7 @@ dockerRun(){
     -v $PWD:/root/work_dir \
     -v $TMP_BASH_HISTORY:/root/.bash_history \
     -v /var/run/docker.sock:/var/run/docker.sock \
+    -p 9001:9001 \
     --rm \
     $@
 }
@@ -54,6 +55,18 @@ dockerRunUbuntu1804(){
 
 dockerRunNode(){
   dockerRun node:latest bash
+}
+
+dockerRunNode10(){
+  dockerRun node:10 bash
+}
+
+dockerRunNode12(){
+  dockerRun node:12 bash
+}
+
+dockerRunNode14(){
+  dockerRun node:14 bash
 }
 
 GET_FULL_REPOSITORY(){
