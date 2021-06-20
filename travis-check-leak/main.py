@@ -126,7 +126,7 @@ def main():
   print('SCAN_DIR:"{}"'.format(SCAN_DIR))
 
   SKIP_LIST=[
-    'logickee','1','http'
+    'logickee','1','http', 'Bw'
   ]
 
 
