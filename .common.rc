@@ -84,17 +84,10 @@ codeFirefoxAlias(){
   code ~/.firefox_alias.rc
 }
 
-codeDotFiles(){
-  code -n /home/logic/_workspace/dotfiles/
-}
+alias codeDotFiles='code -n /home/logic/_workspace/dotfiles/'
+alias codeLouisAlias='code /home/logic/_workspace/dotfiles/.louis_alias'
 
-codeLouisAlias(){
-  code /home/logic/_workspace/dotfiles/.louis_alias
-}
-
-codeDotFirefox(){
-  code /home/logic/_workspace/dotfiles/.firefox_alias.rc
-}
+alias codeDotFirefox='code /home/logic/_workspace/dotfiles/.firefox_alias.rc'
 
 
 n(){

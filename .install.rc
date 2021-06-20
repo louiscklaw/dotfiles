@@ -461,18 +461,20 @@ installWebStorm(){
 }
 
 installAliWangWang(){
-  installTzdata
-  installGit
+  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 425956BB3E31DF51
+  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 1C30362C0A53D5BB
 
-  cd /tmp
-    rm -rf deepin-wine-ubuntu
-    git clone https://github.com/wszqkzqk/deepin-wine-ubuntu.git
-  cd -
 
-  cd /tmp/deepin-wine-ubuntu
-    sudo apt-get install -y --no-install-recommends xdotool
-    echo Y | ./install.sh
-  cd -
+  echo "deb [by-hash=force] https://community-packages.deepin.com/deepin apricot main contrib non-free" | sudo tee  /etc/apt/sources.list.d/deepin.list
+  echo "deb https://community-store-packages.deepin.com/appstore eagle appstore" | sudo tee  /etc/apt/sources.list.d/deepin_appstore.list
+
+  codename=`cat /etc/lsb-release |grep DISTRIB_CODENAME|awk -F '=' '{print $2}'`
+  sudo dpkg --add-architecture i386
+  sudo apt update
+  sudo apt install -t $codename deepin-wine5 -fy
+  sudo apt install -t $codename com.taobao.wangwang.deepin fonts-wqy-microhei
+
+  sudo sed -i.bak '2i export LC_ALL=zh_CN.UTF-8' /opt/apps/com.taobao.wangwang.deepin/files/run.sh
 }
 
 installTmate(){

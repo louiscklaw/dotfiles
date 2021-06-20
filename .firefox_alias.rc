@@ -2,8 +2,6 @@
 
 # set -x
 
-DEFAULT_BROWSER=google-chrome
-
 goTrello(){
   $DEFAULT_BROWSER https://trello.com/b/JNF4AVto/lynked-insight
 }

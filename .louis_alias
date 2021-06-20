@@ -4,9 +4,17 @@
 
 # export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
 
-export DEFAULT_BROWSER=/usr/bin/google-chrome
+export MOZ_ENABLE_WAYLAND=1
+
+export BROWSER_OPTS=('--disk-cache-size=134217728' '--disable-web-security' '--use-gl=desktop' '--enable-features=VaapiVideoDecoder' '--ignore-gpu-blacklist' '--enable-gpu-rasterization' '--enable-parallel-downloading' '--smooth-scrolling ' '--enable-zero-copy')
 
 export PATH=$PATH:/home/logic/.yarn/bin:/home/logic/node_modules/.bin
+
+alias ariaDownload='aria2c -x 16 -s 99999 --dht-listen-port=51000-51099'
+code='/usr/share/code/code --ignore-gpu-blacklist --enable-gpu-rasterization --enable-native-gpu-memory-buffers  --force-gpu-rasterization --enable-oop-rasterization  --enable-zero-copy   --no-sandbox --unity-launch'
+
+alias testCall="echo $code"
+
 
 if [[ -e $HOME/.credentials.rc ]]; then
   source $HOME/.credentials.rc
@@ -85,8 +93,29 @@ if [[ -e $HOME/_workspace/dotfiles/.directory.rc ]]; then
   source $HOME/_workspace/dotfiles/.directory.rc
 fi
 
+updateFirebase(){
+  curl -sL firebase.tools | upgrade=true bash
+
+  firebase --version
+}
+
 resetSwap(){
   sudo swapoff -a && swapon
+}
+
+clearPageCache(){
+  echo 'sync'
+  echo 'echo 1 > /proc/sys/vm/drop_caches'
+
+  sudo sysctl vm.drop_caches=3
+}
+
+youtubeSoundOnly() {
+  mpv --no-video $1
+}
+
+youtubePlayList(){
+  mpv --no-video "https://www.youtube.com/playlist?list=PLipob7bBXIahH_0AJCCN9Rv1PTJQPy64G"
 }
 
 clearChromeCache(){
@@ -295,6 +324,15 @@ checkLeaking(){
 
   trap 'rm -rf $TMP_DIR' EXIT
 
+}
+
+gcoPush(){
+  set -x
+  git fetch --all --prune --jobs=100
+
+  git checkout -b $1
+  CURR_REPO=`git rev-parse --abbrev-ref HEAD`
+  git push --set-upstream origin $CURR_REPO
 }
 
 gitPushNewBranch() {
@@ -691,14 +729,6 @@ configUbuntu(){
 
 codeImWheelRc(){
   code ~/.imwheelrc
-}
-
-ariaDownload(){
-  set -x
-
-  aria2c -x 16 -s 99999 --dht-listen-port=51000-51099 $@
-
-  set +x
 }
 
 rsyncSsh(){

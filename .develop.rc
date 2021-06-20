@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-WEB_BROWSER=google-chrome
+
+CODE_OPTS=('--disable-web-security' '--use-gl=desktop' '--enable-features=VaapiVideoDecoder' '--ignore-gpu-blacklist' '--enable-gpu-rasterization' '--enable-parallel-downloading' '--smooth-scrolling' '--enable-zero-copy')
 
 goFastMac(){
-  $WEB_BROWSER https://github.com/louiscklaw/fastmac
+  $DEFAULT_BROWSER https://github.com/louiscklaw/fastmac
 }
 
 createReactNativeApp(){
@@ -29,28 +30,32 @@ meldToLynkedQaProject(){
 }
 
 codeGoPlaylist(){
-  code ~/_workspace/go-playlist
+  code ~/_workspace/go-playlist "${CODE_OPTS[@]}"
 }
 
 codeLynkedQaProject(){
-  code ~/_workspace/LYNKED_QA.code-workspace
-  code /home/logic/_workspace/LYNKED_QA_project/LYNKED_QA.code-workspace
+  code ~/_workspace/LYNKED_QA.code-workspace "${CODE_OPTS[@]}"
+  code /home/logic/_workspace/LYNKED_QA_project/LYNKED_QA.code-workspace "${CODE_OPTS[@]}"
 }
 
 codeLynkedTicket(){
-  code /home/logic/_workspace/LYNKED_QA_project/_tickets
+  code /home/logic/_workspace/LYNKED_QA_project/_tickets "${CODE_OPTS[@]}"
 }
 
 codeTaobaoPlaylist(){
-  code ~/_workspace/taobao-playlist
+  code ~/_workspace/taobao-playlist "${CODE_OPTS[@]}"
 }
 
 codeYoutubePlaylist(){
-  code ~/_workspace/youtube-playlist
+  code ~/_workspace/youtube-playlist "${CODE_OPTS[@]}"
+}
+
+codePortfolio(){
+  code /home/logic/_workspace/portfolio-gatsby "${CODE_OPTS[@]}"
 }
 
 codeJob(){
-  code /media/logic/B829-3585/ws.code-workspace
+  code /media/logic/B829-3585/ws.code-workspace "${CODE_OPTS[@]}"
 }
 
 initCodeWorkspace(){
@@ -58,235 +63,235 @@ initCodeWorkspace(){
 }
 
 codePoc() {
-  code ~/_poc
+  code ~/_poc "${CODE_OPTS[@]}"
 }
 
 codeJobSearchTryout(){
-  code /home/logic/_workspace/jobs_search_tryout
+  code /home/logic/_workspace/jobs_search_tryout "${CODE_OPTS[@]}"
 }
 
 codeAiPlaylist() {
-  code ~/_workspace/ai-playlist
+  code ~/_workspace/ai-playlist "${CODE_OPTS[@]}"
 }
 
 codeAppiumPlaylist() {
-  code ~/_workspace/appium-playlist
+  code ~/_workspace/appium-playlist "${CODE_OPTS[@]}"
 }
 
 codeAR9331Playlist() {
-  code ~/_workspace/AR9331-playlist
+  code ~/_workspace/AR9331-playlist "${CODE_OPTS[@]}"
 }
 
 codeArduinoPlaylist() {
-  code ~/_workspace/arduino-playlist
+  code ~/_workspace/arduino-playlist "${CODE_OPTS[@]}"
 }
 
 codeBotPlaylist() {
-  code ~/_workspace/bot-playlist
+  code ~/_workspace/bot-playlist "${CODE_OPTS[@]}"
 }
 
 codeBuildkitePlaylist() {
-  code ~/_workspace/buildkite-playlist
+  code ~/_workspace/buildkite-playlist "${CODE_OPTS[@]}"
 }
 
 codeCalibrePlaylist() {
-  code ~/_workspace/calibre-playlist
+  code ~/_workspace/calibre-playlist "${CODE_OPTS[@]}"
 }
 
 codeCNCPlaylist() {
-  code ~/_workspace/CNC-playlist
+  code ~/_workspace/CNC-playlist "${CODE_OPTS[@]}"
 }
 
 codeCubieboardPlaylist() {
-  code ~/_workspace/cubieboard2-playlist
+  code ~/_workspace/cubieboard2-playlist "${CODE_OPTS[@]}"
 }
 
 codeCubieboard2Playlist() {
-  code ~/_workspace/cubieboard-playlist
+  code ~/_workspace/cubieboard-playlist "${CODE_OPTS[@]}"
 }
 
 codeD3Playlist() {
-  code ~/_workspace/d3-playlist
+  code ~/_workspace/d3-playlist "${CODE_OPTS[@]}"
 }
 
 codeDenoPlaylist() {
-  code ~/_workspace/deno-playlist
+  code ~/_workspace/deno-playlist "${CODE_OPTS[@]}"
 }
 
 codeDockerPlaylist() {
-  code ~/_workspace/docker-playlist
+  code ~/_workspace/docker-playlist "${CODE_OPTS[@]}"
 }
 
 codeDocsifyPlaylist() {
-  code ~/_workspace/docsify-playlist
+  code ~/_workspace/docsify-playlist "${CODE_OPTS[@]}"
 }
 
 codeDoczPlaylist() {
-  code ~/_workspace/docz-playlist
+  code ~/_workspace/docz-playlist "${CODE_OPTS[@]}"
 }
 
 codeEsp32Playlist(){
-  code ~/_workspace/esp32-playlist
+  code ~/_workspace/esp32-playlist "${CODE_OPTS[@]}"
 }
 
 codeEsp32CamPlaylist() {
-  code ~/_workspace/esp32-cam-playlist
+  code ~/_workspace/esp32-cam-playlist "${CODE_OPTS[@]}"
 }
 
 codeExpoPlaylist() {
-  code ~/_workspace/expo-playlist
+  code ~/_workspace/expo-playlist "${CODE_OPTS[@]}"
 }
 
 codeFirebasePlaylist() {
-  code ~/_workspace/firebase-playlist
+  code ~/_workspace/firebase-playlist "${CODE_OPTS[@]}"
 }
 
 codeFreecadPlaylist() {
-  code ~/_workspace/freecad-playlist
+  code ~/_workspace/freecad-playlist "${CODE_OPTS[@]}"
 }
 
 codeGatsbyjsPlaylist() {
-  code ~/_workspace/gatsbyjs-playlist
+  code ~/_workspace/gatsbyjs-playlist "${CODE_OPTS[@]}"
 }
 
 codeGithubPlaylist() {
-  code ~/_workspace/github-playlist
+  code ~/_workspace/github-playlist "${CODE_OPTS[@]}"
 }
 
 codeHugoPlaylist() {
-  code ~/_workspace/hugo-playlist
+  code ~/_workspace/hugo-playlist "${CODE_OPTS[@]}"
 }
 
 codeI3megaPlaylist() {
-  code ~/_workspace/i3mega-playlist
+  code ~/_workspace/i3mega-playlist "${CODE_OPTS[@]}"
 }
 
 codeJsPlaylist() {
-  code ~/_workspace/js-playlist
+  code ~/_workspace/js-playlist "${CODE_OPTS[@]}"
 }
 
 codeJsonPlaylist() {
-  code ~/_workspace/json-playlist
+  code ~/_workspace/json-playlist "${CODE_OPTS[@]}"
 }
 
 codeKicadPlaylist() {
-  code ~/_workspace/kicad-playlist
+  code ~/_workspace/kicad-playlist "${CODE_OPTS[@]}"
 }
 
 codeMakefilePlaylist() {
-  code ~/_workspace/Makefile-playlist
+  code ~/_workspace/Makefile-playlist "${CODE_OPTS[@]}"
 }
 
 codeMicropythonPlaylist() {
-  code ~/_workspace/micropython-playlist
+  code ~/_workspace/micropython-playlist "${CODE_OPTS[@]}"
 }
 
 codeM5stackPlaylist(){
-  code ~/_workspace/m5stack-playlist
+  code ~/_workspace/m5stack-playlist "${CODE_OPTS[@]}"
 }
 
 codeNextjsPlaylist() {
-  code ~/_workspace/nextjs-playlist
+  code ~/_workspace/nextjs-playlist "${CODE_OPTS[@]}"
 }
 
 codeNmapPlaylist() {
-  code ~/_workspace/nmap-playlist
+  code ~/_workspace/nmap-playlist "${CODE_OPTS[@]}"
 }
 
 codeOrangePiZeroPlaylist() {
-  code ~/_workspace/orange-pi-zero-playlist
+  code ~/_workspace/orange-pi-zero-playlist "${CODE_OPTS[@]}"
 }
 
 codePcbantPlaylist() {
-  code ~/_workspace/pcbant-playlist
+  code ~/_workspace/pcbant-playlist "${CODE_OPTS[@]}"
 }
 
 codePlatformioPlaylist() {
-  code ~/_workspace/platformio-playlist
+  code ~/_workspace/platformio-playlist "${CODE_OPTS[@]}"
 }
 
 codePreactjsPlaylist() {
-  code ~/_workspace/preactjs-playlist
+  code ~/_workspace/preactjs-playlist "${CODE_OPTS[@]}"
 }
 
 codePuppeteerPlaylist() {
-  code ~/_workspace/puppeteer-playlist
+  code ~/_workspace/puppeteer-playlist "${CODE_OPTS[@]}"
 }
 
 codePythonPlaylist() {
-  code ~/_workspace/python-playlist
+  code ~/_workspace/python-playlist "${CODE_OPTS[@]}"
 }
 
 codeRaspberryPiPlaylist() {
-  code ~/_workspace/raspberry-pi-playlist
+  code ~/_workspace/raspberry-pi-playlist "${CODE_OPTS[@]}"
 }
 
 codeReactNativePlaylist() {
-  code ~/_workspace/react-native-playlist
+  code ~/_workspace/react-native-playlist "${CODE_OPTS[@]}"
 }
 
 codeFigmaPlaylist() {
-  code ~/_workspace/figma-playlist
+  code ~/_workspace/figma-playlist "${CODE_OPTS[@]}"
 }
 
 codeReactPlaylist() {
-  code ~/_workspace/react-playlist
+  code ~/_workspace/react-playlist "${CODE_OPTS[@]}"
 }
 
 codeRustPlaylist() {
-  code ~/_workspace/rust-playlist
+  code ~/_workspace/rust-playlist "${CODE_OPTS[@]}"
 }
 
 codeSeleniumPlaylist() {
-  code ~/_workspace/selenium-playlist
+  code ~/_workspace/selenium-playlist "${CODE_OPTS[@]}"
 }
 
 codeSfxPowerSupplyPlaylist() {
-  code ~/_workspace/sfx-power-supply-playlist
+  code ~/_workspace/sfx-power-supply-playlist "${CODE_OPTS[@]}"
 }
 
 codeTraefikPlaylist() {
-  code ~/_workspace/traefik-playlist
+  code ~/_workspace/traefik-playlist "${CODE_OPTS[@]}"
 }
 
 codeTravisPlaylist() {
-  code ~/_workspace/travis-playlist
+  code ~/_workspace/travis-playlist "${CODE_OPTS[@]}"
 }
 
 codeVuePlaylist() {
-  code ~/_workspace/vue-playlist
+  code ~/_workspace/vue-playlist "${CODE_OPTS[@]}"
 }
 
 codeWebPlaylist() {
-  code ~/_workspace/web-playlist
+  code ~/_workspace/web-playlist "${CODE_OPTS[@]}"
 }
 
 codeWebpackPlaylist() {
-  code ~/_workspace/webpack-playlist
+  code ~/_workspace/webpack-playlist "${CODE_OPTS[@]}"
 }
 
 codeCiPlaylist() {
-  code ~/_workspace/ci-playlist
+  code ~/_workspace/ci-playlist "${CODE_OPTS[@]}"
 }
 
 codeDroneCiPlaylist() {
-  code ~/_workspace/drone-ci-playlist
+  code ~/_workspace/drone-ci-playlist "${CODE_OPTS[@]}"
 }
 
 codeFirewallConfig(){
-  code ~/_workspace/firewall-config
+  code ~/_workspace/firewall-config "${CODE_OPTS[@]}"
 }
 
 codeWorkspace(){
-  code /home/logic/_workspace
+  code /home/logic/_workspace "${CODE_OPTS[@]}"
 }
 
 codeYahooFinancePlaylist(){
-  code ~/_workspace/yahoo-finance-playlist
+  code ~/_workspace/yahoo-finance-playlist "${CODE_OPTS[@]}"
 }
 
 codeWatchTowerPlaylist(){
-  code ~/_workspace/watch-tower-tryout
+  code ~/_workspace/watch-tower-tryout "${CODE_OPTS[@]}"
 }
 
 goGist(){
@@ -457,13 +462,6 @@ cloneToWorkspace(){
   cd -
 }
 
-code_del(){
-  code /home/logic/_del
-}
-
-codeWorkspace(){
-  code /home/logic/_workspace
-}
 
 checkoutOrphanBranch(){
 
@@ -507,10 +505,6 @@ gitCloneWork(){
   cd /home/logic/_workspace
     git clone --depth=10 $@ &
   cd -
-}
-
-codePortfolio(){
-  code /home/logic/_workspace/portfolio-gatsby
 }
 
 initPyProj(){
