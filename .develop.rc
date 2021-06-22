@@ -98,6 +98,10 @@ codeCalibrePlaylist() {
   code ~/_workspace/calibre-playlist "${CODE_OPTS[@]}"
 }
 
+codeIosPlaylist() {
+  code ~/_workspace/ios-playlist "${CODE_OPTS[@]}"
+}
+
 codeCNCPlaylist() {
   code ~/_workspace/CNC-playlist "${CODE_OPTS[@]}"
 }
