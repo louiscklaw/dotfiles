@@ -16,6 +16,9 @@ code='/usr/share/code/code --ignore-gpu-blacklist --enable-gpu-rasterization --e
 alias testCall="echo $code"
 
 
+source ./.python.rc
+source ./.android.rc
+
 if [[ -e $HOME/.credentials.rc ]]; then
   source $HOME/.credentials.rc
 fi
@@ -336,7 +339,7 @@ gcoPush(){
 }
 
 gitPushNewBranch() {
-  set -e
+  set -ex
 
   CURR_REPO=`git rev-parse --abbrev-ref HEAD`
   git push -f --set-upstream origin $CURR_REPO  $@ &
