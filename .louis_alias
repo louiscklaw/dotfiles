@@ -14,8 +14,13 @@ alias startCode='code --disk-cache-size=68157440 --disable-web-security --use-gl
 
 alias googleChrome='/usr/bin/google-chrome-stable --disk-cache-size=68157440 --disable-web-security --use-gl=desktop --enable-features=VaapiVideoDecoder --ignore-gpu-blacklist --enable-gpu-rasterization --enable-parallel-downloading --smooth-scrolling --enable-zero-copy '
 
-source ~/_workspace/dotfiles/.python.rc
-source ~/_workspace/dotfiles/.android.rc
+if [[ -e $HOME/_workspace/dotfiles/.python.rc ]]; then
+  source $HOME/_workspace/dotfiles/.python.rc
+fi
+
+if [[ -e $HOME/_workspace/dotfiles/.android.rc ]]; then
+  source $HOME/_workspace/dotfiles/.android.rc
+fi
 
 if [[ -e $HOME/.credentials.rc ]]; then
   source $HOME/.credentials.rc
