@@ -2,10 +2,51 @@
 
 # set -x
 
-DEFAULT_BROWSER=google-chrome
+DEFAULT_BROWSER=$START_CHROME
 
-goNewTicket(){
-  $DEFAULT_BROWSER https://trello.com/b/JNF4AVto/lynked-insight
-  $DEFAULT_BROWSER https://drive.google.com/drive/u/1/folders/1vIeoTzijbG-_bcXuKR44v7VSJ0c-Xzd5
-  code /home/logic/_workspace/LYNKED_QA_project/_tickets
+meldMenySrc(){
+  meld \
+    /home/logic/_del/lynked-demo-tryout/meny-light-demo \
+    /home/logic/_workspace/LynkedKK/lynked-demo-tryout/meny-light-demo
+}
+
+codeMenyDbFiles(){
+  code /home/logic/_workspace/LynkedKK/db_backup
+
+}
+
+codeMenyTest(){
+  code /home/logic/_workspace/LynkedKK/lynked-demo-test-script-tryout
+}
+
+codeMenyDbBackup(){
+  code /home/logic/_workspace/LynkedKK/db_backup
+}
+
+
+export MENY_WK_DIR='/home/logic/_workspace/LynkedKK/lynked-demo-tryout/meny-light-demo'
+codeMenySrc(){
+  set -x
+  startCode -n $MENY_WK_DIR/meny-admin  &
+  startCode -n $MENY_WK_DIR/meny-client  &
+  startCode -n $MENY_WK_DIR/meny-manage  &
+  startCode -n $MENY_WK_DIR/firebase  &
+}
+
+
+codeMenyFirebase(){
+  code /home/logic/_workspace/LynkedKK/lynked-demo-tryout/meny-light-demo/firebase
+}
+
+
+codeMenyGo(){
+  code /home/logic/_workspace/LynkedKK/meny-go/meny-light-demo
+}
+
+goMenyTicket(){
+  googleChrome  https://lynked.atlassian.net/browse/$1 "${BROWSER_OPTS[@]}" &
+}
+
+goMenyQuotation(){
+  open /home/logic/_workspace/louislabs/quotations/lynked-quote &
 }
