@@ -2,48 +2,49 @@
 
 # set -x
 
-START_CHROME='/usr/bin/google-chrome-stable'
-CODE_OPTS=('--disable-web-security' '--use-gl=desktop' '--enable-features=VaapiVideoDecoder' '--ignore-gpu-blacklist' '--enable-gpu-rasterization' '--enable-parallel-downloading' '--smooth-scrolling' '--enable-zero-copy')
-
-BROWSER_OPTS=('--disable-web-security' '--use-gl=desktop' '--enable-features=VaapiVideoDecoder' '--ignore-gpu-blacklist' '--enable-gpu-rasterization' '--enable-parallel-downloading' '--smooth-scrolling' '--enable-zero-copy')
-
 DEFAULT_BROWSER=$START_CHROME
 
+meldMenySrc(){
+  meld \
+    /home/logic/_del/lynked-demo-tryout/meny-light-demo \
+    /home/logic/_workspace/LynkedKK/lynked-demo-tryout/meny-light-demo
+}
 
 codeMenyDbFiles(){
-  code /home/logic/_workspace/LynkedKK/db_backup "${CODE_OPTS[@]}"
+  code /home/logic/_workspace/LynkedKK/db_backup
 
 }
 
 codeMenyTest(){
-  code /home/logic/_workspace/LynkedKK/lynked-demo-test-script-tryout "${CODE_OPTS[@]}"
+  code /home/logic/_workspace/LynkedKK/lynked-demo-test-script-tryout
 }
 
 codeMenyDbBackup(){
-  code /home/logic/_workspace/LynkedKK/db_backup "${CODE_OPTS[@]}"
+  code /home/logic/_workspace/LynkedKK/db_backup
 }
 
 
 export MENY_WK_DIR='/home/logic/_workspace/LynkedKK/lynked-demo-tryout/meny-light-demo'
 codeMenySrc(){
-  code $MENY_WK_DIR/meny-admin "${CODE_OPTS[@]}"  &
-  code $MENY_WK_DIR/meny-client "${CODE_OPTS[@]}"  &
-  code $MENY_WK_DIR/meny-manage "${CODE_OPTS[@]}"  &
-  code $MENY_WK_DIR/firebase "${CODE_OPTS[@]}"  &
+  set -x
+  startCode -n $MENY_WK_DIR/meny-admin  &
+  startCode -n $MENY_WK_DIR/meny-client  &
+  startCode -n $MENY_WK_DIR/meny-manage  &
+  startCode -n $MENY_WK_DIR/firebase  &
 }
 
 
 codeMenyFirebase(){
-  code /home/logic/_workspace/LynkedKK/lynked-demo-tryout/meny-light-demo/firebase "${CODE_OPTS[@]}"
+  code /home/logic/_workspace/LynkedKK/lynked-demo-tryout/meny-light-demo/firebase
 }
 
 
 codeMenyGo(){
-  code /home/logic/_workspace/LynkedKK/meny-go/meny-light-demo "${CODE_OPTS[@]}"
+  code /home/logic/_workspace/LynkedKK/meny-go/meny-light-demo
 }
 
 goMenyTicket(){
-  $DEFAULT_BROWSER  https://lynked.atlassian.net/browse/$1 "${BROWSER_OPTS[@]}" &
+  googleChrome  https://lynked.atlassian.net/browse/$1 "${BROWSER_OPTS[@]}" &
 }
 
 goMenyQuotation(){

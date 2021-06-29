@@ -57,7 +57,7 @@ nodemonMdBuild(){
 
 nodemonAllBuild(){
   # html for pyunittest template
-  nodemon --delay 5 -w . -e "mmd,sh,js,ts,html,css,scss,sass,yml,py" --ignore './node_modules' --ignore './public' --ignore './reports'  --delay 250ms --exec "$@"
+  nodemon --delay 5 -w . -e "mmd,sh,jsx,js,ts,html,css,scss,sass,yml,py" --ignore './node_modules' --ignore './public' --ignore './reports'  --delay 250ms --exec "$@"
 }
 
 nodemonWebpackBuild(){

@@ -5,19 +5,22 @@
 # export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
 
 export MOZ_ENABLE_WAYLAND=1
-
-export BROWSER_OPTS=('--disk-cache-size=134217728' '--disable-web-security' '--use-gl=desktop' '--enable-features=VaapiVideoDecoder' '--ignore-gpu-blacklist' '--enable-gpu-rasterization' '--enable-parallel-downloading' '--smooth-scrolling ' '--enable-zero-copy')
-
 export PATH=$PATH:/home/logic/.yarn/bin:/home/logic/node_modules/.bin
 
 alias ariaDownload='aria2c -x 16 -s 99999 --dht-listen-port=51000-51099'
 code='/usr/share/code/code --ignore-gpu-blacklist --enable-gpu-rasterization --enable-native-gpu-memory-buffers  --force-gpu-rasterization --enable-oop-rasterization  --enable-zero-copy   --no-sandbox --unity-launch'
 
-alias testCall="echo $code"
+alias startCode='code --disk-cache-size=68157440 --disable-web-security --use-gl=desktop --enable-features=VaapiVideoDecoder --ignore-gpu-blacklist --enable-gpu-rasterization --enable-parallel-downloading --smooth-scrolling --enable-zero-copy '
+
+alias googleChrome='/usr/bin/google-chrome-stable --disk-cache-size=68157440 --disable-web-security --use-gl=desktop --enable-features=VaapiVideoDecoder --ignore-gpu-blacklist --enable-gpu-rasterization --enable-parallel-downloading --smooth-scrolling --enable-zero-copy '
 
 
-source ./.python.rc
-source ./.android.rc
+
+source ~/_workspace/dotfiles/.python.rc
+source ~/_workspace/dotfiles/.android.rc
+
+
+
 
 if [[ -e $HOME/.credentials.rc ]]; then
   source $HOME/.credentials.rc
