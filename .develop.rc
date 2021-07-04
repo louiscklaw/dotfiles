@@ -226,7 +226,7 @@ codeReactNativePlaylist() {
 }
 
 codeReactPlaylist() {
-  code ~/_workspace/react-playlist
+  startCode -n ~/_workspace/react-playlist
 }
 
 codeRustPlaylist() {
