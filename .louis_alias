@@ -18,8 +18,6 @@ alias startCode='code \
 
 alias googleChrome='/usr/bin/google-chrome-stable --disk-cache-size=68157440 --disable-web-security --use-gl=desktop --enable-features=VaapiVideoDecoder --ignore-gpu-blacklist --enable-gpu-rasterization --enable-parallel-downloading --smooth-scrolling --enable-zero-copy '
 
-
-
 alias codePortfolio='startCode /home/logic/_workspace/portfolio-docusaurus'
 alias codeQuotations='startCode /home/logic/_workspace/quotations'
 alias codeLibreofficeScript='startCode /home/logic/.config/libreoffice/4/user/Scripts'
