@@ -10,19 +10,43 @@ export PATH=$PATH:/home/logic/.yarn/bin:/home/logic/node_modules/.bin
 export JAVA_TOOL_OPTIONS='-Xms1024m -Xmx4096m'
 
 alias ariaDownload='aria2c -x 16 -s 99999 --dht-listen-port=51000-51099'
-code='/usr/share/code/code --ignore-gpu-blacklist --enable-gpu-rasterization --enable-native-gpu-memory-buffers  --force-gpu-rasterization --enable-oop-rasterization  --enable-zero-copy   --no-sandbox --unity-launch'
 
-alias startCode='code --disk-cache-size=68157440 --disable-web-security --use-gl=desktop --enable-features=VaapiVideoDecoder --ignore-gpu-blacklist --enable-gpu-rasterization --enable-parallel-downloading --smooth-scrolling --enable-zero-copy $@'
+# alias startCode='code "$@" --disk-cache-size=68157440 --ignore-gpu-blacklist --disable-web-security --enable-gpu-rasterization --enable-features=VaapiVideoDecoder --enable-parallel-downloading --smooth-scrolling --enable-zero-copy --use-gl=desktop'
+alias startCode='code \
+  --disk-cache-size=68157440 --ignore-gpu-blacklist --disable-web-security --enable-gpu-rasterization --enable-features=VaapiVideoDecoder --enable-parallel-downloading --smooth-scrolling --enable-zero-copy --use-gl=desktop \
+  "$@"'
 
 alias googleChrome='/usr/bin/google-chrome-stable --disk-cache-size=68157440 --disable-web-security --use-gl=desktop --enable-features=VaapiVideoDecoder --ignore-gpu-blacklist --enable-gpu-rasterization --enable-parallel-downloading --smooth-scrolling --enable-zero-copy '
 
 
 
+alias codePortfolio='startCode /home/logic/_workspace/portfolio-docusaurus'
+alias codeQuotations='startCode /home/logic/_workspace/quotations'
+alias codeLibreofficeScript='startCode /home/logic/.config/libreoffice/4/user/Scripts'
+alias codeDotDevelop='startCode ~/_workspace/dotfiles/.develop.rc'
+
+# codeStock(){
+#   code /home/logic/_workspace/stock_buy_sell_sheet/fetch-yahoo-finance
+# }
+alias codeStock='startCode /home/logic/_workspace/stock_buy_sell_sheet/fetch-yahoo-finance'
+
+# codeImWheelRc(){
+#   code ~/.imwheelrc
+# }
+alias codeImWheelRc='startCode ~/.imwheelrc'
+
+# codeGatsbyPlaylist(){
+#   code ~/_workspace/gatsbyjs-playlist
+# }
+alias codeGatsbyPlaylist='startCode ~/_workspace/gatsbyjs-playlist'
+
+# codeSongList(){
+#   code /home/logic/_workspace/dotfiles/.songlist.rc
+# }
+alias codeSongList='startCode ~/dotfiles/.songlist.rc'
+
 source ~/_workspace/dotfiles/.python.rc
 source ~/_workspace/dotfiles/.android.rc
-
-
-
 
 if [[ -e $HOME/.credentials.rc ]]; then
   source $HOME/.credentials.rc
@@ -165,10 +189,6 @@ mergeToMaster(){
   set +ex
 }
 
-codeQuotations(){
-  code ~/_workspace/quotations
-}
-
 # https://medium.com/@k21_79139/%E9%A6%99%E6%B8%AF%E9%9B%BB%E5%8F%B0%E7%9B%B4%E6%92%AD%E6%BA%90%E5%88%97%E8%A1%A8-29ddf6591c14
 radio_rthk1(){
   mpv http://rthk.hk/live1.m3u
@@ -199,10 +219,6 @@ checkRoot(){
     echo "This script must be run as root" 1>&2
     exit 1
   fi
-}
-
-codeLibreofficeScript(){
-  code /home/logic/.config/libreoffice/4/user/Scripts
 }
 
 PushingToGithub(){
@@ -247,10 +263,6 @@ genCert(){
   # openssl genrsa -des3 -out rootCA.key 4096
   openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout example.key.pem -out example.cert.pem -subj "/CN=example.com" -days 30
 
-}
-
-codeDotDevelop(){
-  code ~/_workspace/dotfiles/.develop.rc
 }
 
 syncDotFiles(){
@@ -629,10 +641,6 @@ editStock(){
   cd ~
 }
 
-codeStock(){
-  code /home/logic/_workspace/stock_buy_sell_sheet/fetch-yahoo-finance
-}
-
 syncStock(){
   echo "sync stock"
   cd /home/logic/_workspace/stock_buy_sell_sheet
@@ -735,10 +743,6 @@ configUbuntu(){
 
 }
 
-codeImWheelRc(){
-  code ~/.imwheelrc
-}
-
 rsyncSsh(){
   rsync -avzhe ssh /home/pi/ pi@192.168.88.81:/home/pi
 }
@@ -759,19 +763,12 @@ rsyncGatsbyProject(){
   rsync -avzh --exclude node_modules $@
 }
 
-codeGatsbyPlaylist(){
-  code ~/_workspace/gatsbyjs-playlist
-}
 
 testDNS(){
   while true; do
     nslookup $@ $RPI1_HOST
     sleep 0.02
   done
-}
-
-codeSongList(){
-  code /home/logic/_workspace/dotfiles/.songlist.rc
 }
 
 syncWorkDir(){
@@ -958,9 +955,7 @@ rsyncBackup(){
   wait
 }
 
-codePortfolio(){
-  code /home/logic/_workspace/portfolio-gatsby
-}
+
 
 syncCredentialsHome(){
   rsync -avzhu --progress -e "ssh -p $HOME_SSH_PORT" /home/logic/.credentials.rc logic@$HOME_IP:/home/logic/.credentials.rc

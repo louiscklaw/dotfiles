@@ -50,10 +50,6 @@ codeYoutubePlaylist(){
   code ~/_workspace/youtube-playlist "${CODE_OPTS[@]}"
 }
 
-codePortfolio(){
-  code /home/logic/_workspace/portfolio-gatsby "${CODE_OPTS[@]}"
-}
-
 codeJob(){
   code /media/logic/B829-3585/ws.code-workspace "${CODE_OPTS[@]}"
 }

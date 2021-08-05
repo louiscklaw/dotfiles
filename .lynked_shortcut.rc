@@ -4,6 +4,8 @@
 
 DEFAULT_BROWSER=$START_CHROME
 
+alias codeMenyTest='code /home/logic/_workspace/LynkedKK/lynked-demo-test-script-tryout'
+
 meldMenySrc(){
   meld \
     /home/logic/_del/lynked-demo-tryout/meny-light-demo \
@@ -15,14 +17,9 @@ codeMenyDbFiles(){
 
 }
 
-codeMenyTest(){
-  code /home/logic/_workspace/LynkedKK/lynked-demo-test-script-tryout
-}
-
 codeMenyDbBackup(){
   code /home/logic/_workspace/LynkedKK/db_backup
 }
-
 
 export MENY_WK_DIR='/home/logic/_workspace/LynkedKK/lynked-demo-tryout/meny-light-demo'
 codeMenySrc(){

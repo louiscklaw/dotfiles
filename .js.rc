@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 
+alias nodemonAllBuild="nodemon --delay 0.5s -w . -e 'mmd,sh,jsx,js,ts,html,css,scss,sass,yml,py' --ignore './node_modules' --ignore './public' --ignore './reports' --exec "
+
 cleanCache(){
   find . -name ".cache" -type d -prune -exec rm -rf '{}' +
 }
@@ -53,11 +55,6 @@ nodemonMmdBuild(){
 nodemonMdBuild(){
   # html for pyunittest template
   nodemon --delay 2 -w . -e "md" --ignore './node_modules' --ignore './public' --ignore './reports'  --delay 500ms --exec "$@"
-}
-
-nodemonAllBuild(){
-  # html for pyunittest template
-  nodemon --delay 5 -w . -e "mmd,sh,jsx,js,ts,html,css,scss,sass,yml,py" --ignore './node_modules' --ignore './public' --ignore './reports'  --delay 250ms --exec "$@"
 }
 
 nodemonWebpackBuild(){
