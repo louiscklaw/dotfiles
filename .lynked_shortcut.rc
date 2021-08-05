@@ -4,7 +4,7 @@
 
 DEFAULT_BROWSER=$START_CHROME
 
-alias codeMenyTest='code /home/logic/_workspace/LynkedKK/lynked-demo-test-script-tryout'
+alias codeMenyTest='startCode /home/logic/_workspace/LynkedKK/lynked-demo-test-script-tryout'
 
 meldMenySrc(){
   meld \
@@ -13,17 +13,16 @@ meldMenySrc(){
 }
 
 codeMenyDbFiles(){
-  code /home/logic/_workspace/LynkedKK/db_backup
-
+  startCode /home/logic/_workspace/LynkedKK/db_backup
 }
 
 codeMenyDbBackup(){
-  code /home/logic/_workspace/LynkedKK/db_backup
+  startCode /home/logic/_workspace/LynkedKK/db_backup
 }
 
 export MENY_WK_DIR='/home/logic/_workspace/LynkedKK/lynked-demo-tryout/meny-light-demo'
 codeMenySrc(){
-  set -x
+  set -ex
   startCode -n $MENY_WK_DIR/meny-admin  &
   startCode -n $MENY_WK_DIR/meny-client  &
   startCode -n $MENY_WK_DIR/meny-manage  &
@@ -32,12 +31,12 @@ codeMenySrc(){
 
 
 codeMenyFirebase(){
-  code /home/logic/_workspace/LynkedKK/lynked-demo-tryout/meny-light-demo/firebase
+  startCode /home/logic/_workspace/LynkedKK/lynked-demo-tryout/meny-light-demo/firebase
 }
 
 
 codeMenyGo(){
-  code /home/logic/_workspace/LynkedKK/meny-go/meny-light-demo
+  startCode /home/logic/_workspace/LynkedKK/meny-go/meny-light-demo
 }
 
 goMenyTicket(){
