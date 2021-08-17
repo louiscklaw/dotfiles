@@ -124,6 +124,8 @@ if [[ -e $HOME/_workspace/dotfiles/.directory.rc ]]; then
 fi
 
 updateFirebase(){
+  npm uninstall -g firebase-tools
+
   curl -sL firebase.tools | upgrade=true bash
 
   firebase --version

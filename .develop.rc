@@ -420,9 +420,7 @@ initGhPages(){
 
 dockerClear(){
   docker container prune -f
-
   docker system prune -a -f
-
 }
 
 goJSONToJs(){
