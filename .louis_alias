@@ -466,8 +466,8 @@ gitSync(){
   testFlashGreenBackground 'syncing to git repo...'
 
   git fetch --all
-  git merge origin/develop &
-  git merge origin/master &
+  git merge origin/develop
+  git merge origin/master
   wait
 
   testFlashGreenBackground 'done'
