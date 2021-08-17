@@ -156,3 +156,16 @@ dockerRunTravisNodejs12(){
     logickee/travis_node12 \
     /bin/bash
 }
+
+dockerRunTravisUbuntu1804(){
+  runTravisDockerImage travisci/ci-ubuntu-1804:packer-1593521720-ca42795e
+}
+
+# logickee/lighthouse
+alias dockerRunLightHouse='docker run -it \
+    --env-file .env.docker \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v $PWD:/root/work_dir \
+    --rm \
+    logickee/lighthouse \
+    /bin/bash'
