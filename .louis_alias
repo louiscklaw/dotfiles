@@ -158,6 +158,12 @@ clearChromeCache(){
   rm -rf ~/.cache/google-chrome
 }
 
+clearFirefoxCache(){
+  rm -rf ~/.cache/mozilla/firefox/*
+  rm ~/.mozilla/firefox/*release/*.sqlite
+
+}
+
 mergeToMaster(){
   set -ex
   git fetch --all
