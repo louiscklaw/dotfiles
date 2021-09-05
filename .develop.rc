@@ -357,7 +357,7 @@ goGithubRepo(){
     http_link=${remote_get_url/git@/https://}
     http_link=${http_link/.com:/.com/}
     http_link=${http_link/.git//}
-    $DEFAULT_BROWSER  $http_link &
+    googleChrome  $http_link &
   fi
 }
 
