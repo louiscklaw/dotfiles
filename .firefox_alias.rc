@@ -148,3 +148,8 @@ goTravisDashboard(){
 goSlackLouisLabsAppsManager(){
   $DEFAULT_BROWSER  https://app.slack.com/apps-manage/T3NSVC55K &
 }
+
+
+goDailyBalance() {
+  firefox https://docs.google.com/spreadsheets/d/1I0IpNOlgSdMFlDwai9QNy1BuoTSta0VqN-1AnoBAWhM/edit#gid=556307639
+}
