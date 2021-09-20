@@ -9,119 +9,59 @@ export PATH=$PATH:/home/logic/.yarn/bin:/home/logic/node_modules/.bin
 
 export JAVA_TOOL_OPTIONS='-Xms1024m -Xmx4096m'
 
+export DOTFILE_HOME=$HOME/_workspace/dotfiles
+
 alias ariaDownload='aria2c -x 16 -s 99999 --dht-listen-port=51000-51099'
 
-# alias startCode='code "$@" --disk-cache-size=68157440 --ignore-gpu-blacklist --disable-web-security --enable-gpu-rasterization --enable-features=VaapiVideoDecoder --enable-parallel-downloading --smooth-scrolling --enable-zero-copy --use-gl=desktop'
 alias startCode='code \
-  --disk-cache-size=68157440 --ignore-gpu-blacklist --disable-web-security --enable-gpu-rasterization --enable-features=VaapiVideoDecoder --enable-parallel-downloading --smooth-scrolling --enable-zero-copy --use-gl=desktop \
+  --disk-cache-size=68157440 \
+  --ignore-gpu-blacklist \
+  --disable-web-security \
+  --enable-gpu-rasterization \
+  --enable-features=VaapiVideoDecoder \
+  --enable-parallel-downloading \
+  --smooth-scrolling \
+  --enable-zero-copy \
+  --use-gl=desktop \
   "$@"'
 
 alias googleChrome='/usr/bin/google-chrome-stable --disk-cache-size=68157440 --disable-web-security --use-gl=desktop --enable-features=VaapiVideoDecoder --ignore-gpu-blacklist --enable-gpu-rasterization --enable-parallel-downloading --smooth-scrolling --enable-zero-copy '
 
+alias codeDotDevelop='startCode ~/_workspace/dotfiles/.develop.rc'
+alias codeGatsbyPlaylist='startCode ~/_workspace/gatsbyjs-playlist'
+alias codeImWheelRc='startCode ~/.imwheelrc'
+alias codeLibreofficeScript='startCode /home/logic/.config/libreoffice/4/user/Scripts'
 alias codePortfolio='startCode /home/logic/_workspace/portfolio-docusaurus'
 alias codeQuotations='startCode /home/logic/_workspace/quotations'
-alias codeLibreofficeScript='startCode /home/logic/.config/libreoffice/4/user/Scripts'
-alias codeDotDevelop='startCode ~/_workspace/dotfiles/.develop.rc'
-
-# codeStock(){
-#   code /home/logic/_workspace/stock_buy_sell_sheet/fetch-yahoo-finance
-# }
+alias codeSongList='startCode ~/dotfiles/.songlist.rc'
 alias codeStock='startCode /home/logic/_workspace/stock_buy_sell_sheet/fetch-yahoo-finance'
 
-# codeImWheelRc(){
-#   code ~/.imwheelrc
-# }
-alias codeImWheelRc='startCode ~/.imwheelrc'
 
-# codeGatsbyPlaylist(){
-#   code ~/_workspace/gatsbyjs-playlist
-# }
-alias codeGatsbyPlaylist='startCode ~/_workspace/gatsbyjs-playlist'
+if [[ -e $DOTFILE_HOME/.android.rc ]]; then source $DOTFILE_HOME/.android.rc; fi
+if [[ -e $DOTFILE_HOME/.python.rc ]]; then source $DOTFILE_HOME/.python.rc; fi
+if [[ -e $DOTFILE_HOME/.bash-palette.sh ]]; then source $DOTFILE_HOME/.bash-palette.sh; fi
+if [[ -e $DOTFILE_HOME/.common.rc ]]; then source $DOTFILE_HOME/.common.rc; fi
+if [[ -e $DOTFILE_HOME/.date.rc ]]; then source $DOTFILE_HOME/.date.rc; fi
+if [[ -e $DOTFILE_HOME/.develop.rc ]]; then source $DOTFILE_HOME/.develop.rc; fi
+if [[ -e $DOTFILE_HOME/.directory.rc ]]; then source $DOTFILE_HOME/.directory.rc; fi
+if [[ -e $DOTFILE_HOME/.docker.rc ]]; then source $DOTFILE_HOME/.docker.rc; fi
+if [[ -e $DOTFILE_HOME/.drone.rc ]]; then source $DOTFILE_HOME/.drone.rc; fi
+if [[ -e $DOTFILE_HOME/.electronic.rc ]]; then source $DOTFILE_HOME/.electronic.rc; fi
+if [[ -e $DOTFILE_HOME/.fabric.rc ]]; then source $DOTFILE_HOME/.fabric.rc; fi
+if [[ -e $DOTFILE_HOME/.firefox_alias.rc ]]; then source $DOTFILE_HOME/.firefox_alias.rc; fi
+if [[ -e $DOTFILE_HOME/.github_action.rc ]]; then source $DOTFILE_HOME/.github_action.rc; fi
+if [[ -e $DOTFILE_HOME/.install.rc ]]; then source $DOTFILE_HOME/.install.rc; fi
+if [[ -e $DOTFILE_HOME/.js.rc ]]; then source $DOTFILE_HOME/.js.rc; fi
+if [[ -e $DOTFILE_HOME/.lynked_shortcut.rc ]]; then source $DOTFILE_HOME/.lynked_shortcut.rc; fi
+if [[ -e $DOTFILE_HOME/.raspi.rc ]]; then source $DOTFILE_HOME/.raspi.rc; fi
+if [[ -e $DOTFILE_HOME/.secret.rc ]]; then source $DOTFILE_HOME/.secret.rc; fi
+if [[ -e $DOTFILE_HOME/.ssh_alias.rc ]]; then source $DOTFILE_HOME/.ssh_alias.rc; fi
+if [[ -e $DOTFILE_HOME/.travis.rc ]]; then source $DOTFILE_HOME/.travis.rc; fi
+if [[ -e $DOTFILE_HOME/.kicad.rc ]]; then source $DOTFILE_HOME/.kicad.rc; fi
 
-# codeSongList(){
-#   code /home/logic/_workspace/dotfiles/.songlist.rc
-# }
-alias codeSongList='startCode ~/dotfiles/.songlist.rc'
-
-source ~/_workspace/dotfiles/.python.rc
-source ~/_workspace/dotfiles/.android.rc
-
-if [[ -e $HOME/.credentials.rc ]]; then
-  source $HOME/.credentials.rc
-fi
-
-if [[ -e $HOME/_workspace/dotfiles/.lynked_shortcut.rc ]]; then
-  source $HOME/_workspace/dotfiles/.lynked_shortcut.rc
-fi
-
-if [[ -e $HOME/_workspace/dotfiles/.github_action.rc ]]; then
-  source $HOME/_workspace/dotfiles/.github_action.rc
-fi
-
-if [[ -e $HOME/_workspace/dotfiles/.date.rc ]]; then
-  source $HOME/_workspace/dotfiles/.date.rc
-fi
-
-if [[ -e $HOME/_workspace/dotfiles/.common.rc ]]; then
-  source $HOME/_workspace/dotfiles/.common.rc
-fi
-
-if [[ -e $HOME/_workspace/dotfiles/.electronic.rc ]]; then
-  source $HOME/_workspace/dotfiles/.electronic.rc
-fi
-
-if [[ -e $HOME/_workspace/dotfiles/.secret.rc ]]; then
-  source $HOME/_workspace/dotfiles/.secret.rc
-fi
-
-if [[ -e $HOME/_workspace/dotfiles/.bash-palette.sh ]]; then
-  source $HOME/_workspace/dotfiles/.bash-palette.sh
-fi
-
-if [[ -e $HOME/_workspace/dotfiles/.raspi.rc ]]; then
-  source $HOME/_workspace/dotfiles/.raspi.rc
-fi
-
-if [[ -e $HOME/_workspace/dotfiles/.travis.rc ]]; then
-  source $HOME/_workspace/dotfiles/.travis.rc
-fi
-
-if [[ -e $HOME/_workspace/dotfiles/.drone.rc ]]; then
-  source $HOME/_workspace/dotfiles/.drone.rc
-fi
-
-if [[ -e $HOME/_workspace/dotfiles/.install.rc ]]; then
-  source $HOME/_workspace/dotfiles/.install.rc
-fi
-
-if [[ -e $HOME/_workspace/dotfiles/.ssh_alias.rc ]]; then
-  source $HOME/_workspace/dotfiles/.ssh_alias.rc
-fi
-
-if [[ -e $HOME/_workspace/dotfiles/.develop.rc ]]; then
-  source $HOME/_workspace/dotfiles/.develop.rc
-fi
+if [[ -e $HOME/.credentials.rc ]]; then source $HOME/.credentials.rc; fi
 
 
-if [[ -e $HOME/_workspace/dotfiles/.firefox_alias.rc ]]; then
-  source $HOME/_workspace/dotfiles/.firefox_alias.rc
-fi
-
-if [[ -e $HOME/_workspace/dotfiles/.fabric.rc ]]; then
-  source $HOME/_workspace/dotfiles/.fabric.rc
-fi
-
-if [[ -e $HOME/_workspace/dotfiles/.js.rc ]]; then
-  source $HOME/_workspace/dotfiles/.js.rc
-fi
-
-if [[ -e $HOME/_workspace/dotfiles/.docker.rc ]]; then
-  source $HOME/_workspace/dotfiles/.docker.rc
-fi
-
-if [[ -e $HOME/_workspace/dotfiles/.directory.rc ]]; then
-  source $HOME/_workspace/dotfiles/.directory.rc
-fi
 
 updateFirebase(){
   npm uninstall -g firebase-tools
@@ -150,19 +90,15 @@ youtubePlayList(){
   mpv --no-video "https://www.youtube.com/playlist?list=PLipob7bBXIahH_0AJCCN9Rv1PTJQPy64G"
 }
 
-clearChromeCache(){
-  rm -rf ~/.config/google-chrome
-  rm -rf ~/.config/google-chrome-beta
-  rm -rf ~/.config/google-chrome-unstable
 
-  rm -rf ~/.cache/google-chrome
-}
 
-clearFirefoxCache(){
-  rm -rf ~/.cache/mozilla/firefox/*
-  rm ~/.mozilla/firefox/*release/*.sqlite
+alias clearChromeCache='rm -rf ~/.config/google-chrome \
+  rm -rf ~/.config/google-chrome-beta \
+  rm -rf ~/.config/google-chrome-unstable \
+  rm -rf ~/.cache/google-chrome'
 
-}
+alias clearFirefoxCache='rm -rf ~/.cache/mozilla/firefox/* \
+  rm ~/.mozilla/firefox/*release/*.sqlite'
 
 mergeToMaster(){
   set -ex
@@ -196,17 +132,10 @@ mergeToMaster(){
 }
 
 # https://medium.com/@k21_79139/%E9%A6%99%E6%B8%AF%E9%9B%BB%E5%8F%B0%E7%9B%B4%E6%92%AD%E6%BA%90%E5%88%97%E8%A1%A8-29ddf6591c14
-radio_rthk1(){
-  mpv http://rthk.hk/live1.m3u
-}
-
-radio_rthk2(){
-  mpv http://rthk.hk/live2.m3u
-}
-
-radio_997(){
-  mpv https://metroradio-lh.akamaihd.net/i/997_h@349799/master.m3u8
-}
+alias radio_rthk1='mpv http://rthk.hk/live1.m3u'
+alias radio_rthk2='mpv http://rthk.hk/live2.m3u'
+alias radio_997='mpv https://metroradio-lh.akamaihd.net/i/997_h@349799/master.m3u8'
+alias radio_104='mpv https://metroradio-lh.akamaihd.net/i/104_h@349798/master.m3u8'
 
 radio_881(){
   $DEFAULT_BROWSER https://www.881903.com/live/881
@@ -214,10 +143,6 @@ radio_881(){
 
 radio_903(){
   $DEFAULT_BROWSER https://www.881903.com/live/903
-}
-
-radio_104(){
-  mpv https://metroradio-lh.akamaihd.net/i/104_h@349798/master.m3u8
 }
 
 checkRoot(){
