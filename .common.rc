@@ -84,31 +84,31 @@ codeFirefoxAlias(){
   code ~/.firefox_alias.rc
 }
 
-alias codeDotFiles='code -n /home/logic/_workspace/dotfiles/'
-alias codeLouisAlias='code /home/logic/_workspace/dotfiles/.louis_alias'
+alias codeDotFiles='code -n ~/_workspace/dotfiles/'
+alias codeLouisAlias='code ~/_workspace/dotfiles/.louis_alias'
 
-alias codeDotFirefox='code /home/logic/_workspace/dotfiles/.firefox_alias.rc'
+alias codeDotFirefox='code ~/_workspace/dotfiles/.firefox_alias.rc'
 
 
 n(){
-  cd /home/logic/_workspace/todo_list
+  cd ~/_workspace/todo_and_notes
     git pull &
-    code -n /home/logic/_workspace/todo_list/todo.md
+    code -n ~/_workspace/todo_and_notes/todo.md
   cd -
 }
 
 
 codeTodo(){
-  cd /home/logic/_workspace/todo_list
+  cd ~/_workspace/todo_and_notes
     git pull &
-    code -n /home/logic/_workspace/todo_list/todo.md
+    code -n ~/_workspace/todo_and_notes/todo.md
   cd -
 }
 
 typoraTodo(){
-  cd /home/logic/_workspace/todo_list
+  cd ~/_workspace/todo_and_notes
     git pull &
-    typora /home/logic/_workspace/todo_list/todo.md
+    typora ~/_workspace/todo_and_notes/todo.md
   cd -
 }
 
@@ -117,20 +117,20 @@ codeZshrc(){
 }
 
 pullTodo(){
-  cd /home/logic/_workspace/todo_list
+  cd ~/_workspace/todo_and_notes
     git pull
   cd -
 }
 
 commitNewTodoFile(){
-  cd /home/logic/_workspace/todo_list
+  cd ~/_workspace/todo_and_notes
     git add todo.md
     git commit -m"update,"
   cd -
 }
 
 pushTodo(){
-  cd /home/logic/_workspace/todo_list
+  cd ~/_workspace/todo_and_notes
     nohup git push > /tmp/push_todo.out &
   cd -
 
