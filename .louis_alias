@@ -35,6 +35,7 @@ alias codePortfolio='startCode /home/logic/_workspace/portfolio-docusaurus'
 alias codeQuotations='startCode /home/logic/_workspace/quotations'
 alias codeSongList='startCode ~/dotfiles/.songlist.rc'
 alias codeStock='startCode /home/logic/_workspace/stock_buy_sell_sheet/fetch-yahoo-finance'
+alias codeLittleRedFlower='startCode /home/logic/_workspace/littleredflower-tryout'
 
 
 if [[ -e $DOTFILE_HOME/.android.rc ]]; then source $DOTFILE_HOME/.android.rc; fi
