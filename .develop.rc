@@ -66,6 +66,10 @@ codeJobSearchTryout(){
   code /home/logic/_workspace/jobs_search_tryout "${CODE_OPTS[@]}"
 }
 
+codeLaravelPlaylist() {
+  code ~/_workspace/laravel-playlist "${CODE_OPTS[@]}"
+}
+
 codeAiPlaylist() {
   code ~/_workspace/ai-playlist "${CODE_OPTS[@]}"
 }

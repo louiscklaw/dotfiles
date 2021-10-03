@@ -59,6 +59,7 @@ if [[ -e $DOTFILE_HOME/.secret.rc ]]; then source $DOTFILE_HOME/.secret.rc; fi
 if [[ -e $DOTFILE_HOME/.ssh_alias.rc ]]; then source $DOTFILE_HOME/.ssh_alias.rc; fi
 if [[ -e $DOTFILE_HOME/.travis.rc ]]; then source $DOTFILE_HOME/.travis.rc; fi
 if [[ -e $DOTFILE_HOME/.kicad.rc ]]; then source $DOTFILE_HOME/.kicad.rc; fi
+if [[ -e $DOTFILE_HOME/.pureudon.rc ]]; then source $DOTFILE_HOME/.pureudon.rc; fi
 
 if [[ -e $HOME/.credentials.rc ]]; then source $HOME/.credentials.rc; fi
 
