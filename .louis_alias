@@ -66,10 +66,11 @@ if [[ -e $HOME/.credentials.rc ]]; then source $HOME/.credentials.rc; fi
 
 
 updateFirebase(){
+  sudo killall firebase
+  sleep 1
+
   npm uninstall -g firebase-tools
-
   curl -sL firebase.tools | upgrade=true bash
-
   firebase --version
 }
 
