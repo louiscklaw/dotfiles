@@ -1,6 +1,84 @@
 #!/usr/bin/env bash
 
 
+
+# codeDockerPlaylist() {
+#   code ~/_workspace/docker-playlist "${CODE_OPTS[@]}"
+# }
+
+alias codeDockerPlaylist='startCode ~/_workspace/docker-playlist'
+alias codeJobSearchTryout='startCode ~/_workspace/jobs_search_tryout'
+alias codeLaravelPlaylist='startCode ~/_workspace/laravel-playlist'
+alias codeAiPlaylist='startCode ~/_workspace/ai-playlist'
+alias codeAppiumPlaylist='startCode ~/_workspace/appium-playlist'
+alias codeAR9331Playlist='startCode ~/_workspace/AR9331-playlist'
+alias codeArduinoPlaylist='startCode ~/_workspace/arduino-playlist'
+alias codeBotPlaylist='startCode ~/_workspace/bot-playlist'
+alias codeBuildkitePlaylist='startCode ~/_workspace/buildkite-playlist'
+alias codeCalibrePlaylist='startCode ~/_workspace/calibre-playlist'
+alias codeIosPlaylist='startCode ~/_workspace/ios-playlist'
+alias codeCNCPlaylist='startCode ~/_workspace/CNC-playlist'
+alias codeCubieboardPlaylist='startCode ~/_workspace/cubieboard2-playlist'
+alias codeCubieboard2Playlist='startCode ~/_workspace/cubieboard-playlist'
+alias codeD3Playlist='startCode ~/_workspace/d3-playlist'
+alias codeDenoPlaylist='startCode ~/_workspace/deno-playlist'
+alias codeDocsifyPlaylist='startCode ~/_workspace/docsify-playlist'
+alias codeDoczPlaylist='startCode ~/_workspace/docz-playlist'
+alias codeEsp32Playlist='startCode ~/_workspace/esp32-playlist'
+alias codeEsp32CamPlaylist='startCode ~/_workspace/esp32-cam-playlist'
+alias codeExpoPlaylist='startCode ~/_workspace/expo-playlist'
+alias codeFirebasePlaylist='startCode ~/_workspace/firebase-playlist'
+alias codeFreecadPlaylist='startCode ~/_workspace/freecad-playlist'
+alias codeGatsbyjsPlaylist='startCode ~/_workspace/gatsbyjs-playlist'
+alias codeGithubPlaylist='startCode ~/_workspace/github-playlist'
+alias codeHugoPlaylist='startCode ~/_workspace/hugo-playlist'
+alias codeI3megaPlaylist='startCode ~/_workspace/i3mega-playlist'
+alias codeJsPlaylist='startCode ~/_workspace/js-playlist'
+alias codeJsonPlaylist='startCode ~/_workspace/json-playlist'
+alias codeKicadPlaylist='startCode ~/_workspace/kicad-playlist'
+alias codeMakefilePlaylist='startCode ~/_workspace/Makefile-playlist'
+alias codeMicropythonPlaylist='startCode ~/_workspace/micropython-playlist'
+alias codeM5stackPlaylist='startCode ~/_workspace/m5stack-playlist'
+alias codeNextjsPlaylist='startCode ~/_workspace/nextjs-playlist'
+alias codeNmapPlaylist='startCode ~/_workspace/nmap-playlist'
+alias codeOrangePiZeroPlaylist='startCode ~/_workspace/orange-pi-zero-playlist'
+alias codePcbantPlaylist='startCode ~/_workspace/pcbant-playlist'
+alias codePlatformioPlaylist='startCode ~/_workspace/platformio-playlist'
+alias codePreactjsPlaylist='startCode ~/_workspace/preactjs-playlist'
+alias codePuppeteerPlaylist='startCode ~/_workspace/puppeteer-playlist'
+alias codePythonPlaylist='startCode ~/_workspace/python-playlist'
+alias codeRaspberryPiPlaylist='startCode ~/_workspace/raspberry-pi-playlist'
+alias codeReactNativePlaylist='startCode ~/_workspace/react-native-playlist'
+alias codeFigmaPlaylist='startCode ~/_workspace/figma-playlist'
+alias codeReactPlaylist='startCode ~/_workspace/react-playlist'
+alias codeRustPlaylist='startCode ~/_workspace/rust-playlist'
+alias codeSeleniumPlaylist='startCode ~/_workspace/selenium-playlist'
+alias codeSfxPowerSupplyPlaylist='startCode ~/_workspace/sfx-power-supply-playlist'
+alias codeTraefikPlaylist='startCode ~/_workspace/traefik-playlist'
+alias codeTravisPlaylist='startCode ~/_workspace/travis-playlist'
+alias codeVuePlaylist='startCode ~/_workspace/vue-playlist'
+alias codeWebPlaylist='startCode ~/_workspace/web-playlist'
+alias codeWebpackPlaylist='startCode ~/_workspace/webpack-playlist'
+alias codeCiPlaylist='startCode ~/_workspace/ci-playlist'
+alias codeDroneCiPlaylist='startCode ~/_workspace/drone-ci-playlist'
+alias codeFirewallConfig='startCode ~/_workspace/firewall-playlist'
+alias codeWorkspace='startCode ~/_workspace'
+alias codeYahooFinancePlaylist='startCode ~/_workspace/yahoo-finance-playlist'
+alias codeWatchTowerPlaylist='startCode ~/_workspace/watch-tower-tryout'
+alias codeLynkedTicket='startCode ~/_workspace/LYNKED_QA_project/_tickets'
+alias codeTaobaoPlaylist='startCode ~/_workspace/taobao-playlist'
+alias codeYoutubePlaylist='startCode ~/_workspace/youtube-playlist'
+alias codeJob='startCode /media/logic/B829-3585/ws.code-workspace'
+alias codeGoPlaylist='startCode ~/_workspace/go-playlist'
+alias codePoc='startCode ~/_poc'
+
+alias codePortfolioNotes='startCode ~/_workspace/portfolio-gatsby/documentations/NOTES.md'
+alias codePortfolio='startCode ~/_workspace/portfolio-gatsby'
+
+
+
+
+
 CODE_OPTS=('--disable-web-security' '--use-gl=desktop' '--enable-features=VaapiVideoDecoder' '--ignore-gpu-blacklist' '--enable-gpu-rasterization' '--enable-parallel-downloading' '--smooth-scrolling' '--enable-zero-copy')
 
 goFastMac(){
@@ -29,274 +107,16 @@ meldToLynkedQaProject(){
   meld $PWD /home/logic/_workspace/LYNKED_QA_project
 }
 
-codeGoPlaylist(){
-  code ~/_workspace/go-playlist "${CODE_OPTS[@]}"
-}
-
 codeLynkedQaProject(){
   code ~/_workspace/LYNKED_QA.code-workspace "${CODE_OPTS[@]}"
   code /home/logic/_workspace/LYNKED_QA_project/LYNKED_QA.code-workspace "${CODE_OPTS[@]}"
 }
 
-codeLynkedTicket(){
-  code /home/logic/_workspace/LYNKED_QA_project/_tickets "${CODE_OPTS[@]}"
-}
-
-codeTaobaoPlaylist(){
-  code ~/_workspace/taobao-playlist "${CODE_OPTS[@]}"
-}
-
-codeYoutubePlaylist(){
-  code ~/_workspace/youtube-playlist "${CODE_OPTS[@]}"
-}
-
-codeJob(){
-  code /media/logic/B829-3585/ws.code-workspace "${CODE_OPTS[@]}"
-}
 
 initCodeWorkspace(){
   touch ./ws.code-workspace
 }
 
-codePoc() {
-  code ~/_poc "${CODE_OPTS[@]}"
-}
-
-codeJobSearchTryout(){
-  code /home/logic/_workspace/jobs_search_tryout "${CODE_OPTS[@]}"
-}
-
-codeLaravelPlaylist() {
-  code ~/_workspace/laravel-playlist "${CODE_OPTS[@]}"
-}
-
-codeAiPlaylist() {
-  code ~/_workspace/ai-playlist "${CODE_OPTS[@]}"
-}
-
-codeAppiumPlaylist() {
-  code ~/_workspace/appium-playlist "${CODE_OPTS[@]}"
-}
-
-codeAR9331Playlist() {
-  code ~/_workspace/AR9331-playlist "${CODE_OPTS[@]}"
-}
-
-codeArduinoPlaylist() {
-  code ~/_workspace/arduino-playlist "${CODE_OPTS[@]}"
-}
-
-codeBotPlaylist() {
-  code ~/_workspace/bot-playlist "${CODE_OPTS[@]}"
-}
-
-codeBuildkitePlaylist() {
-  code ~/_workspace/buildkite-playlist "${CODE_OPTS[@]}"
-}
-
-codeCalibrePlaylist() {
-  code ~/_workspace/calibre-playlist "${CODE_OPTS[@]}"
-}
-
-codeIosPlaylist() {
-  code ~/_workspace/ios-playlist "${CODE_OPTS[@]}"
-}
-
-codeCNCPlaylist() {
-  code ~/_workspace/CNC-playlist "${CODE_OPTS[@]}"
-}
-
-codeCubieboardPlaylist() {
-  code ~/_workspace/cubieboard2-playlist "${CODE_OPTS[@]}"
-}
-
-codeCubieboard2Playlist() {
-  code ~/_workspace/cubieboard-playlist "${CODE_OPTS[@]}"
-}
-
-codeD3Playlist() {
-  code ~/_workspace/d3-playlist "${CODE_OPTS[@]}"
-}
-
-codeDenoPlaylist() {
-  code ~/_workspace/deno-playlist "${CODE_OPTS[@]}"
-}
-
-codeDockerPlaylist() {
-  code ~/_workspace/docker-playlist "${CODE_OPTS[@]}"
-}
-
-codeDocsifyPlaylist() {
-  code ~/_workspace/docsify-playlist "${CODE_OPTS[@]}"
-}
-
-codeDoczPlaylist() {
-  code ~/_workspace/docz-playlist "${CODE_OPTS[@]}"
-}
-
-codeEsp32Playlist(){
-  code ~/_workspace/esp32-playlist "${CODE_OPTS[@]}"
-}
-
-codeEsp32CamPlaylist() {
-  code ~/_workspace/esp32-cam-playlist "${CODE_OPTS[@]}"
-}
-
-codeExpoPlaylist() {
-  code ~/_workspace/expo-playlist "${CODE_OPTS[@]}"
-}
-
-codeFirebasePlaylist() {
-  code ~/_workspace/firebase-playlist "${CODE_OPTS[@]}"
-}
-
-codeFreecadPlaylist() {
-  code ~/_workspace/freecad-playlist "${CODE_OPTS[@]}"
-}
-
-codeGatsbyjsPlaylist() {
-  code ~/_workspace/gatsbyjs-playlist "${CODE_OPTS[@]}"
-}
-
-codeGithubPlaylist() {
-  code ~/_workspace/github-playlist "${CODE_OPTS[@]}"
-}
-
-codeHugoPlaylist() {
-  code ~/_workspace/hugo-playlist "${CODE_OPTS[@]}"
-}
-
-codeI3megaPlaylist() {
-  code ~/_workspace/i3mega-playlist "${CODE_OPTS[@]}"
-}
-
-codeJsPlaylist() {
-  code ~/_workspace/js-playlist "${CODE_OPTS[@]}"
-}
-
-codeJsonPlaylist() {
-  code ~/_workspace/json-playlist "${CODE_OPTS[@]}"
-}
-
-codeKicadPlaylist() {
-  code ~/_workspace/kicad-playlist "${CODE_OPTS[@]}"
-}
-
-codeMakefilePlaylist() {
-  code ~/_workspace/Makefile-playlist "${CODE_OPTS[@]}"
-}
-
-codeMicropythonPlaylist() {
-  code ~/_workspace/micropython-playlist "${CODE_OPTS[@]}"
-}
-
-codeM5stackPlaylist(){
-  code ~/_workspace/m5stack-playlist "${CODE_OPTS[@]}"
-}
-
-codeNextjsPlaylist() {
-  code ~/_workspace/nextjs-playlist "${CODE_OPTS[@]}"
-}
-
-codeNmapPlaylist() {
-  code ~/_workspace/nmap-playlist "${CODE_OPTS[@]}"
-}
-
-codeOrangePiZeroPlaylist() {
-  code ~/_workspace/orange-pi-zero-playlist "${CODE_OPTS[@]}"
-}
-
-codePcbantPlaylist() {
-  code ~/_workspace/pcbant-playlist "${CODE_OPTS[@]}"
-}
-
-codePlatformioPlaylist() {
-  code ~/_workspace/platformio-playlist "${CODE_OPTS[@]}"
-}
-
-codePreactjsPlaylist() {
-  code ~/_workspace/preactjs-playlist "${CODE_OPTS[@]}"
-}
-
-codePuppeteerPlaylist() {
-  code ~/_workspace/puppeteer-playlist "${CODE_OPTS[@]}"
-}
-
-codePythonPlaylist() {
-  code ~/_workspace/python-playlist "${CODE_OPTS[@]}"
-}
-
-codeRaspberryPiPlaylist() {
-  code ~/_workspace/raspberry-pi-playlist "${CODE_OPTS[@]}"
-}
-
-codeReactNativePlaylist() {
-  code ~/_workspace/react-native-playlist "${CODE_OPTS[@]}"
-}
-
-codeFigmaPlaylist() {
-  code ~/_workspace/figma-playlist "${CODE_OPTS[@]}"
-}
-
-codeReactPlaylist() {
-  code ~/_workspace/react-playlist "${CODE_OPTS[@]}"
-}
-
-codeRustPlaylist() {
-  code ~/_workspace/rust-playlist "${CODE_OPTS[@]}"
-}
-
-codeSeleniumPlaylist() {
-  code ~/_workspace/selenium-playlist "${CODE_OPTS[@]}"
-}
-
-codeSfxPowerSupplyPlaylist() {
-  code ~/_workspace/sfx-power-supply-playlist "${CODE_OPTS[@]}"
-}
-
-codeTraefikPlaylist() {
-  code ~/_workspace/traefik-playlist "${CODE_OPTS[@]}"
-}
-
-codeTravisPlaylist() {
-  code ~/_workspace/travis-playlist "${CODE_OPTS[@]}"
-}
-
-codeVuePlaylist() {
-  code ~/_workspace/vue-playlist "${CODE_OPTS[@]}"
-}
-
-codeWebPlaylist() {
-  code ~/_workspace/web-playlist "${CODE_OPTS[@]}"
-}
-
-codeWebpackPlaylist() {
-  code ~/_workspace/webpack-playlist "${CODE_OPTS[@]}"
-}
-
-codeCiPlaylist() {
-  code ~/_workspace/ci-playlist "${CODE_OPTS[@]}"
-}
-
-codeDroneCiPlaylist() {
-  code ~/_workspace/drone-ci-playlist "${CODE_OPTS[@]}"
-}
-
-codeFirewallConfig(){
-  code ~/_workspace/firewall-config "${CODE_OPTS[@]}"
-}
-
-codeWorkspace(){
-  code /home/logic/_workspace "${CODE_OPTS[@]}"
-}
-
-codeYahooFinancePlaylist(){
-  code ~/_workspace/yahoo-finance-playlist "${CODE_OPTS[@]}"
-}
-
-codeWatchTowerPlaylist(){
-  code ~/_workspace/watch-tower-tryout "${CODE_OPTS[@]}"
-}
 
 goGist(){
   $DEFAULT_BROWSER https://gist.github.com/louiscklaw &
