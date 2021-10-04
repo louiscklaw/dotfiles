@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-
 goGnomeExtensions(){
   cd /home/logic/.local/share/gnome-shell/extensions
-}
-
-codePortfolioNotes(){
-  code /home/logic/_workspace/portfolio-gatsby/documentations/NOTES.md
 }

@@ -2,9 +2,18 @@
 
 # set -x
 
-DEFAULT_BROWSER=$START_CHROME
+export MENY_WK_DIR='~/_workspace/LynkedKK/lynked-demo-tryout/meny-light-demo'
 
-alias codeMenyTest='startCode /home/logic/_workspace/LynkedKK/lynked-demo-test-script-tryout'
+alias goLynkedTodo='googleChrome https://hackmd.io/eE8aAV3sRJyr3OULNoeVKw'
+
+alias codeMenyTest='startCode ~/_workspace/LynkedKK/lynked-demo-test-script-tryout'
+alias codeMenyDbFiles='startCode ~/_workspace/LynkedKK/db_backup'
+alias codeMenyDbBackup='startCode ~/_workspace/LynkedKK/db_backup'
+alias codeMenyManage='startCode -n $MENY_WK_DIR/meny-manage'
+alias codeMenyAdmin='startCode -n $MENY_WK_DIR/meny-admin'
+alias codeMenyClient='startCode -n $MENY_WK_DIR/meny-client'
+alias codeMenyFirebase='startCode -n $MENY_WK_DIR/firebase'
+alias codeMenyGo='startCode -n ~/_workspace/LynkedKK/meny-go/meny-light-demo'
 
 meldMenySrc(){
   meld \
@@ -12,36 +21,12 @@ meldMenySrc(){
     /home/logic/_workspace/LynkedKK/lynked-demo-tryout/meny-light-demo
 }
 
-codeMenyDbFiles(){
-  startCode /home/logic/_workspace/LynkedKK/db_backup
-}
-
-codeMenyDbBackup(){
-  startCode /home/logic/_workspace/LynkedKK/db_backup
-}
-
-export MENY_WK_DIR='/home/logic/_workspace/LynkedKK/lynked-demo-tryout/meny-light-demo'
-
-alias codeMenyManage='startCode -n $MENY_WK_DIR/meny-manage'
-alias codeMenyAdmin='startCode -n $MENY_WK_DIR/meny-admin'
-alias codeMenyClient='startCode -n $MENY_WK_DIR/meny-client'
-
 codeMenySrc(){
   set -ex
   startCode -n $MENY_WK_DIR/meny-admin  &
   startCode -n $MENY_WK_DIR/meny-client  &
   startCode -n $MENY_WK_DIR/meny-manage  &
   startCode -n $MENY_WK_DIR/firebase  &
-}
-
-
-codeMenyFirebase(){
-  startCode /home/logic/_workspace/LynkedKK/lynked-demo-tryout/meny-light-demo/firebase
-}
-
-
-codeMenyGo(){
-  startCode /home/logic/_workspace/LynkedKK/meny-go/meny-light-demo
 }
 
 goMenyTicket(){
