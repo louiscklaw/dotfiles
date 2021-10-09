@@ -73,6 +73,7 @@ alias codeGoPlaylist='startCode ~/_workspace/go-playlist'
 alias codeElectronPlaylist='startCode ~/_workspace/electron-playlist'
 alias codeHexoPlaylist='startCode ~/_workspace/hexo-playlist'
 
+alias codeMarpPlaylist='startCode ~/_workspace/marp-playlist'
 
 alias codePoc='startCode ~/_poc'
 
