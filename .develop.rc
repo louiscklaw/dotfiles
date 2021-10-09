@@ -71,6 +71,7 @@ alias codeYoutubePlaylist='startCode ~/_workspace/youtube-playlist'
 alias codeJob='startCode /media/logic/B829-3585/ws.code-workspace'
 alias codeGoPlaylist='startCode ~/_workspace/go-playlist'
 alias codeElectronPlaylist='startCode ~/_workspace/electron-playlist'
+alias codeHexoPlaylist='startCode ~/_workspace/hexo-playlist'
 
 
 alias codePoc='startCode ~/_poc'
