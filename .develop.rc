@@ -74,6 +74,8 @@ alias codeElectronPlaylist='startCode ~/_workspace/electron-playlist'
 alias codeHexoPlaylist='startCode ~/_workspace/hexo-playlist'
 alias codeMarpPlaylist='startCode ~/_workspace/marp-playlist'
 
+alias code2ChPowerSupply='open ~/_workspace/2-ch-power-supply'
+
 alias codePoc='startCode ~/_poc'
 
 alias codePortfolioNotes='startCode ~/_workspace/portfolio-gatsby/documentations/NOTES.md'
