@@ -84,11 +84,8 @@ codeFirefoxAlias(){
   code ~/.firefox_alias.rc
 }
 
-alias codeDotFiles='code -n ~/_workspace/dotfiles/'
+# alias codeDotFiles='code -n ~/_workspace/dotfiles/'
 alias codeLouisAlias='code ~/_workspace/dotfiles/.louis_alias'
-
-alias codeDotFirefox='code ~/_workspace/dotfiles/.firefox_alias.rc'
-
 
 n(){
   cd ~/_workspace/todo_and_notes

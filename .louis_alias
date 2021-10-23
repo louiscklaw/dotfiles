@@ -38,38 +38,45 @@ alias codeSongList='startCode ~/dotfiles/.songlist.rc'
 alias codeStock='startCode /home/logic/_workspace/stock_buy_sell_sheet/fetch-yahoo-finance'
 alias codeLittleRedFlower='startCode /home/logic/_workspace/littleredflower-tryout'
 
+alias codeDotFiles='code -n ~/_workspace/dotfiles/'
 
-if [[ -e $DOTFILE_HOME/.android.rc ]]; then source $DOTFILE_HOME/.android.rc; fi
-if [[ -e $DOTFILE_HOME/.python.rc ]]; then source $DOTFILE_HOME/.python.rc; fi
-if [[ -e $DOTFILE_HOME/.bash-palette.sh ]]; then source $DOTFILE_HOME/.bash-palette.sh; fi
-if [[ -e $DOTFILE_HOME/.common.rc ]]; then source $DOTFILE_HOME/.common.rc; fi
-if [[ -e $DOTFILE_HOME/.date.rc ]]; then source $DOTFILE_HOME/.date.rc; fi
 if [[ -e $DOTFILE_HOME/.develop.rc ]]; then source $DOTFILE_HOME/.develop.rc; fi
-if [[ -e $DOTFILE_HOME/.directory.rc ]]; then source $DOTFILE_HOME/.directory.rc; fi
-if [[ -e $DOTFILE_HOME/.docker.rc ]]; then source $DOTFILE_HOME/.docker.rc; fi
-if [[ -e $DOTFILE_HOME/.drone.rc ]]; then source $DOTFILE_HOME/.drone.rc; fi
-if [[ -e $DOTFILE_HOME/.electronic.rc ]]; then source $DOTFILE_HOME/.electronic.rc; fi
-if [[ -e $DOTFILE_HOME/.fabric.rc ]]; then source $DOTFILE_HOME/.fabric.rc; fi
-if [[ -e $DOTFILE_HOME/.firefox_alias.rc ]]; then source $DOTFILE_HOME/.firefox_alias.rc; fi
-if [[ -e $DOTFILE_HOME/.github_action.rc ]]; then source $DOTFILE_HOME/.github_action.rc; fi
-if [[ -e $DOTFILE_HOME/.install.rc ]]; then source $DOTFILE_HOME/.install.rc; fi
-if [[ -e $DOTFILE_HOME/.js.rc ]]; then source $DOTFILE_HOME/.js.rc; fi
 if [[ -e $DOTFILE_HOME/.lynked_shortcut.rc ]]; then source $DOTFILE_HOME/.lynked_shortcut.rc; fi
-if [[ -e $DOTFILE_HOME/.raspi.rc ]]; then source $DOTFILE_HOME/.raspi.rc; fi
-if [[ -e $DOTFILE_HOME/.secret.rc ]]; then source $DOTFILE_HOME/.secret.rc; fi
-if [[ -e $DOTFILE_HOME/.ssh_alias.rc ]]; then source $DOTFILE_HOME/.ssh_alias.rc; fi
-if [[ -e $DOTFILE_HOME/.travis.rc ]]; then source $DOTFILE_HOME/.travis.rc; fi
-if [[ -e $DOTFILE_HOME/.kicad.rc ]]; then source $DOTFILE_HOME/.kicad.rc; fi
 if [[ -e $DOTFILE_HOME/.pureudon.rc ]]; then source $DOTFILE_HOME/.pureudon.rc; fi
-
+if [[ -e $DOTFILE_HOME/.android.rc ]]; then source $DOTFILE_HOME/.android.rc; fi
+if [[ -e $DOTFILE_HOME/.common.rc ]]; then source $DOTFILE_HOME/.common.rc; fi
+if [[ -e $DOTFILE_HOME/.ssh_alias.rc ]]; then source $DOTFILE_HOME/.ssh_alias.rc; fi
 if [[ -e $HOME/.credentials.rc ]]; then source $HOME/.credentials.rc; fi
+if [[ -e $DOTFILE_HOME/.install.rc ]]; then source $DOTFILE_HOME/.install.rc; fi
+
+# if [[ -e $DOTFILE_HOME/.python.rc ]]; then source $DOTFILE_HOME/.python.rc; fi
+# if [[ -e $DOTFILE_HOME/.bash-palette.sh ]]; then source $DOTFILE_HOME/.bash-palette.sh; fi
+# if [[ -e $DOTFILE_HOME/.date.rc ]]; then source $DOTFILE_HOME/.date.rc; fi
+# if [[ -e $DOTFILE_HOME/.directory.rc ]]; then source $DOTFILE_HOME/.directory.rc; fi
+# if [[ -e $DOTFILE_HOME/.docker.rc ]]; then source $DOTFILE_HOME/.docker.rc; fi
+# if [[ -e $DOTFILE_HOME/.drone.rc ]]; then source $DOTFILE_HOME/.drone.rc; fi
+# if [[ -e $DOTFILE_HOME/.electronic.rc ]]; then source $DOTFILE_HOME/.electronic.rc; fi
+# if [[ -e $DOTFILE_HOME/.fabric.rc ]]; then source $DOTFILE_HOME/.fabric.rc; fi
+# if [[ -e $DOTFILE_HOME/.firefox_alias.rc ]]; then source $DOTFILE_HOME/.firefox_alias.rc; fi
+# if [[ -e $DOTFILE_HOME/.github_action.rc ]]; then source $DOTFILE_HOME/.github_action.rc; fi
+
+# if [[ -e $DOTFILE_HOME/.js.rc ]]; then source $DOTFILE_HOME/.js.rc; fi
+# if [[ -e $DOTFILE_HOME/.raspi.rc ]]; then source $DOTFILE_HOME/.raspi.rc; fi
+# if [[ -e $DOTFILE_HOME/.secret.rc ]]; then source $DOTFILE_HOME/.secret.rc; fi
+# if [[ -e $DOTFILE_HOME/.travis.rc ]]; then source $DOTFILE_HOME/.travis.rc; fi
+# if [[ -e $DOTFILE_HOME/.kicad.rc ]]; then source $DOTFILE_HOME/.kicad.rc; fi
 
 
+
+
+codeTmpDel(){
+  mkdir -p /tmp/_del/_llaw_del
+  startCode /tmp/_del/_llaw_del
+}
 
 updateFirebase(){
   sudo killall firebase
   sleep 1
-
   npm uninstall -g firebase-tools
   curl -sL firebase.tools | upgrade=true bash
   firebase --version
@@ -180,7 +187,7 @@ sendTmateAddrToSlack(){
 }
 
 prusaslicer(){
-  /home/logic/Appimage/PrusaSlicer-2.2.0+linux-x64-202003211856.AppImage
+  /home/logic/Appimage/PrusaSlicer.AppImage
 }
 
 rsyncDirs(){
