@@ -81,10 +81,8 @@ alias code2ChPowerSupply='open ~/_workspace/2-ch-power-supply'
 alias codePoc='startCode ~/_poc'
 
 alias codePortfolioNotes='startCode ~/_workspace/portfolio-gatsby/documentations/NOTES.md'
-alias codePortfolio='startCode ~/_workspace/portfolio-gatsby'
-
-
-
+alias codePortfolio='startCode ~/_workspace/louiscklaw.github.io-src'
+# alias codePortfolio='startCode /home/logic/_workspace/portfolio-docusaurus'
 
 
 CODE_OPTS=('--disable-web-security' '--use-gl=desktop' '--enable-features=VaapiVideoDecoder' '--ignore-gpu-blacklist' '--enable-gpu-rasterization' '--enable-parallel-downloading' '--smooth-scrolling' '--enable-zero-copy')
