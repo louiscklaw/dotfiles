@@ -82,7 +82,7 @@ alias code2ChPowerSupply='open ~/_workspace/2-ch-power-supply'
 alias codePoc='startCode ~/_poc'
 
 alias codePortfolioNotes='startCode ~/_workspace/portfolio-gatsby/documentations/NOTES.md'
-alias codePortfolio='startCode ~/_workspace/louiscklaw.github.io-src'
+alias codePortfolio='startCode /media/logic/SD_CARD/louiscklaw.github.io-src'
 # alias codePortfolio='startCode /home/logic/_workspace/portfolio-docusaurus'
 
 
