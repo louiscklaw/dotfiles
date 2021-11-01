@@ -47,12 +47,13 @@ if [[ -e $DOTFILE_HOME/.common.rc ]]; then source $DOTFILE_HOME/.common.rc; fi
 if [[ -e $DOTFILE_HOME/.ssh_alias.rc ]]; then source $DOTFILE_HOME/.ssh_alias.rc; fi
 if [[ -e $HOME/.credentials.rc ]]; then source $HOME/.credentials.rc; fi
 if [[ -e $DOTFILE_HOME/.install.rc ]]; then source $DOTFILE_HOME/.install.rc; fi
+if [[ -e $DOTFILE_HOME/.docker.rc ]]; then source $DOTFILE_HOME/.docker.rc; fi
 
 # if [[ -e $DOTFILE_HOME/.python.rc ]]; then source $DOTFILE_HOME/.python.rc; fi
 # if [[ -e $DOTFILE_HOME/.bash-palette.sh ]]; then source $DOTFILE_HOME/.bash-palette.sh; fi
 # if [[ -e $DOTFILE_HOME/.date.rc ]]; then source $DOTFILE_HOME/.date.rc; fi
 # if [[ -e $DOTFILE_HOME/.directory.rc ]]; then source $DOTFILE_HOME/.directory.rc; fi
-# if [[ -e $DOTFILE_HOME/.docker.rc ]]; then source $DOTFILE_HOME/.docker.rc; fi
+
 # if [[ -e $DOTFILE_HOME/.drone.rc ]]; then source $DOTFILE_HOME/.drone.rc; fi
 # if [[ -e $DOTFILE_HOME/.electronic.rc ]]; then source $DOTFILE_HOME/.electronic.rc; fi
 # if [[ -e $DOTFILE_HOME/.fabric.rc ]]; then source $DOTFILE_HOME/.fabric.rc; fi
