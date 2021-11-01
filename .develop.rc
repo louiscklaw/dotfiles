@@ -75,6 +75,7 @@ alias codeHexoPlaylist='startCode ~/_workspace/hexo-playlist'
 alias codeMarpPlaylist='startCode ~/_workspace/marp-playlist'
 
 alias codeWeeklyReport='startCode ~/_workspace/louislabs_weekly_report'
+alias cloneWeeklyReport='git clone --depth=1 git@github.com:louiscklaw/louislabs_weekly_report.git'
 
 alias code2ChPowerSupply='open ~/_workspace/2-ch-power-supply'
 
