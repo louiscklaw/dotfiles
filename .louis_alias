@@ -48,6 +48,7 @@ if [[ -e $DOTFILE_HOME/.ssh_alias.rc ]]; then source $DOTFILE_HOME/.ssh_alias.rc
 if [[ -e $HOME/.credentials.rc ]]; then source $HOME/.credentials.rc; fi
 if [[ -e $DOTFILE_HOME/.install.rc ]]; then source $DOTFILE_HOME/.install.rc; fi
 if [[ -e $DOTFILE_HOME/.docker.rc ]]; then source $DOTFILE_HOME/.docker.rc; fi
+if [[ -e $DOTFILE_HOME/.js.rc ]]; then source $DOTFILE_HOME/.js.rc; fi
 
 # if [[ -e $DOTFILE_HOME/.python.rc ]]; then source $DOTFILE_HOME/.python.rc; fi
 # if [[ -e $DOTFILE_HOME/.bash-palette.sh ]]; then source $DOTFILE_HOME/.bash-palette.sh; fi
@@ -59,8 +60,6 @@ if [[ -e $DOTFILE_HOME/.docker.rc ]]; then source $DOTFILE_HOME/.docker.rc; fi
 # if [[ -e $DOTFILE_HOME/.fabric.rc ]]; then source $DOTFILE_HOME/.fabric.rc; fi
 # if [[ -e $DOTFILE_HOME/.firefox_alias.rc ]]; then source $DOTFILE_HOME/.firefox_alias.rc; fi
 # if [[ -e $DOTFILE_HOME/.github_action.rc ]]; then source $DOTFILE_HOME/.github_action.rc; fi
-
-# if [[ -e $DOTFILE_HOME/.js.rc ]]; then source $DOTFILE_HOME/.js.rc; fi
 # if [[ -e $DOTFILE_HOME/.raspi.rc ]]; then source $DOTFILE_HOME/.raspi.rc; fi
 # if [[ -e $DOTFILE_HOME/.secret.rc ]]; then source $DOTFILE_HOME/.secret.rc; fi
 # if [[ -e $DOTFILE_HOME/.travis.rc ]]; then source $DOTFILE_HOME/.travis.rc; fi
