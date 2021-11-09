@@ -3,9 +3,7 @@
 
 alias nodemonAllBuild="nodemon --delay 0.5s -w . -e 'mmd,sh,jsx,js,ts,html,css,scss,sass,yml,py' --ignore './node_modules' --ignore './public' --ignore './reports' --exec "
 
-cleanCache(){
-  find . -name ".cache" -type d -prune -exec rm -rf '{}' +
-}
+alias cleanCache='find . -name ".cache" -type d -prune -exec rm -rf "{}"'
 
 initHusky(){
   yarn add -D husky @commitlint/{config-conventional,cli}
@@ -47,34 +45,14 @@ initGatsbyHelloworld(){
   set +x
 }
 
-nodemonMmdBuild(){
-  # html for pyunittest template
-  nodemon --delay 2 -w . -e "mmd" --ignore './node_modules' --ignore './public' --ignore './reports'  --delay 500ms --exec "$@"
-}
-
-nodemonMdBuild(){
-  # html for pyunittest template
-  nodemon --delay 2 -w . -e "md" --ignore './node_modules' --ignore './public' --ignore './reports'  --delay 500ms --exec "$@"
-}
-
-nodemonWebpackBuild(){
-  # html for pyunittest template
-  nodemon --delay 5 -w . -e "mmd,sh,js,ts,html,css,scss,sass,yml,py" --ignore './dist' --ignore './node_modules' --ignore './public' --ignore './reports'  --delay 250ms --exec "$@"
-}
-
-nodemonPugBuild(){
-  # html for pyunittest template
-  nodemon -w . -e "pug,js" --ignore './node_modules' --ignore './public' --ignore './reports'  --delay 500ms --exec "$@"
-}
-
-nodemonPyBuild(){
-  # html for pyunittest template
-  nodemon -w . -e "py,sh" --ignore './node_modules' --ignore './public' --ignore './reports'  --delay 500ms --exec "$@"
-}
-
-nodemonJsBuild(){
-  nodemon -w . -e 'js' --ignore './node_modules' --ignore './public' --exec "$@"
-}
+alias updateNodeMon='sudo npm install -g nodemon'
+alias nodemonMmdBuild='nodemon --delay 2 -w . -e "mmd" --ignore "./node_modules" --ignore "./public" --ignore "./reports"  --delay 500ms --exec "$@"'
+alias nodemonMdBuild='nodemon --delay 2 -w . -e "md" --ignore "./node_modules" --ignore "./public" --ignore "./reports"  --delay 500ms --exec "$@"'
+alias nodemonWebpackBuild='nodemon --delay 5 -w . -e "mmd,sh,js,ts,html,css,scss,sass,yml,py" --ignore "./dist" --ignore "./node_modules" --ignore "./public" --ignore './reports'  --delay 250ms --exec "$@"'
+alias nodemonPugBuild='nodemon -w . -e "pug,js" --ignore "./node_modules" --ignore "./public" --ignore "./reports"  --delay 500ms --exec "$@"'
+alias nodemonPyBuild='nodemon -w . -e "py,sh" --ignore "./node_modules" --ignore "./public" --ignore "./reports"  --delay 500ms --exec "$@"'
+alias nodemonPyAndRun='nodemon -w . -e "py,sh" --ignore "./node_modules" --ignore "./public" --ignore "./reports"  --delay 500ms --exec "$@"'
+alias nodemonJsBuild='nodemon -w . -e "js" --ignore "./node_modules" --ignore "./public" --exec "$@"'
 
 testReactBuild(){
 
@@ -86,8 +64,8 @@ testReactBuild(){
     yarn
     yarn build
 
-  cd build
-    live-server --port=8001 .
+    cd build
+      live-server --port=8001 .
 
 }
 
@@ -99,9 +77,6 @@ nodemonReactBuild(){
 #   hostname
 # END
 # )
-
-testReactBuild
-
 }
 
 nodemonGatsbyBuild(){
@@ -140,33 +115,29 @@ nodemonGatsbyBuildO(){
 }
 
 yarnCleanAndBuild(){
-  rm -rf public
-  rm -rf .cache
+  rm -rf public || true
+  rm -rf .cache || true
   yarn && yarn clean && yarn build
 }
 
 initReactHelloworld(){
   npx create-react-app helloworld
-  cd helloworld
-  npm start
+ 
+  pushd helloworld
+    npm start
+  popd
 }
 
 gatsbyCleanAndDeployGhPage(){
   set -x
-
   yarn clean
   yarn deploy
-
   set +x
 }
 
 gatsbyLocalProduction(){
   set -x
-
   yarn build
-
   liveServerHttps ./public
-
   set +x
-
 }
