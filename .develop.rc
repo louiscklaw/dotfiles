@@ -76,6 +76,7 @@ alias codeWebPlaylist='startCode ~/_workspace/web-playlist'
 alias codeWorkspace='startCode ~/_workspace'
 alias codeYahooFinancePlaylist='startCode ~/_workspace/yahoo-finance-playlist'
 alias codeYoutubePlaylist='startCode ~/_workspace/youtube-playlist'
+alias codeProposalsTryout='startCode ~/_workspace/proposals-tryout'
 
 alias codeWeeklyReport='startCode ~/_workspace/louislabs_weekly_report'
 alias cloneWeeklyReport='git clone --depth=1 git@github.com:louiscklaw/louislabs_weekly_report.git'
