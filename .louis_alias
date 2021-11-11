@@ -39,6 +39,8 @@ alias codeLittleRedFlower='startCode /home/logic/_workspace/littleredflower-tryo
 
 alias codeDotFiles='code -n ~/_workspace/dotfiles/'
 
+alias clearSwap='sudo swapoff -a && swapon'
+
 if [[ -e $DOTFILE_HOME/.develop.rc ]]; then source $DOTFILE_HOME/.develop.rc; fi
 if [[ -e $DOTFILE_HOME/.lynked_shortcut.rc ]]; then source $DOTFILE_HOME/.lynked_shortcut.rc; fi
 if [[ -e $DOTFILE_HOME/.pureudon.rc ]]; then source $DOTFILE_HOME/.pureudon.rc; fi
