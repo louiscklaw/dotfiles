@@ -26,7 +26,10 @@ alias codeDroneCiPlaylist='startCode ~/_workspace/drone-ci-playlist'
 alias codeElectronPlaylist='startCode ~/_workspace/electron-playlist'
 alias codeEsp32CamPlaylist='startCode ~/_workspace/esp32-cam-playlist'
 alias codeEsp32Playlist='startCode ~/_workspace/esp32-playlist'
+
+alias updateExpoCli="sudo npm install -g expo-cli"
 alias codeExpoPlaylist='startCode ~/_workspace/expo-playlist'
+
 alias codeFigmaPlaylist='startCode ~/_workspace/figma-playlist'
 alias codeFirebasePlaylist='startCode ~/_workspace/firebase-playlist'
 alias codeFirewallConfig='startCode ~/_workspace/firewall-playlist'
@@ -265,7 +268,7 @@ reYarn(){
   rm -rf package-lock.json | true
   rm -rf yarn.lock | true
   rm -rf node_modules | true
-  yarn
+  yarn $@
 }
 
 goGithubIssueTemplate(){
