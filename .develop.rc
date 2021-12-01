@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
 
-
-
-# codeDockerPlaylist() {
-#   code ~/_workspace/docker-playlist "${CODE_OPTS[@]}"
-# }
-
+alias gitResetHeadLast='git reset HEAD^'
 alias codeAiPlaylist='startCode ~/_workspace/ai-playlist'
 alias codeAppiumPlaylist='startCode ~/_workspace/appium-playlist'
 alias codeAR9331Playlist='startCode ~/_workspace/AR9331-playlist'
