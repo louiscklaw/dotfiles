@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+sudo apt update
+
 sudo apt-get install -y software–properties–common
 
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
