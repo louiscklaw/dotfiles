@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export DEBIAN_FRONTEND=noninteractive
+
 sudo apt update
 
 sudo apt-get install -y software–properties–common
