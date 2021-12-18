@@ -715,6 +715,9 @@ installNode(){
 }
 
 installFirebaseTools(){
+  sudo killall java
+  sudo killall firebase
+  
   curl -sL https://firebase.tools | sudo upgrade=true bash
   curl -sL firebase.tools | upgrade=true bash
 }

@@ -102,6 +102,7 @@ youtubePlayList(){
   mpv --no-video "https://www.youtube.com/playlist?list=PLipob7bBXIahH_0AJCCN9Rv1PTJQPy64G"
 }
 
+alias sudoKillAllFirefox="sudo kill `ps -ef|grep -i firefox |grep -v grep |awk '{print $2}'`"
 
 
 alias clearChromeCache='rm -rf ~/.config/google-chrome \
