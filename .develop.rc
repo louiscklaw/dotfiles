@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 alias gitResetHeadLast='git reset HEAD^'
+
+alias codeDashboard='startCode ~/_workspace/dashboard-tryout'
 alias codeAiPlaylist='startCode ~/_workspace/ai-playlist'
 alias codeAppiumPlaylist='startCode ~/_workspace/appium-playlist'
 alias codeAR9331Playlist='startCode ~/_workspace/AR9331-playlist'
