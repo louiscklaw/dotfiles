@@ -33,3 +33,6 @@ choco install aria2 -v -y
 choco install 7zip.install -v -y
 choco install 7zip -v -y
 
+choco install streamlabs-obs -v -y
+choco install discord -v -y
+
