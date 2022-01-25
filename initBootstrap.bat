@@ -4,6 +4,8 @@
 
 choco install git -v -y
 choco install vscode -v -y
+choco install github-desktop -v -y
+choco install sourcetree -v -y
 choco install whatsapp -v -y
 choco install visualstudio2022community -v -y
 choco install virtualbox -v -y
