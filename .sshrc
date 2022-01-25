@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-
-source $SSHHOME/.sshrc.d/.louis_alias

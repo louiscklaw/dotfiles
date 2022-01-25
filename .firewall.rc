@@ -1,4 +1,0 @@
-
-hellofirewall(){
-  echo 'hello firewall'
-}
