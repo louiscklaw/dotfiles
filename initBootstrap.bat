@@ -35,4 +35,4 @@ choco install 7zip -v -y
 
 choco install streamlabs-obs -v -y
 choco install discord -v -y
-
+choco install hwmonitor -v -y
