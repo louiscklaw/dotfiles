@@ -37,3 +37,5 @@ choco install streamlabs-obs -v -y
 choco install discord -v -y
 choco install hwmonitor -v -y
 choco install jetbrainsmono -v -y
+choco install obs-studio -v -y
+choco install androidstudio -v -y
