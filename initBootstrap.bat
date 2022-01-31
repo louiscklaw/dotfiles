@@ -39,3 +39,8 @@ choco install hwmonitor -v -y
 choco install jetbrainsmono -v -y
 choco install obs-studio -v -y
 choco install androidstudio -v -y
+
+choco install winsshterm -v -y
+choco install putty -v -y
+choco install winscp -v -y
+choco install wsl-ssh-pageant -v -y
