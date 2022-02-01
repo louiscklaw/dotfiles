@@ -1,4 +1,4 @@
 
-pushd C:\Users\logic\_workspace\react-playlist
+pushd %USERPROFILE%\_workspace\react-playlist
   code .
 popd

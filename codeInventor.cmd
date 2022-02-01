@@ -1,4 +1,4 @@
 
-pushd C:\Users\logic\_workspace\inventor-tryout
+pushd %USERPROFILE%\_workspace\inventor-tryout
   code .
 popd
