@@ -46,3 +46,9 @@ choco install winscp -v -y
 choco install wsl-ssh-pageant -v -y
 choco install line -v -y
 choco install wechat -v -y
+
+
+
+
+powercfg.exe /hibernate off
+
