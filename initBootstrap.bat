@@ -47,7 +47,7 @@ choco install wsl-ssh-pageant -v -y
 choco install line -v -y
 choco install wechat -v -y
 choco install deskpins -v -y
-
+choco install vlc -v -y
 
 
 powercfg.exe /hibernate off
