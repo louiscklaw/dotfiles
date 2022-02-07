@@ -35,6 +35,8 @@ choco install 7zip -v -y
 
 choco install streamlabs-obs -v -y
 choco install discord -v -y
+@REM clist -l | findstr discord
+
 choco install hwmonitor -v -y
 choco install jetbrainsmono -v -y
 choco install obs-studio -v -y
