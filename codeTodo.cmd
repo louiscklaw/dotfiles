@@ -1,4 +1,4 @@
 
-pushd %USERPROFILE%\_workspace\_TODO
+pushd %USERPROFILE%\_TODO
   code .
 popd  
