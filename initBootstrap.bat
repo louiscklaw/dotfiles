@@ -50,6 +50,7 @@ choco install line -v -y
 choco install wechat -v -y
 choco install deskpins -v -y
 choco install vlc -v -y
+choco install gnuwin32-coreutils.portable -v -y
 
 
 powercfg.exe /hibernate off
