@@ -8,4 +8,4 @@ FOR /F "tokens=4 delims= " %%G IN ('git branch') DO (
 
 
 git branch | findstr *
-@REM git push --set-upstream origin %*
+: git push --set-upstream origin %*

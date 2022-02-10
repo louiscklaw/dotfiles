@@ -1,6 +1,6 @@
-@REM Fix for PowerShell Script Not Digitally Signed
-@REM Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-@REM Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+: Fix for PowerShell Script Not Digitally Signed
+: Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+: Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
 choco install git -v -y
 choco install vscode -v -y
@@ -35,7 +35,7 @@ choco install 7zip -v -y
 
 choco install streamlabs-obs -v -y
 choco install discord -v -y
-@REM clist -l | findstr discord
+: clist -l | findstr discord
 
 choco install hwmonitor -v -y
 choco install jetbrainsmono -v -y
