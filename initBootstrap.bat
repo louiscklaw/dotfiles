@@ -55,3 +55,7 @@ choco install aria2 -v -y
 
 powercfg.exe /hibernate off
 
+: stop windows update
+net stop wuauserv
+net stop bits
+net stop dosvc
