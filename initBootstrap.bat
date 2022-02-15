@@ -52,6 +52,7 @@ choco install deskpins -v -y
 choco install vlc -v -y
 choco install gnuwin32-coreutils.portable -v -y
 choco install aria2 -v -y
+choco install xnviewmp.install -v -y
 
 powercfg.exe /hibernate off
 
