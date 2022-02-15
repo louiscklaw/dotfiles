@@ -2,6 +2,8 @@
 : Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 : Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
+choco feature enable -n allowGlobalConfirmation
+
 choco install git -v -y
 choco install vscode -v -y
 choco install github-desktop -v -y
@@ -53,6 +55,8 @@ choco install vlc -v -y
 choco install gnuwin32-coreutils.portable -v -y
 choco install aria2 -v -y
 choco install xnviewmp.install -v -y
+choco install httpie -v -y
+
 
 powercfg.exe /hibernate off
 
