@@ -57,6 +57,9 @@ choco install aria2 -v -y
 choco install xnviewmp.install -v -y
 choco install httpie -v -y
 
+@REM C:\tools\msys64\usr\bin
+choco install msys2 -v -y
+
 
 powercfg.exe /hibernate off
 
