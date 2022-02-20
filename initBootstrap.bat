@@ -2,7 +2,12 @@
 : Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 : Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
+Set-ExecutionPolicy Bypass
+Get-AppPackage *SkypeApp* | Remove-AppPackage
+Get-AppPackage *Wallet* | Remove-AppPackage
+
 choco feature enable -n allowGlobalConfirmation
+
 
 choco install git -v -y
 choco install vscode -v -y
