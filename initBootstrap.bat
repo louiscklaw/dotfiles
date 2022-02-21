@@ -3,8 +3,8 @@
 : Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
 Set-ExecutionPolicy Bypass
-Get-AppPackage *SkypeApp* | Remove-AppPackage
-Get-AppPackage *Wallet* | Remove-AppPackage
+: Get-AppPackage *SkypeApp* | Remove-AppPackage
+: Get-AppPackage *Wallet* | Remove-AppPackage
 
 choco feature enable -n allowGlobalConfirmation
 
@@ -21,16 +21,17 @@ choco install slack -v -y
 choco install signal -v -y
 choco install rpi-imager -v -y
 choco install python3 -v -y
-choco install python3 -v -y
 choco install prusaslicer -v -y
 choco install powershell.portable -v -y
 choco install picpick.portable -v -y
 choco install oh-my-posh -v -y
-choco install nodejs --version=14.18.3 -v -y
-choco install git -v -y
+
+choco install nodejs -v -y
+npm install -g npm yarn
+
+
 choco install firacode -v -y
 choco install filezilla -v -y
-choco install figma -v -y
 choco install figma -v -y
 choco install dellcommandupdate -v -y
 choco install curl -v -y
@@ -38,7 +39,6 @@ choco install cmder -v -y
 choco install autohotkey.portable -v -y
 choco install aria2 -v -y
 choco install 7zip.install -v -y
-choco install 7zip -v -y
 
 choco install streamlabs-obs -v -y
 choco install discord -v -y
@@ -62,14 +62,20 @@ choco install aria2 -v -y
 choco install xnviewmp.install -v -y
 choco install httpie -v -y
 
-@REM C:\tools\msys64\usr\bin
-@REM C:\tools\msys64\mingw64\bin
+: C:\tools\msys64\usr\bin
+: C:\tools\msys64\mingw64\bin
 choco install msys2 -v -y
 
+choco install freshbing -v -y
 
 powercfg.exe /hibernate off
+
+wuauclt.exe /updatenow
 
 : stop windows update
 net stop wuauserv
 net stop bits
 net stop dosvc
+
+
+Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol -NoRestart
