@@ -20,14 +20,16 @@ choco install telegram -v -y
 choco install slack -v -y
 choco install signal -v -y
 choco install rpi-imager -v -y
-choco install python3 -v -y
 choco install prusaslicer -v -y
 choco install powershell.portable -v -y
 choco install picpick.portable -v -y
 choco install oh-my-posh -v -y
 
-choco install nodejs -v -y
+choco install nodejs-lts -v -y
 npm install -g npm yarn
+
+choco install hugo-extended -v -y
+choco install python3 -v -y
 
 
 choco install firacode -v -y

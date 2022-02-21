@@ -19,7 +19,7 @@ choco install httpie -v -y
 choco install hwmonitor -v -y
 choco install jetbrainsmono -v -y
 choco install line -v -y
-choco install nodejs -v -y
+choco install nodejs-lts -v -y
 choco install obs-studio -v -y
 choco install oh-my-posh -v -y
 choco install picpick.portable -v -y
