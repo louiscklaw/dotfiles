@@ -1,5 +1,5 @@
 
-pushd c:\Users\logic\dotfiles
+pushd c:\Users\logic\_workspace\dotfiles
   git add . 
   git commit -m"update windows dotfiles,"
 

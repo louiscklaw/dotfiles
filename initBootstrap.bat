@@ -69,6 +69,7 @@ choco install freshbing -v -y
 
 choco install microsoft-windows-terminal -v -y
 choco install oh-my-posh -v -y
+choco install cascadia-code-nerd-font -v -y
 
 powercfg.exe /hibernate off
 
