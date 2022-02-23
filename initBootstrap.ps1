@@ -55,3 +55,9 @@ powercfg.exe /hibernate off
 net stop wuauserv
 net stop bits
 net stop dosvc
+
+Install-Module ps-autoenv
+Add-Content $PROFILE @("`n", "import-module ps-autoenv")
+
+
+Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol -NoRestart

@@ -8,7 +8,6 @@ Set-ExecutionPolicy Bypass
 
 choco feature enable -n allowGlobalConfirmation
 
-
 choco install git -v -y
 choco install vscode -v -y
 choco install github-desktop -v -y
@@ -29,21 +28,11 @@ choco install line -v -y
 choco install discord -v -y
 
 choco install rpi-imager -v -y
-
+@REM choco install python3 -v -y
 choco install prusaslicer -v -y
-
 choco install picpick.portable -v -y
-
-choco install powershell.portable -v -y
-choco install oh-my-posh -v -y
-
-choco install nodejs-lts -v -y
-npm install -g npm yarn
-
-choco install hugo-extended -v -y
-choco install python3 -v -y
-
-
+@REM choco install nodejs --version=14.18.3 -v -y
+choco install firacode -v -y
 choco install filezilla -v -y
 choco install winscp -v -y
 choco install putty -v -y
@@ -61,9 +50,7 @@ choco install gnuwin32-coreutils.portable -v -y
 choco install obs-studio -v -y
 choco install streamlabs-obs -v -y
 : clist -l | findstr discord
-
 choco install hwmonitor -v -y
-
 choco install winsshterm -v -y
 choco install wsl-ssh-pageant -v -y
 choco install deskpins -v -y
@@ -88,6 +75,3 @@ wuauclt.exe /updatenow
 net stop wuauserv
 net stop bits
 net stop dosvc
-
-
-Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol -NoRestart
