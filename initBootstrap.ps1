@@ -43,6 +43,7 @@ choco install winscp -v -y
 choco install winsshterm -v -y
 choco install wsl-ssh-pageant -v -y
 choco install xnviewmp.install -v -y
+choco install gsudo --pre -v -y
 
 # @REM C:\tools\msys64\usr\bin
 # @REM C:\tools\msys64\mingw64\bin
