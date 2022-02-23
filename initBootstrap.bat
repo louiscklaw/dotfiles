@@ -71,6 +71,9 @@ choco install microsoft-windows-terminal -v -y
 choco install oh-my-posh -v -y
 choco install cascadia-code-nerd-font -v -y
 
+
+choco install powertoys -v -y
+
 powercfg.exe /hibernate off
 
 wuauclt.exe /updatenow

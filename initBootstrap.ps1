@@ -44,9 +44,6 @@ choco install winsshterm -v -y
 choco install wsl-ssh-pageant -v -y
 choco install xnviewmp.install -v -y
 
-
-
-
 # @REM C:\tools\msys64\usr\bin
 # @REM C:\tools\msys64\mingw64\bin
 choco install msys2 -v -y
