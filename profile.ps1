@@ -98,6 +98,8 @@ Set-Alias startFreeRouting  C:\Users\logic\_workspace\dotfiles\kicad\startFreeRo
 
 Set-Alias aria2cDownload  C:\Users\logic\_workspace\dotfiles\tools\aria2cDownload.ps1
 
+Set-Alias goGithubProfile  C:\Users\logic\_workspace\dotfiles\go\goGithubProfile.ps1
+
 
 # Create aliases for frequently used commands
 Set-Alias im Import-Module
