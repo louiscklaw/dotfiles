@@ -149,3 +149,12 @@ Import-Module oh-my-posh
 Import-Module -Name Terminal-Icons
 
 Set-PoshPrompt -Theme spaceship
+
+
+# Install-Module posh-git -Scope CurrentUser
+# Update-Module posh-git
+Import-Module posh-git
+$env:POSH_GIT_ENABLED = $true
+
+# Install-Module ZLocation -Scope CurrentUser
+Import-Module ZLocation
