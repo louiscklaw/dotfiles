@@ -5,6 +5,8 @@
 $adminUPN = "lazyadmin@lazydev.onmicrosoft.com"
 $sharepointAdminUrl = "https://lazydev-admin.sharepoint.com"
 
+$env:MY_WORKSPACE="D:\_workspace"
+
 # Lazy way to use scripts as module
 Set-Alias ConnectTo-SharePointAdmin ConnectTo-SharePointAdmin.ps1
 Set-Alias ConnectTo-EXO ConnectTo-EXO.ps1
@@ -54,15 +56,60 @@ Set-Alias -Name gca -Value git-commit-all
 function git-push { git push }
 Set-Alias -Name gitPush -Value git-push
 
+function git-checkout { git checkout $args }
+Set-Alias -Name gco -Value git-checkout
 
 # function git-commit-m { git commit -m $args }
 # Set-Alias -Name gcm -Value git-commit-m
 
-# function git-checkout { git checkout $args }
-# Set-Alias -Name gco -Value git-checkout
+function code-expo-playlist { code $env:MY_WORKSPACE\expo-playlist }
+Set-Alias -Name codeExpoPlaylist -Value code-expo-playlist
 
-# function git-log { git log }
-# Set-Alias -Name gl -Value git-log
+function code-inventor { code $env:MY_WORKSPACE\inventor-tryout }
+Set-Alias -Name codeInventor -Value code-inventor
+
+function code_kicad_library { code $env:MY_WORKSPACE\kicad_library }
+Set-Alias -Name codeKicadLibrary -Value code_kicad_library
+
+function code_kicad_playlist { code $env:MY_WORKSPACE\kicad-playlist }
+Set-Alias -Name codeKicadPlaylist -Value code_kicad_playlist
+
+function code_dot_files {code $env:MY_WORKSPACE\dotfiles}
+Set-Alias -Name codeDotFiles -Value code_dot_files
+
+function code_inventor {code $env:MY_WORKSPACE\inventor-tryout}
+Set-Alias -Name codeInventor -Value code_inventor
+
+# function code42_stepper_motor_driver_tryout {code $env:MY_WORKSPACE\code42StepperMotorDriverTryout}
+# Set-Alias -Name code42StepperMotorDriverTryout -Value code42_stepper_motor_driver_tryout
+
+function code_altium_designer {code $env:MY_WORKSPACE\altium-designer-playlist}
+Set-Alias -Name codeAltiumDesigner -Value code_altium_designer
+
+function code_arduino_playlist {code $env:MY_WORKSPACE\arduino-playlist}
+Set-Alias -Name codeArduinoPlaylist -Value code_arduino_playlist
+
+function code_esp32_playlist {code $env:MY_WORKSPACE\esp32-playlist}
+Set-Alias -Name codeEsp32Playlist -Value code_esp32_playlist
+
+function code_esp8266_playlist {code $env:MY_WORKSPACE\esp8266-tryout}
+Set-Alias -Name codeEsp8266Playlist -Value code_esp8266_playlist
+
+function code_python_playlist {code $env:MY_WORKSPACE\codePythonPlaylist}
+Set-Alias -Name codePythonPlaylist -Value code_python_playlist
+
+function code_react_playlist {code $env:MY_WORKSPACE\react-playlist}
+Set-Alias -Name codeReactPlaylist -Value code_react_playlist
+
+function code_stm32_tryout {code $env:MY_WORKSPACE\stm32_tryout}
+Set-Alias -Name codeStm32Tryout -Value code_stm32_tryout
+
+function code_tmp_del {code $env:MY_WORKSPACE\temp\_del}
+Set-Alias -Name codeTmpDel -Value code_tmp_del
+
+function code_todo {code D:\_todo}
+Set-Alias -Name codeTodo -Value code_todo
+
 
 
 $env:Path += ";$env:LOCALAPPDATA\Android\sdk\platform-tools"
@@ -74,22 +121,6 @@ $env:hello = "world"
 Set-Alias hello hostname
 Set-Alias ConnectTo-EXO ConnectTo-EXO.ps1
 Set-Alias Get-MFAStatus MFAStatus.ps1
-
-Set-Alias codeDotFiles C:\Users\logic\_workspace\dotfiles\code\codeDotFiles.ps1
-Set-Alias codeInventor C:\Users\logic\_workspace\dotfiles\code\codeInventor.ps1
-Set-Alias code42StepperMotorDriverTryout  C:\Users\logic\_workspace\dotfiles\code\code42StepperMotorDriverTryout.ps1
-Set-Alias codeAltiumDesigner  C:\Users\logic\_workspace\dotfiles\code\codeAltiumDesigner.ps1
-Set-Alias codeArduinoPlaylist  C:\Users\logic\_workspace\dotfiles\code\codeArduinoPlaylist.ps1
-Set-Alias codeEsp32Playlist  C:\Users\logic\_workspace\dotfiles\code\codeEsp32Playlist.ps1
-Set-Alias codeEsp32Tryout  C:\Users\logic\_workspace\dotfiles\code\codeEsp32Tryout.ps1
-Set-Alias codeEsp8266Playlist  C:\Users\logic\_workspace\dotfiles\code\codeEsp8266Playlist.ps1
-Set-Alias codeKicadLibrary  C:\Users\logic\_workspace\dotfiles\code\codeKicadLibrary.ps1
-Set-Alias codeKicadPlaylist  C:\Users\logic\_workspace\dotfiles\code\codeKicadPlaylist.ps1
-Set-Alias codePythonPlaylist  C:\Users\logic\_workspace\dotfiles\code\codePythonPlaylist.ps1
-Set-Alias codeReactPlaylist  C:\Users\logic\_workspace\dotfiles\code\codeReactPlaylist.ps1
-Set-Alias codeStm32Tryout  C:\Users\logic\_workspace\dotfiles\code\codeStm32Tryout.ps1
-Set-Alias codeTmpDel  C:\Users\logic\_workspace\dotfiles\code\codeTmpDel.ps1
-Set-Alias codeTodo  C:\Users\logic\_workspace\dotfiles\code\codeTodo.ps1
 
 
 Set-Alias syncDotFiles  C:\Users\logic\_workspace\dotfiles\sync\syncDotFiles.ps1
