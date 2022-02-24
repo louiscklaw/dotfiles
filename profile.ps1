@@ -110,6 +110,9 @@ Set-Alias -Name codeTmpDel -Value code_tmp_del
 function code_todo {code D:\_todo}
 Set-Alias -Name codeTodo -Value code_todo
 
+function aria_download {aria2c -x 16 -s 16 --dht-listen-port=51000-51099 --listen-port=51000-51099 $args}
+Set-Alias -Name ariaDownload -Value aria_download
+
 $env:Path += ";$env:LOCALAPPDATA\Android\sdk\platform-tools"
 
 # Set default variables
