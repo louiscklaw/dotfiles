@@ -5,7 +5,7 @@
 $adminUPN = "lazyadmin@lazydev.onmicrosoft.com"
 $sharepointAdminUrl = "https://lazydev-admin.sharepoint.com"
 
-$env:MY_WORKSPACE="D:\_workspace"
+# $env:MY_WORKSPACE="D:\_workspace"
 
 # Lazy way to use scripts as module
 Set-Alias ConnectTo-SharePointAdmin ConnectTo-SharePointAdmin.ps1
@@ -141,10 +141,11 @@ Set-Alias tn Test-NetConnection
 # Install-Module posh-git -Scope CurrentUser
 Import-Module posh-git
 
+# Install-Module oh-my-posh -Scope CurrentUser
 # oh-my-posh --init --shell pwsh --config $env:POSH_THEMES_PATH/jandedobbeleer.omp.json | Invoke-Expression
 Import-Module oh-my-posh
 
-# Install-Module -Name Terminal-Icons -Repository PSGallery
+# Install-Module -Name Terminal-Icons -Repository PSGallery  -Scope CurrentUser
 Import-Module -Name Terminal-Icons
 
 Set-PoshPrompt -Theme spaceship
