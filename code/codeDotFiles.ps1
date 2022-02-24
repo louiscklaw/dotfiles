@@ -1,4 +1,4 @@
 
-pushd c:\Users\logic\_workspace\dotfiles
+pushd D:\_workspace\dotfiles
   code .
 popd
