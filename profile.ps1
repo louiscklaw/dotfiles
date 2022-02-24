@@ -110,8 +110,6 @@ Set-Alias -Name codeTmpDel -Value code_tmp_del
 function code_todo {code D:\_todo}
 Set-Alias -Name codeTodo -Value code_todo
 
-
-
 $env:Path += ";$env:LOCALAPPDATA\Android\sdk\platform-tools"
 
 # Set default variables
@@ -122,14 +120,13 @@ Set-Alias hello hostname
 Set-Alias ConnectTo-EXO ConnectTo-EXO.ps1
 Set-Alias Get-MFAStatus MFAStatus.ps1
 
+Set-Alias syncDotFiles  $env:MY_WORKSPACE\dotfiles\sync\syncDotFiles.ps1
 
-Set-Alias syncDotFiles  C:\Users\logic\_workspace\dotfiles\sync\syncDotFiles.ps1
+Set-Alias startFreeRouting  $env:MY_WORKSPACE\dotfiles\kicad\startFreeRouting.ps1
 
-Set-Alias startFreeRouting  C:\Users\logic\_workspace\dotfiles\kicad\startFreeRouting.ps1
+Set-Alias aria2cDownload  $env:MY_WORKSPACE\dotfiles\tools\aria2cDownload.ps1
 
-Set-Alias aria2cDownload  C:\Users\logic\_workspace\dotfiles\tools\aria2cDownload.ps1
-
-Set-Alias goGithubProfile  C:\Users\logic\_workspace\dotfiles\go\goGithubProfile.ps1
+Set-Alias goGithubProfile  $env:MY_WORKSPACE\dotfiles\go\goGithubProfile.ps1
 
 
 # Create aliases for frequently used commands
