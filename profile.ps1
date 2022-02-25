@@ -7,7 +7,7 @@ $sharepointAdminUrl = "https://lazydev-admin.sharepoint.com"
 
 # Set default variables
 $env:hello = "world"
-$env:MY_WORKSPACE="D:\_workspace"
+# $env:MY_WORKSPACE="D:\_workspace"
 
 
 $env:Path += ";$env:LOCALAPPDATA\Android\sdk\platform-tools"
@@ -118,6 +118,11 @@ Set-Alias -Name codeTodo -Value code_todo
 function code_platform_io {code $env:MY_WORKSPACE\platformio-playlist}
 Set-Alias -Name codePlatformIo -Value code_platform_io
 
+function aria_download {aria2c -x 16 -s 16 --dht-listen-port=51000-51099 --listen-port=51000-51099 $args}
+Set-Alias -Name ariaDownload -Value aria_download
+
+$env:Path += ";$env:LOCALAPPDATA\Android\sdk\platform-tools"
+
 
 # Lazy way to use scripts as module
 Set-Alias hello hostname
@@ -145,10 +150,20 @@ Set-Alias tn Test-NetConnection
 # Install-Module posh-git -Scope CurrentUser
 Import-Module posh-git
 
+# Install-Module oh-my-posh -Scope CurrentUser
 # oh-my-posh --init --shell pwsh --config $env:POSH_THEMES_PATH/jandedobbeleer.omp.json | Invoke-Expression
 Import-Module oh-my-posh
 
-# Install-Module -Name Terminal-Icons -Repository PSGallery
+# Install-Module -Name Terminal-Icons -Repository PSGallery  -Scope CurrentUser
 Import-Module -Name Terminal-Icons
 
 Set-PoshPrompt -Theme spaceship
+
+
+# Install-Module posh-git -Scope CurrentUser
+# Update-Module posh-git
+Import-Module posh-git
+$env:POSH_GIT_ENABLED = $true
+
+# Install-Module ZLocation -Scope CurrentUser
+Import-Module ZLocation
