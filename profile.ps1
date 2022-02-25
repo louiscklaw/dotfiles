@@ -5,7 +5,12 @@
 $adminUPN = "lazyadmin@lazydev.onmicrosoft.com"
 $sharepointAdminUrl = "https://lazydev-admin.sharepoint.com"
 
+# Set default variables
+$env:hello = "world"
 $env:MY_WORKSPACE="D:\_workspace"
+
+
+$env:Path += ";$env:LOCALAPPDATA\Android\sdk\platform-tools"
 
 # Lazy way to use scripts as module
 Set-Alias ConnectTo-SharePointAdmin ConnectTo-SharePointAdmin.ps1
@@ -110,10 +115,9 @@ Set-Alias -Name codeTmpDel -Value code_tmp_del
 function code_todo {code D:\_todo}
 Set-Alias -Name codeTodo -Value code_todo
 
-$env:Path += ";$env:LOCALAPPDATA\Android\sdk\platform-tools"
+function code_platform_io {code $env:MY_WORKSPACE\platformio-playlist}
+Set-Alias -Name codePlatformIo -Value code_platform_io
 
-# Set default variables
-$env:hello = "world"
 
 # Lazy way to use scripts as module
 Set-Alias hello hostname
