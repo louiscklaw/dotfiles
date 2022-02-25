@@ -64,6 +64,9 @@ Set-Alias -Name gitPush -Value git-push
 function git-checkout { git checkout $args }
 Set-Alias -Name gco -Value git-checkout
 
+function git-push { git push $args }
+Set-Alias -Name gitPush -Value git-push
+
 # function git-commit-m { git commit -m $args }
 # Set-Alias -Name gcm -Value git-commit-m
 
