@@ -82,3 +82,7 @@ wuauclt.exe /updatenow
 net stop wuauserv
 net stop bits
 net stop dosvc
+
+: Disable Error Reporting in Windows
+sc config wersvc start= disabled
+@REM Set-Service -Name wersvc -StartupType disabled

@@ -61,3 +61,7 @@ Add-Content $PROFILE @("`n", "import-module ps-autoenv")
 
 
 Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol -NoRestart
+
+
+# Disable Error Reporting in Windows
+Set-Service -Name wersvc -StartupType disabled
