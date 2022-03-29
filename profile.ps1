@@ -112,7 +112,7 @@ Set-Alias -Name codeReactPlaylist -Value code_react_playlist
 function code_stm32_tryout {code $env:MY_WORKSPACE\stm32_tryout}
 Set-Alias -Name codeStm32Tryout -Value code_stm32_tryout
 
-function code_strapi_playlist {code $env:MY_WORKSPACE\strapi_playlist}
+function code_strapi_playlist {code $env:MY_WORKSPACE\strapi-playlist}
 Set-Alias -Name codeStrapiPlaylist -Value code_strapi_playlist
 
 function code_tmp_del {code $env:MY_WORKSPACE\temp\_del}
