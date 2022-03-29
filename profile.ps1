@@ -67,8 +67,8 @@ Set-Alias -Name gco -Value git-checkout
 function git-push { git push $args }
 Set-Alias -Name gitPush -Value git-push
 
-# function git-commit-m { git commit -m $args }
-# Set-Alias -Name gcm -Value git-commit-m
+function git-commit-m { git commit -m $args }
+Set-Alias -Name gcmm -Value git-commit-m
 
 function code-expo-playlist { code $env:MY_WORKSPACE\expo-playlist }
 Set-Alias -Name codeExpoPlaylist -Value code-expo-playlist
@@ -140,6 +140,11 @@ Set-Alias aria2cDownload  $env:MY_WORKSPACE\dotfiles\tools\aria2cDownload.ps1
 
 Set-Alias goGithubProfile  $env:MY_WORKSPACE\dotfiles\go\goGithubProfile.ps1
 
+Set-Alias goGithubProfile  $env:MY_WORKSPACE\dotfiles\go\goGithubProfile.ps1
+
+function git_add {git add $args}
+Set-Alias -Name ga -Value git_add
+
 
 # Create aliases for frequently used commands
 Set-Alias im Import-Module
@@ -170,3 +175,24 @@ $env:POSH_GIT_ENABLED = $true
 
 # Install-Module ZLocation -Scope CurrentUser
 Import-Module ZLocation
+
+$Env:Path += ";c:\temp"
+
+$Env:ANDROID_HOME = "C:\Users\logic\AppData\Local\Android\Sdk"
+$Env:Path += ";C:\Users\logic\AppData\Local\Android\Sdk"
+
+# choco install jdk8
+$Env:JAVA_HOME = "C:\Program Files\Java\jdk1.8.0_211"
+$Env:Path += ";C:\Program Files\Java\jdk1.8.0_211"
+
+
+$Env:Path += ";C:\tools\ffmpeg\bin"
+$Env:Path += ";C:\tools\GStreamer\1.0\msvc_x86_64\bin"
+
+
+$Env:Path += ";C:\tools\android_app_bundle"
+
+
+$Env:PathExt += ";.jar"
+
+
