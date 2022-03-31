@@ -115,6 +115,9 @@ Set-Alias -Name codeStm32Tryout -Value code_stm32_tryout
 function code_strapi_playlist {code $env:MY_WORKSPACE\strapi-playlist}
 Set-Alias -Name codeStrapiPlaylist -Value code_strapi_playlist
 
+function code_refine_playlist {code $env:MY_WORKSPACE\refine-playlist}
+Set-Alias -Name codeRefinePlaylist -Value code_refine_playlist
+
 function code_tmp_del {code $env:MY_WORKSPACE\temp\_del}
 Set-Alias -Name codeTmpDel -Value code_tmp_del
 
@@ -198,4 +201,5 @@ $Env:Path += ";C:\tools\android_app_bundle"
 
 $Env:PathExt += ";.jar"
 
+$Env:Path += ";C:\Users\logic\AppData\Roaming\npm"
 
