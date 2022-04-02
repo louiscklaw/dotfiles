@@ -118,6 +118,9 @@ Set-Alias -Name codeStrapiPlaylist -Value code_strapi_playlist
 function code_refine_playlist {code $env:MY_WORKSPACE\refine-playlist}
 Set-Alias -Name codeRefinePlaylist -Value code_refine_playlist
 
+function code_nodejs_playlist {code $env:MY_WORKSPACE\nodejs-playlist}
+Set-Alias -Name codeNodejsPlaylist -Value code_nodejs_playlist
+
 function code_tmp_del {code $env:MY_WORKSPACE\temp\_del}
 Set-Alias -Name codeTmpDel -Value code_tmp_del
 
@@ -137,6 +140,9 @@ $env:Path += ";$env:LOCALAPPDATA\Android\sdk\platform-tools"
 Set-Alias hello hostname
 Set-Alias ConnectTo-EXO ConnectTo-EXO.ps1
 Set-Alias Get-MFAStatus MFAStatus.ps1
+
+function ssh_m73 {ssh logic@192.168.10.61}
+Set-Alias -Name sshM73 -Value ssh_m73
 
 Set-Alias syncDotFiles  $env:MY_WORKSPACE\dotfiles\sync\syncDotFiles.ps1
 
