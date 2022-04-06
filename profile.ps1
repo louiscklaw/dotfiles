@@ -88,6 +88,9 @@ Set-Alias -Name codeDotFiles -Value code_dot_files
 function code_inventor {code $env:MY_WORKSPACE\inventor-tryout}
 Set-Alias -Name codeInventor -Value code_inventor
 
+function code_restaurant_cms {code $env:MY_WORKSPACE\restaurant_cms_tryout}
+Set-Alias -Name codeRestaurantCMS -Value code_restaurant_cms
+
 # function code42_stepper_motor_driver_tryout {code $env:MY_WORKSPACE\code42StepperMotorDriverTryout}
 # Set-Alias -Name code42StepperMotorDriverTryout -Value code42_stepper_motor_driver_tryout
 
@@ -121,6 +124,9 @@ Set-Alias -Name codeRefinePlaylist -Value code_refine_playlist
 function code_nodejs_playlist {code $env:MY_WORKSPACE\nodejs-playlist}
 Set-Alias -Name codeNodejsPlaylist -Value code_nodejs_playlist
 
+function code_docker_playlist {code $env:MY_WORKSPACE\docker-playlist}
+Set-Alias -Name codeDockerPlaylist -Value code_docker_playlist
+
 function code_tmp_del {code $env:MY_WORKSPACE\temp\_del}
 Set-Alias -Name codeTmpDel -Value code_tmp_del
 
@@ -141,8 +147,14 @@ Set-Alias hello hostname
 Set-Alias ConnectTo-EXO ConnectTo-EXO.ps1
 Set-Alias Get-MFAStatus MFAStatus.ps1
 
+function sync_git {git pull ; git push}
+Set-Alias -Name syncGit -Value sync_git
+
 function ssh_m73 {ssh logic@192.168.10.61}
 Set-Alias -Name sshM73 -Value ssh_m73
+
+function ssh_nuc {ssh logic@192.168.10.21}
+Set-Alias -Name sshNUC -Value ssh_nuc
 
 Set-Alias syncDotFiles  $env:MY_WORKSPACE\dotfiles\sync\syncDotFiles.ps1
 
