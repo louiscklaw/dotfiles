@@ -124,6 +124,9 @@ Set-Alias -Name codeRefinePlaylist -Value code_refine_playlist
 function code_nodejs_playlist {code $env:MY_WORKSPACE\nodejs-playlist}
 Set-Alias -Name codeNodejsPlaylist -Value code_nodejs_playlist
 
+function code_next_playlist {code $env:MY_WORKSPACE\next-playlist}
+Set-Alias -Name codeNextJsPlaylist -Value code_next_playlist
+
 function code_docker_playlist {code $env:MY_WORKSPACE\docker-playlist}
 Set-Alias -Name codeDockerPlaylist -Value code_docker_playlist
 
