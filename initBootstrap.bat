@@ -46,6 +46,7 @@ choco install autohotkey.portable -v -y
 choco install aria2 -v -y
 choco install 7zip.install -v -y
 choco install gnuwin32-coreutils.portable -v -y
+choco install svg-explorer-extension -v -y
 
 choco install obs-studio -v -y
 choco install streamlabs-obs -v -y
@@ -56,6 +57,8 @@ choco install wsl-ssh-pageant -v -y
 choco install deskpins -v -y
 choco install vlc -v -y
 choco install aria2 -v -y
+
+choco install lockhunter -v -y
 
 choco install httpie -v -y
 

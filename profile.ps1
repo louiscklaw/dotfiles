@@ -127,6 +127,12 @@ Set-Alias -Name codeNodejsPlaylist -Value code_nodejs_playlist
 function code_nextjs_playlist {code $env:MY_WORKSPACE\nextjs-playlist}
 Set-Alias -Name codeNextJsPlaylist -Value code_nextjs_playlist
 
+function code_paid_theme_playlist {code $env:MY_WORKSPACE\paid_theme_playlist}
+Set-Alias -Name codePaidThemePlaylist -Value code_paid_theme_playlist
+
+function code_js_playlist {code $env:MY_WORKSPACE\js-playlist}
+Set-Alias -Name codeJsPlaylist -Value code_js_playlist
+
 function code_docker_playlist {code $env:MY_WORKSPACE\docker-playlist}
 Set-Alias -Name codeDockerPlaylist -Value code_docker_playlist
 
@@ -208,9 +214,9 @@ $Env:Path += ";c:\temp"
 $Env:ANDROID_HOME = "C:\Users\logic\AppData\Local\Android\Sdk"
 $Env:Path += ";C:\Users\logic\AppData\Local\Android\Sdk"
 
-# choco install jdk8
-$Env:JAVA_HOME = "C:\Program Files\Java\jdk1.8.0_211"
-$Env:Path += ";C:\Program Files\Java\jdk1.8.0_211"
+# choco install -y  openjdk11
+$Env:JAVA_HOME = "C:\Program Files\OpenJDK\openjdk-11.0.14.1_1"
+$Env:Path += ";C:\Program Files\OpenJDK\openjdk-11.0.14.1_1\bin"
 
 
 $Env:Path += ";C:\tools\ffmpeg\bin"
