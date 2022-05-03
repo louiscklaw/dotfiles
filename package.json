@@ -1,10 +1,10 @@
 {
   "name": "dotfiles",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gitUpdate": "git add . && git commit -m'update dotfiles,' && git pull && git push"
   },
   "repository": {
     "type": "git",
@@ -26,5 +26,9 @@
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
     "husky": "^4.2.5"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "description": ""
 }

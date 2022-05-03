@@ -2,7 +2,7 @@
 
 set -ex
 
-cd /root
+cd ~/_workspace/dotfiles
   source .louis_alias
 
   echo 'testing install "installXnView"'
