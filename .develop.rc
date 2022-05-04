@@ -2,6 +2,8 @@
 
 WEB_BROWSER=google-chrome
 
+alias codePaidThemePlaylist='code ~/_workspace/paid_theme_playlist'
+
 goFastMac(){
   $WEB_BROWSER https://github.com/louiscklaw/fastmac
 }
