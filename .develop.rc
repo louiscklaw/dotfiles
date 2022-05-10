@@ -4,7 +4,8 @@ WEB_BROWSER=google-chrome
 
 alias codePaidThemePlaylist='code ~/_workspace/paid_theme_playlist'
 alias codeGulpPlaylist='code ~/_workspace/gulp-playlist'
-
+alias codeStorybook='startCode -n ~/_workspace/storybook-playlist'
+alias codeRestaurantCmsTryout='startCode -n ~/_workspace/restaurant_cms_tryout'
 
 goFastMac(){
   $WEB_BROWSER https://github.com/louiscklaw/fastmac
