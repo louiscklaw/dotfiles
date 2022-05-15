@@ -1,4 +1,3 @@
-
 # $env:Path += ";D:\SysAdmin\scripts\PowerShellBasics"
 
 # Set default variables
@@ -7,8 +6,7 @@ $sharepointAdminUrl = "https://lazydev-admin.sharepoint.com"
 
 # Set default variables
 $env:hello = "world"
-# $env:MY_WORKSPACE="D:\_workspace"
-
+$env:MY_WORKSPACE="D:\_workspace"
 
 $env:Path += ";$env:LOCALAPPDATA\Android\sdk\platform-tools"
 
@@ -178,36 +176,9 @@ Set-Alias goGithubProfile  $env:MY_WORKSPACE\dotfiles\go\goGithubProfile.ps1
 function git_add {git add $args}
 Set-Alias -Name ga -Value git_add
 
-
 # Create aliases for frequently used commands
 Set-Alias im Import-Module
 Set-Alias tn Test-NetConnection
-
-# Load custom theme for Windows Terminal
-# Import-Module posh-git
-# Import-Module oh-my-posh
-# Set-Theme LazyAdmin
-
-# Install-Module posh-git -Scope CurrentUser
-Import-Module posh-git
-
-# Install-Module oh-my-posh -Scope CurrentUser
-# oh-my-posh --init --shell pwsh --config $env:POSH_THEMES_PATH/jandedobbeleer.omp.json | Invoke-Expression
-Import-Module oh-my-posh
-
-# Install-Module -Name Terminal-Icons -Repository PSGallery  -Scope CurrentUser
-Import-Module -Name Terminal-Icons
-
-Set-PoshPrompt -Theme spaceship
-
-
-# Install-Module posh-git -Scope CurrentUser
-# Update-Module posh-git
-Import-Module posh-git
-$env:POSH_GIT_ENABLED = $true
-
-# Install-Module ZLocation -Scope CurrentUser
-Import-Module ZLocation
 
 $Env:Path += ";c:\temp"
 
@@ -229,4 +200,3 @@ $Env:Path += ";C:\tools\android_app_bundle"
 $Env:PathExt += ";.jar"
 
 $Env:Path += ";C:\Users\logic\AppData\Roaming\npm"
-

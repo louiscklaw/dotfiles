@@ -31,7 +31,7 @@ choco install rpi-imager -v -y
 @REM choco install python3 -v -y
 choco install prusaslicer -v -y
 choco install picpick.portable -v -y
-@REM choco install nodejs --version=14.18.3 -v -y
+@REM choco install nodejs --version=14 -v -y
 choco install firacode -v -y
 choco install filezilla -v -y
 choco install winscp -v -y
