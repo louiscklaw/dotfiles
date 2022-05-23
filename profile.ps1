@@ -1,3 +1,7 @@
+# add to:
+# C:\tools\Cmder\config\user_profile.ps1
+# . D:\_workspace\dotfiles\profile.ps1
+
 # $env:Path += ";D:\SysAdmin\scripts\PowerShellBasics"
 
 # Set default variables
