@@ -22,6 +22,6 @@ Set-Alias -Name syncGit -Value sync_git
 function aria_download {aria2c -x 16 -s 16 --dht-listen-port=51000-51099 --listen-port=51000-51099 $args}
 Set-Alias -Name ariaDownload -Value aria_download
 
-Set-Alias startFreeRouting  $Env:MY_WORKSPACE\dotfiles\kicad\startFreeRouting.ps1
-Set-Alias aria2cDownload  $Env:MY_WORKSPACE\dotfiles\tools\aria2cDownload.ps1
-Set-Alias goGithubProfile  $Env:MY_WORKSPACE\dotfiles\go\goGithubProfile.ps1
+Set-Alias startFreeRouting  $Env:WORKSPACE_DIR\dotfiles\kicad\startFreeRouting.ps1
+Set-Alias aria2cDownload  $Env:WORKSPACE_DIR\dotfiles\tools\aria2cDownload.ps1
+Set-Alias goGithubProfile  $Env:WORKSPACE_DIR\dotfiles\go\goGithubProfile.ps1

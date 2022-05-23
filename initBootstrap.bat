@@ -89,3 +89,11 @@ net stop dosvc
 : Disable Error Reporting in Windows
 sc config wersvc start= disabled
 @REM Set-Service -Name wersvc -StartupType disabled
+
+
+@REM To turn off and disable the “Show Suggestions Occasionally in Start” in Windows 10:
+REG ADD "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "SubscribedContent-338388Enabled" /t REG_DWORD /d 0 /f
+
+@REM https://www.tenforums.com/tutorials/104828-enable-disable-recently-added-apps-start-menu-windows-10-a.html
+@REM [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer]
+@REM "HideRecentlyAddedApps"=dword:00000001
