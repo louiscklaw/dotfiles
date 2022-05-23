@@ -16,6 +16,7 @@ $sharepointAdminUrl = "https://lazydev-admin.sharepoint.com"
 # Set default variables
 $Env:hello = "world"
 $Env:MY_WORKSPACE="D:\_workspace"
+$Env:WORKSPACE_DIR="D:\_workspace"
 
 $Env:Path += ";c:\temp"
 $Env:Path += ";$Env:LOCALAPPDATA\Android\sdk\platform-tools"

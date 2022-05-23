@@ -1,5 +1,5 @@
 
-pushd $env:MY_WORKSPACE\dotfiles
+pushd $env:WORKSPACE_DIR\dotfiles
   git add . 
   git commit -m"update windows dotfiles,"
 
