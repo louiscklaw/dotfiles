@@ -5,6 +5,5 @@ pushd $env:WORKSPACE_DIR\dotfiles
 
   git fetch --all
   git pull
-
   git push
 popd
