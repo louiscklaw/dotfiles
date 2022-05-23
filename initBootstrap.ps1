@@ -77,3 +77,8 @@ Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol -NoRestart
 Set-Service -Name wersvc -StartupType disabled
 
 bcdedit -set testsigning off
+
+
+# diable windows firewall
+netsh advfirewall set allprofiles state off
+Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
