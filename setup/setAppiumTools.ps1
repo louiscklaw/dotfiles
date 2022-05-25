@@ -1,3 +1,5 @@
+Set-ExecutionPolicy Unrestricted
+choco feature enable -n allowGlobalConfirmation
 
 choco install jdk8
 
