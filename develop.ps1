@@ -1,7 +1,7 @@
 $env:WORKSPACE_DIR="D:\_workspace"
 
-function code_firebase_tryout {code $env:WORKSPACE_DIR\firebase-tryout}
-Set-Alias -Name codeFirebaseTryout -Value code_firebase_tryout
+function code_firebase_playlist {code $env:WORKSPACE_DIR\firebase-playlist}
+Set-Alias -Name codeFirebasePlaylist -Value code_firebase_playlist
 
 function code_dashboard_tryout {code $env:WORKSPACE_DIR\dashboard-tryout}
 Set-Alias -Name codeDashboardTryout -Value code_dashboard_tryout
