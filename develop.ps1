@@ -1,6 +1,9 @@
 $env:WORKSPACE_DIR="D:\_workspace"
 
-function code_dashboard_tryout {code $env:WORKSPACE_DIR\\dashboard-tryout}
+function code_firebase_tryout {code $env:WORKSPACE_DIR\firebase-tryout}
+Set-Alias -Name codeFirebaseTryout -Value code_firebase_tryout
+
+function code_dashboard_tryout {code $env:WORKSPACE_DIR\dashboard-tryout}
 Set-Alias -Name codeDashboardTryout -Value code_dashboard_tryout
 
 function code_altium_designer {code $env:WORKSPACE_DIR\altium-designer-playlist}
