@@ -1,5 +1,8 @@
 $env:WORKSPACE_DIR="D:\_workspace"
 
+function code_appium_playlist {code $env:WORKSPACE_DIR\appium-playlist}
+Set-Alias -Name codeappiumPlaylist -Value code_appium_playlist
+
 function code_firebase_playlist {code $env:WORKSPACE_DIR\firebase-playlist}
 Set-Alias -Name codeFirebasePlaylist -Value code_firebase_playlist
 
