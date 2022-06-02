@@ -42,6 +42,9 @@ Set-Alias -Name codeNodejsPlaylist -Value code_nodejs_playlist
 function code_nextjs_playlist {code $env:WORKSPACE_DIR\nextjs-playlist}
 Set-Alias -Name codeNextJsPlaylist -Value code_nextjs_playlist
 
+function code_gatsbyjs_playlist {code $env:WORKSPACE_DIR\gatsbyjs-playlist}
+Set-Alias -Name codeGatsbyJsPlaylist -Value code_gatsbyjs_playlist
+
 function code_paid_theme_playlist {code $env:WORKSPACE_DIR\paid_theme_playlist}
 Set-Alias -Name codePaidThemePlaylist -Value code_paid_theme_playlist
 
