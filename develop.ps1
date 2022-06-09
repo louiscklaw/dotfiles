@@ -30,7 +30,7 @@ Set-Alias -Name codeReactPlaylist -Value code_react_playlist
 function code_stm32_tryout {code $env:WORKSPACE_DIR\stm32_tryout}
 Set-Alias -Name codeStm32Tryout -Value code_stm32_tryout
 
-function code_portfolio {code $env:WORKSPACE_DIR\nextjs-portfolio-tryout}
+function code_portfolio {code $env:WORKSPACE_DIR\nextjs-playlist\nextjs-portfolio-tryout}
 Set-Alias -Name codePortfolio -Value code_portfolio
 
 function code_strapi_playlist {code $env:WORKSPACE_DIR\strapi-playlist}
