@@ -167,9 +167,8 @@ codeI3megaPlaylist() {
   code ~/_workspace/i3mega-playlist
 }
 
-codeJsPlaylist() {
-  code ~/_workspace/js-playlist
-}
+alias clonePlaylist='git clone git@github.com:louiscklaw/js-playlist.git'
+alias codeJsPlaylist='startCode ~/_workspace/js-playlist'
 
 codeJsonPlaylist() {
   code ~/_workspace/json-playlist
