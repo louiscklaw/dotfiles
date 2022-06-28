@@ -2,11 +2,75 @@
 
 WEB_BROWSER=google-chrome
 
-alias codePaidThemePlaylist='code ~/_workspace/paid_theme_playlist'
-alias codeGulpPlaylist='code ~/_workspace/gulp-playlist'
-alias codeStorybook='startCode -n ~/_workspace/storybook-playlist'
-alias codeRestaurantCmsTryout='startCode -n ~/_workspace/restaurant_cms_tryout'
+alias clonePlaylist='git clone git@github.com:louiscklaw/js-playlist.git'
+
+alias codeAiPlaylist='startCode ~/_workspace/ai-playlist'
+alias codeAppiumPlaylist='startCode ~/_workspace/appium-playlist'
 alias codeAppiumPlaylist1='startCode -n ~/_workspace/appium-playlist'
+alias codeAR9331Playlist='startCode ~/_workspace/AR9331-playlist'
+alias codeArduinoPlaylist='startCode ~/_workspace/arduino-playlist'
+alias codeBotPlaylist='startCode ~/_workspace/bot-playlist'
+alias codeBuildkitePlaylist='startCode ~/_workspace/buildkite-playlist'
+alias codeCalibrePlaylist='startCode ~/_workspace/calibre-playlist'
+alias codeCiPlaylist='startCode ~/_workspace/ci-playlist'
+alias codeCNCPlaylist='startCode ~/_workspace/CNC-playlist'
+alias codeCubieboard2Playlist='startCode ~/_workspace/cubieboard-playlist'
+alias codeCubieboardPlaylist='startCode ~/_workspace/cubieboard2-playlist'
+alias codeD3Playlist='startCode ~/_workspace/d3-playlist'
+alias codeDenoPlaylist='startCode ~/_workspace/deno-playlist'
+alias codeDockerPlaylist='startCode ~/_workspace/docker-playlist'
+alias codeDocsifyPlaylist='startCode ~/_workspace/docsify-playlist'
+alias codeDoczPlaylist='startCode ~/_workspace/docz-playlist'
+alias codeDroneCiPlaylist='startCode ~/_workspace/drone-ci-playlist'
+alias codeEsp32CamPlaylist='startCode ~/_workspace/esp32-cam-playlist'
+alias codeEsp32Playlist='startCode ~/_workspace/esp32-playlist'
+alias codeExpoPlaylist='startCode ~/_workspace/expo-playlist'
+alias codeFirebasePlaylist='startCode ~/_workspace/firebase-playlist'
+alias codeFreecadPlaylist='startCode ~/_workspace/freecad-playlist'
+alias codeGatsbyjsPlaylist='startCode ~/_workspace/gatsbyjs-playlist'
+alias codeGithubPlaylist='startCode ~/_workspace/github-playlist'
+alias codeGoPlaylist='startCode ~/_workspace/go-playlist'
+alias codeGulpPlaylist='startCode ~/_workspace/gulp-playlist'
+alias codeHugoPlaylist='startCode ~/_workspace/hugo-playlist'
+alias codeI3megaPlaylist='startCode ~/_workspace/i3mega-playlist'
+alias codeJob='startCode /media/logic/B829-3585/ws.code-workspace'
+alias codeJobSearchTryout='startCode /home/logic/_workspace/jobs_search_tryout'
+alias codeJsonPlaylist='startCode ~/_workspace/json-playlist'
+alias codeJsPlaylist='startCode ~/_workspace/js-playlist'
+alias codeKicadPlaylist='startCode ~/_workspace/kicad-playlist'
+alias codeLynkedTicket='startCode /home/logic/_workspace/LYNKED_QA_project/_tickets'
+alias codeM5stackPlaylist='startCode ~/_workspace/m5stack-playlist'
+alias codeMakefilePlaylist='startCode ~/_workspace/Makefile-playlist'
+alias codeMicropythonPlaylist='startCode ~/_workspace/micropython-playlist'
+alias codeNextjsPlaylist='startCode ~/_workspace/nextjs-playlist'
+alias codeNmapPlaylist='startCode ~/_workspace/nmap-playlist'
+alias codeOrangePiZeroPlaylist='startCode ~/_workspace/orange-pi-zero-playlist'
+alias codePaidThemePlaylist='startCode ~/_workspace/paid_theme_playlist'
+alias codePcbantPlaylist='startCode ~/_workspace/pcbant-playlist'
+alias codePlatformioPlaylist='startCode ~/_workspace/platformio-playlist'
+alias codePoc='startCode ~/_poc'
+alias codePreactjsPlaylist='startCode ~/_workspace/preactjs-playlist'
+alias codePuppeteerPlaylist='startCode ~/_workspace/puppeteer-playlist'
+alias codePythonPlaylist='startCode ~/_workspace/python-playlist'
+alias codeRaspberryPiPlaylist='startCode ~/_workspace/raspberry-pi-playlist'
+alias codeReactNativePlaylist='startCode ~/_workspace/react-native-playlist'
+alias codeReactPlaylist='startCode -n ~/_workspace/react-playlist'
+alias codeRestaurantCmsTryout='startCode -n ~/_workspace/restaurant_cms_tryout'
+alias codeRustPlaylist='startCode ~/_workspace/rust-playlist'
+alias codeSeleniumPlaylist='startCode ~/_workspace/selenium-playlist'
+alias codeSfxPowerSupplyPlaylist='startCode ~/_workspace/sfx-power-supply-playlist'
+alias codeStorybook='startCode -n ~/_workspace/storybook-playlist'
+alias codeTaobaoPlaylist='startCode ~/_workspace/taobao-playlist'
+alias codeTraefikPlaylist='startCode ~/_workspace/traefik-playlist'
+alias codeTravisPlaylist='startCode ~/_workspace/travis-playlist'
+alias codeVuePlaylist='startCode ~/_workspace/vue-playlist'
+alias codeWebpackPlaylist='startCode ~/_workspace/webpack-playlist'
+alias codeWebPlaylist='startCode ~/_workspace/web-playlist'
+alias codeYoutubePlaylist='startCode ~/_workspace/youtube-playlist'
+alias codeFirewallConfig='startCode ~/_workspace/firewall-config'
+alias codeWorkspace='startCode /home/logic/_workspace'
+alias codeYahooFinancePlaylist='startCode ~/_workspace/yahoo-finance-playlist'
+
 
 goFastMac(){
   $WEB_BROWSER https://github.com/louiscklaw/fastmac
@@ -30,261 +94,20 @@ gitCloneAllPlaylist(){
   wait
 }
 
-meldToLynkedQaProject(){
-  meld $PWD /home/logic/_workspace/LYNKED_QA_project
-}
-
-codeGoPlaylist(){
-  code ~/_workspace/go-playlist
-}
-
 codeLynkedQaProject(){
   code ~/_workspace/LYNKED_QA.code-workspace
   code /home/logic/_workspace/LYNKED_QA_project/LYNKED_QA.code-workspace
 }
 
-codeLynkedTicket(){
-  code /home/logic/_workspace/LYNKED_QA_project/_tickets
-}
-
-codeTaobaoPlaylist(){
-  code ~/_workspace/taobao-playlist
-}
-
-codeYoutubePlaylist(){
-  code ~/_workspace/youtube-playlist
-}
-
-codeJob(){
-  code /media/logic/B829-3585/ws.code-workspace
+meldToLynkedQaProject(){
+  meld $PWD /home/logic/_workspace/LYNKED_QA_project
 }
 
 initCodeWorkspace(){
   touch ./ws.code-workspace
 }
 
-codePoc() {
-  code ~/_poc
-}
 
-codeJobSearchTryout(){
-  code /home/logic/_workspace/jobs_search_tryout
-}
-
-codeAiPlaylist() {
-  code ~/_workspace/ai-playlist
-}
-
-codeAppiumPlaylist() {
-  code ~/_workspace/appium-playlist
-}
-
-codeAR9331Playlist() {
-  code ~/_workspace/AR9331-playlist
-}
-
-codeArduinoPlaylist() {
-  code ~/_workspace/arduino-playlist
-}
-
-codeBotPlaylist() {
-  code ~/_workspace/bot-playlist
-}
-
-codeBuildkitePlaylist() {
-  code ~/_workspace/buildkite-playlist
-}
-
-codeCalibrePlaylist() {
-  code ~/_workspace/calibre-playlist
-}
-
-codeCNCPlaylist() {
-  code ~/_workspace/CNC-playlist
-}
-
-codeCubieboardPlaylist() {
-  code ~/_workspace/cubieboard2-playlist
-}
-
-codeCubieboard2Playlist() {
-  code ~/_workspace/cubieboard-playlist
-}
-
-codeD3Playlist() {
-  code ~/_workspace/d3-playlist
-}
-
-codeDenoPlaylist() {
-  code ~/_workspace/deno-playlist
-}
-
-codeDockerPlaylist() {
-  code ~/_workspace/docker-playlist
-}
-
-codeDocsifyPlaylist() {
-  code ~/_workspace/docsify-playlist
-}
-
-codeDoczPlaylist() {
-  code ~/_workspace/docz-playlist
-}
-
-codeEsp32Playlist(){
-  code ~/_workspace/esp32-playlist
-}
-
-codeEsp32CamPlaylist() {
-  code ~/_workspace/esp32-cam-playlist
-}
-
-codeExpoPlaylist() {
-  code ~/_workspace/expo-playlist
-}
-
-codeFirebasePlaylist() {
-  code ~/_workspace/firebase-playlist
-}
-
-codeFreecadPlaylist() {
-  code ~/_workspace/freecad-playlist
-}
-
-codeGatsbyjsPlaylist() {
-  code ~/_workspace/gatsbyjs-playlist
-}
-
-codeGithubPlaylist() {
-  code ~/_workspace/github-playlist
-}
-
-codeHugoPlaylist() {
-  code ~/_workspace/hugo-playlist
-}
-
-codeI3megaPlaylist() {
-  code ~/_workspace/i3mega-playlist
-}
-
-alias clonePlaylist='git clone git@github.com:louiscklaw/js-playlist.git'
-alias codeJsPlaylist='startCode ~/_workspace/js-playlist'
-
-codeJsonPlaylist() {
-  code ~/_workspace/json-playlist
-}
-
-codeKicadPlaylist() {
-  code ~/_workspace/kicad-playlist
-}
-
-codeMakefilePlaylist() {
-  code ~/_workspace/Makefile-playlist
-}
-
-codeMicropythonPlaylist() {
-  code ~/_workspace/micropython-playlist
-}
-
-codeM5stackPlaylist(){
-  code ~/_workspace/m5stack-playlist
-}
-
-codeNextjsPlaylist() {
-  code ~/_workspace/nextjs-playlist
-}
-
-codeNmapPlaylist() {
-  code ~/_workspace/nmap-playlist
-}
-
-codeOrangePiZeroPlaylist() {
-  code ~/_workspace/orange-pi-zero-playlist
-}
-
-codePcbantPlaylist() {
-  code ~/_workspace/pcbant-playlist
-}
-
-codePlatformioPlaylist() {
-  code ~/_workspace/platformio-playlist
-}
-
-codePreactjsPlaylist() {
-  code ~/_workspace/preactjs-playlist
-}
-
-codePuppeteerPlaylist() {
-  code ~/_workspace/puppeteer-playlist
-}
-
-codePythonPlaylist() {
-  code ~/_workspace/python-playlist
-}
-
-codeRaspberryPiPlaylist() {
-  code ~/_workspace/raspberry-pi-playlist
-}
-
-codeReactNativePlaylist() {
-  code ~/_workspace/react-native-playlist
-}
-
-codeReactPlaylist() {
-  startCode -n ~/_workspace/react-playlist
-}
-
-codeRustPlaylist() {
-  code ~/_workspace/rust-playlist
-}
-
-codeSeleniumPlaylist() {
-  code ~/_workspace/selenium-playlist
-}
-
-codeSfxPowerSupplyPlaylist() {
-  code ~/_workspace/sfx-power-supply-playlist
-}
-
-codeTraefikPlaylist() {
-  code ~/_workspace/traefik-playlist
-}
-
-codeTravisPlaylist() {
-  code ~/_workspace/travis-playlist
-}
-
-codeVuePlaylist() {
-  code ~/_workspace/vue-playlist
-}
-
-codeWebPlaylist() {
-  code ~/_workspace/web-playlist
-}
-
-codeWebpackPlaylist() {
-  code ~/_workspace/webpack-playlist
-}
-
-codeCiPlaylist() {
-  code ~/_workspace/ci-playlist
-}
-
-codeDroneCiPlaylist() {
-  code ~/_workspace/drone-ci-playlist
-}
-
-codeFirewallConfig(){
-  code ~/_workspace/firewall-config
-}
-
-codeWorkspace(){
-  code /home/logic/_workspace
-}
-
-codeYahooFinancePlaylist(){
-  code ~/_workspace/yahoo-finance-playlist
-}
 
 goGist(){
   $DEFAULT_BROWSER https://gist.github.com/louiscklaw &
