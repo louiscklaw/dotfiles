@@ -81,6 +81,8 @@ alias gitCloneShallow='git clone --depth=10'
 
 alias codePortfolio='startCode ~/_workspace/portfolio-gatsby'
 
+alias reYarn='rm -rf package-lock.json && rm -rf yarn.lock && rm -rf node_modules && yarn'
+
 gitCloneAllPlaylist(){
   gitCloneShallow git@github.com:louiscklaw/react-playlist.git  &
   gitCloneShallow git@github.com:louiscklaw/python-playlist.git  &
