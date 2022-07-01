@@ -70,26 +70,25 @@ alias codeYoutubePlaylist='startCode ~/_workspace/youtube-playlist'
 alias codeFirewallConfig='startCode ~/_workspace/firewall-config'
 alias codeWorkspace='startCode /home/logic/_workspace'
 alias codeYahooFinancePlaylist='startCode ~/_workspace/yahoo-finance-playlist'
+alias codeDel='startCode ~/_del'
+alias codeWorkspace='startCode ~/_workspace'
 
+alias cloneToWorkspace='cd ~/_workspace && git clone '
 
-goFastMac(){
-  $WEB_BROWSER https://github.com/louiscklaw/fastmac
-}
+alias goFastMac='$WEB_BROWSER https://github.com/louiscklaw/fastmac'
+alias createReactNativeApp='npx create-react-native-app'
+alias gitCloneShallow='git clone --depth=10'
 
-createReactNativeApp(){
-  npx create-react-native-app $@
-}
 
 gitCloneAllPlaylist(){
-
-  git clone --depth=3 git@github.com:louiscklaw/react-playlist.git  &
-  git clone --depth=3 git@github.com:louiscklaw/python-playlist.git  &
-  git clone --depth=3 git@github.com:louiscklaw/preactjs-playlist.git  &
-  git clone --depth=3 git@github.com:louiscklaw/nextjs-playlist.git  &
-  git clone --depth=3 git@github.com:louiscklaw/gatsbyjs-playlist.git  &
-  git clone --depth=3 git@github.com:louiscklaw/selenium-playlist.git  &
-  git clone --depth=3 git@github.com:louiscklaw/marp-playlist.git  &
-  git clone --depth=3 git@github.com:louiscklaw/docker-playlist.git  &
+  gitCloneShallow git@github.com:louiscklaw/react-playlist.git  &
+  gitCloneShallow git@github.com:louiscklaw/python-playlist.git  &
+  gitCloneShallow git@github.com:louiscklaw/preactjs-playlist.git  &
+  gitCloneShallow git@github.com:louiscklaw/nextjs-playlist.git  &
+  gitCloneShallow git@github.com:louiscklaw/gatsbyjs-playlist.git  &
+  gitCloneShallow git@github.com:louiscklaw/selenium-playlist.git  &
+  gitCloneShallow git@github.com:louiscklaw/marp-playlist.git  &
+  gitCloneShallow git@github.com:louiscklaw/docker-playlist.git  &
 
   wait
 }
@@ -268,21 +267,6 @@ initWorkspace(){
 
 getDefaultCommitLintConfig(){
   cp /home/logic/_workspace/travis-playlist/commitlint.config.js .
-}
-
-cloneToWorkspace(){
-  cd /home/logic/_workspace
-    git clone $@
-
-  cd -
-}
-
-code_del(){
-  code /home/logic/_del
-}
-
-codeWorkspace(){
-  code /home/logic/_workspace
 }
 
 checkoutOrphanBranch(){
