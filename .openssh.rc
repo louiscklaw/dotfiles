@@ -1,3 +1,1 @@
-openSslRandHex(){
-  openssl rand -hex $@
-}
+alias openSslRandHex='openssl rand -hex'

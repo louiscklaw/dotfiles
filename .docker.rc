@@ -1,13 +1,6 @@
 #!/usr/bin/env bash
 
-dockerClearAll(){
-  set -x
-
-  docker kill $(docker ps -qa)
-  docker rm $(docker ps -qa)
-
-  set +x
-}
+alias dockerClearAll='docker kill $(docker ps -qa) && docker rm $(docker ps -qa) && docker container prune -f &&  docker system prune -f'
 
 droneCiHelloworld(){
   docker run \
@@ -40,21 +33,12 @@ dockerRun(){
     $@
 }
 
-dockerRunUbuntu(){
-  dockerRun ubuntu:latest bash
-}
-
-dockerRunPython(){
-  dockerRun python:latest bash
-}
-
-dockerRunUbuntu1804(){
-  dockerRun logickee/ubuntu_1804
-}
-
-dockerRunNode(){
-  dockerRun node:latest bash
-}
+# alias dockerRunUbuntu1804='dockerRun logickee/ubuntu_1804'
+alias dockerRunUbuntu1804='dockerRun ubuntu:18.04 bash'
+alias dockerRunUbuntu='dockerRun ubuntu:latest bash'
+alias dockerRunFedora='dockerRun fedora:latest bash'
+alias dockerRunPython='dockerRun python:latest bash'
+alias dockerRunNode='dockerRun node:latest bash'
 
 GET_FULL_REPOSITORY(){
   git remote get-url origin
@@ -91,47 +75,23 @@ dockerRunGithub(){
     -v $NODE_REPL_HISTORY:/root/.node_repl_history \
     -v $DOT_CONFIG:/home/runner/.config/ \
     -v $DOT_NPM:/home/runner/.npm \
+    -v /tmp:/tmp \
     --rm \
     $@
 }
 
-dockerRunGithubActionsNode(){
-  dockerRunGithub logickee/github_node
-}
+alias dockerRunGithubActionsNode='dockerRunGithub logickee/github_node'
+alias dockerRunGithubActionsUbuntu='dockerRunGithub logickee/github_ubuntu'
+alias dockerRunGithubActionsPython='dockerRunGithub logickee/github_python'
+alias dockerRunGithubActionsGnome='dockerRunGithub logickee/docker_gnome'
+alias dockerRunGithubSeleniumClient='dockerRunGithub logickee/github_ubuntu'
+alias dockerRunTravisUbuntuSystemd1804='runTravisDockerImage travisci/ubuntu-systemd:18.04'
+alias dockerRunTravisUbuntuSystemd1604='runTravisDockerImage travisci/ubuntu-systemd:16.04'
+alias dockerRunTravisUbuntu1804='runTravisDockerImage travisci/ci-ubuntu-1804:packer-1593521720-ca42795e'
+alias dockerRunTravisUbuntu2004='runTravisDockerImage travisci/ci-ubuntu-2004:packer-1593521720-ca42795e' 
 
-dockerRunGithubActionsUbuntu(){
-  dockerRunGithub logickee/github_ubuntu
-}
+# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 
-dockerRunGithubActionsPython(){
-  dockerRunGithub logickee/github_python
-}
-
-dockerRunGithubActionsGnome(){
-  dockerRunGithub logickee/docker_gnome
-}
-
-dockerRunGithubSeleniumClient(){
-  dockerRunGithub logickee/github_ubuntu
-}
-
-dockerRunTravisUbuntuSystemd1804(){
-  runTravisDockerImage travisci/ubuntu-systemd:18.04
-}
-
-dockerRunTravisUbuntuSystemd1604(){
-  runTravisDockerImage travisci/ubuntu-systemd:16.04
-}
-
-dockerRunTravisUbuntu1804(){
-  runTravisDockerImage travisci/ci-ubuntu-1804:packer-1593521720-ca42795e
-}
-
-dockerRunTravisUbuntu2004(){
-  runTravisDockerImage travisci/ci-ubuntu-2004:packer-1593521720-ca42795e
-
-  # curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-}
 
 dockerRunTravisNodejs12(){
   touch .env.docker
