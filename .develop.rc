@@ -77,7 +77,7 @@ alias cloneToWorkspace='cd ~/_workspace && git clone '
 
 alias goFastMac='$WEB_BROWSER https://github.com/louiscklaw/fastmac'
 alias createReactNativeApp='npx create-react-native-app'
-alias gitCloneShallow='git clone --depth=10'
+alias gitCloneShallow='git clone --depth=3'
 
 alias codePortfolio='startCode ~/_workspace/portfolio-gatsby'
 
