@@ -79,6 +79,7 @@ alias goFastMac='$WEB_BROWSER https://github.com/louiscklaw/fastmac'
 alias createReactNativeApp='npx create-react-native-app'
 alias gitCloneShallow='git clone --depth=10'
 
+alias codePortfolio='startCode ~/_workspace/portfolio-gatsby'
 
 gitCloneAllPlaylist(){
   gitCloneShallow git@github.com:louiscklaw/react-playlist.git  &
@@ -234,9 +235,7 @@ initGhPages(){
 
 dockerClear(){
   docker container prune -f
-
   docker system prune -a -f
-
 }
 
 goJSONToJs(){
@@ -313,9 +312,7 @@ gitCloneWork(){
   cd -
 }
 
-codePortfolio(){
-  code /home/logic/_workspace/portfolio-gatsby
-}
+
 
 initPyProj(){
 
