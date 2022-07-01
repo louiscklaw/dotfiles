@@ -83,6 +83,10 @@ alias codePortfolio='startCode ~/_workspace/portfolio-gatsby'
 
 alias reYarn='rm -rf package-lock.json && rm -rf yarn.lock && rm -rf node_modules && yarn'
 
+alias initCodeWorkspace='touch ./ws.code-workspace'
+alias goGist='$DEFAULT_BROWSER https://gist.github.com/louiscklaw &'
+alias goGithubNewRepo='$DEFAULT_BROWSER https://github.com/new &'
+
 gitCloneAllPlaylist(){
   gitCloneShallow git@github.com:louiscklaw/react-playlist.git  &
   gitCloneShallow git@github.com:louiscklaw/python-playlist.git  &
@@ -105,19 +109,6 @@ meldToLynkedQaProject(){
   meld $PWD /home/logic/_workspace/LYNKED_QA_project
 }
 
-initCodeWorkspace(){
-  touch ./ws.code-workspace
-}
-
-
-
-goGist(){
-  $DEFAULT_BROWSER https://gist.github.com/louiscklaw &
-}
-
-goGithubNewRepo(){
-  $DEFAULT_BROWSER https://github.com/new &
-}
 
 goGithubPage(){
   REMOTE_GET_URL=$(git remote get-url origin 2>&1)
@@ -235,10 +226,6 @@ initGhPages(){
   git push origin gh-pages
 }
 
-dockerClear(){
-  docker container prune -f
-  docker system prune -a -f
-}
 
 goJSONToJs(){
   $DEFAULT_BROWSER  https://json-to-js.com/ &
