@@ -1016,4 +1016,9 @@ if [[ -e $HOME/_workspace/docker-playlist/scripts.rc ]]; then
   source $HOME/_workspace/docker-playlist/scripts.rc
 fi
 
+alias dnfRemove='sudo dnf remove --allowerasing --assumeyes'
+
+alias sshM73="ssh logic@192.168.10.61"
+alias sshNUC="ssh logic@192.168.10.21"
+
 true

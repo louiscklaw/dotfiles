@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export BROWSER=none
+
 WEB_BROWSER=google-chrome
 
 alias clonePlaylist='git clone git@github.com:louiscklaw/js-playlist.git'
