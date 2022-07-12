@@ -1,0 +1,22 @@
+{
+  "name": "dotfiles",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gitSync": "git fetch -all && git pull",
+    "gitUpdate": "git add . && git commit -m \"update\" && yarn gitSync && git push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/louiscklaw/dotfiles.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/louiscklaw/dotfiles/issues"
+  },
+  "homepage": "https://github.com/louiscklaw/dotfiles#readme"
+}

@@ -129,3 +129,6 @@ Set-Alias -Name developHW -Value develop_
 
 function git_add {git add $args}
 Set-Alias -Name ga -Value git_add
+
+function git_clone_shallow {git clone --depth=3 $args}
+Set-Alias -Name gitCloneShallow -Value git_clone_shallow
