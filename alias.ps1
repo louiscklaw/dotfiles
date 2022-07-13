@@ -25,3 +25,5 @@ Set-Alias -Name ariaDownload -Value aria_download
 Set-Alias startFreeRouting  $Env:WORKSPACE_DIR\dotfiles\kicad\startFreeRouting.ps1
 Set-Alias aria2cDownload  $Env:WORKSPACE_DIR\dotfiles\tools\aria2cDownload.ps1
 Set-Alias goGithubProfile  $Env:WORKSPACE_DIR\dotfiles\go\goGithubProfile.ps1
+
+function catIdRsaPub { type $env:USERPROFILE\.ssh\id_rsa.pub }
