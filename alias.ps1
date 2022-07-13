@@ -27,3 +27,5 @@ Set-Alias aria2cDownload  $Env:WORKSPACE_DIR\dotfiles\tools\aria2cDownload.ps1
 Set-Alias goGithubProfile  $Env:WORKSPACE_DIR\dotfiles\go\goGithubProfile.ps1
 
 function catIdRsaPub { type $env:USERPROFILE\.ssh\id_rsa.pub }
+
+function sshCopyId {type $env:USERPROFILE\.ssh\id_rsa.pub | ssh $args "cat >> .ssh/authorized_keys"}
