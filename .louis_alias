@@ -323,7 +323,6 @@ syncDotFiles(){
     git add -f $HOME/_workspace/dotfiles/fabfile.py.old
 
     git commit -m"update dot files,"
-
     git pull
 
     git push &

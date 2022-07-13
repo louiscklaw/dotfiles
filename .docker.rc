@@ -1,6 +1,19 @@
 #!/usr/bin/env bash
 
-alias dockerClearAll='docker kill $(docker ps -qa) && docker rm $(docker ps -qa) && docker container prune -f &&  docker system prune -f'
+alias dockerImageRmAll='docker image rm -f $(docker images -q)'
+alias dockerVolumeRmAll='docker volume rm -f $(docker volume ls -q)'
+alias dockerKillAll='docker kill $(docker ps -qa) || true'
+alias dockerRmAll='docker rm $(docker ps -qa) || true'
+alias dockerClearAll='dockerKillAll && dockerRmAll && docker container prune -f &&  docker system prune -f && dockerImageRmAll && dockerVolumeRmAll'
+
+dockerReset(){
+  docker stop `docker ps -qa`
+  docker rm `docker ps -qa`
+  docker rmi -f `docker images -qa `
+  docker volume rm $(docker volume ls -q)
+  docker network rm `docker network ls -q`
+
+}
 
 droneCiHelloworld(){
   docker run \
@@ -22,14 +35,15 @@ dockerRun(){
   touch .env.docker
   TMP_DIR=$(mktemp -d)
   TMP_BASH_HISTORY=$TMP_DIR/.bash_history
+  # -v $TMP_BASH_HISTORY:/root/.bash_history \
 
   docker run -it \
     --env-file .env.docker \
-    -v $TMP_DIR:/root \
-    -v $PWD:/root/work_dir \
-    -v $TMP_BASH_HISTORY:/root/.bash_history \
+    -v $PWD:/work_dir \
     -v /var/run/docker.sock:/var/run/docker.sock \
+    -p 3000:3000 \
     --rm \
+    --user=1000 \
     $@
 }
 
