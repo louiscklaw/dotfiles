@@ -935,4 +935,6 @@ if [[ -e $HOME/_workspace/docker-playlist/scripts.rc ]]; then
   source $HOME/_workspace/docker-playlist/scripts.rc
 fi
 
+gitCloneShallow(){ git clone --depth=1 $@ }
+
 true
