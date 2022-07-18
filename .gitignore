@@ -1,4 +1,5 @@
 **/*lock
+**/*.lock
 *
 tmp
 .credentials.rc
