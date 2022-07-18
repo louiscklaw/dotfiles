@@ -1,5 +1,15 @@
 $env:WORKSPACE_DIR="D:\_workspace"
 
+function dockerClearAll {
+  docker kill $(docker ps -q -a)
+  docker rm $(docker ps -q -a)
+  docker system prune -f
+  docker volume prune -f
+  docker image prune -f
+}
+
+function codeJobQueuePlaylist {code $env:WORKSPACE_DIR\job-queue-playlist}
+
 function code_appium_playlist {code $env:WORKSPACE_DIR\appium-playlist}
 Set-Alias -Name codeappiumPlaylist -Value code_appium_playlist
 
