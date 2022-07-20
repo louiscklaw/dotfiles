@@ -1,5 +1,12 @@
 $env:WORKSPACE_DIR="D:\_workspace"
 
+function gitPushNewBranch { 
+  $cmdOutput = git branch | findstr /c:"*"
+  $CharArray =$cmdOutput.Split(" ")
+  # echo $CharArray[1]
+  git push --set-upstream origin $CharArray[1]
+}
+
 function dockerClearAll {
   docker kill $(docker ps -q -a)
   docker rm $(docker ps -q -a)
