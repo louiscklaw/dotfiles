@@ -42,8 +42,9 @@ dockerRun(){
     -v $PWD:/app \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -p 3000:3000 \
-    --rm \
+    -p 5555:5555 \
     --user=1000 \
+    --rm \
     $@
 }
 
@@ -53,6 +54,9 @@ alias dockerRunUbuntu='dockerRun ubuntu:latest bash'
 alias dockerRunFedora='dockerRun fedora:latest bash'
 alias dockerRunPython='dockerRun python:latest bash'
 alias dockerRunNode='dockerRun node:latest bash'
+alias dockerRunNode18='dockerRun node:18-buster bash'
+alias dockerRunNode16='dockerRun node:16-buster bash'
+alias dockerRunNode14='dockerRun node:14-buster bash'
 
 GET_FULL_REPOSITORY(){
   git remote get-url origin
