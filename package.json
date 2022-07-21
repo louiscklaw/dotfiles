@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "gitSync": "git fetch --all && git pull",
+    "format": "prettier --loglevel warn --write \"**/*.{js,css,html,jsx,tsx,ts,json}\"",
+    "gitSync": "git fetch --all && git stash && git pull --all && git stash pop || true",
     "gitUpdate": "git add . && git commit -m \"update fedora,\" && yarn gitSync && git push"
   },
   "repository": {
@@ -19,7 +20,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "./scripts/pre-commit.sh"
+      "pre-commit": "yarn format"
     }
   },
   "homepage": "https://github.com/louiscklaw/dotfiles#readme",

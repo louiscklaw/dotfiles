@@ -39,7 +39,7 @@ dockerRun(){
 
   docker run -it \
     --env-file .env.docker \
-    -v $PWD:/work_dir \
+    -v $PWD:/app \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -p 3000:3000 \
     --rm \
