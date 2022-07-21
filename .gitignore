@@ -2,7 +2,11 @@
 tmp
 .credentials.rc
 _workspace
-
+**/node_modules
+**/.env
+**/*.log
+**/*.lock
+**/*lock
 
 Downloads
 Music
