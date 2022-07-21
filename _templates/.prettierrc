@@ -1,7 +1,7 @@
 {
   "arrowParens": "avoid",
   "bracketSpacing": true,
-  "htmlWhitespaceSensitivity": "css",
+  "htmlWhitespaceSensitivity": "strict",
   "insertPragma": false,
   "jsxBracketSameLine": false,
   "jsxSingleQuote": false,
@@ -13,5 +13,19 @@
   "singleQuote": true,
   "tabWidth": 2,
   "trailingComma": "all",
-  "useTabs": false
+  "useTabs": false,
+  "overrides": [
+    {
+      "files": ["*.html"],
+      "options": {
+        "parser": "angular"
+      }
+    },
+    {
+      "files": ["*.{j,t}sx", "*.ts"],
+      "options": {
+        "printWidth": 80
+      }
+    }
+  ]
 }
