@@ -17,6 +17,7 @@ function dockerClearAll {
 
 function codeJobQueuePlaylist {code $env:WORKSPACE_DIR\job-queue-playlist}
 function codeRoutineCheck {code $env:WORKSPACE_DIR\routine_check}
+function codeWeeklyReport {code $env:WORKSPACE_DIR\louislabs_weekly_report}
 
 function code_appium_playlist {code $env:WORKSPACE_DIR\appium-playlist}
 Set-Alias -Name codeappiumPlaylist -Value code_appium_playlist
