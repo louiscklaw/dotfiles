@@ -19,5 +19,13 @@
   "bugs": {
     "url": "https://github.com/louiscklaw/dotfiles/issues"
   },
-  "homepage": "https://github.com/louiscklaw/dotfiles#readme"
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn format"
+    }
+  },
+  "homepage": "https://github.com/louiscklaw/dotfiles#readme",
+  "devDependencies": {
+    "husky": "latest"
+  }
 }
