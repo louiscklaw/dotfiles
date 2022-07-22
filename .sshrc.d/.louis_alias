@@ -103,10 +103,6 @@ updateAndPowerOff(){
   sudo poweroff
 }
 
-codeDotFiles(){
-  code /home/logic/.louis_alias
-}
-
 alias genTravisToken=/home/logic/_workspace/travis-playlist/gen_travis_token/.gen_travis_token.py
 alias getTravisHelloworld=/home/logic/_workspace/travis-playlist/scripts/get_travis_helloworld.sh
 alias getTravisMerger=/home/logic/_workspace/travis-playlist/travis-build-merger/get_merge_yml.sh
