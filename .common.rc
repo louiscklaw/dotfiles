@@ -79,9 +79,8 @@ codeDotCredentials(){
 codeFirefoxAlias(){
   code ~/.firefox_alias.rc
 }
-
 codeDotFiles(){
-  code -n /home/logic/_workspace/dotfiles/
+  startCode -n /home/logic/_workspace/dotfiles/
 }
 
 codeLouisAlias(){
