@@ -4,6 +4,7 @@
 
 . D:\_workspace\dotfiles\develop.ps1
 . D:\_workspace\dotfiles\alias.ps1
+. D:\_workspace\dotfiles\docker.ps1
 
 Set-Alias syncDotFiles  D:\_workspace\dotfiles\sync\syncDotFiles.ps1
 
