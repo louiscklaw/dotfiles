@@ -15,6 +15,10 @@ function dockerClearAll {
   docker image prune -f
 }
 
+
+function gitCloneShallow {git clone --depth=1 $args}
+
+
 function codeJobQueuePlaylist {code $env:WORKSPACE_DIR\job-queue-playlist}
 function codeRoutineCheck {code $env:WORKSPACE_DIR\routine_check}
 function codeWeeklyReport {code $env:WORKSPACE_DIR\louislabs_weekly_report}
