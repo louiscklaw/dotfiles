@@ -1,5 +1,7 @@
 $env:WORKSPACE_DIR="D:\_workspace"
 
+$env:CHROME="C:\Program Files\Google\Chrome\Application\chrome.exe"
+
 function gitPushNewBranch { 
   $cmdOutput = git branch | findstr /c:"*"
   $CharArray =$cmdOutput.Split(" ")

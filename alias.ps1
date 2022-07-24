@@ -10,6 +10,23 @@
 # Set-Alias im Import-Module
 # Set-Alias tn Test-NetConnection
 
+function goDel {
+  d:
+  cd d:\_del
+}
+
+function gitCloneToDel(){
+  goDel
+  gitCloneShallow $args
+}
+
+function goGithubRepo(){
+  $cmdOutput = git remote get-url origin
+  echo $cmdOutput
+  $http_link = $cmdOutput.replace('git@github.com:','http://www.github.com/')
+  start chrome $http_link
+}
+
 function ssh_m73 {ssh logic@192.168.10.61}
 Set-Alias -Name sshM73 -Value ssh_m73
 
