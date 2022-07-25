@@ -59,6 +59,7 @@ alias dockerRunUbuntu1804='dockerRun ubuntu:18.04 bash'
 alias dockerRunUbuntu='dockerRun ubuntu:latest bash'
 alias dockerRunFedora='dockerRun fedora:latest bash'
 alias dockerRunPython='dockerRun python:latest bash'
+
 alias dockerRunNode='dockerRun node:latest bash'
 alias dockerRunNode18='dockerRun node:18-buster bash'
 alias dockerRunNode16='dockerRun node:16-buster bash'
@@ -66,6 +67,7 @@ alias dockerRunNode14='dockerRun node:14-buster bash'
 alias dockerRunNode12='dockerRun node:12-buster bash'
 alias dockerRunNode10='dockerRun node:10-buster bash'
 alias dockerRunNode8='dockerRun node:8-buster bash'
+alias dockerRunNest16='dockerRun logickee/docker_nest16_tryout bash'
 
 GET_FULL_REPOSITORY(){
   git remote get-url origin
