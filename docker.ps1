@@ -27,4 +27,5 @@ function dockerRunNode18 {dockerRun node:18-buster bash}
 function dockerRunNode16 {dockerRun node:16-buster bash}
 function dockerRunNode14 {dockerRun node:14-buster bash}
 function dockerRunNode14 {dockerRun node:14-buster bash}
-function dockerRunNest14 {dockerRun logickee/docker_nest_node_14 bash}
+
+function dockerRunNest16 {dockerRun logickee/docker_nest16_tryout bash}
