@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+alias systemctlStartDocker='sudo systemctl start docker'
+alias systemctlKillDocker='sudo systemctl kill docker'
+
 alias dockerImageRmAll='docker image rm -f $(docker images -q)'
 alias dockerVolumeRmAll='docker volume rm -f $(docker volume ls -q)'
 alias dockerKillAll='docker kill $(docker ps -qa) || true'
@@ -42,8 +45,10 @@ dockerRun(){
     -v $PWD:/app \
     -w /app \
     -v /var/run/docker.sock:/var/run/docker.sock \
-    -p 3000:3000 \
-    -p 5555:5555 \
+    -v ~/.ssh/id_rsa:/home/node/.ssh/id_rsa:ro \
+    -v ~/.ssh/known_host:/home/node/.ssh/known_hosts:ro \
+    -p 3000-3009:3000 \
+    -p 5555-5560:5555 \
     --user=1000 \
     --rm \
     $@
@@ -58,6 +63,9 @@ alias dockerRunNode='dockerRun node:latest bash'
 alias dockerRunNode18='dockerRun node:18-buster bash'
 alias dockerRunNode16='dockerRun node:16-buster bash'
 alias dockerRunNode14='dockerRun node:14-buster bash'
+alias dockerRunNode12='dockerRun node:12-buster bash'
+alias dockerRunNode10='dockerRun node:10-buster bash'
+alias dockerRunNode8='dockerRun node:8-buster bash'
 
 GET_FULL_REPOSITORY(){
   git remote get-url origin

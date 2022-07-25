@@ -4,9 +4,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "install:clean": "rm -rf node_modules package-lock.json yarn.lock .next && npm install && npm run build:tailwind && npm run dev",
     "format": "prettier --loglevel warn --write \"**/*.{js,css,html,jsx,tsx,ts,json}\"",
     "gitSync": "git fetch --all && git stash && git pull --all && git stash pop || true",
-    "gitUpdate": "git add . && git commit -m \"update fedora,\" && yarn gitSync && git push"
+    "gitUpdate": "git add . && git commit -m \"update fedora,\" && yarn gitSync && git push",
+    "hello_run_p": "npx npm-run-all -p foo bar",
+    "dev": "npx npm-run-all -p dev:*"
   },
   "repository": {
     "type": "git",
