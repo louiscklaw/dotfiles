@@ -54,6 +54,25 @@ dockerRun(){
     $@
 }
 
+dockerRunNest(){
+  touch .env.docker
+  TMP_DIR=$(mktemp -d)
+  TMP_BASH_HISTORY=$TMP_DIR/.bash_history
+  # -v $TMP_BASH_HISTORY:/root/.bash_history \
+
+  docker run -it \
+    --env-file .env.docker \
+    -v $PWD:/app \
+    -w /app \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v ~/.ssh/id_rsa:/home/node/.ssh/id_rsa:ro \
+    -v ~/.ssh/known_host:/home/node/.ssh/known_hosts:ro \
+    -p 3001-3099:3000 \
+    --user=1000 \
+    --rm \
+    $@
+}
+
 # alias dockerRunUbuntu1804='dockerRun logickee/ubuntu_1804'
 alias dockerRunUbuntu1804='dockerRun ubuntu:18.04 bash'
 alias dockerRunUbuntu='dockerRun ubuntu:latest bash'
@@ -67,7 +86,7 @@ alias dockerRunNode14='dockerRun node:14-buster bash'
 alias dockerRunNode12='dockerRun node:12-buster bash'
 alias dockerRunNode10='dockerRun node:10-buster bash'
 alias dockerRunNode8='dockerRun node:8-buster bash'
-alias dockerRunNest16='dockerRun logickee/docker_nest16_tryout bash'
+alias dockerRunNest16='dockerRunNest logickee/docker_nest16_tryout bash'
 
 GET_FULL_REPOSITORY(){
   git remote get-url origin
