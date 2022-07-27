@@ -135,6 +135,14 @@ END
   fi
 }
 
+
+cloneAndNpm(){
+  git clone --depth=1 $1 $2
+  pushd $2
+  npm i -D
+  echo "done"
+}
+
 goGithubSettings(){
   remote_get_url=$(git remote get-url origin 2>&1)
   if [[ $remote_get_url =~ .*fatal.* ]]; then
