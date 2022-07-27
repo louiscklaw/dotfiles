@@ -13,11 +13,10 @@ alias ariaDownload='aria2c -x 16 -s 99999 --dht-listen-port=51000-51099'
 
 # code='/usr/share/code/code --ignore-gpu-blacklist --enable-gpu-rasterization --enable-native-gpu-memory-buffers  --force-gpu-rasterization --enable-oop-rasterization  --enable-zero-copy   --no-sandbox --unity-launch'
 
+# 64*1024*1024
 startCode(){
   code \
-    --disk-cache-size=68157440 \
-    --disable-web-security \
-    --enable-zero-copy \
+    --disk-cache-size=67108864 \
     $@
 }
 
