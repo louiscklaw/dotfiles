@@ -12,9 +12,12 @@ function gitPushNewBranch {
 function dockerClearAll {
   docker kill $(docker ps -q -a)
   docker rm $(docker ps -q -a)
+
   docker system prune -f
   docker volume prune -f
   docker image prune -f
+
+  docker image rm $(docker image ls -q -a)
 }
 
 function gitCloneShallow {git clone --depth=1 $args}
