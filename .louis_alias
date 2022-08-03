@@ -487,7 +487,7 @@ wgetMirror(){
 }
 
 trash(){
-  mv $1 /home/$USER/.local/share/Trash/files
+  mv $@ /home/$USER/.local/share/Trash/files
 }
 
 sendWormHole(){
