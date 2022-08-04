@@ -3,11 +3,16 @@
 alias systemctlStartDocker='sudo systemctl start docker'
 alias systemctlKillDocker='sudo systemctl kill docker'
 
-alias dockerImageRmAll='docker image rm -f $(docker images -q)'
-alias dockerVolumeRmAll='docker volume rm -f $(docker volume ls -q)'
-alias dockerKillAll='docker kill $(docker ps -qa) || true'
-alias dockerRmAll='docker rm $(docker ps -qa) || true'
-alias dockerClearAll='dockerKillAll && dockerRmAll && docker container prune -f &&  docker system prune -f && dockerImageRmAll && dockerVolumeRmAll'
+dockerClearAll(){
+  docker kill `docker ps -qa` || true
+  sleep 1
+
+  docker container prune -f
+  docker system prune -f
+  docker image prune -f
+  docker volume prune -f
+  docker network prune -f
+}
 
 dockerReset(){
   docker stop `docker ps -qa`

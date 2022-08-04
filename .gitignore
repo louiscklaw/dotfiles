@@ -1,3 +1,6 @@
+**/*.del
+node_modules
+
 *
 tmp
 .credentials.rc
