@@ -27,6 +27,7 @@ function codeGulpPlaylist {code $env:WORKSPACE_DIR\gulp-playlist}
 function codeRoutineCheck {code $env:WORKSPACE_DIR\routine_check}
 function codeWeeklyReport {code $env:WORKSPACE_DIR\louislabs_weekly_report}
 function codeNestjsPlaylist {code $env:WORKSPACE_DIR\nestjs-playlist}
+function codeGithubPlaylist {code $env:WORKSPACE_DIR\github-playlist}
 
 function code_appium_playlist {code $env:WORKSPACE_DIR\appium-playlist}
 Set-Alias -Name codeappiumPlaylist -Value code_appium_playlist
