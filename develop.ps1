@@ -22,6 +22,8 @@ function dockerClearAll {
 
 function gitCloneShallow {git clone --depth=1 $args}
 
+function codeCarousellPlaylist {code $env:WORKSPACE_DIR\carousell-playlist}
+
 function codeJobQueuePlaylist {code $env:WORKSPACE_DIR\job-queue-playlist}
 function codeGulpPlaylist {code $env:WORKSPACE_DIR\gulp-playlist}
 function codeRoutineCheck {code $env:WORKSPACE_DIR\routine_check}
