@@ -8,6 +8,8 @@ alias clonePlaylist='git clone git@github.com:louiscklaw/js-playlist.git'
 
 alias codeAiPlaylist='code ~/_workspace/ai-playlist'
 alias codeNestJsPlaylist='code ~/_workspace/nestjs-playlist'
+alias codeCypressPlaylist='code ~/_workspace/cypress-playlist'
+alias codeCarousellPlaylist='code ~/_workspace/carousell-playlist'
 alias codeAppiumPlaylist='code ~/_workspace/appium-playlist'
 alias codeAppiumPlaylist1='code -n ~/_workspace/appium-playlist'
 alias codeAR9331Playlist='code ~/_workspace/AR9331-playlist'
