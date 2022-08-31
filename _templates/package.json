@@ -13,7 +13,9 @@
     "lint-fix": "next lint --fix",
     "docker_up": "docker run -it -p 3001:3000 -t test",
     "docker_rebuild": "docker build -t test .",
-    "nodemon_rebuild": "nodemon -w . --ext * --exec \"yarn docker_rebuild\""
+    "nodemon_rebuild": "nodemon -w . --ext * --exec \"yarn docker_rebuild\"",
+    "prettier_lint": "prettier --check .",
+    "prettier_format": "prettier --write ."
   },
   "browserslist": {
     "production": [
@@ -88,5 +90,10 @@
     "eslint": "^8.8.0",
     "eslint-config-next": "^12.0.10",
     "next-transpile-modules": "^9.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "prettier --write . && git add -A ."
+    }
   }
 }
