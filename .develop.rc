@@ -6,7 +6,7 @@ WEB_BROWSER=google-chrome
 
 alias clonePlaylist='git clone git@github.com:louiscklaw/js-playlist.git'
 
-alias codeuptimePlaylist='code ~/_workspace/upptime-playlist'
+alias codeUptimePlaylist='code ~/_workspace/upptime-playlist'
 alias codeAiPlaylist='code ~/_workspace/ai-playlist'
 alias codeNestJsPlaylist='code ~/_workspace/nestjs-playlist'
 alias codeCypressPlaylist='code ~/_workspace/cypress-playlist'
