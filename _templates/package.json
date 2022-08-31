@@ -13,7 +13,8 @@
     "lint-fix": "next lint --fix",
     "docker_up": "docker run -it -p 3001:3000 -t test",
     "docker_rebuild": "docker build -t test .",
-    "nodemon_rebuild": "nodemon -w . --ext * --exec \"yarn docker_rebuild\""
+    "nodemon_rebuild": "nodemon -w . --ext * --exec \"yarn docker_rebuild\"",
+    "prettier_format": "prettier --write **/*.js **/*.jsx"
   },
   "browserslist": {
     "production": [
