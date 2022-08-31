@@ -5,7 +5,7 @@
   "insertPragma": false,
   "jsxBracketSameLine": false,
   "jsxSingleQuote": false,
-  "printWidth": 100,
+  "printWidth": 160,
   "proseWrap": "preserve",
   "quoteProps": "as-needed",
   "requirePragma": false,
@@ -14,18 +14,5 @@
   "tabWidth": 2,
   "trailingComma": "all",
   "useTabs": false,
-  "overrides": [
-    {
-      "files": ["*.html"],
-      "options": {
-        "parser": "angular"
-      }
-    },
-    {
-      "files": ["*.{j,t}sx", "*.ts"],
-      "options": {
-        "printWidth": 80
-      }
-    }
-  ]
+  "overrides": []
 }

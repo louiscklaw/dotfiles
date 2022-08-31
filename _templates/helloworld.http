@@ -1,0 +1,165 @@
+
+### Live server test
+GET http://localhost:8000
+
+
+# ======== Admin registration and login
+### Admin user registration
+POST http://localhost:8000/api/v1/register-login
+Content-Type: application/json 
+
+{
+    "fName": "Prateek",
+    "lName": "Khindri",
+    "dob": "2020-02-19",
+    "phone": "0444444444",
+    "email": "a@a.com",
+    "password": "123456",
+    "address": "somewhere in sydney"
+}
+
+
+### Admin user registration
+PATCH http://localhost:8000/api/v1/register-login
+Content-Type: application/json 
+
+{
+    "email" : "a@gmail.com",
+    "verificationCode": "7094a4b1-27e2-4f2e-811b-8e8d07cb612f"
+}
+
+### Admin Login
+POST http://localhost:8000/api/v1/register-login/login 
+Content-Type: application/json 
+
+{
+    "email": "a@gmail.com", 
+    "password": "123456"
+}
+
+
+### Request OTP for the password reset
+POST http://localhost:8000/api/v1/register-login/otp-request
+Content-Type: application/json 
+
+{
+    "email": "a@gmail.com"
+}
+
+
+### Reset new password
+PATCH http://localhost:8000/api/v1/register-login/password
+Content-Type: application/json 
+
+{
+    "email": "a@gmail.com",
+    "otp": "992318",
+    "password": "bB12345"
+}
+
+# ============ Category API
+
+### fetch categories
+GET http://localhost:8000/api/v1/categories/
+
+### Post Category
+POST http://localhost:8000/api/v1/categories/
+Content-Type: application/json 
+
+{
+    "status": "inactive",
+    "name": "Sneakerskkabap",
+    "parentCatId": null
+
+}
+
+
+### Update Category
+PUT http://localhost:8000/api/v1/categories/
+Content-Type: application/json 
+
+{
+    "_id": "62c8b7136abfc597a4b81555",
+    "status": "active",
+    "name": "Mobile Phones",
+    "parentCatId": null
+
+}
+
+
+### Delete Categories
+DELETE http://localhost:8000/api/v1/categories/
+Content-Type: application/json 
+
+{
+    "ids": [
+        "62c8b7136abfc597a4b81555",
+        "62c8c33970537b00aee7d2be",
+        "62c8c34070537b00aee7d2c0"
+    ]
+    
+
+}
+
+
+
+#========== Payment method API
+### Fetch Payment method
+GET http://localhost:8000/api/v1/payment-method
+
+
+### Fetch Payment method
+POST http://localhost:8000/api/v1/payment-method
+Content-Type: application/json
+
+{
+    "status": "inactive",
+    "name": "Pay by credit card",
+    "description": ""
+}
+
+### Fetch Payment method
+PUT http://localhost:8000/api/v1/payment-method
+Content-Type: application/json
+
+{
+    "_id": "62d201e987b31813a4ca0860",
+    "status": "active",
+    "name": "Pay by credit card --",
+    "description": "dlsfdjsfkj"
+
+}
+
+
+### Fetch Payment method
+DELETE http://localhost:8000/api/v1/payment-method/62d201e987b31813a4ca0860
+
+
+
+# ========= Admin API'S
+
+### Update password from the profile page
+PATCH http://localhost:8000/api/v1/admin 
+Content-Type : application/json 
+
+{
+    "currentPassword" : "sfsdefgh",
+    "password": "adcdefgh",
+    "email": "something@something.com"
+}
+
+
+### Update user admin profile page
+PATCH http://localhost:8000/api/v1/admin 
+Content-Type : application/json 
+
+{
+    "address" : "3 Sydney",
+    "dob": "1998-12-10",
+    "email": "something@something.com",
+    "fName": "prateek",
+    "lName": "smith",
+    "phone": "040000000",
+    "currentPassword": "aA11111"
+}
+
