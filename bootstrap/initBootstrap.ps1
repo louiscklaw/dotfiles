@@ -60,25 +60,3 @@ choco install gsudo --pre -v -y
 # @REM C:\tools\msys64\usr\bin
 # @REM C:\tools\msys64\mingw64\bin
 choco install msys2 -v -y
-
-powercfg.exe /hibernate off
-
-# : stop windows update
-net stop wuauserv
-net stop bits
-net stop dosvc
-
-Install-Module ps-autoenv
-Add-Content $PROFILE @("`n", "import-module ps-autoenv")
-
-Enable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol -NoRestart
-
-# Disable Error Reporting in Windows
-Set-Service -Name wersvc -StartupType disabled
-
-bcdedit -set testsigning off
-
-
-# diable windows firewall
-netsh advfirewall set allprofiles state off
-Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
