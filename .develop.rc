@@ -4,6 +4,8 @@ export BROWSER=none
 
 WEB_BROWSER=google-chrome
 
+alias nr='npm run'
+
 alias clonePlaylist='git clone git@github.com:louiscklaw/js-playlist.git'
 
 alias codeUptimePlaylist='code ~/_workspace/upptime-playlist'
