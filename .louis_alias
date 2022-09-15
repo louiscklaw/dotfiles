@@ -11,7 +11,7 @@ export JAVA_TOOL_OPTIONS='-Xms1024m -Xmx4096m'
 
 export DOTFILE_HOME=$HOME/_workspace/dotfiles
 
-alias ariaDownload='aria2c -x 16 -s 99999 --dht-listen-port=51100-51199 --listen-port=51100-51199'
+alias ariaDownload='aria2c -x 16 -s 99999 --dht-listen-port=51100-51199 --listen-port=51100-51199  --check-certificate=false'
 
 alias startCode='code \
   --disk-cache-size=68157440 \
