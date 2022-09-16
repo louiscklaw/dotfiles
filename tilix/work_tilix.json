@@ -1,0 +1,131 @@
+{
+    "child": {
+        "child1": {
+            "child1": {
+                "directory": "\/home\/logic\/_workspace\/3dprint-salesman",
+                "height": 321,
+                "profile": "2b7c4080-0ddd-46c5-8f23-563fd3ba789d",
+                "readOnly": false,
+                "synchronizedInput": true,
+                "type": "Terminal",
+                "uuid": "572599b7-4e4e-4955-a3bc-81dce640d1dc",
+                "width": 674
+            },
+            "child2": {
+                "child1": {
+                    "directory": "\/home\/logic",
+                    "height": 339,
+                    "profile": "2b7c4080-0ddd-46c5-8f23-563fd3ba789d",
+                    "readOnly": false,
+                    "synchronizedInput": true,
+                    "type": "Terminal",
+                    "uuid": "e555dff7-ab73-4565-b763-70fe7feb934f",
+                    "width": 674
+                },
+                "child2": {
+                    "directory": "\/home\/logic",
+                    "height": 339,
+                    "profile": "2b7c4080-0ddd-46c5-8f23-563fd3ba789d",
+                    "readOnly": false,
+                    "synchronizedInput": true,
+                    "type": "Terminal",
+                    "uuid": "70cc2bcb-f629-4d70-8b7f-7e5bb79f0a3c",
+                    "width": 674
+                },
+                "orientation": 1,
+                "position": 33,
+                "ratio": 0.499263622974963184,
+                "type": "Paned"
+            },
+            "orientation": 1,
+            "position": 32,
+            "ratio": 0.320679320679320701,
+            "type": "Paned"
+        },
+        "child2": {
+            "child1": {
+                "child1": {
+                    "directory": "\/home\/logic\/_workspace\/3dprint-salesman",
+                    "height": 321,
+                    "profile": "2b7c4080-0ddd-46c5-8f23-563fd3ba789d",
+                    "readOnly": false,
+                    "synchronizedInput": true,
+                    "type": "Terminal",
+                    "uuid": "e89edd9a-a5bc-4136-8ccf-c485164a99de",
+                    "width": 622
+                },
+                "child2": {
+                    "child1": {
+                        "directory": "\/home\/logic",
+                        "height": 339,
+                        "profile": "2b7c4080-0ddd-46c5-8f23-563fd3ba789d",
+                        "readOnly": false,
+                        "synchronizedInput": true,
+                        "type": "Terminal",
+                        "uuid": "06b4d94e-7fe9-4614-b959-39680354be80",
+                        "width": 622
+                    },
+                    "child2": {
+                        "directory": "\/home\/logic",
+                        "height": 339,
+                        "profile": "2b7c4080-0ddd-46c5-8f23-563fd3ba789d",
+                        "readOnly": false,
+                        "synchronizedInput": true,
+                        "type": "Terminal",
+                        "uuid": "f1869a6d-aa5c-43cc-94ee-85edce2297cd",
+                        "width": 622
+                    },
+                    "orientation": 1,
+                    "position": 33,
+                    "ratio": 0.499263622974963184,
+                    "type": "Paned"
+                },
+                "orientation": 1,
+                "position": 32,
+                "ratio": 0.320679320679320701,
+                "type": "Paned"
+            },
+            "child2": {
+                "child1": {
+                    "directory": "\/home\/logic\/_workspace\/3dprint-salesman",
+                    "height": 319,
+                    "profile": "2b7c4080-0ddd-46c5-8f23-563fd3ba789d",
+                    "readOnly": false,
+                    "synchronizedInput": true,
+                    "type": "Terminal",
+                    "uuid": "6e4f0b7c-c523-4a1c-a6ed-d4d4775e0fbd",
+                    "width": 622
+                },
+                "child2": {
+                    "directory": "\/home\/logic\/_workspace\/3dprint-salesman",
+                    "height": 681,
+                    "profile": "2b7c4080-0ddd-46c5-8f23-563fd3ba789d",
+                    "readOnly": false,
+                    "synchronizedInput": true,
+                    "type": "Terminal",
+                    "uuid": "9aadc364-1bda-45d0-8b30-33e7357c7b1f",
+                    "width": 622
+                },
+                "orientation": 1,
+                "position": 31,
+                "ratio": 0.318681318681318659,
+                "type": "Paned"
+            },
+            "orientation": 0,
+            "position": 32,
+            "ratio": 0.499598393574297195,
+            "type": "Paned"
+        },
+        "orientation": 0,
+        "position": 35,
+        "ratio": 0.351041666666666641,
+        "type": "Paned"
+    },
+    "height": 1001,
+    "name": "${title}",
+    "synchronizedInput": false,
+    "type": "Session",
+    "uuid": "e52eeef1-2e36-4325-8245-c9f2e6f51cea",
+    "version": "1.0",
+    "width": 1920
+}
