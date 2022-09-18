@@ -7,6 +7,10 @@
 export MOZ_ENABLE_WAYLAND=1
 export PATH=$PATH:/home/logic/.yarn/bin:/home/logic/node_modules/.bin
 
+
+alias dnfRemove='sudo dnf remove'
+
+
 export JAVA_TOOL_OPTIONS='-Xms1024m -Xmx2048m'
 
 alias ariaDownload='aria2c -x 16 -s 99999 --dht-listen-port=51000-51099'
