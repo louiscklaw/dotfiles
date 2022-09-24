@@ -1,5 +1,14 @@
 # My fedora setup journal
 
+### autoenv
+
+```
+cd /tmp
+  git clone https://github.com/hyperupcall/autoenv ~/.autoenv
+  echo "source ~/.autoenv/activate.sh" >> ~/.zshrc
+
+```
+
 # ssh
 
 `sudo dnf install -y openssh-server;`
@@ -7,7 +16,6 @@
 `sudo systemctl start sshd.service;`
 
 `sudo systemctl stop sshd.service;`
-
 
 ```
 git config --global user.email "louiscklaw@users.noreply.github.com"
@@ -17,6 +25,7 @@ git config --global user.name "louiscklaw"
 https://www.itzgeek.com/how-tos/linux/fedora-how-tos/install-android-studio-on-fedora.html
 
 ### install gnome extensions
+
 ```
 sudo dnf install -y gnome-shell-extension-appindicator.noarch
 sudo dnf install -y gnome-shell-extension-auto-move-windows.noarch
@@ -36,6 +45,7 @@ sudo dnf install -y gnome-shell-extension-openweather.noarch
 ```
 
 ### install docker
+
 ```
 sudo dnf remove docker \
                 docker-client \
@@ -62,6 +72,7 @@ sudo docker run hello-world
 ```
 
 ### tmux
+
 ```
 $
 cd
@@ -76,15 +87,16 @@ https://github.com/tommytran732/Linux-Setup-Scripts/blob/main/Fedora-Workstation
 
 sudo dnf install -y ibus-cangjie-engine-cangjie
 
-
 # Enable Titlebar buttons
+
 gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
 
 # Enable GNOME shell extensions
+
 gsettings set org.gnome.shell disable-user-extensions false
 
-
 # last update (17-sep-2022)
+
 Things in this document might not work or be broken nowadays
 
 ```
@@ -97,24 +109,26 @@ sudo dnf install -y intel-media-driver
 $ google-chrome-stable --use-gl=desktop --enable-features=VaapiVideoDecoder
 ```
 
-
 ## my laptop:
+
 I'm writing this here because a few things in here are spesific to this model laptop.  
 Dell XPS 15 9560 (4k) touch screen
 
-  
 ## Insatll nvidia drivers (only this laptop)
+
 ```
 $ su
 # dnf install fedora-workstation-repositories -y
 # dnf config-manager --set-enabled rpmfusion-nonfree-nvidia-driver
 # dnf config-manager --add-repo=https://negativo17.org/repos/fedora-nvidia.repo
 ```
+
 Reboot..  
 Open the **software app**. Click **Add-ons** > **Hardware Drivers** > **NVIDIA Linux Graphics Driver** > **Install**.
-(in the software center you will notice that there are 2 *nvidia linux graphics driver* chose the one where the source is NOT from **rpmfusion.org** this one is less bugy, but if it doesn't work out for you chose the other one)  
-  
+(in the software center you will notice that there are 2 _nvidia linux graphics driver_ chose the one where the source is NOT from **rpmfusion.org** this one is less bugy, but if it doesn't work out for you chose the other one)
+
 ## Install Chrome, vlc, ffmpeg
+
 ```
 $ su
 # dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
@@ -124,7 +138,9 @@ $ su
 ```
 
 ## Themes, icons and gnome extensions
+
 i have quite a lot of icons and themes i like
+
 ```
 $ cd ~/Downloads
 $ git clone https://github.com/vinceliuice/vimix-gtk-themes && cd vimix-gtk-themes
@@ -140,30 +156,36 @@ $ su
 # dnf makecache
 # dnf install gtk-murrine-engine gtk2-engines gnome-tweak-tool chrome-gnome-shell arc-theme paper-icon-theme
 ```
-Packages i usually install: [user themes](https://extensions.gnome.org/extension/19/user-themes/), [dash to dock](https://extensions.gnome.org/extension/307/dash-to-dock/), 
-[block caribou](https://extensions.gnome.org/extension/1326/block-caribou/), 
-[topicons Plus](https://extensions.gnome.org/extension/1031/topicons/), 
+
+Packages i usually install: [user themes](https://extensions.gnome.org/extension/19/user-themes/), [dash to dock](https://extensions.gnome.org/extension/307/dash-to-dock/),
+[block caribou](https://extensions.gnome.org/extension/1326/block-caribou/),
+[topicons Plus](https://extensions.gnome.org/extension/1031/topicons/),
 [caffeine](https://extensions.gnome.org/extension/517/caffeine/)
 [Intel cpu power manager](https://extensions.gnome.org/extension/945/cpu-power-manager/)  
 Open tweak tools to set a theme to youre wish
-  
-## Make the laptop more power efficent (might result in boot errors with other laptops)  
-While doing these steps UNPLUG the laptop from power  
+
+## Make the laptop more power efficent (might result in boot errors with other laptops)
+
+While doing these steps UNPLUG the laptop from power
+
 ```
-$ su 
+$ su
 # dnf install powertop tlp tuned-utils thermald -y
 # systemctl start powertop
 # systemctl enable powertop
 # powertop --auto-tune
 # nano /etc/default/tlp
 ```
-In this file uncomment the **CPU_SCALING_MAX_FREQ_....** lines and lower the value to make the cpu less power hungry
+
+In this file uncomment the **CPU*SCALING_MAX_FREQ*....** lines and lower the value to make the cpu less power hungry
+
 ```
 # systemctl enable tlp
-# shutdown 0 -rf 
+# shutdown 0 -rf
 ```
 
 ## Install i8kutils a better fan curf (only dell)
+
 ```
 $ su
 # dnf install acpi
@@ -175,10 +197,13 @@ $ su
 # curl https://gist.githubusercontent.com/mjarkk/eadcd2e793bb5baa0c77f7a539ee7a23/raw/c01dda8f512a42037c446067eab33b4a62ebc0c6/z-i8kmod.service > /usr/lib/systemd/system/i8kmod.service
 # systemctl enable i8kmod
 ```
+
 restart the laptop
 
-## Install watchdog to fix `a job is running for...` 
+## Install watchdog to fix `a job is running for...`
+
 I noticed a wired bug in fedora where when i press shutdown it waits for 150s because of `a job is running for ...`
+
 ```
 $ su
 # dnf install watchdog
@@ -187,7 +212,9 @@ $ su
 ```
 
 ## The programs i need for programming
+
 ### Git
+
 ```
 $ git config --global user.name "mjarkk"
 $ git config --global user.email "mkopenga@gmail.com"
@@ -196,6 +223,7 @@ $ git config --global credential.helper 'cache --timeout=43200'
 ```
 
 ### VScode
+
 ```
 $ su
 # rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -206,9 +234,11 @@ $ su
 $ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 $ git config --global core.editor "code --wait"
 ```
-[my vscode settings](https://github.com/mjarkk/dotfiles/tree/master/vscode)  
+
+[my vscode settings](https://github.com/mjarkk/dotfiles/tree/master/vscode)
 
 ### Nodejs
+
 ```
 $ su
 # curl -sL https://rpm.nodesource.com/setup_16.x | bash -
@@ -220,21 +250,29 @@ $ npm config set prefix '~/.npm-packages'
 $ echo 'PATH=$PATH:$HOME/.npm-packages/bin' >> $HOME/.bashrc
 $ source ~/.bashrc
 ```
+
 ### Golang
+
 DO NOT RUN THIS IN A ROOT SHELL ('#')
+
 ```
 $ sudo dnf install golang
 $ mkdir ~/go
 $ echo 'export GOPATH=$HOME/go' >> ~/.bashrc && echo 'PATH=$PATH:$GOPATH/bin' >> ~/.bashrc
 $ source ~/.bashrc
 ```
+
 ### Php (laravel)
+
 As webserver i use a docker compose config: https://github.com/mjarkk/docker-lemp-config  
 For laravel devlopment i install:
+
 ```
 $ sudo dnf install php php-common php-cli php-json php-pdo php-mbstring php-zip php-xml php-pdo_mysql php-pecl-redis
 ```
+
 Install composer via: https://getcomposer.org/download/
+
 ```
 $ composer global require "laravel/installer"
 $ echo 'PATH=$PATH:$HOME/.config/composer/vendor/bin' >> $HOME/.bashrc
@@ -242,36 +280,37 @@ $ echo 'PATH=$PATH:$HOME/.config/composer/vendor/bin' >> $HOME/.bashrc
 
 ## Other programs
 
-
 ### Discord
+
 1. [Download](https://github.com/RPM-Outpost/discord/archive/master.zip) and extract the zip.
 2. Open a terminal and `cd` to the `discord-master` directory.
 3. Run one of the following depending on the version you want to create a package for:
-  - Discord Stable: `./create-package.sh stable`
-  - Discord PTB: `./create-package.sh ptb`
-  - Discord Canary: `./create-package.sh canary`
+
+- Discord Stable: `./create-package.sh stable`
+- Discord PTB: `./create-package.sh ptb`
+- Discord Canary: `./create-package.sh canary`
 
 ### Imgur screenshot
+
 A easy way to upload pictures to imgur and share them with friends
+
 ```
 $ su
 # dnf copr enable valdikss/imgur-screenshot
 # dnf install imgur-screenshot
 ```
 
-
 # install android studio
+
 sudo dnf install -y qemu-kvm bridge-utils libvirt virt-install
 
 cd /tmp
 wget https://dl.google.com/dl/android/studio/ide-zips/2021.2.1.14/android-studio-2021.2.1.14-linux.tar.gz
-sudo tar -zxvf android-studio-*-linux.tar.gz
+sudo tar -zxvf android-studio-\*-linux.tar.gz
 sudo mv android-studio /opt/
-
 
 sudo ln -sf /opt/android-studio/bin/studio.sh /usr/local/bin/android-studio
 sudo vi /usr/share/applications/android-studio.desktop
-
 
 ```
 [Desktop Entry]
