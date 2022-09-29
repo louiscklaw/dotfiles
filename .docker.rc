@@ -93,6 +93,9 @@ alias dockerRunNode10='dockerRun node:10-buster bash'
 alias dockerRunNode8='dockerRun node:8-buster bash'
 alias dockerRunNest16='dockerRunNest logickee/docker_nest16_tryout bash'
 
+alias dockerRunHugoDev='docker run -it -v $PWD:/app -p 1313:1313 -w /app logickee/hugo_dev:latest bash'
+
+
 GET_FULL_REPOSITORY(){
   git remote get-url origin
 }
