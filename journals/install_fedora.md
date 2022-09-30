@@ -229,10 +229,10 @@ restart the laptop
 I noticed a wired bug in fedora where when i press shutdown it waits for 150s because of `a job is running for ...`
 
 ```
-$ su
-# dnf install watchdog
-# systemctl start watchdog
-# systemctl enable watchdog
+su
+dnf install watchdog
+systemctl start watchdog
+systemctl enable watchdog
 ```
 
 ## The programs i need for programming
