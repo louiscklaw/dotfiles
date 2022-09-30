@@ -87,7 +87,9 @@ sudo dnf install -y tilix
 
 https://github.com/tommytran732/Linux-Setup-Scripts/blob/main/Fedora-Workstation-36.sh
 
+```
 sudo dnf install -y ibus-cangjie-engine-cangjie
+```
 
 # Enable Titlebar buttons
 
