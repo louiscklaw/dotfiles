@@ -185,6 +185,22 @@ $ su
 # nano /etc/default/tlp
 ```
 
+```
+  Bad           Enable SATA link power management for host1
+   Bad           Autosuspend for USB device USB DEVICE [SONiX]
+   Bad           Autosuspend for USB device xHCI Host Controller [usb2]
+   Bad           Autosuspend for USB device USB2744 [Microchip Tech]
+   Bad           Autosuspend for USB device xHCI Host Controller [usb3]
+   Bad           Autosuspend for USB device USB2.0 Hub [1-7]
+   Bad           Autosuspend for USB device CSR8510 A10 [1-8.1]
+   Bad           Autosuspend for USB device xHCI Host Controller [usb1]
+   Bad           Autosuspend for USB device  SanDisk 3.2Gen1 [ USB]
+   Bad           Autosuspend for USB device Rapoo Gaming Mouse [RAPOO]
+   Bad           Autosuspend for USB device xHCI Host Controller [usb4]
+
+
+```
+
 In this file uncomment the **CPU*SCALING_MAX_FREQ*....** lines and lower the value to make the cpu less power hungry
 
 ```
