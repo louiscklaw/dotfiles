@@ -2,6 +2,7 @@
 
 ```
 sudo dnf install 'google-roboto*' 'mozilla-fira*' fira-code-fonts
+sudo dnf install google-cousine-fonts
 ```
 
 ### Speed up dnf Package manager
