@@ -1,25 +1,65 @@
 # My fedora setup journal
 
+### Speed up dnf Package manager
+
+```
+sudo vi /etc/dnf/dnf.conf
+
+# Then add the following as shown in the screenshot:
+
+max_parallel_downloads=10
+```
+
+### kicad
+
+```
+dnf install -y kicad kicad-packages3d
+```
+
+### blender
+
+```
+
+```
+
+### zsh
+
+```
+dnf install -y zsh chsh
+
+# oh my zsh
+wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+sh install.sh
+
+```
+
 ### autoenv
 
 ```
 cd /tmp
-  git clone https://github.com/hyperupcall/autoenv ~/.autoenv
-  echo "source ~/.autoenv/activate.sh" >> ~/.zshrc
+git clone https://github.com/hyperupcall/autoenv ~/.autoenv
+echo "source ~/.autoenv/activate.sh" >> ~/.zshrc
+```
 
+### tilix
+
+```
+dnf install -y tilix
 ```
 
 # ssh
 
 ```
-sudo dnf install -y openssh-server
-sudo systemctl start sshd.service
-sudo systemctl stop sshd.service
+dnf install -y openssh-server
+systemctl start sshd.service
+systemctl stop sshd.service
 ```
 
 ```
 git config --global user.email "louiscklaw@users.noreply.github.com"
 git config --global user.name "louiscklaw"
+git config --global credential.helper cache
+git config --global credential.helper 'cache --timeout=43200'
 ```
 
 https://www.itzgeek.com/how-tos/linux/fedora-how-tos/install-android-studio-on-fedora.html
@@ -27,20 +67,21 @@ https://www.itzgeek.com/how-tos/linux/fedora-how-tos/install-android-studio-on-f
 ### install gnome extensions
 
 ```
-sudo dnf install -y gnome-shell-extension-appindicator.noarch
-sudo dnf install -y gnome-shell-extension-auto-move-windows.noarch
-sudo dnf install -y gnome-shell-extension-background-logo.noarch
-sudo dnf install -y gnome-shell-extension-caffeine.noarch
-sudo dnf install -y gnome-shell-extension-freon.noarch
-sudo dnf install -y gnome-shell-extension-gsconnect.x86_64
-sudo dnf install -y gnome-shell-extension-just-perfection.noarch
-sudo dnf install -y gnome-shell-extension-native-window-placement.noarch
-sudo dnf install -y gnome-shell-extension-refresh-wifi.noarch
-sudo dnf install -y gnome-shell-extension-unite.noarch
-sudo dnf install -y gnome-shell-extension-user-theme.noarch
-sudo dnf install -y gnome-shell-extension-material-shell.noarch
-sudo dnf install -y gnome-shell-extension-mediacontrols.noarch
-sudo dnf install -y gnome-shell-extension-openweather.noarch
+dnf install -y gnome-extensions-app.x86_64
+dnf install -y gnome-shell-extension-appindicator.noarch
+dnf install -y gnome-shell-extension-auto-move-windows.noarch
+dnf install -y gnome-shell-extension-background-logo.noarch
+dnf install -y gnome-shell-extension-caffeine.noarch
+dnf install -y gnome-shell-extension-freon.noarch
+dnf install -y gnome-shell-extension-gsconnect.x86_64
+dnf install -y gnome-shell-extension-just-perfection.noarch
+dnf install -y gnome-shell-extension-native-window-placement.noarch
+dnf install -y gnome-shell-extension-refresh-wifi.noarch
+dnf install -y gnome-shell-extension-unite.noarch
+dnf install -y gnome-shell-extension-user-theme.noarch
+dnf install -y gnome-shell-extension-material-shell.noarch
+dnf install -y gnome-shell-extension-mediacontrols.noarch
+dnf install -y gnome-shell-extension-openweather.noarch
 
 ```
 
@@ -74,7 +115,6 @@ sudo docker run hello-world
 ### tmux
 
 ```
-$
 cd
 git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
@@ -108,41 +148,33 @@ gsettings set org.gnome.shell disable-user-extensions false
 Things in this document might not work or be broken nowadays
 
 ```
-sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+dnf update --refresh
 
-sudo dnf install intel-media-driver libva libva-utils gstreamer1-vaapi ffmpeg intel-gpu-tools mesa-dri-drivers mpv
+dnf install intel-media-driver libva libva-utils gstreamer1-vaapi ffmpeg intel-gpu-tools mesa-dri-drivers mpv
 
-sudo dnf install -y intel-media-driver
-$ google-chrome-stable --use-gl=desktop --enable-features=VaapiVideoDecoder
+google-chrome-stable --use-gl=desktop --enable-features=VaapiVideoDecoder
 ```
-
-## my laptop:
-
-I'm writing this here because a few things in here are spesific to this model laptop.  
-Dell XPS 15 9560 (4k) touch screen
 
 ## Insatll nvidia drivers (only this laptop)
 
 ```
-$ su
-# dnf install fedora-workstation-repositories -y
-# dnf config-manager --set-enabled rpmfusion-nonfree-nvidia-driver
-# dnf config-manager --add-repo=https://negativo17.org/repos/fedora-nvidia.repo
-```
+dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+dnf update --refresh
 
-Reboot..  
-Open the **software app**. Click **Add-ons** > **Hardware Drivers** > **NVIDIA Linux Graphics Driver** > **Install**.
-(in the software center you will notice that there are 2 _nvidia linux graphics driver_ chose the one where the source is NOT from **rpmfusion.org** this one is less bugy, but if it doesn't work out for you chose the other one)
+dnf install akmod-nvidia -y
+dnf install xorg-x11-drv-nvidia-cuda -y
+
+reboot
+```
 
 ## Install Chrome, vlc, ffmpeg
 
 ```
-$ su
-# dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-# dnf install fedora-workstation-repositories
-# dnf config-manager --set-enabled google-chrome
-# dnf install google-chrome-stable ffmpeg vlc -y
+dnf config-manager --set-enabled google-chrome
+dnf install google-chrome-stable ffmpeg vlc -y
 ```
 
 ## Themes, icons and gnome extensions
@@ -177,35 +209,47 @@ Open tweak tools to set a theme to youre wish
 While doing these steps UNPLUG the laptop from power
 
 ```
-$ su
-# dnf install powertop tlp tuned-utils thermald -y
-# systemctl start powertop
-# systemctl enable powertop
-# powertop --auto-tune
-# nano /etc/default/tlp
-```
+dnf install powertop tuned-utils thermald -y
+systemctl start powertop
+systemctl enable powertop
+powertop --auto-tune
 
 ```
-  Bad           Enable SATA link power management for host1
-   Bad           Autosuspend for USB device USB DEVICE [SONiX]
-   Bad           Autosuspend for USB device xHCI Host Controller [usb2]
-   Bad           Autosuspend for USB device USB2744 [Microchip Tech]
-   Bad           Autosuspend for USB device xHCI Host Controller [usb3]
-   Bad           Autosuspend for USB device USB2.0 Hub [1-7]
-   Bad           Autosuspend for USB device CSR8510 A10 [1-8.1]
-   Bad           Autosuspend for USB device xHCI Host Controller [usb1]
-   Bad           Autosuspend for USB device  SanDisk 3.2Gen1 [ USB]
-   Bad           Autosuspend for USB device Rapoo Gaming Mouse [RAPOO]
-   Bad           Autosuspend for USB device xHCI Host Controller [usb4]
 
+```
+powertop
 
+# tab -> tab -> enter -> change value below
+
+Bad           Enable SATA link power management for host1
+Bad           Autosuspend for USB device USB DEVICE [SONiX]
+Bad           Autosuspend for USB device xHCI Host Controller [usb2]
+Bad           Autosuspend for USB device USB2744 [Microchip Tech]
+Bad           Autosuspend for USB device xHCI Host Controller [usb3]
+Bad           Autosuspend for USB device USB2.0 Hub [1-7]
+Bad           Autosuspend for USB device CSR8510 A10 [1-8.1]
+Bad           Autosuspend for USB device xHCI Host Controller [usb1]
+Bad           Autosuspend for USB device  SanDisk 3.2Gen1 [ USB]
+Bad           Autosuspend for USB device Rapoo Gaming Mouse [RAPOO]
+Bad           Autosuspend for USB device xHCI Host Controller [usb4]
 ```
 
 In this file uncomment the **CPU*SCALING_MAX_FREQ*....** lines and lower the value to make the cpu less power hungry
 
 ```
-# systemctl enable tlp
-# shutdown 0 -rf
+# https://linrunner.de/tlp/installation/fedora.html
+
+
+dnf install -y tlp tlp-rdw
+dnf remove -y power-profiles-daemon
+
+# nano /etc/default/tlp
+vi /etc/tlp.d/tlp.conf
+
+systemctl enable tlp.service
+systemctl mask systemd-rfkill.service systemd-rfkill.socket
+
+shutdown 0 -rf
 ```
 
 ## Install i8kutils a better fan curf (only dell)
@@ -230,26 +274,16 @@ I noticed a wired bug in fedora where when i press shutdown it waits for 150s be
 
 ```
 su
-dnf install watchdog
+dnf install -y watchdog
 systemctl start watchdog
 systemctl enable watchdog
 ```
 
 ## The programs i need for programming
 
-### Git
-
-```
-$ git config --global user.name "mjarkk"
-$ git config --global user.email "mkopenga@gmail.com"
-$ git config --global credential.helper cache
-$ git config --global credential.helper 'cache --timeout=43200'
-```
-
 ### VScode
 
 ```
-su
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 dnf update
@@ -264,15 +298,15 @@ git config --global core.editor "code --wait"
 ### Nodejs
 
 ```
-$ su
-# curl -sL https://rpm.nodesource.com/setup_16.x | bash -
-# dnf install nodejs
-# exit
-$ mkdir ~/.npm-packages
-$ prefix = ${HOME}/.npm-packages
-$ npm config set prefix '~/.npm-packages'
-$ echo 'PATH=$PATH:$HOME/.npm-packages/bin' >> $HOME/.bashrc
-$ source ~/.bashrc
+su
+curl -sL https://rpm.nodesource.com/setup_16.x | bash -
+dnf install -y nodejs
+exit
+mkdir ~/.npm-packages
+prefix = ${HOME}/.npm-packages
+npm config set prefix '~/.npm-packages'
+echo 'PATH=$PATH:$HOME/.npm-packages/bin' >> $HOME/.bashrc
+source ~/.bashrc
 ```
 
 ### Golang
@@ -304,34 +338,14 @@ $ echo 'PATH=$PATH:$HOME/.config/composer/vendor/bin' >> $HOME/.bashrc
 
 ## Other programs
 
-### Discord
-
-1. [Download](https://github.com/RPM-Outpost/discord/archive/master.zip) and extract the zip.
-2. Open a terminal and `cd` to the `discord-master` directory.
-3. Run one of the following depending on the version you want to create a package for:
-
-- Discord Stable: `./create-package.sh stable`
-- Discord PTB: `./create-package.sh ptb`
-- Discord Canary: `./create-package.sh canary`
-
-### Imgur screenshot
-
-A easy way to upload pictures to imgur and share them with friends
-
-```
-$ su
-# dnf copr enable valdikss/imgur-screenshot
-# dnf install imgur-screenshot
-```
-
 # install android studio
 
 sudo dnf install -y qemu-kvm bridge-utils libvirt virt-install
 
 cd /tmp
 wget https://dl.google.com/dl/android/studio/ide-zips/2021.2.1.14/android-studio-2021.2.1.14-linux.tar.gz
-sudo tar -zxvf android-studio-\*-linux.tar.gz
-sudo mv android-studio /opt/
+tar -zxvf android-studio-\*-linux.tar.gz
+mv android-studio /opt/
 
 sudo ln -sf /opt/android-studio/bin/studio.sh /usr/local/bin/android-studio
 sudo vi /usr/share/applications/android-studio.desktop
@@ -349,4 +363,18 @@ Terminal=false
 StartupNotify=true
 StartupWMClass=jetbrains-android-studio
 Name[en_GB]=android-studio.desktop
+```
+
+# imwheel on startup
+
+`# /home/logic/.config/autostart/.imwheel.desktop`
+
+```
+[Desktop Entry]
+Name=imwheel
+Icon=imwheel
+Exec=imwheel
+Terminal=false
+Type=Application
+X-GNOME-Autostart-enabled=true
 ```
