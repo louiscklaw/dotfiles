@@ -1,5 +1,9 @@
 # My fedora setup journal
 
+```
+sudo dnf install 'google-roboto*' 'mozilla-fira*' fira-code-fonts
+```
+
 ### Speed up dnf Package manager
 
 ```
