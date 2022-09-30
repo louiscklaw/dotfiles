@@ -13,7 +13,7 @@ max_parallel_downloads=10
 ### kicad
 
 ```
-dnf install -y kicad kicad-packages3d
+dnf install -y --setopt=install_weak_deps=False  kicad kicad-packages3d
 ```
 
 ### blender
