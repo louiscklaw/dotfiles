@@ -65,6 +65,7 @@ git config --global user.email "louiscklaw@users.noreply.github.com"
 git config --global user.name "louiscklaw"
 git config --global credential.helper cache
 git config --global credential.helper 'cache --timeout=43200'
+git config --global pull.rebase true
 ```
 
 https://www.itzgeek.com/how-tos/linux/fedora-how-tos/install-android-studio-on-fedora.html
