@@ -25,7 +25,7 @@ dnf install -y --setopt=install_weak_deps=False  kicad kicad-packages3d
 ### zsh
 
 ```
-dnf install -y zsh chsh
+dnf install -y zsh
 
 # oh my zsh
 wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
