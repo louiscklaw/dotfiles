@@ -93,11 +93,15 @@ sudo dnf install -y ibus-cangjie-engine-cangjie
 
 # Enable Titlebar buttons
 
+```
 gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
+```
 
 # Enable GNOME shell extensions
 
+```
 gsettings set org.gnome.shell disable-user-extensions false
+```
 
 # last update (17-sep-2022)
 
