@@ -11,11 +11,11 @@ cd /tmp
 
 # ssh
 
-`sudo dnf install -y openssh-server;`
-
-`sudo systemctl start sshd.service;`
-
-`sudo systemctl stop sshd.service;`
+```
+sudo dnf install -y openssh-server
+sudo systemctl start sshd.service
+sudo systemctl stop sshd.service
+```
 
 ```
 git config --global user.email "louiscklaw@users.noreply.github.com"
