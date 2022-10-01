@@ -4,8 +4,11 @@ export BROWSER=none
 
 WEB_BROWSER=google-chrome
 
+alias codeLogseq='/home/logic/Appimage/Logseq-linux-x64-0.8.8.AppImage'
+
 alias nr='npm run'
 
+alias cloneGithubLouis='git clone git@github.com:louiscklaw/'
 alias clonePlaylist='git clone git@github.com:louiscklaw/js-playlist.git'
 
 alias codeUptimePlaylist='code ~/_workspace/upptime-playlist'
