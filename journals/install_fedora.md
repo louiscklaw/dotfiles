@@ -1,9 +1,5 @@
 # My fedora setup journal
 
-```
-sudo dnf install 'google-roboto*' 'mozilla-fira*' fira-code-fonts
-sudo dnf install google-cousine-fonts
-```
 
 ### Speed up dnf Package manager
 
@@ -13,6 +9,19 @@ sudo vi /etc/dnf/dnf.conf
 # Then add the following as shown in the screenshot:
 
 max_parallel_downloads=10
+```
+
+
+### tilix
+
+```
+dnf install -y tilix
+```
+
+
+```
+sudo dnf install 'google-roboto*' 'mozilla-fira*' fira-code-fonts
+sudo dnf install google-cousine-fonts
 ```
 
 ### kicad
@@ -44,12 +53,6 @@ sh install.sh
 cd /tmp
 git clone https://github.com/hyperupcall/autoenv ~/.autoenv
 echo "source ~/.autoenv/activate.sh" >> ~/.zshrc
-```
-
-### tilix
-
-```
-dnf install -y tilix
 ```
 
 # ssh
