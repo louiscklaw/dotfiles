@@ -29,7 +29,10 @@ alias codeCubieboard2Playlist='code ~/_workspace/cubieboard-playlist'
 alias codeCubieboardPlaylist='code ~/_workspace/cubieboard2-playlist'
 alias codeD3Playlist='code ~/_workspace/d3-playlist'
 alias codeDenoPlaylist='code ~/_workspace/deno-playlist'
+
 alias codeDashboardTryout='code ~/_workspace/dashboard-tryout'
+alias updateDashboard='pushd ~/_workspace/dashboard-tryout && yarn gitUpdate && popd'
+
 alias codeDockerPlaylist='code ~/_workspace/docker-playlist'
 alias codeDocsifyPlaylist='code ~/_workspace/docsify-playlist'
 alias codeDoczPlaylist='code ~/_workspace/docz-playlist'
@@ -97,6 +100,7 @@ alias gitCloneShallow='git clone --depth=3'
 
 alias codePortfolio='startCode ~/_workspace/louiscklaw.github.io'
 alias updatePortfolio='pushd ~/_workspace/louiscklaw.github.io && yarn gitUpdate && popd'
+
 
 
 
