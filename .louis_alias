@@ -688,7 +688,7 @@ backupEtcToHome(){
 }
 
 gitCloneMyProject(){
-  git clone git@github.com:louiscklaw/$1.git
+  git clone --depth=10 git@github.com:louiscklaw/$1.git
 }
 
 newGatsbyProject(){
