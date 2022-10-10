@@ -1,6 +1,5 @@
 # My fedora setup journal
 
-
 ### Speed up dnf Package manager
 
 ```
@@ -11,13 +10,11 @@ sudo vi /etc/dnf/dnf.conf
 max_parallel_downloads=10
 ```
 
-
 ### tilix
 
 ```
 dnf install -y tilix
 ```
-
 
 ```
 sudo dnf install 'google-roboto*' 'mozilla-fira*' fira-code-fonts
@@ -164,6 +161,31 @@ dnf update --refresh
 dnf install intel-media-driver libva libva-utils gstreamer1-vaapi ffmpeg intel-gpu-tools mesa-dri-drivers mpv
 
 google-chrome-stable --use-gl=desktop --enable-features=VaapiVideoDecoder
+```
+
+```
+https://fedoraproject.org/wiki/Firefox_Hardware_acceleration
+🔗 Configure VA-API Video decoding on Intel
+
+Accelerated video decoding works well on most Intel GPUs as free drivers are available. There are two[1] drivers for Intel cards, libva-intel-driver (provides i965_drv_video.so) and intel-media-driver (iHD_drv_video.so). Currently, Firefox works with either libva-intel-driver or intel-media-driver.
+
+Refer to this Intel chipsets video features table on Wikipedia to determine which codecs your hardware supports.
+
+You can enable VA-API on Intel by these steps:
+
+    Install libva, libva-utils, and libva-intel-driver packages.
+    Install ffmpeg from RPM Fusion repository.
+    Run vainfo on terminal to verify that VA-API works. If VA-API is disabled you're running on new hardware[2] and you need intel-media-driver from RPM Fusion repository non-free.
+    Restart browser.
+```
+
+```bash
+sudo dnf install -y intel-media-driver
+sudo dnf install -y libva libva-utils libva-intel-driver
+sudo dnf install -y ffmpeg
+
+vainfo
+
 ```
 
 ## Insatll nvidia drivers (only this laptop)
@@ -349,6 +371,7 @@ $ echo 'PATH=$PATH:$HOME/.config/composer/vendor/bin' >> $HOME/.bashrc
 
 # install android studio
 
+```
 sudo dnf install -y qemu-kvm bridge-utils libvirt virt-install
 
 cd /tmp
@@ -358,6 +381,8 @@ mv android-studio /opt/
 
 sudo ln -sf /opt/android-studio/bin/studio.sh /usr/local/bin/android-studio
 sudo vi /usr/share/applications/android-studio.desktop
+
+```
 
 ```
 [Desktop Entry]
@@ -386,4 +411,92 @@ Exec=imwheel
 Terminal=false
 Type=Application
 X-GNOME-Autostart-enabled=true
+```
+
+### install slack
+
+```
+cd /tmp
+
+wget https://downloads.slack-edge.com/releases/linux/4.28.182/prod/x64/slack-4.28.182-0.1.el8.x86_64.rpm
+
+dnf install -y slack-4.28.182-0.1.el8.x86_64.rpm
+
+```
+
+### install keybase
+
+```bash
+sudo yum install https://prerelease.keybase.io/keybase_amd64.rpm
+
+run_keybase
+```
+
+### install utilities
+
+```
+dnf install -y filezilla ephemeral web apostrophe
+
+
+sudo dnf copr enable zeno/scrcpy
+sudo dnf install -y scrcpy
+
+
+sudo dnf install -y entr aria2c flameshot PrusaSlicer
+
+sudo npm install -g firebase-tools
+
+```
+
+### install obs
+
+```
+sudo dnf install -y kmod-v4l2loopback
+
+
+sudo dnf install -y \
+  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+sudo dnf install -y obs-studio
+sudo dnf install -y xorg-x11-drv-nvidia-cuda
+```
+
+### install logseq
+
+```
+cd ~/Appimage
+
+wget https://github.com/logseq/logseq/releases/download/0.8.8/Logseq-linux-x64-0.8.8.AppImage
+
+sudo vi /usr/share/applications/logseq.desktop
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Logseq
+Comment=Logseq
+Exec=/home/logic/Appimage/Logseq-linux-x64-0.8.8.AppImage
+Icon=/opt/android-studio/bin/studio.png
+Categories=Development;IDE;
+Terminal=false
+StartupNotify=false
+Name[en_GB]=logseq.desktop
+```
+
+### nomachine
+
+```
+cd /tmp
+wget https://download.nomachine.com/download/8.1/Linux/nomachine_8.1.2_1_x86_64.rpm
+sudo dnf install ./nomachine_8.1.2_1_x86_64.rpm
+```
+
+### install discord
+
+```bash
+sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+sudo dnf install discord
+
 ```
