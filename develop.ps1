@@ -20,6 +20,18 @@ function dockerClearAll {
   docker image rm $(docker image ls -q -a)
 }
 
+
+function updateLogseq {
+  echo 'syncing logseq ...'
+  pushd D:\_workspace\logseq-helloworld 
+    git fetch --all
+    git pull
+    npm run gitUpdate
+  popd
+
+  echo 'sync done !!!'
+}
+
 function gitCloneShallow {git clone --depth=1 $args}
 
 function codeCarousellPlaylist {code $env:WORKSPACE_DIR\carousell-playlist}
@@ -85,7 +97,7 @@ Set-Alias -Name codePaidThemePlaylist -Value code_paid_theme_playlist
 function code_js_playlist {code $env:WORKSPACE_DIR\js-playlist}
 Set-Alias -Name codeJsPlaylist -Value code_js_playlist
 
-function code_docker_playlist {code $env:WORKSPACE_DIR\docker-playlist}
+function codeDockerPlaylist {code $env:WORKSPACE_DIR\docker-playlist}
 Set-Alias -Name codeDockerPlaylist -Value code_docker_playlist
 
 function code_tmp_del {code $env:WORKSPACE_DIR\temp\_del}
