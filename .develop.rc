@@ -88,6 +88,10 @@ alias codeYoutubePlaylist='code ~/_workspace/youtube-playlist'
 alias codeFirewallConfig='code ~/_workspace/firewall-config'
 alias codeWorkspace='code /home/logic/_workspace'
 alias codeYahooFinancePlaylist='code ~/_workspace/yahoo-finance-playlist'
+
+alias codeRoutineCheck='code ~/_workspace/routine_check'
+alias updateRoutineCheck='pushd ~/_workspace/routine_check && yarn gitUpdate && popd'
+
 alias codeDel='code ~/_del'
 alias codeWorkspace='code ~/_workspace'
 
