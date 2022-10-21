@@ -26,7 +26,10 @@ function updateLogseq {
   pushd D:\_workspace\logseq-helloworld 
     git fetch --all
     git pull
-    npm run gitUpdate
+    
+    git add . 
+    git commit -m'update,'
+    git push
   popd
 
   echo 'sync done !!!'
