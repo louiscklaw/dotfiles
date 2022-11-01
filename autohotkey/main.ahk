@@ -17,6 +17,7 @@ Send, 最好用一條 "危險駕駛" 提醒一下對方車主，幫佢矯正呢�
 Send, 最好用一條 "不小心駕駛" 提醒一下對方車主，幫佢矯正呢個駕駛行為`r
 Send, 最好用一條 "沒有遵從道路標記 $450" 提醒一下對方車主，幫佢矯正呢個駕駛行為`r
 Send, https://www.td.gov.hk/tc/road_safety/safe_motoring_guides/dangerous_driving/index.html`r
+Send, 所以支持行人過馬路時開 cam 紀綠，以便日後追查`r
 return
 
 ^j::
