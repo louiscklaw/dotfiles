@@ -77,6 +77,8 @@ choco install cascadia-code-nerd-font -v -y
 
 choco install powertoys -v -y
 
+@REM https://github.com/freerouting/freerouting/releases
+
 powercfg.exe /hibernate off
 
 wuauclt.exe /updatenow
