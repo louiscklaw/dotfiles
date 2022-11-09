@@ -19,6 +19,7 @@ Send, 最好用一條 "沒有遵從道路標記 $450" 提醒一下對方車主�
 Send, https://www.td.gov.hk/tc/road_safety/safe_motoring_guides/dangerous_driving/index.html`r
 Send, 最鐘意見到D的士狗做埋D仆街野`r
 Send, 所以支持行人過馬路時開 cam 紀綠，以便日後追查`r
+Send, h ttps://louiscklaw.github.io/pay/     , 幫個忙將前面轉返做 https `r
 return
 
 ^j::
