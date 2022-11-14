@@ -1,5 +1,8 @@
 # My fedora setup journal
 
+
+`sudo dnf install autokey-gtk`
+
 ### Speed up dnf Package manager
 
 ```

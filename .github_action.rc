@@ -27,3 +27,8 @@ initGithubActionMerger(){
   sed -i -e 's/github-build-merger-tryout/github-build-merger/' github-build-merger/test.sh
 
 }
+
+gitFetchAllBranches() {
+  git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+  git fetch origin
+}
