@@ -53,6 +53,7 @@ dockerRun(){
     -v ~/.ssh/id_rsa:/home/node/.ssh/id_rsa:ro \
     -v ~/.ssh/known_host:/home/node/.ssh/known_hosts:ro \
     -p 3000:3000 \
+    -p 8090:8090 \
     -p 5555-5560:5555 \
     --user=1000 \
     --rm \
