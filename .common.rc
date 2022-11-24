@@ -76,6 +76,10 @@ codeDotCredentials(){
   code ~/.credentials.rc
 }
 
+codeCarousellComission(){
+  startCode -n /home/logic/_workspace/carousell-comission-playlist/winkieeeeee-android-commission
+}
+
 codeFirefoxAlias(){
   code ~/.firefox_alias.rc
 }
