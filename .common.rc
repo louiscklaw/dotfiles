@@ -77,7 +77,7 @@ codeDotCredentials(){
 }
 
 codeCarousellComission(){
-  startCode -n /home/logic/_workspace/carousell-comission-playlist/winkieeeeee-android-commission
+  startCode -n /home/logic/_workspace/carousell-comission-playlist
 }
 
 codeFirefoxAlias(){
