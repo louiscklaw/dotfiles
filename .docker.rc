@@ -60,6 +60,27 @@ dockerRun(){
     $@
 }
 
+
+dockerRunPython(){
+  touch .env.docker
+  TMP_DIR=$(mktemp -d)
+  TMP_BASH_HISTORY=$TMP_DIR/.bash_history
+  # -v $TMP_BASH_HISTORY:/root/.bash_history \
+
+  docker run -it \
+    -v $PWD:/app \
+    -w /app \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v ~/.ssh/id_rsa:/home/node/.ssh/id_rsa:ro \
+    -v ~/.ssh/known_host:/home/node/.ssh/known_hosts:ro \
+    -p 3000:3000 \
+    --rm \
+    python:latest \
+    bash
+}
+
+
+
 dockerRunNest(){
   touch .env.docker
   TMP_DIR=$(mktemp -d)
@@ -83,7 +104,7 @@ dockerRunNest(){
 alias dockerRunUbuntu1804='dockerRun ubuntu:18.04 bash'
 alias dockerRunUbuntu='dockerRun ubuntu:latest bash'
 alias dockerRunFedora='dockerRun fedora:latest bash'
-alias dockerRunPython='dockerRun python:latest bash'
+# alias dockerRunPython='dockerRun python:latest bash'
 
 alias dockerRunNode='dockerRun node:latest bash'
 alias dockerRunNode18='dockerRun node:18-buster bash'

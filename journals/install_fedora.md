@@ -39,7 +39,8 @@ dnf install -y --setopt=install_weak_deps=False  kicad kicad-packages3d
 ### zsh
 
 ```
-dnf install -y zsh
+sudo dnf install -y util-linux-user
+sudo dnf install -y zsh
 
 # oh my zsh
 wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
@@ -113,7 +114,7 @@ sudo dnf config-manager \
     --add-repo \
     https://download.docker.com/linux/fedora/docker-ce.repo
 
-sudo dnf install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
 sudo systemctl start docker
 sudo docker run hello-world
@@ -207,8 +208,8 @@ reboot
 ## Install Chrome, vlc, ffmpeg
 
 ```
-dnf config-manager --set-enabled google-chrome
-dnf install google-chrome-stable ffmpeg vlc -y
+sudo dnf config-manager --set-enabled google-chrome
+sudo dnf install google-chrome-stable ffmpeg vlc -y
 ```
 
 ## Themes, icons and gnome extensions
@@ -243,7 +244,7 @@ Open tweak tools to set a theme to youre wish
 While doing these steps UNPLUG the laptop from power
 
 ```
-dnf install powertop tuned-utils thermald -y
+sudo dnf install powertop tuned-utils thermald -y
 systemctl start powertop
 systemctl enable powertop
 powertop --auto-tune
@@ -274,13 +275,13 @@ In this file uncomment the **CPU*SCALING_MAX_FREQ*....** lines and lower the val
 # https://linrunner.de/tlp/installation/fedora.html
 
 
-dnf install -y tlp tlp-rdw
-dnf remove -y power-profiles-daemon
+sudo dnf install -y tlp tlp-rdw
+sudo dnf remove -y power-profiles-daemon
 
-# nano /etc/default/tlp
 vi /etc/tlp.d/tlp.conf
 
 systemctl enable tlp.service
+systemctl restart tlp.service
 systemctl mask systemd-rfkill.service systemd-rfkill.socket
 
 shutdown 0 -rf
@@ -308,7 +309,7 @@ I noticed a wired bug in fedora where when i press shutdown it waits for 150s be
 
 ```
 su
-dnf install -y watchdog
+sudo dnf install -y watchdog
 systemctl start watchdog
 systemctl enable watchdog
 ```
@@ -333,13 +334,21 @@ git config --global core.editor "code --wait"
 
 ```
 su
-curl -sL https://rpm.nodesource.com/setup_16.x | bash -
-dnf install -y nodejs
+
+curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -
+
+sudo dnf install -y nodejs
+sudo yum install gcc-c++ make
+
+curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
+sudo yum install yarn
+
 exit
+
 mkdir ~/.npm-packages
 prefix = ${HOME}/.npm-packages
 npm config set prefix '~/.npm-packages'
-echo 'PATH=$PATH:$HOME/.npm-packages/bin' >> $HOME/.bashrc
+echo 'PATH=$PATH:$HOME/.npm-packages/bin' >> $HOME/.zshrc
 source ~/.bashrc
 ```
 
@@ -379,8 +388,8 @@ sudo dnf install -y qemu-kvm bridge-utils libvirt virt-install
 
 cd /tmp
 wget https://dl.google.com/dl/android/studio/ide-zips/2021.2.1.14/android-studio-2021.2.1.14-linux.tar.gz
-tar -zxvf android-studio-\*-linux.tar.gz
-mv android-studio /opt/
+tar -zxvf android-studio-2021.2.1.14-linux.tar.gz
+sudo mv android-studio /opt/
 
 sudo ln -sf /opt/android-studio/bin/studio.sh /usr/local/bin/android-studio
 sudo vi /usr/share/applications/android-studio.desktop
@@ -416,6 +425,34 @@ Type=Application
 X-GNOME-Autostart-enabled=true
 ```
 
+```
+mkdir -p ~/.config/autostart/
+
+cat >~/.config/autostart/imwheel.desktop<<EOF
+[Desktop Entry]
+Version=1.0
+Name=Imwheel
+Comment=Enable mouse scroll
+Icon=mouse
+Exec=imwheel
+Terminal=false
+Type=Application
+EOF
+
+chmod a+x ~/.config/autostart/imwheel.desktop
+imwheel
+```
+
+
+
+
+
+
+
+
+
+
+
 ### install slack
 
 ```
@@ -423,29 +460,30 @@ cd /tmp
 
 wget https://downloads.slack-edge.com/releases/linux/4.28.182/prod/x64/slack-4.28.182-0.1.el8.x86_64.rpm
 
-dnf install -y slack-4.28.182-0.1.el8.x86_64.rpm
+sudo dnf install -y slack-4.28.182-0.1.el8.x86_64.rpm
 
 ```
 
 ### install keybase
 
 ```bash
-sudo yum install https://prerelease.keybase.io/keybase_amd64.rpm
+sudo yum install -y https://prerelease.keybase.io/keybase_amd64.rpm
 
 run_keybase
+
 ```
 
 ### install utilities
 
 ```
-dnf install -y filezilla ephemeral web apostrophe
+sudo dnf install -y filezilla ephemeral  apostrophe
 
 
 sudo dnf copr enable zeno/scrcpy
 sudo dnf install -y scrcpy
 
 
-sudo dnf install -y entr aria2c flameshot PrusaSlicer
+sudo dnf install -y entr aria2 flameshot PrusaSlicer
 
 sudo npm install -g firebase-tools
 
@@ -463,6 +501,7 @@ sudo dnf install -y \
 
 sudo dnf install -y obs-studio
 sudo dnf install -y xorg-x11-drv-nvidia-cuda
+
 ```
 
 ### install logseq
@@ -492,14 +531,15 @@ Name[en_GB]=logseq.desktop
 ```
 cd /tmp
 wget https://download.nomachine.com/download/8.1/Linux/nomachine_8.1.2_1_x86_64.rpm
-sudo dnf install ./nomachine_8.1.2_1_x86_64.rpm
+sudo dnf install -y ./nomachine_8.1.2_1_x86_64.rpm
+
 ```
 
 ### install discord
 
 ```bash
-sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-36.noarch.rpm
 
-sudo dnf install discord
+sudo dnf install -y discord
 
 ```
