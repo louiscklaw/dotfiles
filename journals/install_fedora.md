@@ -460,7 +460,6 @@ Type=Application
 X-GNOME-Autostart-enabled=true
 ```
 
-<<<<<<< HEAD
 ```
 mkdir -p ~/.config/autostart/
 
@@ -488,9 +487,7 @@ imwheel
 
 
 
-=======
 `ln -s ~/_workspace/dotfiles/.imwheelrc .imwheelrc`
->>>>>>> 29c471e (update,)
 
 ### install slack
 
