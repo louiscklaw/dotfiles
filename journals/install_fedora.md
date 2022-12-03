@@ -41,12 +41,9 @@ sudo dnf install -y --setopt=install_weak_deps=False  kicad kicad-packages3d
 ### zsh
 
 ```
-<<<<<<< HEAD
 sudo dnf install -y util-linux-user
 sudo dnf install -y zsh
-=======
 sudo dnf install -y zsh util-linux-user
->>>>>>> 29c471e (update,)
 
 # oh my zsh
 wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
@@ -216,13 +213,10 @@ reboot
 
 ```
 sudo dnf config-manager --set-enabled google-chrome
-<<<<<<< HEAD
 sudo dnf install google-chrome-stable ffmpeg vlc -y
-=======
 sudo dnf install google-chrome-stable -y
 
 ffmpeg vlc -y
->>>>>>> 29c471e (update,)
 ```
 
 ## Themes, icons and gnome extensions
@@ -321,16 +315,10 @@ restart the laptop
 I noticed a wired bug in fedora where when i press shutdown it waits for 150s because of `a job is running for ...`
 
 ```
-<<<<<<< HEAD
 su
 sudo dnf install -y watchdog
 systemctl start watchdog
 systemctl enable watchdog
-=======
-sudo dnf install -y watchdog
-sudo systemctl start watchdog
-sudo systemctl enable watchdog
->>>>>>> 29c471e (update,)
 ```
 
 ## The programs i need for programming
@@ -353,7 +341,6 @@ git config --global core.editor "code --wait"
 
 ```
 su
-<<<<<<< HEAD
 
 curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -
 
@@ -363,10 +350,6 @@ sudo yum install gcc-c++ make
 curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
 sudo yum install yarn
 
-=======
-curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -
-sudo dnf install -y nodejs
->>>>>>> 29c471e (update,)
 exit
 
 mkdir ~/.npm-packages
@@ -416,13 +399,8 @@ sudo dnf install -y qemu-kvm bridge-utils libvirt virt-install
 
 cd /tmp
 wget https://dl.google.com/dl/android/studio/ide-zips/2021.2.1.14/android-studio-2021.2.1.14-linux.tar.gz
-<<<<<<< HEAD
 tar -zxvf android-studio-2021.2.1.14-linux.tar.gz
 sudo mv android-studio /opt/
-=======
-tar -zxvf android-studio-*-linux.tar.gz
-mv android-studio /opt/
->>>>>>> 29c471e (update,)
 
 sudo ln -sf /opt/android-studio/bin/studio.sh /usr/local/bin/android-studio
 sudo vi /usr/share/applications/android-studio.desktop
@@ -503,11 +481,7 @@ sudo dnf install -y slack-4.28.182-0.1.el8.x86_64.rpm
 ### install keybase
 
 ```bash
-<<<<<<< HEAD
-sudo yum install -y https://prerelease.keybase.io/keybase_amd64.rpm
-=======
 sudo dnf install -y https://prerelease.keybase.io/keybase_amd64.rpm
->>>>>>> 29c471e (update,)
 
 run_keybase
 
@@ -516,9 +490,6 @@ run_keybase
 ### install utilities
 
 ```
-<<<<<<< HEAD
-sudo dnf install -y filezilla ephemeral  apostrophe
-=======
 sudo dnf install -y filezilla 
 sudo dnf install -y ephemeral 
 sudo dnf install -y apostrophe
@@ -527,20 +498,14 @@ sudo dnf install -y flameshot
 sudo dnf install -y PrusaSlicer
 sudo dnf install -y python3-pip
 sudo pip install magic-wormhole
->>>>>>> 29c471e (update,)
 
 web 
 
 sudo dnf copr enable zeno/scrcpy
 sudo dnf install -y scrcpy
 
-<<<<<<< HEAD
-
-sudo dnf install -y entr aria2 flameshot PrusaSlicer
-=======
 aria2c
 sudo dnf install -y entr  flameshot PrusaSlicer
->>>>>>> 29c471e (update,)
 
 sudo npm install -g firebase-tools
 
