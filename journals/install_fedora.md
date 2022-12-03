@@ -1,7 +1,9 @@
 # My fedora setup journal
 
 
-`sudo dnf install autokey-gtk`
+aria2 -d /tmp -x 99 "http://hkg.mirror.rackspace.com/fedora/releases/37/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-37-1.7.iso"
+
+`sudo dnf install -y autokey-gtk`
 
 ### Speed up dnf Package manager
 
@@ -16,18 +18,18 @@ max_parallel_downloads=10
 ### tilix
 
 ```
-dnf install -y tilix
+sudo dnf install -y tilix
 ```
 
 ```
-sudo dnf install 'google-roboto*' 'mozilla-fira*' fira-code-fonts
-sudo dnf install google-cousine-fonts
+sudo dnf install -y 'google-roboto*' 'mozilla-fira*' fira-code-fonts
+sudo dnf install -y google-cousine-fonts
 ```
 
 ### kicad
 
 ```
-dnf install -y --setopt=install_weak_deps=False  kicad kicad-packages3d
+sudo dnf install -y --setopt=install_weak_deps=False  kicad kicad-packages3d
 ```
 
 ### blender
@@ -39,8 +41,12 @@ dnf install -y --setopt=install_weak_deps=False  kicad kicad-packages3d
 ### zsh
 
 ```
+<<<<<<< HEAD
 sudo dnf install -y util-linux-user
 sudo dnf install -y zsh
+=======
+sudo dnf install -y zsh util-linux-user
+>>>>>>> 29c471e (update,)
 
 # oh my zsh
 wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
@@ -54,14 +60,17 @@ sh install.sh
 cd /tmp
 git clone https://github.com/hyperupcall/autoenv ~/.autoenv
 echo "source ~/.autoenv/activate.sh" >> ~/.zshrc
+
+echo "AUTOENV_ASSUME_YES=1" >> ~/.zshrc
+
 ```
 
 # ssh
 
 ```
-dnf install -y openssh-server
-systemctl start sshd.service
-systemctl stop sshd.service
+sudo dnf install -y openssh-server
+sudo systemctl start sshd.service
+sudo systemctl stop sshd.service
 ```
 
 ```
@@ -77,28 +86,28 @@ https://www.itzgeek.com/how-tos/linux/fedora-how-tos/install-android-studio-on-f
 ### install gnome extensions
 
 ```
-dnf install -y gnome-extensions-app.x86_64
-dnf install -y gnome-shell-extension-appindicator.noarch
-dnf install -y gnome-shell-extension-auto-move-windows.noarch
-dnf install -y gnome-shell-extension-background-logo.noarch
-dnf install -y gnome-shell-extension-caffeine.noarch
-dnf install -y gnome-shell-extension-freon.noarch
-dnf install -y gnome-shell-extension-gsconnect.x86_64
-dnf install -y gnome-shell-extension-just-perfection.noarch
-dnf install -y gnome-shell-extension-native-window-placement.noarch
-dnf install -y gnome-shell-extension-refresh-wifi.noarch
-dnf install -y gnome-shell-extension-unite.noarch
-dnf install -y gnome-shell-extension-user-theme.noarch
-dnf install -y gnome-shell-extension-material-shell.noarch
-dnf install -y gnome-shell-extension-mediacontrols.noarch
-dnf install -y gnome-shell-extension-openweather.noarch
+sudo dnf install -y gnome-extensions-app.x86_64
+sudo dnf install -y gnome-shell-extension-appindicator.noarch
+sudo dnf install -y gnome-shell-extension-auto-move-windows.noarch
+sudo dnf install -y gnome-shell-extension-background-logo.noarch
+sudo dnf install -y gnome-shell-extension-caffeine.noarch
+sudo dnf install -y gnome-shell-extension-freon.noarch
+sudo dnf install -y gnome-shell-extension-gsconnect.x86_64
+sudo dnf install -y gnome-shell-extension-just-perfection.noarch
+sudo dnf install -y gnome-shell-extension-native-window-placement.noarch
+sudo dnf install -y gnome-shell-extension-refresh-wifi.noarch
+sudo dnf install -y gnome-shell-extension-unite.noarch
+sudo dnf install -y gnome-shell-extension-user-theme.noarch
+sudo dnf install -y gnome-shell-extension-material-shell.noarch
+sudo dnf install -y gnome-shell-extension-mediacontrols.noarch
+sudo dnf install -y gnome-shell-extension-openweather.noarch
 
 ```
 
 ### install docker
 
 ```
-sudo dnf remove docker \
+sudo dnf remove -y docker \
                 docker-client \
                 docker-client-latest \
                 docker-common \
@@ -110,9 +119,7 @@ sudo dnf remove docker \
                 docker-engine
 
 sudo dnf -y install dnf-plugins-core
-sudo dnf config-manager \
-    --add-repo \
-    https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 
 sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
@@ -158,8 +165,8 @@ gsettings set org.gnome.shell disable-user-extensions false
 Things in this document might not work or be broken nowadays
 
 ```
-dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-37.noarch.rpm
+dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-37.noarch.rpm
 dnf update --refresh
 
 dnf install intel-media-driver libva libva-utils gstreamer1-vaapi ffmpeg intel-gpu-tools mesa-dri-drivers mpv
@@ -195,12 +202,12 @@ vainfo
 ## Insatll nvidia drivers (only this laptop)
 
 ```
-dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-dnf update --refresh
+sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-37.noarch.rpm
+sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-37.noarch.rpm
+sudo dnf update --refresh
 
-dnf install akmod-nvidia -y
-dnf install xorg-x11-drv-nvidia-cuda -y
+sudo dnf install akmod-nvidia -y
+sudo dnf install xorg-x11-drv-nvidia-cuda -y
 
 reboot
 ```
@@ -209,7 +216,13 @@ reboot
 
 ```
 sudo dnf config-manager --set-enabled google-chrome
+<<<<<<< HEAD
 sudo dnf install google-chrome-stable ffmpeg vlc -y
+=======
+sudo dnf install google-chrome-stable -y
+
+ffmpeg vlc -y
+>>>>>>> 29c471e (update,)
 ```
 
 ## Themes, icons and gnome extensions
@@ -308,10 +321,16 @@ restart the laptop
 I noticed a wired bug in fedora where when i press shutdown it waits for 150s because of `a job is running for ...`
 
 ```
+<<<<<<< HEAD
 su
 sudo dnf install -y watchdog
 systemctl start watchdog
 systemctl enable watchdog
+=======
+sudo dnf install -y watchdog
+sudo systemctl start watchdog
+sudo systemctl enable watchdog
+>>>>>>> 29c471e (update,)
 ```
 
 ## The programs i need for programming
@@ -334,6 +353,7 @@ git config --global core.editor "code --wait"
 
 ```
 su
+<<<<<<< HEAD
 
 curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -
 
@@ -343,6 +363,10 @@ sudo yum install gcc-c++ make
 curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
 sudo yum install yarn
 
+=======
+curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -
+sudo dnf install -y nodejs
+>>>>>>> 29c471e (update,)
 exit
 
 mkdir ~/.npm-packages
@@ -350,6 +374,10 @@ prefix = ${HOME}/.npm-packages
 npm config set prefix '~/.npm-packages'
 echo 'PATH=$PATH:$HOME/.npm-packages/bin' >> $HOME/.zshrc
 source ~/.bashrc
+
+
+curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
+sudo dnf install -y yarn
 ```
 
 ### Golang
@@ -388,8 +416,13 @@ sudo dnf install -y qemu-kvm bridge-utils libvirt virt-install
 
 cd /tmp
 wget https://dl.google.com/dl/android/studio/ide-zips/2021.2.1.14/android-studio-2021.2.1.14-linux.tar.gz
+<<<<<<< HEAD
 tar -zxvf android-studio-2021.2.1.14-linux.tar.gz
 sudo mv android-studio /opt/
+=======
+tar -zxvf android-studio-*-linux.tar.gz
+mv android-studio /opt/
+>>>>>>> 29c471e (update,)
 
 sudo ln -sf /opt/android-studio/bin/studio.sh /usr/local/bin/android-studio
 sudo vi /usr/share/applications/android-studio.desktop
@@ -413,6 +446,8 @@ Name[en_GB]=android-studio.desktop
 
 # imwheel on startup
 
+
+sudo dnf install -y imwheel
 `# /home/logic/.config/autostart/.imwheel.desktop`
 
 ```
@@ -425,6 +460,7 @@ Type=Application
 X-GNOME-Autostart-enabled=true
 ```
 
+<<<<<<< HEAD
 ```
 mkdir -p ~/.config/autostart/
 
@@ -452,6 +488,9 @@ imwheel
 
 
 
+=======
+`ln -s ~/_workspace/dotfiles/.imwheelrc .imwheelrc`
+>>>>>>> 29c471e (update,)
 
 ### install slack
 
@@ -467,7 +506,11 @@ sudo dnf install -y slack-4.28.182-0.1.el8.x86_64.rpm
 ### install keybase
 
 ```bash
+<<<<<<< HEAD
 sudo yum install -y https://prerelease.keybase.io/keybase_amd64.rpm
+=======
+sudo dnf install -y https://prerelease.keybase.io/keybase_amd64.rpm
+>>>>>>> 29c471e (update,)
 
 run_keybase
 
@@ -476,14 +519,31 @@ run_keybase
 ### install utilities
 
 ```
+<<<<<<< HEAD
 sudo dnf install -y filezilla ephemeral  apostrophe
+=======
+sudo dnf install -y filezilla 
+sudo dnf install -y ephemeral 
+sudo dnf install -y apostrophe
+sudo dnf install -y entr
+sudo dnf install -y flameshot
+sudo dnf install -y PrusaSlicer
+sudo dnf install -y python3-pip
+sudo pip install magic-wormhole
+>>>>>>> 29c471e (update,)
 
+web 
 
 sudo dnf copr enable zeno/scrcpy
 sudo dnf install -y scrcpy
 
+<<<<<<< HEAD
 
 sudo dnf install -y entr aria2 flameshot PrusaSlicer
+=======
+aria2c
+sudo dnf install -y entr  flameshot PrusaSlicer
+>>>>>>> 29c471e (update,)
 
 sudo npm install -g firebase-tools
 
@@ -494,10 +554,9 @@ sudo npm install -g firebase-tools
 ```
 sudo dnf install -y kmod-v4l2loopback
 
-
 sudo dnf install -y \
-  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
-  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-37.noarch.rpm \
+  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-37.noarch.rpm
 
 sudo dnf install -y obs-studio
 sudo dnf install -y xorg-x11-drv-nvidia-cuda
@@ -532,13 +591,20 @@ Name[en_GB]=logseq.desktop
 cd /tmp
 wget https://download.nomachine.com/download/8.1/Linux/nomachine_8.1.2_1_x86_64.rpm
 sudo dnf install -y ./nomachine_8.1.2_1_x86_64.rpm
+<<<<<<< HEAD
 
+=======
+>>>>>>> 29c471e (update,)
 ```
 
 ### install discord
 
 ```bash
+<<<<<<< HEAD
 sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-36.noarch.rpm
+=======
+sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-37.noarch.rpm
+>>>>>>> 29c471e (update,)
 
 sudo dnf install -y discord
 
