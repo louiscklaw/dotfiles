@@ -553,20 +553,12 @@ Name[en_GB]=logseq.desktop
 cd /tmp
 wget https://download.nomachine.com/download/8.1/Linux/nomachine_8.1.2_1_x86_64.rpm
 sudo dnf install -y ./nomachine_8.1.2_1_x86_64.rpm
-<<<<<<< HEAD
-
-=======
->>>>>>> 29c471e (update,)
 ```
 
 ### install discord
 
 ```bash
-<<<<<<< HEAD
-sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-36.noarch.rpm
-=======
 sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-37.noarch.rpm
->>>>>>> 29c471e (update,)
 
 sudo dnf install -y discord
 
