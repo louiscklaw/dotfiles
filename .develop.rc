@@ -12,6 +12,8 @@ alias nr='npm run'
 alias cloneGithubLouis='git clone git@github.com:louiscklaw/'
 alias clonePlaylist='git clone git@github.com:louiscklaw/js-playlist.git'
 
+alias codeGnomeExtensionsTryout='code ~/_workspace/gnome-extensions-tryout'
+
 alias codeUptimePlaylist='code ~/_workspace/upptime-playlist'
 alias codeAiPlaylist='code ~/_workspace/ai-playlist'
 alias codeNestJsPlaylist='code ~/_workspace/nestjs-playlist'
