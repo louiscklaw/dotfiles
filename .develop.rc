@@ -4,6 +4,9 @@ export BROWSER=none
 
 WEB_BROWSER=google-chrome
 
+
+alias MDNHTTPHeaders='firefox https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers'
+
 alias codeLogseq='/home/logic/Appimage/Logseq-linux-x64-0.8.8.AppImage'
 alias updateLogseq='pushd ~/_workspace/logseq-helloworld && yarn gitUpdate && popd'
 
