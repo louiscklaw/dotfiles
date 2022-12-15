@@ -234,9 +234,9 @@ $ ./install.sh
 $ cd ..
 $ rm -rf Sierra-gtk-theme
 $ su
-# dnf copr enable snwh/paper
-# dnf makecache
-# dnf install gtk-murrine-engine gtk2-engines gnome-tweak-tool chrome-gnome-shell arc-theme paper-icon-theme
+sudo dnf copr enable snwh/paper
+sudo dnf makecache
+sudo dnf install gtk-murrine-engine gtk2-engines gnome-tweak-tool chrome-gnome-shell arc-theme paper-icon-theme
 ```
 
 Packages i usually install: [user themes](https://extensions.gnome.org/extension/19/user-themes/), [dash to dock](https://extensions.gnome.org/extension/307/dash-to-dock/),
@@ -252,9 +252,9 @@ While doing these steps UNPLUG the laptop from power
 
 ```
 sudo dnf install powertop tuned-utils thermald -y
-systemctl start powertop
-systemctl enable powertop
-powertop --auto-tune
+sudo systemctl start powertop
+sudo systemctl enable powertop
+sudo powertop --auto-tune
 
 ```
 
@@ -298,9 +298,9 @@ shutdown 0 -rf
 
 ```
 $ su
-# dnf install acpi
-# dnf config-manager --add-repo https://copr.fedorainfracloud.org/coprs/uriesk/i8kutils/repo/fedora-28/uriesk-i8kutils-fedora-28.repo
-# dnf install i8kutils
+sudo dnf install acpi
+sudo dnf config-manager --add-repo https://copr.fedorainfracloud.org/coprs/uriesk/i8kutils/repo/fedora-28/uriesk-i8kutils-fedora-28.repo
+sudo dnf install i8kutils
 # echo "i8k" >> /etc/modules
 # echo "options i8k force=1" > /etc/modprobe.d/i8k.conf
 # curl https://gist.githubusercontent.com/mjarkk/eadcd2e793bb5baa0c77f7a539ee7a23/raw/c01dda8f512a42037c446067eab33b4a62ebc0c6/Z-i8kmon.conf > /etc/i8kmon.conf
@@ -497,7 +497,11 @@ sudo dnf install -y entr
 sudo dnf install -y flameshot
 sudo dnf install -y PrusaSlicer
 sudo dnf install -y python3-pip
+
+sudo dnf install -y https://download.xnview.com/XnViewMP-linux.x86_64.rpm
+
 sudo pip install magic-wormhole
+
 
 web 
 
