@@ -392,3 +392,15 @@ mergeToMaster(){
   wait
   set +ex
 }
+
+keepTry(){
+  while true; do
+    $@
+
+    echo 'will retry '$@
+    sleep 5
+  done
+
+  echo 'bye ... '
+
+}
