@@ -398,7 +398,7 @@ keepTry(){
     $@
 
     echo 'will retry '$@
-    sleep 5
+    sleep 1
   done
 
   echo 'bye ... '

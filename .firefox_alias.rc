@@ -61,7 +61,7 @@ goMarkdownCheatSheet(){
 }
 
 goRouterSetup(){
-  $DEFAULT_BROWSER  https://192.168.99.1 &
+  $DEFAULT_BROWSER  https://192.168.10.1 &
 }
 
 showDocTravisEnv(){
