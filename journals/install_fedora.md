@@ -1,5 +1,15 @@
 # My fedora setup journal
 
+```
+dnf install https://download.xnview.com/XnViewMP-linux.x86_64.rpm
+
+
+```
+
+
+
+cp ./Monaco\ for\ Powerline.otf ~/.fonts
+fc-cache -vf
 
 aria2 -d /tmp -x 99 "http://hkg.mirror.rackspace.com/fedora/releases/37/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-37-1.7.iso"
 
