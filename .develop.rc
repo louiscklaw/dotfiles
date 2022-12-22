@@ -19,6 +19,7 @@ alias codeGnomeExtensionsTryout='code ~/_workspace/gnome-extensions-tryout'
 
 alias codeUptimePlaylist='code ~/_workspace/upptime-playlist'
 alias code3dPrintTryout='code ~/_workspace/3d-print-tryout'
+alias codeSherlock='code ~/_workspace/sherlock'
 
 alias codeAiPlaylist='code ~/_workspace/ai-playlist'
 alias codeNestJsPlaylist='code ~/_workspace/nestjs-playlist'
