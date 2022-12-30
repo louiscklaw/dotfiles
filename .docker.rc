@@ -7,11 +7,20 @@ dockerClearAll(){
   docker kill `docker ps -qa` || true
   sleep 1
 
-  docker container prune -f
-  docker system prune -f
-  docker image prune -f
-  docker volume prune -f
-  docker network prune -f
+  for i in {1..3}; do
+
+    echo "Welcome $i"
+
+    docker container prune -f
+    docker system prune -f
+    docker image prune -f
+    docker volume prune -f
+    docker network prune -f
+
+    docker image rm `docker images -qa`
+  
+  done
+
 }
 
 dockerReset(){
