@@ -1018,4 +1018,6 @@ alias sshNUC="ssh logic@192.168.10.21"
 AUTOENV_ASSUME_YES=1
 ASSUME_YES=1
 
+export PATH=$PATH:/home/logic/.local/bin
+
 true
