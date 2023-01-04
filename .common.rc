@@ -6,6 +6,16 @@ alias pi="pnpm i"
 alias ni="npm i"
 alias yi="yarn i"
 
+gitCloneDel () {
+  pushd ~/_workspace/_del
+  # mkdir -p $1
+    # pushd $1
+      git clone $@
+    # popd
+  popd
+}
+
+
 MkCd () {
   mkdir -p $1
   cd $1
