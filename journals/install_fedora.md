@@ -6,8 +6,6 @@ dnf install https://download.xnview.com/XnViewMP-linux.x86_64.rpm
 
 ```
 
-
-
 cp ./Monaco\ for\ Powerline.otf ~/.fonts
 fc-cache -vf
 
@@ -349,7 +347,7 @@ git config --global core.editor "code --wait"
 
 ### Nodejs
 
-```
+```bash
 su
 
 curl -sL https://rpm.nodesource.com/setup_16.x | sudo bash -
@@ -371,6 +369,14 @@ source ~/.bashrc
 
 curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
 sudo dnf install -y yarn
+```
+
+### pnpm
+
+```bash
+# install pnpm
+
+curl -fsSL https://get.pnpm.io/install.sh | sh -
 ```
 
 ### Golang
@@ -434,7 +440,6 @@ Name[en_GB]=android-studio.desktop
 
 # imwheel on startup
 
-
 sudo dnf install -y imwheel
 `# /home/logic/.config/autostart/.imwheel.desktop`
 
@@ -466,15 +471,6 @@ chmod a+x ~/.config/autostart/imwheel.desktop
 imwheel
 ```
 
-
-
-
-
-
-
-
-
-
 `ln -s ~/_workspace/dotfiles/.imwheelrc .imwheelrc`
 
 ### install slack
@@ -500,8 +496,8 @@ run_keybase
 ### install utilities
 
 ```
-sudo dnf install -y filezilla 
-sudo dnf install -y ephemeral 
+sudo dnf install -y filezilla
+sudo dnf install -y ephemeral
 sudo dnf install -y apostrophe
 sudo dnf install -y entr
 sudo dnf install -y flameshot
@@ -513,7 +509,7 @@ sudo dnf install -y https://download.xnview.com/XnViewMP-linux.x86_64.rpm
 sudo pip install magic-wormhole
 
 
-web 
+web
 
 sudo dnf copr enable zeno/scrcpy
 sudo dnf install -y scrcpy
@@ -577,7 +573,6 @@ sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-non
 sudo dnf install -y discord
 
 ```
-
 
 ### install monaco
 
