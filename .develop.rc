@@ -5,6 +5,7 @@ export BROWSER=none
 WEB_BROWSER=google-chrome
 
 
+
 alias MDNHTTPHeaders='firefox https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers'
 
 alias codeLogseq='/home/logic/Appimage/Logseq-linux-x64-0.8.8.AppImage'
@@ -167,6 +168,12 @@ END
   fi
 }
 
+echoDefaultPackagejson(){
+
+    echo '"format": "prettier --loglevel warn --write \"**/*.{js,css,html,jsx,tsx,ts,json}\"",'
+    echo '"gitSync": "git fetch --all && git pull --all ",'
+    echo '"gitUpdate": "git add . && git commit -m \"update fedora,\" && yarn gitSync && git push",'
+}
 
 cloneAndNpm(){
   git clone --depth=1 $1 $2
