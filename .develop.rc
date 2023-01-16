@@ -11,7 +11,6 @@ alias MDNHTTPHeaders='firefox https://developer.mozilla.org/en-US/docs/Web/HTTP/
 alias codeLogseq='/home/logic/Appimage/Logseq-linux-x64-0.8.8.AppImage'
 alias updateLogseq='pushd ~/_workspace/logseq-helloworld && yarn gitUpdate && popd'
 
-alias nr='npm run'
 
 alias cloneGithubLouis='git clone git@github.com:louiscklaw/'
 alias clonePlaylist='git clone git@github.com:louiscklaw/js-playlist.git'
@@ -121,6 +120,7 @@ alias goGist='$DEFAULT_BROWSER https://gist.github.com/louiscklaw &'
 alias goGithubNewRepo='$DEFAULT_BROWSER https://github.com/new &'
 
 alias nr='npm run'
+alias nits='npm install $@ --save && npm install --dev --save $@'
 
 gitCloneAllPlaylist(){
   gitCloneShallow git@github.com:louiscklaw/react-playlist.git  &
