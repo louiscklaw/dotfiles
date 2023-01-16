@@ -111,19 +111,16 @@ alias goFastMac='$WEB_BROWSER https://github.com/louiscklaw/fastmac'
 alias createReactNativeApp='npx create-react-native-app'
 alias gitCloneShallow='git clone --depth=3'
 
-
-
 alias codePortfolio='startCode ~/_workspace/louiscklaw.github.io'
 alias updatePortfolio='pushd ~/_workspace/louiscklaw.github.io && yarn gitUpdate && popd'
-
-
-
 
 alias reYarn='rm -rf package-lock.json && rm -rf yarn.lock && rm -rf node_modules && yarn'
 
 alias initCodeWorkspace='touch ./ws.code-workspace'
 alias goGist='$DEFAULT_BROWSER https://gist.github.com/louiscklaw &'
 alias goGithubNewRepo='$DEFAULT_BROWSER https://github.com/new &'
+
+alias nr='npm run'
 
 gitCloneAllPlaylist(){
   gitCloneShallow git@github.com:louiscklaw/react-playlist.git  &

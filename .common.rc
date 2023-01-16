@@ -97,6 +97,8 @@ codeCarousellComission(){
 codeFirefoxAlias(){
   code ~/.firefox_alias.rc
 }
+
+alias cdf='startCode -n /home/logic/_workspace/dotfiles/'
 codeDotFiles(){
   startCode -n /home/logic/_workspace/dotfiles/
 }
