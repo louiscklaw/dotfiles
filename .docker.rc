@@ -2,9 +2,12 @@
 
 alias systemctlStartDocker='sudo systemctl start docker'
 alias systemctlKillDocker='sudo systemctl kill docker'
-alias dcub='docker compose up -d --build'
+alias dcub='docker compose up -d --build && docker compose logs -f'
+alias dck='docker compose kill'
+alias dce='docker compose exec -it'
 
-dockerFlush(){
+
+dcf(){
   docker kill `docker ps -qa` || true
   sleep 1
 
