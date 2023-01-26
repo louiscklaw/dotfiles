@@ -6,12 +6,11 @@ alias systemctlKillDocker='sudo systemctl kill docker'
 alias dcu='docker compose up -d'
 alias dcub='docker compose up -d --build'
 alias dcubl='docker compose up -d --build && docker compose logs -f'
-
 alias dck='docker compose kill'
 alias dce='docker compose exec -it'
 alias dcpa='docker compose ps -a'
 
-dck(){
+dka(){
   docker kill `docker ps -qa` || true
 }
 
