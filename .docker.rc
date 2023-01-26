@@ -2,29 +2,30 @@
 
 alias systemctlStartDocker='sudo systemctl start docker'
 alias systemctlKillDocker='sudo systemctl kill docker'
-alias dcub='docker compose up -d --build && docker compose logs -f'
+alias dcub='docker compose up -d --build'
+alias dcubl='docker compose up -d --build && docker compose logs -f'
 alias dck='docker compose kill'
 alias dce='docker compose exec -it'
+alias dcpa='docker compose ps -a'
 
+
+dck(){
+  docker kill `docker ps -qa` || true
+}
 
 dcf(){
   docker kill `docker ps -qa` || true
   sleep 1
 
   for i in {1..3}; do
-
-    echo "Welcome $i"
-
+    echo "docker compose flush -> $i"
     docker container prune -f
     docker system prune -f
     docker image prune -f
     docker volume prune -f
     docker network prune -f
-
     docker image rm `docker images -qa`
-  
   done
-
 }
 
 dockerClearAll(){
