@@ -11,11 +11,12 @@ alias MDNHTTPHeaders='firefox https://developer.mozilla.org/en-US/docs/Web/HTTP/
 alias codeLogseq='/home/logic/Appimage/Logseq-linux-x64-0.8.8.AppImage'
 alias updateLogseq='pushd ~/_workspace/logseq-helloworld && yarn gitUpdate && popd'
 
-
 alias cloneGithubLouis='git clone git@github.com:louiscklaw/'
 alias clonePlaylist='git clone git@github.com:louiscklaw/js-playlist.git'
 
 alias codeGnomeExtensionsTryout='code ~/_workspace/gnome-extensions-tryout'
+
+alias codeSeoPlaylist='code ~/_workspace/seo-playlist'
 
 alias codeUptimePlaylist='code ~/_workspace/upptime-playlist'
 alias code3dPrintTryout='code ~/_workspace/3d-print-tryout'
