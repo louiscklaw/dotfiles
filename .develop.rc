@@ -21,6 +21,8 @@ alias codeUptimePlaylist='code ~/_workspace/upptime-playlist'
 alias code3dPrintTryout='code ~/_workspace/3d-print-tryout'
 alias codeSherlock='code ~/_workspace/sherlock'
 
+alias codeWebScrapePlaylist='code ~/_workspace/web-scrape-playlist'
+
 alias codeAiPlaylist='code ~/_workspace/ai-playlist'
 alias codeNestJsPlaylist='code ~/_workspace/nestjs-playlist'
 alias codeCypressPlaylist='code ~/_workspace/cypress-playlist'
