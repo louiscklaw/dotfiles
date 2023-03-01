@@ -23,6 +23,8 @@ alias code3dPrintTryout='code ~/_workspace/3d-print-tryout'
 alias codeSherlock='code ~/_workspace/sherlock'
 
 alias codeWebScrapePlaylist='code ~/_workspace/web-scrape-playlist'
+alias codeShowcase='code ~/_workspace/showcase'
+alias codeLynkedBackup='code ~/_workspace/lynked-backup'
 
 alias codeAiPlaylist='code ~/_workspace/ai-playlist'
 alias codeNestJsPlaylist='code ~/_workspace/nestjs-playlist'
