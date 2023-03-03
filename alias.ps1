@@ -15,28 +15,28 @@ function goDel {
   cd d:\_del
 }
 
-function gitCloneToDel(){
+function gitCloneToDel() {
   goDel
   gitCloneShallow $args
 }
 
-function goGithubRepo(){
+function goGithubRepo() {
   $cmdOutput = git remote get-url origin
   echo $cmdOutput
-  $http_link = $cmdOutput.replace('git@github.com:','http://www.github.com/')
+  $http_link = $cmdOutput.replace('git@github.com:', 'http://www.github.com/')
   start chrome $http_link
 }
 
-function ssh_m73 {ssh logic@192.168.10.61}
+function ssh_m73 { ssh logic@192.168.10.61 }
 Set-Alias -Name sshM73 -Value ssh_m73
 
-function ssh_nuc {ssh logic@192.168.10.21}
+function ssh_nuc { ssh logic@192.168.10.21 }
 Set-Alias -Name sshNUC -Value ssh_nuc
 
-function sync_git {git pull ; git push}
+function sync_git { git pull ; git push }
 Set-Alias -Name syncGit -Value sync_git
 
-function aria_download {aria2c -x 16 -s 16 --dht-listen-port=51000-51099 --listen-port=51000-51099 $args}
+function aria_download { aria2c -x 16 -s 16 --dht-listen-port=51000-51099 --listen-port=51000-51099 $args }
 Set-Alias -Name ariaDownload -Value aria_download
 
 Set-Alias startFreeRouting  $Env:WORKSPACE_DIR\dotfiles\kicad\startFreeRouting.ps1
@@ -45,8 +45,8 @@ Set-Alias goGithubProfile  $Env:WORKSPACE_DIR\dotfiles\go\goGithubProfile.ps1
 
 function catIdRsaPub { type $env:USERPROFILE\.ssh\id_rsa.pub }
 
-function sshCopyId {type $env:USERPROFILE\.ssh\id_rsa.pub | ssh $args "cat >> .ssh/authorized_keys"}
+function sshCopyId { type $env:USERPROFILE\.ssh\id_rsa.pub | ssh $args "cat >> .ssh/authorized_keys" }
 
-function gitCloneShallow {git clone --depth=3 {$args}}
+function gitCloneShallow { git clone --depth=3 { $args } }
 
-function open {explorer ${args}}
+function open { explorer ${args} }
