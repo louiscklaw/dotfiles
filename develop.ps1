@@ -2,6 +2,10 @@ $env:WORKSPACE_DIR = "D:\_workspace"
 
 $env:CHROME = "C:\Program Files\Google\Chrome\Application\chrome.exe"
 
+function npmRun { npm run $args}
+Set-Alias -Name nr -Value npmRun
+
+
 function codeProfile { code C:\Users\logic\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1 }
 
 function gitPushNewBranch { 
