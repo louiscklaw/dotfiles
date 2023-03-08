@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --loglevel warn --write \"**/*.{js,css,html,jsx,tsx,ts,json}\"",
+    "format": "prettier --write **",
     "gitSync": "git fetch --all && git stash && git pull --all && git stash pop || true",
     "gitUpdate": "git add . && git commit -m \"update windows,\" && yarn gitSync && git push"
   },
@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/louiscklaw/dotfiles#readme",
   "devDependencies": {
-    "husky": "latest"
+    "husky": "latest",
+    "prettier": "^2.8.4"
   }
 }
