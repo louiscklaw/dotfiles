@@ -2,6 +2,8 @@ $env:WORKSPACE_DIR = "D:\_workspace"
 
 $env:CHROME = "C:\Program Files\Google\Chrome\Application\chrome.exe"
 
+function codeProfile { code C:\Users\logic\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1 }
+
 function gitPushNewBranch { 
   $cmdOutput = git branch | findstr /c:"*"
   $CharArray = $cmdOutput.Split(" ")
