@@ -6,6 +6,9 @@ function npmRun { npm run $args}
 Set-Alias -Name nr -Value npmRun
 
 
+function gitCheckoutMaster { git checkout master }
+Set-Alias -Name gitCheckoutMaster -Value gitCheckoutMaster
+
 function codeProfile { code C:\Users\logic\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1 }
 
 function gitPushNewBranch { 
