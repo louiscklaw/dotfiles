@@ -5,6 +5,15 @@ $env:CHROME = "C:\Program Files\Google\Chrome\Application\chrome.exe"
 function npmRun { npm run $args}
 Set-Alias -Name nr -Value npmRun
 
+function mergeToMaster {
+  $cmdOutput = git branch | findstr /c:"*"
+  $CharArray = $cmdOutput.Split(" ")
+  echo $CharArray[1]
+  git checkout master
+  git merge $CharArray[1]
+  git checkout $CharArray[1]
+}
+
 
 function gitCheckoutMaster { git checkout master }
 Set-Alias -Name gitCheckoutMaster -Value gitCheckoutMaster
