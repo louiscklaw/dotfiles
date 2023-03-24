@@ -84,7 +84,7 @@ alias codeSeleniumPlaylist='code ~/_workspace/selenium-playlist'
 alias codeSeoPlaylist='code ~/_workspace/seo-playlist'
 alias codeSfxPowerSupplyPlaylist='code ~/_workspace/sfx-power-supply-playlist'
 alias codeSherlock='code ~/_workspace/sherlock'
-alias codeShowcase='code ~/_workspace/showcase'
+alias codeFirebaseShowcase='code ~/_workspace/firebase-showcase'
 alias codeStorybook='code -n ~/_workspace/storybook-playlist'
 alias codeTaobaoPlaylist='code ~/_workspace/taobao-playlist'
 alias codeTraefikPlaylist='code ~/_workspace/traefik-playlist'
@@ -365,9 +365,7 @@ initPyProj(){
 
 }
 
-
-
-mergeToMaster(){
+mergeToMasterObsolete(){
   set -ex
   git fetch --all
 
