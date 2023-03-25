@@ -872,7 +872,7 @@ syncWorkspaceOffice(){
   # # # # syncWorkDir "/home/logic/_workspace/hugo-playlist" &
   # # # # syncWorkDir "/home/logic/_workspace/jenkins-playlist" &
   # # # # syncWorkDir "/home/logic/_workspace/jobsdb-playlist" &
-  # # # # syncWorkDir "/home/logic/_workspace/markdown-playlist" &
+  syncWorkDir "/home/logic/_workspace/markdown-playlist" &
   # # # # syncWorkDir "/home/logic/_workspace/my-github-endpoint-playlist" &
   # # # # syncWorkDir "/home/logic/_workspace/nmap-playlist" &
   # # # # syncWorkDir "/home/logic/_workspace/robot-playlist" &
@@ -882,7 +882,7 @@ syncWorkspaceOffice(){
   # # # syncWorkDir "/home/logic/_workspace/freenas-playlist" &
   # # # syncWorkDir "/home/logic/_workspace/genimage-playlist" &
   # # # syncWorkDir "/home/logic/_workspace/google-api-playlist" &
-  # # # syncWorkDir "/home/logic/_workspace/webpack-playlist" &
+  syncWorkDir "/home/logic/_workspace/webpack-playlist" &
   # syncWorkDir "/home/logic/_workspace/buildkite-playlist" &
   # syncWorkDir "/home/logic/_workspace/deno-playlist"
   # syncWorkDir "/home/logic/_workspace/drone-ci-playlist" &
