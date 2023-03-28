@@ -100,6 +100,9 @@ alias codeYahooFinancePlaylist='code ~/_workspace/yahoo-finance-playlist'
 alias codeYoutubePlaylist='code ~/_workspace/youtube-playlist'
 alias createReactNativeApp='npx create-react-native-app'
 
+alias codeDadPlaylist='code ~/_workspace/dad-playlist'
+alias codeMomPlaylist='code ~/_workspace/mom-playlist'
+
 alias gitCloneShallow='git clone --depth=3'
 
 alias goFastMac='$WEB_BROWSER https://github.com/louiscklaw/fastmac'
