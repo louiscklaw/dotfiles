@@ -104,6 +104,29 @@ dockerRun(){
     # --user=1000 \
 }
 
+dockerRunPhp(){
+  touch .env.docker
+  TMP_DIR=$(mktemp -d)
+  TMP_BASH_HISTORY=$TMP_DIR/.bash_history
+  # -v $TMP_BASH_HISTORY:/root/.bash_history \
+
+  docker run -it \
+    --env-file .env.docker \
+    -v $PWD:/app \
+    -w /app \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v ~/.ssh/id_rsa:/home/node/.ssh/id_rsa:ro \
+    -v ~/.ssh/known_host:/home/node/.ssh/known_hosts:ro \
+    -u 1000:1000 \
+    -p 3000:3000 \
+    -p 8090:8090 \
+    -p 8000:8000 \
+    -p 5555-5560:5555 \
+    --rm \
+    $@
+    # --user=1000 \
+}
+
 
 dockerRunPython(){
   touch .env.docker
@@ -160,6 +183,8 @@ alias dockerRunNode8='dockerRun node:8-buster bash'
 alias dockerRunNest16='dockerRunNest logickee/docker_nest16_tryout bash'
 
 alias dockerRunHugoDev='docker run -it -v $PWD:/app -p 1313:1313 -w /app logickee/hugo_dev:latest bash'
+
+alias dockerRunComposer='dockerRunPhp composer bash'
 
 
 GET_FULL_REPOSITORY(){
