@@ -104,7 +104,7 @@ dockerRun(){
     # --user=1000 \
 }
 
-dockerRunPhp(){
+dockerRunPhpBase(){
   touch .env.docker
   TMP_DIR=$(mktemp -d)
   TMP_BASH_HISTORY=$TMP_DIR/.bash_history
@@ -119,8 +119,8 @@ dockerRunPhp(){
     -v ~/.ssh/known_host:/home/node/.ssh/known_hosts:ro \
     -u 1000:1000 \
     -p 3000:3000 \
-    -p 8090:8090 \
     -p 8000:8000 \
+    -p 8090:8090 \
     -p 5555-5560:5555 \
     --rm \
     $@
@@ -184,7 +184,8 @@ alias dockerRunNest16='dockerRunNest logickee/docker_nest16_tryout bash'
 
 alias dockerRunHugoDev='docker run -it -v $PWD:/app -p 1313:1313 -w /app logickee/hugo_dev:latest bash'
 
-alias dockerRunComposer='dockerRunPhp composer bash'
+alias dockerRunPhp='dockerRunPhpBase php bash'
+alias dockerRunComposer='dockerRunPhpBase composer bash'
 
 
 GET_FULL_REPOSITORY(){
