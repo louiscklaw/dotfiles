@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-
+git config --global core.autocrlf false
 
 # codeDockerPlaylist() {
 #   code ~/_workspace/docker-playlist "${CODE_OPTS[@]}"

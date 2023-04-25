@@ -16,9 +16,7 @@ function dockerRun() {
     -w /app `
     --env HOST_ADDRESS=$HOST_ADDRESS `
     -v /var/run/docker.sock:/var/run/docker.sock `
-    -p 3000:3000 `
     -p 5555-5575:5555 `
-    --user=1000 `
     --rm `
     $args
 }
