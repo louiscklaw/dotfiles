@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# git config --global user.name 'louiscklaw'
+# git config --global user.email 'louiscklaw@users.noreply.github.com'
+
 export BROWSER=none
 
 WEB_BROWSER=google-chrome
