@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+sshServer(){
+  ssh logic@192.168.88.61
+}
+
 sshXps15(){
   ssh logic@192.168.88.31
 }
