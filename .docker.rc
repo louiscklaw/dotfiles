@@ -45,7 +45,7 @@ dockerClearAll(){
 
   echo 'wait a while'
 
-  for i in {1..2}; do
+  for i in {1..10}; do
     echo "cleaning $i ..."
 
     docker container prune -f
@@ -54,22 +54,7 @@ dockerClearAll(){
     docker volume prune -f
     docker network prune -f
 
-    sleep 0.5
   done
-  sleep 1
-
-  for i in {1..2}; do
-    echo "cleaning $i ..."
-
-    docker container prune -f
-    docker system prune -f
-    docker image prune -f
-    docker volume prune -f
-    docker network prune -f
-
-    sleep 0.5
-  done
-
 
   docker image rm `docker images -qa`
 
