@@ -7,6 +7,18 @@ export BROWSER=none
 
 WEB_BROWSER=google-chrome
 
+alias chromeMom='mkdir -p /home/logic/_workspace/chrome_profile/mom && google-chrome-stable --user-data-dir=/home/logic/_workspace/chrome_profile/mom &'
+alias chromeLogic='mkdir -p /home/logic/_workspace/chrome_profile/logic && google-chrome-stable --user-data-dir=/home/logic/_workspace/chrome_profile/logic &'
+alias chromeLouis='mkdir -p /home/logic/_workspace/chrome_profile/louis && google-chrome-stable --user-data-dir=/home/logic/_workspace/chrome_profile/louis &'
+alias chromeDev='mkdir -p /home/logic/_workspace/chrome_profile/testhelloworld04 && google-chrome-stable --user-data-dir=/home/logic/_workspace/chrome_profile/testhelloworld04 &'
+
+alias chromeUser1='mkdir -p /tmp/user1 && google-chrome-stable --user-data-dir=/tmp/user1 &'
+alias chromeUser2='mkdir -p /tmp/user2 && google-chrome-stable --user-data-dir=/tmp/user2 &'
+alias chromeUser3='mkdir -p /tmp/user3 && google-chrome-stable --user-data-dir=/tmp/user3 &'
+alias chromeUser4='mkdir -p /tmp/user4 && google-chrome-stable --user-data-dir=/tmp/user4 &'
+alias chromeUser5='mkdir -p /tmp/user5 && google-chrome-stable --user-data-dir=/tmp/user5 &'
+alias chromeUser6='mkdir -p /tmp/user6 && google-chrome-stable --user-data-dir=/tmp/user6 &'
+
 alias cloneGithubLouis='git clone git@github.com:louiscklaw/'
 alias clonePlaylist='git clone git@github.com:louiscklaw/js-playlist.git'
 alias cloneToWorkspace='cd ~/_workspace && git clone '
