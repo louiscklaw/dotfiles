@@ -49,14 +49,14 @@ dockerClearAll(){
     echo "cleaning $i ..."
 
     docker container prune -f
-    docker system prune -f
-    docker image prune -f
-    docker volume prune -f
-    docker network prune -f
+    # docker system prune -f
+    # docker volume prune -f
+    # docker network prune -f
 
   done
 
-  docker image rm `docker images -qa`
+  # docker image prune -f
+  # docker image rm `docker images -qa`
 
 }
 
