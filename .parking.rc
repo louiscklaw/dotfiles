@@ -1,0 +1,889 @@
+#!/usr/bin/env bash
+
+
+updateFirebase(){
+  curl -sL firebase.tools | upgrade=true bash
+
+  firebase --version
+}
+
+resetSwap(){
+  sudo swapoff -a && swapon
+}
+
+
+rsyncBackup(){
+  for i in $(ls -1 $@); do
+    rsync -avzh --progress -e "ssh -p 22" $i pi@$RPI1_HOST:/mnt/sdb1/_backup/test/ &
+  done
+  # rsync -avzh --progress -e "ssh -p 22" .zshrc pi@$RPI1_HOST:/mnt/sdb1/_backup/test
+
+  wait
+}
+
+syncCredentialsHome(){
+  rsync -avzhu --progress -e "ssh -p $HOME_SSH_PORT" /home/logic/.credentials.rc logic@$HOME_IP:/home/logic/.credentials.rc
+  rsync -avzhu --progress -e "ssh -p $HOME_SSH_PORT" logic@$HOME_IP:/home/logic/.credentials.rc /home/logic/.credentials.rc
+
+  rsync -avzhu --progress -e "ssh -p $HOME_SSH_PORT" /home/logic/.credentials/ logic@$HOME_IP:/home/logic/.credentials
+  rsync -avzhu --progress -e "ssh -p $HOME_SSH_PORT" logic@$HOME_IP:/home/logic/.credentials/ /home/logic/.credentials
+
+  echo 'done'
+}
+
+
+mergeToMaster(){
+  set -ex
+  git fetch --all
+
+  CURRENT_BRANCH_RAW=`git branch |grep -i \* -`
+  CURRENT_BRANCH=`echo $CURRENT_BRANCH_RAW | sed 's/* //' - `
+
+  git merge --ff-only master
+  git merge --ff-only develop
+
+  git merge --ff-only origin/master
+  git merge --ff-only origin/develop
+
+  git checkout develop
+  git pull
+
+  git merge --ff-only  $CURRENT_BRANCH
+
+  git push &
+
+  git checkout master
+  git pull
+  git merge --ff-only develop
+
+  git push &
+
+  git checkout $CURRENT_BRANCH
+  wait
+  set +ex
+}
+
+codeQuotations(){
+  startCode $WORKSPACE_DIR/quotations
+}
+
+# https://medium.com/@k21_79139/%E9%A6%99%E6%B8%AF%E9%9B%BB%E5%8F%B0%E7%9B%B4%E6%92%AD%E6%BA%90%E5%88%97%E8%A1%A8-29ddf6591c14
+radio_rthk1(){
+  mpv http://rthk.hk/live1.m3u
+}
+
+radio_rthk2(){
+  mpv http://rthk.hk/live2.m3u
+}
+
+radio_997(){
+  mpv https://metroradio-lh.akamaihd.net/i/997_h@349799/master.m3u8
+}
+
+radio_881(){
+  $DEFAULT_BROWSER https://www.881903.com/live/881
+}
+
+radio_903(){
+  $DEFAULT_BROWSER https://www.881903.com/live/903
+}
+
+radio_104(){
+  mpv https://metroradio-lh.akamaihd.net/i/104_h@349798/master.m3u8
+}
+
+
+youtubeSoundOnly() {
+  mpv --no-video $1
+}
+
+youtubePlayList(){
+  mpv --no-video "https://www.youtube.com/playlist?list=PLipob7bBXIahH_0AJCCN9Rv1PTJQPy64G"
+}
+
+clearChromeCache(){
+  rm -rf ~/.config/google-chrome
+  rm -rf ~/.config/google-chrome-beta
+  rm -rf ~/.config/google-chrome-unstable
+  rm -rf ~/.cache/google-chrome
+}
+
+
+checkRoot(){
+  if [ "$(id -u)" != "0" ]; then
+    echo "This script must be run as root" 1>&2
+    exit 1
+  fi
+}
+
+codeLibreofficeScript(){
+  startCode $DOTCONFIG_DIR/libreoffice/4/user/Scripts
+}
+
+PushingToGithub(){
+  # echo -e ${PALETTE_REVERSE}${PALETTE_GREEN}${PALETTE_BOLD}${PALETTE_BLINK} Pushing to github, bye... ${PALETTE_RESET}
+  testFlashGreenBackground " >     Pushing to github 🎉️🎉️🎉️ "
+}
+
+initPipenv(){
+  touch Pipfile
+  pipenv check
+  pipenv lock
+}
+
+initGithubActionsMasterBuild(){
+  mkdir -p .github/workflows
+  rsync -avh --progress /home/logic/_workspace/github-playlist/_templates/.github/workflows/_master_build.yml .github/workflows/master_build.yml
+  startCode .github/workflows/master_build.yml
+
+}
+
+sendTmateAddrToSlack(){
+  tm address
+  tm slack send_file home
+}
+
+prusaslicer(){
+  /home/logic/Appimage/PrusaSlicer-2.2.0+linux-x64-202003211856.AppImage
+}
+
+rsyncDirs(){
+  rsync -avz --exclude '.git' --exclude '.cache' $1 $2
+}
+
+genCert(){
+  # https://codebug.vip/questions-2185642.htm
+
+  openssl rand
+  touch ~/.rnd
+
+  set -x
+
+  # openssl genrsa -des3 -out rootCA.key 4096
+  openssl req -x509 -newkey rsa:4096 -sha256 -nodes -keyout example.key.pem -out example.cert.pem -subj "/CN=example.com" -days 30
+
+}
+
+codeDotFiles(){
+  startCode -n $DOTFILES_DIR/
+}
+
+
+syncDotFiles(){
+  testFlashBlueBackground ">     start sync dot files... "
+
+  cd $DOTFILES_DIR
+    git add -f $DOTFILES_DIR/.bash-palette.sh
+    git add -f $DOTFILES_DIR/.common.rc
+    git add -f $DOTFILES_DIR/.develop.rc
+    git add -f $DOTFILES_DIR/.firefox_alias.rc
+    git add -f $DOTFILES_DIR/.gitignore
+    git add -f $DOTFILES_DIR/.install.rc
+    git add -f $DOTFILES_DIR/.louis_alias
+    git add -f $DOTFILES_DIR/.raspi.rc
+    git add -f $DOTFILES_DIR/.ssh_alias.rc
+    git add -f $DOTFILES_DIR/.sshrc
+    git add -f $DOTFILES_DIR/.sshrc.d
+    git add -f $DOTFILES_DIR/.travis.rc
+    git add -f $DOTFILES_DIR/fabfile.py.old
+
+    git commit -m"update dot files,"
+
+    git pull
+    git push  > /dev/null 2>&1 & disown
+
+  cd -
+
+  PushingToGithub
+}
+
+# syncDotFilesAbonded(){
+#   testFlashBlueBackground "start sync dot files... "
+
+#   OWD=`pwd`
+
+#   cd $HOME
+#     rm -rf .louis_alias
+
+#     rm -rf .sshrc
+#     rm -rf .sshrc.d
+
+#     rm -rf .common.rc
+#     rm -rf .travis.rc
+#     rm -rf .install.rc
+#     rm -rf .raspi.rc
+
+#     # alias
+#     rm -rf .firefox_alias.rc
+#     rm -rf .ssh_alias.rc
+
+#     rm -rf .bash-palette.sh
+
+#     ln -s  $DOTFILES_DIR/.louis_alias .louis_alias
+#     ln -s  $DOTFILES_DIR/.sshrc .sshrc
+#     ln -s  $DOTFILES_DIR/.sshrc.d .sshrc.d
+
+#     ln -s  $DOTFILES_DIR/.ssh_alias.rc .ssh_alias.rc
+#     ln -s  $DOTFILES_DIR/.firefox_alias.rc .firefox_alias.rc
+
+#     ln -s  $DOTFILES_DIR/.bash-palette.sh .bash-palette.sh
+#     ln -s  $DOTFILES_DIR/.raspi.rc .raspi.rc
+#     ln -s  $DOTFILES_DIR/.common.rc .common.rc
+#     ln -s  $DOTFILES_DIR/.travis.rc .travis.rc
+#     ln -s  $DOTFILES_DIR/.install.rc .install.rc
+
+#   cd $DOTFILES_DIR
+#     git pull
+#     git add -f $DOTFILES_DIR/.gitignore
+#     git add -f $DOTFILES_DIR/.louis_alias
+#     git add -f $DOTFILES_DIR/.sshrc
+#     git add -f $DOTFILES_DIR/.sshrc.d
+
+#     git add -f $DOTFILES_DIR/.ssh_alias.rc
+#     git add -f $DOTFILES_DIR/.firefox_alias.rc
+#     git add -f $DOTFILES_DIR/.develop.rc
+
+#     git add -f $DOTFILES_DIR/.bash-palette.sh
+#     git add -f $DOTFILES_DIR/.raspi.rc
+#     git add -f $DOTFILES_DIR/.common.rc
+#     git add -f $DOTFILES_DIR/.travis.rc
+#     git add -f $DOTFILES_DIR/.install.rc
+
+#     git add -f $DOTFILES_DIR/fabfile.py.old
+
+#     git commit -m"update dot files,"
+#     git pull
+
+#     git push &
+
+#     PushingToGithub
+
+#   cd $OWD
+
+#   set +ex
+# }
+
+checkLeaking(){
+  TMP_DIR=$(mktemp -d)
+
+  cd $TMP_DIR
+    rsync -avzh --progress /home/logic/_workspace/travis-playlist/travis-check-leak/ .
+
+    pipenv sync
+    pipenv run python3 main.py $PWD
+  cd -
+
+  trap 'rm -rf $TMP_DIR' EXIT
+
+}
+
+gcoPush(){
+  set -x
+  git fetch --all --prune --jobs=100
+
+  git checkout -b $1
+  CURR_REPO=`git rev-parse --abbrev-ref HEAD`
+  git push --set-upstream origin $CURR_REPO
+}
+
+gitPushNewBranch() {
+  set -e
+
+  CURR_REPO=`git rev-parse --abbrev-ref HEAD`
+  git push -f --set-upstream origin $CURR_REPO  $@ &
+
+  PushingToGithub
+
+  set +e
+}
+
+gitPush(){
+
+  git push &
+  testFlashGreenBackground "git push in background , bye... "
+
+}
+
+updateCredentials() {
+  rsync -a -e "ssh -p $HOME_SSH_PORT" /home/logic/.credentials.rc logic@$HOME_IP:/home/logic
+}
+
+gitResetMasterCommits(){
+  git branch -D latest_branch
+  git checkout --orphan latest_branch
+  git add -A
+  git commit -am "ci: reset master commit"
+  git branch -D master
+  git branch -m master
+  git push -f origin master
+
+}
+
+getAllGitWorkBranch(){
+  git branch -r > $DEL_DIR/branches_all.txt
+  grep -v 'develop\|master\|gh-pages' $DEL_DIR/branches_all.txt > $DEL_DIR/branches_to_delete.txt
+  startCode $DEL_DIR/branches_to_delete.txt
+}
+
+gcoNewBranch(){
+
+SCRIPT_ARG="$@" python << END
+import os,sys
+import subprocess
+from pprint import pprint
+branch_name='-'.join(os.environ['SCRIPT_ARG'].split(' '))
+command = 'git checkout -b {}'.format(branch_name)
+# print("command: {}".format(command))
+print(subprocess.check_output(command.split(' ')))
+END
+
+echo 'done'
+}
+
+delGitWorkBranch(){
+python << END
+import subprocess
+from multiprocessing.dummy import Pool as ThreadPool
+from subprocess import check_output
+
+def command(n):
+  command = "git push -d origin " + n
+  print('deleting branch' + n + ' ... ')
+  return check_output(command.split(' '))
+
+def calculateParallel(branches, threads=2):
+    pool = ThreadPool(threads)
+    results = pool.map(command, branches)
+    pool.close()
+    pool.join()
+    return results
+
+branches = open('/home/logic/_del/branches_to_delete.txt', 'r').readlines()
+branch_list = [branch.replace('  origin/','').strip() for branch in branches]
+results = calculateParallel(branch_list, 4)
+for result in results:
+    print(result)
+
+END
+  echo "done"
+}
+
+findAllHost() {
+  nmap -sP 192.168.10.0/24
+}
+
+cleanNodeModules(){
+  testFlashGreenBackground 'starting to clean the node_modules directories ... '
+
+  find . -name "node_modules" -type d -prune -exec rm -rf '{}' +
+
+  testFlashGreenBackground 'done'
+}
+
+cleanPipenvCache(){
+  testFlashGreenBackground 'starting to clean the pipenv directories ... '
+
+  rm -rf /home/logic/.local/share/virtualenvs/*
+
+  testFlashGreenBackground 'done'
+}
+
+gitSync(){
+  set -x
+
+  testFlashGreenBackground 'syncing to git repo...'
+
+  git fetch --all
+  git merge origin/develop &
+  git merge origin/master &
+  wait
+
+  testFlashGreenBackground 'done'
+
+  set +x
+}
+
+liveServerHttps(){
+  live-server --https=/usr/local/lib/node_modules/live-server-https $1
+}
+
+wgetMirror(){
+  wget --mirror --convert-links --adjust-extension --page-requisites --no-parent $1
+
+}
+
+clearPageCache(){
+  echo 'sync'
+  echo 'echo 1 > /proc/sys/vm/drop_caches'
+
+  sudo sysctl vm.drop_caches=3
+}
+
+trash(){
+  mv $@ $HOME/.local/share/Trash/files
+}
+
+sendWormHole(){
+  HOSTNAME=`hostname`
+  rm -rf /tmp/temp.zip
+  zip -r -P $HOSTNAME /tmp/temp.zip $1
+  wormhole send /tmp/temp.zip
+}
+
+syncGitWorks(){
+  set -x
+
+python3 << END
+import os,sys
+import subprocess
+from pprint import pprint
+from subprocess import check_output, Popen
+
+list_git_directories = list(sorted(
+  set([
+  '/home/logic/_workspace/appium-playlist',
+  '/home/logic/_workspace/AR9331-playlist',
+  '/home/logic/_workspace/CNC-playlist',
+  '/home/logic/_workspace/company-background-search',
+  '/home/logic/_workspace/cubieboard2-playlist',
+  '/home/logic/_workspace/daily-page-tapping',
+  '/home/logic/_workspace/deno-playlist',
+  '/home/logic/_workspace/docsify-playlist',
+  '/home/logic/_workspace/esp32-cam-playlist',
+  '/home/logic/_workspace/expo-playlist',
+  '/home/logic/_workspace/freecad-playlist',
+  '/home/logic/_workspace/gatsbyjs-playlist',
+  '/home/logic/_workspace/github-playlist',
+  '/home/logic/_workspace/i3mega-playlist',
+  '/home/logic/_workspace/js-playlist',
+  '/home/logic/_workspace/louiscklaw',
+  '/home/logic/_workspace/Makefile-playlist',
+  '/home/logic/_workspace/nextjs-playlist',
+  '/home/logic/_workspace/nmap-playlist',
+  '/home/logic/_workspace/orange-pi-zero-playlist',
+  '/home/logic/_workspace/page-change-detect-tryout',
+  '/home/logic/_workspace/portfolio-gatsby',
+  '/home/logic/_workspace/preactjs-playlist',
+  '/home/logic/_workspace/puppeteer-playlist',
+  '/home/logic/_workspace/python-playlist',
+  '/home/logic/_workspace/raspberry-pi-playlist',
+  '/home/logic/_workspace/react-playlist',
+  '/home/logic/_workspace/rust-playlist',
+  '/home/logic/_workspace/selenium-playlist',
+  '/home/logic/_workspace/sfx-power-supply-playlist',
+  '/home/logic/_workspace/travis-playlist',
+  '/home/logic/_workspace/web-playlist',
+  '/home/logic/_workspace/micropython-playlist',
+  '/home/logic/_workspace/platformio-playlist',
+  '/home/logic/_workspace/webpack-playlist'
+])
+))
+
+for git_dir in list_git_directories:
+  try:
+    print('processing directory {}'.format(git_dir))
+    print('running git fetch',)
+    check_output('git fetch --all'.split(' '), cwd=git_dir)
+    print('running git pull',)
+    check_output('git pull origin master'.split(' '), cwd=git_dir)
+    check_output('git pull origin develop'.split(' '), cwd=git_dir)
+    print('running git push',)
+    check_output('git push'.split(' '), cwd=git_dir)
+
+  except Exception as e:
+    print('error during processing directory {} ...'.format(git_dir))
+    raise e
+END
+
+  set +x
+}
+
+syncGitWorks1(){
+  set -x
+
+  echo "sync git works "
+  OWD=`pwd`
+
+  cd /home/logic/_workspace/appium-playlist && gitSync
+  cd /home/logic/_workspace/AR9331-playlist && gitSync
+  # archived
+  # cd /home/logic/_workspace/buildkite-playlist && gitSync
+  cd /home/logic/_workspace/CNC-playlist && gitSync
+  cd /home/logic/_workspace/company-background-search && gitSync
+  cd /home/logic/_workspace/cubieboard2-playlist && gitSync
+  cd /home/logic/_workspace/deno-playlist && gitSync
+  # # cd /home/logic/_workspace/docker-playlist && gitSync
+  # cd /home/logic/_workspace/docsify-playlist && gitSync
+  # cd /home/logic/_workspace/esp32-cam-playlist && gitSync
+  # cd /home/logic/_workspace/expo-playlist && gitSync
+  # cd /home/logic/_workspace/freecad-playlist && gitSync
+  # cd /home/logic/_workspace/gatsbyjs-playlist && gitSync
+  # # cd /home/logic/_workspace/genimage-playlist && gitSync
+  # cd /home/logic/_workspace/github-playlist && gitSync
+  # # archived
+  # # cd /home/logic/_workspace/graphQL-playlist && gitSync
+  # cd /home/logic/_workspace/i3mega-playlist && gitSync
+  # cd /home/logic/_workspace/js-playlist && gitSync
+  # cd /home/logic/_workspace/louiscklaw && gitSync
+  # cd /home/logic/_workspace/Makefile-playlist && gitSync
+  # cd /home/logic/_workspace/nextjs-playlist && gitSync
+  # cd /home/logic/_workspace/nmap-playlist && gitSync
+  # cd /home/logic/_workspace/orange-pi-zero-playlist && gitSync
+  # cd /home/logic/_workspace/page-change-detect-tryout && gitSync
+  # cd /home/logic/_workspace/portfolio-gatsby && gitSync
+  # cd /home/logic/_workspace/preactjs-playlist && gitSync
+  # cd /home/logic/_workspace/puppeteer-playlist && gitSync
+  # cd /home/logic/_workspace/python-playlist && gitSync
+  # cd /home/logic/_workspace/raspberry-pi-playlist && gitSync
+  # cd /home/logic/_workspace/react-playlist && gitSync
+  # cd /home/logic/_workspace/rust-playlist && gitSync
+  # cd /home/logic/_workspace/selenium-playlist && gitSync
+  # cd /home/logic/_workspace/sfx-power-supply-playlist && gitSync
+  # cd /home/logic/_workspace/travis-playlist && gitSync
+  # cd /home/logic/_workspace/webpack-playlist && gitSync
+  # cd /home/logic/_workspace/web-playlist && gitSync
+  # cd /home/logic/_workspace/daily-page-tapping && gitSync
+  # cd /home/logic/_workspace/youtube-split-view-tryout-admin && gitSync
+
+  cd $OWD
+
+  wait
+
+  set +ex
+
+  echo "done !"
+}
+
+editStock(){
+  cd $WORKSPACE_DIR/stock_buy_sell_sheet/fetch-yahoo-finance
+    ./run.sh &
+
+  cd $WORKSPACE_DIR/stock_buy_sell_sheet
+
+    libreoffice ./buy_sell_record.ods &
+    libreoffice ./plan_sheets.ods &
+
+    wait
+  cd ~
+}
+
+codeStock(){
+  startCode $WORKSPACE_DIR/stock_buy_sell_sheet/fetch-yahoo-finance
+}
+
+syncStock(){
+  echo "sync stock"
+  cd $WORKSPACE_DIR/stock_buy_sell_sheet
+    git pull
+
+    git add .
+
+    git commit -m"update,"
+
+    git push &
+  cd -
+
+  echo "done !"
+}
+
+gitClone(){
+  set -ex
+
+  git clone $1 &
+
+  set +ex
+}
+
+syncAll_delete(){
+  set -e
+
+  syncGitWorks
+  syncTodo
+  syncStock
+  syncDotFiles
+
+  set +e
+
+  echo "syncall done"
+
+}
+
+rsyncCloneNodeProject(){
+  rsync -avz --exclude 'node_modules' --exclude 'public' $1/ $2
+}
+
+backupEtcToHome(){
+  sudo rsync -avzh --progress /etc/ /home/logic/etc_backup
+}
+
+gitCloneMyProject(){
+  git clone --depth=10 git@github.com:louiscklaw/$1.git
+}
+
+newGatsbyProject(){
+
+  gatsby new .
+
+  yarn add prettier --dev --exact
+
+  yarn add gatsby-plugin-offline
+
+  yarn add gatsby-plugin-sass
+  yarn add node-sass
+
+  yarn add firebase
+
+  yarn add lodash
+  yarn add bulma
+  yarn add @creativebulma/bulma-divider
+
+  yarn add react-hook-form
+
+  yarn build
+
+  cp .cache/default-html.js src/html.js
+
+}
+
+configUbuntu(){
+
+  # configure after done
+  sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+
+  # remove origional dock
+  sudo apt remove -y gnome-shell-extension-ubuntu-dock
+
+  # disable error reporting
+  sudo systemctl disable apport
+  sudo apt purge -y apport
+
+  # disable automount in gnome for usb device
+  gsettings set org.gnome.desktop.media-handling automount false
+  gsettings get org.gnome.desktop.media-handling automount
+
+  gsettings set org.gnome.desktop.media-handling automount-open false
+  gsettings get org.gnome.desktop.media-handling automount-open
+
+  sudo snap set system refresh.retain=2
+
+
+  # increase file watch number
+  echo fs.inotify.max_user_watches=1638400 | sudo tee -a /etc/sysctl.conf
+  sudo sysctl -p
+
+}
+
+codeImWheelRc(){
+  startCode ~/.imwheelrc
+}
+
+rsyncSsh(){
+  rsync -avzhe ssh /home/pi/ pi@192.168.88.81:/home/pi
+}
+
+openStockPlan(){
+  cd /home/logic/_workspace/stock_buy_sell_sheet
+    libreoffice ./plan_sheets.ods &
+  cd ~
+}
+
+findKB(){
+  testFlashBlueBackground "finding the terms "$@
+
+  find /home/logic/_workspace -type d -max-depth=1
+}
+
+rsyncGatsbyProject(){
+  rsync -avzh --exclude node_modules $@
+}
+
+testDNS(){
+  while true; do
+    nslookup $@ $RPI1_HOST
+    sleep 0.02
+  done
+}
+
+codeHist(){
+  startCode "$HISTFILE"
+}
+
+open(){
+  nohup nautilus . >/dev/null 2>&1 &
+}
+
+syncWorkspaceHome(){
+  OWD=$PWD
+
+  # gen_syncWorkDir_start
+  # generated by scripts/gen_syncWorkDir.py, don't edit this directly !!!
+
+  # # # # syncWorkDir "/home/logic/_workspace/hugo-playlist" &
+  # # # # syncWorkDir "/home/logic/_workspace/jenkins-playlist" &
+  # # # # syncWorkDir "/home/logic/_workspace/jobsdb-playlist" &
+  # # # # syncWorkDir "/home/logic/_workspace/markdown-playlist" &
+  # # # # syncWorkDir "/home/logic/_workspace/my-github-endpoint-playlist" &
+  # # # # syncWorkDir "/home/logic/_workspace/nmap-playlist" &
+  # # # # syncWorkDir "/home/logic/_workspace/robot-playlist" &
+  # # # # syncWorkDir "/home/logic/_workspace/rust-playlist" &
+  # # # # syncWorkDir "/home/logic/_workspace/sfx-power-supply-playlist" &
+  # # # syncWorkDir "/home/logic/_workspace/DS213-playlist" &
+  # # # syncWorkDir "/home/logic/_workspace/freenas-playlist" &
+  # # # syncWorkDir "/home/logic/_workspace/genimage-playlist" &
+  # # # syncWorkDir "/home/logic/_workspace/google-api-playlist" &
+  syncWorkDir "/home/logic/_workspace/webpack-playlist" &
+  # syncWorkDir "/home/logic/_workspace/buildkite-playlist" &
+  # syncWorkDir "/home/logic/_workspace/deno-playlist"
+  syncWorkDir "/home/logic/_workspace/drone-ci-playlist" &
+
+  # syncWorkDir "/home/logic/_workspace/aastock-playlist" &
+  # syncWorkDir "/home/logic/_workspace/ai-playlist" &
+  syncWorkDir "/home/logic/_workspace/appium-playlist" &
+  # syncWorkDir "/home/logic/_workspace/AR9331-playlist" &
+  # syncWorkDir "/home/logic/_workspace/arduino-playlist" &
+  # syncWorkDir "/home/logic/_workspace/CNC-playlist" &
+  # syncWorkDir "/home/logic/_workspace/code-coverage-playlist" &
+  # syncWorkDir "/home/logic/_workspace/cubieboard2-playlist" &
+  syncWorkDir "/home/logic/_workspace/docker-playlist" &
+  # syncWorkDir "/home/logic/_workspace/docsify-playlist" &
+  # syncWorkDir "/home/logic/_workspace/esp32-cam-playlist" &
+  # syncWorkDir "/home/logic/_workspace/esp32-playlist" &
+  syncWorkDir "/home/logic/_workspace/expo-playlist" &
+  syncWorkDir "/home/logic/_workspace/firebase-playlist" &
+  # syncWorkDir "/home/logic/_workspace/freecad-playlist" &
+  syncWorkDir "/home/logic/_workspace/gatsbyjs-playlist" &
+  syncWorkDir "/home/logic/_workspace/github-playlist" &
+  # syncWorkDir "/home/logic/_workspace/i3mega-playlist" &
+  syncWorkDir "/home/logic/_workspace/js-playlist" &
+  # syncWorkDir "/home/logic/_workspace/json-playlist" &
+  # syncWorkDir "/home/logic/_workspace/Makefile-playlist"
+  syncWorkDir "/home/logic/_workspace/nextjs-playlist" &
+  syncWorkDir "/home/logic/_workspace/orange-pi-zero-playlist" &
+  # syncWorkDir "/home/logic/_workspace/preactjs-playlist" &
+  syncWorkDir "/home/logic/_workspace/puppeteer-playlist" &
+  syncWorkDir "/home/logic/_workspace/python-playlist" &
+  syncWorkDir "/home/logic/_workspace/raspberry-pi-playlist" &
+  syncWorkDir "/home/logic/_workspace/react-playlist" &
+  # syncWorkDir "/home/logic/_workspace/selenium-playlist" &
+  # syncWorkDir "/home/logic/_workspace/travis-playlist" &
+  # syncWorkDir "/home/logic/_workspace/vue-playlist" &
+  # syncWorkDir "/home/logic/_workspace/web-playlist" &
+
+  # gen_syncWorkDir_end
+
+  # syncWorkDir "/home/logic/_workspace/my-inventory" &
+  # syncWorkDir "/home/logic/_workspace/page-change-detect-tryout" &
+
+  wait
+
+  cd $OWD
+}
+
+syncWorkspaceOffice(){
+  OWD=$PWD
+
+  # gen_syncWorkDir_start
+  # generated by scripts/gen_syncWorkDir.py, don't edit this directly !!!
+
+  # # # # syncWorkDir "/home/logic/_workspace/hugo-playlist" &
+  # # # # syncWorkDir "/home/logic/_workspace/jenkins-playlist" &
+  # # # # syncWorkDir "/home/logic/_workspace/jobsdb-playlist" &
+  syncWorkDir "/home/logic/_workspace/markdown-playlist" &
+  # # # # syncWorkDir "/home/logic/_workspace/my-github-endpoint-playlist" &
+  # # # # syncWorkDir "/home/logic/_workspace/nmap-playlist" &
+  # # # # syncWorkDir "/home/logic/_workspace/robot-playlist" &
+  # # # # syncWorkDir "/home/logic/_workspace/rust-playlist" &
+  # # # # syncWorkDir "/home/logic/_workspace/sfx-power-supply-playlist" &
+  # # # syncWorkDir "/home/logic/_workspace/DS213-playlist" &
+  # # # syncWorkDir "/home/logic/_workspace/freenas-playlist" &
+  # # # syncWorkDir "/home/logic/_workspace/genimage-playlist" &
+  # # # syncWorkDir "/home/logic/_workspace/google-api-playlist" &
+  syncWorkDir "/home/logic/_workspace/webpack-playlist" &
+  # syncWorkDir "/home/logic/_workspace/buildkite-playlist" &
+  # syncWorkDir "/home/logic/_workspace/deno-playlist"
+  # syncWorkDir "/home/logic/_workspace/drone-ci-playlist" &
+
+  syncWorkDir "/home/logic/_workspace/aastock-playlist" &
+  syncWorkDir "/home/logic/_workspace/ai-playlist" &
+  syncWorkDir "/home/logic/_workspace/appium-playlist" &
+  syncWorkDir "/home/logic/_workspace/AR9331-playlist" &
+  syncWorkDir "/home/logic/_workspace/arduino-playlist" &
+  syncWorkDir "/home/logic/_workspace/CNC-playlist" &
+  syncWorkDir "/home/logic/_workspace/code-coverage-playlist" &
+  syncWorkDir "/home/logic/_workspace/cubieboard2-playlist" &
+  syncWorkDir "/home/logic/_workspace/docker-playlist" &
+  syncWorkDir "/home/logic/_workspace/docsify-playlist" &
+  syncWorkDir "/home/logic/_workspace/esp32-cam-playlist" &
+  syncWorkDir "/home/logic/_workspace/esp32-playlist" &
+  syncWorkDir "/home/logic/_workspace/expo-playlist" &
+  syncWorkDir "/home/logic/_workspace/firebase-playlist" &
+  syncWorkDir "/home/logic/_workspace/freecad-playlist" &
+  syncWorkDir "/home/logic/_workspace/gatsbyjs-playlist" &
+  syncWorkDir "/home/logic/_workspace/github-playlist" &
+  syncWorkDir "/home/logic/_workspace/i3mega-playlist" &
+  syncWorkDir "/home/logic/_workspace/js-playlist" &
+  syncWorkDir "/home/logic/_workspace/json-playlist" &
+  syncWorkDir "/home/logic/_workspace/Makefile-playlist" &
+  syncWorkDir "/home/logic/_workspace/nextjs-playlist" &
+  syncWorkDir "/home/logic/_workspace/orange-pi-zero-playlist" &
+  syncWorkDir "/home/logic/_workspace/preactjs-playlist" &
+  syncWorkDir "/home/logic/_workspace/puppeteer-playlist" &
+  syncWorkDir "/home/logic/_workspace/python-playlist" &
+  # syncWorkDir "/home/logic/_workspace/raspberry-pi-playlist" &
+  syncWorkDir "/home/logic/_workspace/react-playlist" &
+  syncWorkDir "/home/logic/_workspace/selenium-playlist" &
+  syncWorkDir "/home/logic/_workspace/travis-playlist" &
+  syncWorkDir "/home/logic/_workspace/vue-playlist" &
+  syncWorkDir "/home/logic/_workspace/web-playlist" &
+
+  # gen_syncWorkDir_end
+
+  syncWorkDir "/home/logic/_workspace/my-inventory" &
+  syncWorkDir "/home/logic/_workspace/page-change-detect-tryout" &
+
+  wait
+
+  cd $OWD
+}
+
+syncLouis(){
+  syncDotFiles
+
+  resourceMe
+
+  syncTodo
+  syncInventory
+  syncStock
+  syncWorkspace
+
+  echo 'syncdone'
+
+}
+
+listAlias(){
+  grep -ri "(){" . |sort
+}
+
+rsyncHome(){
+  for i in $(ls -1 $@); do
+    rsync -avzh --progress -e "ssh -p $HOME_SSH_PORT" $i logic@$HOME_IP:/home/logic/Downloads &
+  done
+
+  wait
+}
+
+
+changeVoice(){
+  set -ex
+  # https://itectec.com/ubuntu/ubuntu-is-there-a-way-to-modulate-the-voice-on-the-fly/
+  echo "start pavucontrol yourself"
+
+  pactl load-module module-null-sink
+
+  sox -t pulseaudio default -t pulseaudio null pitch +800
+
+}
+
+alias helloworld='echo 123321'
+
+# echo '.parking.rc init done'
