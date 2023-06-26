@@ -6,6 +6,7 @@
 
 export MOZ_ENABLE_WAYLAND=1
 export PATH=$PATH:/home/logic/.yarn/bin:/home/logic/node_modules/.bin
+export WORKSPACE_DIR=/workspace
 
 
 alias dnfRemove='sudo dnf remove'
@@ -24,89 +25,89 @@ startCode(){
 
 alias googleChrome='/usr/bin/google-chrome-stable --disk-cache-size=68157440 --disable-web-security --use-gl=desktop --enable-features=VaapiVideoDecoder --ignore-gpu-blacklist --enable-gpu-rasterization --enable-parallel-downloading --smooth-scrolling --enable-zero-copy '
 
-if [[ -e $HOME/_workspace/dotfiles/.python.rc ]]; then
-  source $HOME/_workspace/dotfiles/.python.rc
+if [[ -e $WORKSPACE_DIR/dotfiles/.python.rc ]]; then
+  source $WORKSPACE_DIR/dotfiles/.python.rc
 fi
 
-if [[ -e $HOME/_workspace/dotfiles/.android.rc ]]; then
-  source $HOME/_workspace/dotfiles/.android.rc
+if [[ -e $WORKSPACE_DIR/dotfiles/.android.rc ]]; then
+  source $WORKSPACE_DIR/dotfiles/.android.rc
 fi
 
 if [[ -e $HOME/.credentials.rc ]]; then
   source $HOME/.credentials.rc
 fi
 
-if [[ -e $HOME/_workspace/dotfiles/.lynked_shortcut.rc ]]; then
-  source $HOME/_workspace/dotfiles/.lynked_shortcut.rc
+if [[ -e $WORKSPACE_DIR/dotfiles/.lynked_shortcut.rc ]]; then
+  source $WORKSPACE_DIR/dotfiles/.lynked_shortcut.rc
 fi
 
-if [[ -e $HOME/_workspace/dotfiles/.github_action.rc ]]; then
-  source $HOME/_workspace/dotfiles/.github_action.rc
+if [[ -e $WORKSPACE_DIR/dotfiles/.github_action.rc ]]; then
+  source $WORKSPACE_DIR/dotfiles/.github_action.rc
 fi
 
-if [[ -e $HOME/_workspace/dotfiles/.date.rc ]]; then
-  source $HOME/_workspace/dotfiles/.date.rc
+if [[ -e $WORKSPACE_DIR/dotfiles/.date.rc ]]; then
+  source $WORKSPACE_DIR/dotfiles/.date.rc
 fi
 
-if [[ -e $HOME/_workspace/dotfiles/.common.rc ]]; then
-  source $HOME/_workspace/dotfiles/.common.rc
+if [[ -e $WORKSPACE_DIR/dotfiles/.common.rc ]]; then
+  source $WORKSPACE_DIR/dotfiles/.common.rc
 fi
 
-if [[ -e $HOME/_workspace/dotfiles/.electronic.rc ]]; then
-  source $HOME/_workspace/dotfiles/.electronic.rc
+if [[ -e $WORKSPACE_DIR/dotfiles/.electronic.rc ]]; then
+  source $WORKSPACE_DIR/dotfiles/.electronic.rc
 fi
 
-if [[ -e $HOME/_workspace/dotfiles/.secret.rc ]]; then
-  source $HOME/_workspace/dotfiles/.secret.rc
+if [[ -e $WORKSPACE_DIR/dotfiles/.secret.rc ]]; then
+  source $WORKSPACE_DIR/dotfiles/.secret.rc
 fi
 
-if [[ -e $HOME/_workspace/dotfiles/.bash-palette.sh ]]; then
-  source $HOME/_workspace/dotfiles/.bash-palette.sh
+if [[ -e $WORKSPACE_DIR/dotfiles/.bash-palette.sh ]]; then
+  source $WORKSPACE_DIR/dotfiles/.bash-palette.sh
 fi
 
-if [[ -e $HOME/_workspace/dotfiles/.raspi.rc ]]; then
-  source $HOME/_workspace/dotfiles/.raspi.rc
+if [[ -e $WORKSPACE_DIR/dotfiles/.raspi.rc ]]; then
+  source $WORKSPACE_DIR/dotfiles/.raspi.rc
 fi
 
-if [[ -e $HOME/_workspace/dotfiles/.travis.rc ]]; then
-  source $HOME/_workspace/dotfiles/.travis.rc
+if [[ -e $WORKSPACE_DIR/dotfiles/.travis.rc ]]; then
+  source $WORKSPACE_DIR/dotfiles/.travis.rc
 fi
 
-if [[ -e $HOME/_workspace/dotfiles/.drone.rc ]]; then
-  source $HOME/_workspace/dotfiles/.drone.rc
+if [[ -e $WORKSPACE_DIR/dotfiles/.drone.rc ]]; then
+  source $WORKSPACE_DIR/dotfiles/.drone.rc
 fi
 
-if [[ -e $HOME/_workspace/dotfiles/.install.rc ]]; then
-  source $HOME/_workspace/dotfiles/.install.rc
+if [[ -e $WORKSPACE_DIR/dotfiles/.install.rc ]]; then
+  source $WORKSPACE_DIR/dotfiles/.install.rc
 fi
 
-if [[ -e $HOME/_workspace/dotfiles/.ssh_alias.rc ]]; then
-  source $HOME/_workspace/dotfiles/.ssh_alias.rc
+if [[ -e $WORKSPACE_DIR/dotfiles/.ssh_alias.rc ]]; then
+  source $WORKSPACE_DIR/dotfiles/.ssh_alias.rc
 fi
 
-if [[ -e $HOME/_workspace/dotfiles/.develop.rc ]]; then
-  source $HOME/_workspace/dotfiles/.develop.rc
+if [[ -e $WORKSPACE_DIR/dotfiles/.develop.rc ]]; then
+  source $WORKSPACE_DIR/dotfiles/.develop.rc
 fi
 
 
-if [[ -e $HOME/_workspace/dotfiles/.firefox_alias.rc ]]; then
-  source $HOME/_workspace/dotfiles/.firefox_alias.rc
+if [[ -e $WORKSPACE_DIR/dotfiles/.firefox_alias.rc ]]; then
+  source $WORKSPACE_DIR/dotfiles/.firefox_alias.rc
 fi
 
-if [[ -e $HOME/_workspace/dotfiles/.fabric.rc ]]; then
-  source $HOME/_workspace/dotfiles/.fabric.rc
+if [[ -e $WORKSPACE_DIR/dotfiles/.fabric.rc ]]; then
+  source $WORKSPACE_DIR/dotfiles/.fabric.rc
 fi
 
-if [[ -e $HOME/_workspace/dotfiles/.js.rc ]]; then
-  source $HOME/_workspace/dotfiles/.js.rc
+if [[ -e $WORKSPACE_DIR/dotfiles/.js.rc ]]; then
+  source $WORKSPACE_DIR/dotfiles/.js.rc
 fi
 
-if [[ -e $HOME/_workspace/dotfiles/.docker.rc ]]; then
-  source $HOME/_workspace/dotfiles/.docker.rc
+if [[ -e $WORKSPACE_DIR/dotfiles/.docker.rc ]]; then
+  source $WORKSPACE_DIR/dotfiles/.docker.rc
 fi
 
-if [[ -e $HOME/_workspace/dotfiles/.directory.rc ]]; then
-  source $HOME/_workspace/dotfiles/.directory.rc
+if [[ -e $WORKSPACE_DIR/dotfiles/.directory.rc ]]; then
+  source $WORKSPACE_DIR/dotfiles/.directory.rc
 fi
 
 updateFirebase(){
@@ -283,37 +284,37 @@ syncDotFiles(){
 
     rm -rf .bash-palette.sh
 
-    ln -s  $HOME/_workspace/dotfiles/.louis_alias .louis_alias
-    ln -s  $HOME/_workspace/dotfiles/.sshrc .sshrc
-    ln -s  $HOME/_workspace/dotfiles/.sshrc.d .sshrc.d
+    ln -s  $WORKSPACE_DIR/dotfiles/.louis_alias .louis_alias
+    ln -s  $WORKSPACE_DIR/dotfiles/.sshrc .sshrc
+    ln -s  $WORKSPACE_DIR/dotfiles/.sshrc.d .sshrc.d
 
-    ln -s  $HOME/_workspace/dotfiles/.ssh_alias.rc .ssh_alias.rc
-    ln -s  $HOME/_workspace/dotfiles/.firefox_alias.rc .firefox_alias.rc
+    ln -s  $WORKSPACE_DIR/dotfiles/.ssh_alias.rc .ssh_alias.rc
+    ln -s  $WORKSPACE_DIR/dotfiles/.firefox_alias.rc .firefox_alias.rc
 
-    ln -s  $HOME/_workspace/dotfiles/.bash-palette.sh .bash-palette.sh
-    ln -s  $HOME/_workspace/dotfiles/.raspi.rc .raspi.rc
-    ln -s  $HOME/_workspace/dotfiles/.common.rc .common.rc
-    ln -s  $HOME/_workspace/dotfiles/.travis.rc .travis.rc
-    ln -s  $HOME/_workspace/dotfiles/.install.rc .install.rc
+    ln -s  $WORKSPACE_DIR/dotfiles/.bash-palette.sh .bash-palette.sh
+    ln -s  $WORKSPACE_DIR/dotfiles/.raspi.rc .raspi.rc
+    ln -s  $WORKSPACE_DIR/dotfiles/.common.rc .common.rc
+    ln -s  $WORKSPACE_DIR/dotfiles/.travis.rc .travis.rc
+    ln -s  $WORKSPACE_DIR/dotfiles/.install.rc .install.rc
 
-  cd $HOME/_workspace/dotfiles
+  cd $WORKSPACE_DIR/dotfiles
     git pull
-    git add -f $HOME/_workspace/dotfiles/.gitignore
-    git add -f $HOME/_workspace/dotfiles/.louis_alias
-    git add -f $HOME/_workspace/dotfiles/.sshrc
-    git add -f $HOME/_workspace/dotfiles/.sshrc.d
+    git add -f $WORKSPACE_DIR/dotfiles/.gitignore
+    git add -f $WORKSPACE_DIR/dotfiles/.louis_alias
+    git add -f $WORKSPACE_DIR/dotfiles/.sshrc
+    git add -f $WORKSPACE_DIR/dotfiles/.sshrc.d
 
-    git add -f $HOME/_workspace/dotfiles/.ssh_alias.rc
-    git add -f $HOME/_workspace/dotfiles/.firefox_alias.rc
-    git add -f $HOME/_workspace/dotfiles/.develop.rc
+    git add -f $WORKSPACE_DIR/dotfiles/.ssh_alias.rc
+    git add -f $WORKSPACE_DIR/dotfiles/.firefox_alias.rc
+    git add -f $WORKSPACE_DIR/dotfiles/.develop.rc
 
-    git add -f $HOME/_workspace/dotfiles/.bash-palette.sh
-    git add -f $HOME/_workspace/dotfiles/.raspi.rc
-    git add -f $HOME/_workspace/dotfiles/.common.rc
-    git add -f $HOME/_workspace/dotfiles/.travis.rc
-    git add -f $HOME/_workspace/dotfiles/.install.rc
+    git add -f $WORKSPACE_DIR/dotfiles/.bash-palette.sh
+    git add -f $WORKSPACE_DIR/dotfiles/.raspi.rc
+    git add -f $WORKSPACE_DIR/dotfiles/.common.rc
+    git add -f $WORKSPACE_DIR/dotfiles/.travis.rc
+    git add -f $WORKSPACE_DIR/dotfiles/.install.rc
 
-    git add -f $HOME/_workspace/dotfiles/fabfile.py.old
+    git add -f $WORKSPACE_DIR/dotfiles/fabfile.py.old
 
     git commit -m"update dot files,"
     git pull
@@ -476,7 +477,7 @@ updateAndPowerOff(){
 
 
 resourceMe(){
-  source $HOME/_workspace/dotfiles/.louis_alias
+  source $WORKSPACE_DIR/dotfiles/.louis_alias
 }
 
 liveServerHttps(){
@@ -992,20 +993,20 @@ changeVoice(){
 
 alias createReactApp='npx create-react-app .'
 
-if [[ -e $HOME/_workspace/github-playlist/gitignore-template/scripts.rc ]]; then
-  source $HOME/_workspace/github-playlist/gitignore-template/scripts.rc
+if [[ -e $WORKSPACE_DIR/github-playlist/gitignore-template/scripts.rc ]]; then
+  source $WORKSPACE_DIR/github-playlist/gitignore-template/scripts.rc
 fi
 
-if [[ -e $HOME/_workspace/github-playlist/editorconfig/scripts.rc ]]; then
-  source $HOME/_workspace/github-playlist/editorconfig/scripts.rc
+if [[ -e $WORKSPACE_DIR/github-playlist/editorconfig/scripts.rc ]]; then
+  source $WORKSPACE_DIR/github-playlist/editorconfig/scripts.rc
 fi
 
-if [[ -e $HOME/_workspace/github-playlist/editorconfig/scripts.rc ]]; then
-  source $HOME/_workspace/github-playlist/editorconfig/scripts.rc
+if [[ -e $WORKSPACE_DIR/github-playlist/editorconfig/scripts.rc ]]; then
+  source $WORKSPACE_DIR/github-playlist/editorconfig/scripts.rc
 fi
 
-if [[ -e $HOME/_workspace/docker-playlist/scripts.rc ]]; then
-  source $HOME/_workspace/docker-playlist/scripts.rc
+if [[ -e $WORKSPACE_DIR/docker-playlist/scripts.rc ]]; then
+  source $WORKSPACE_DIR/docker-playlist/scripts.rc
 fi
 
 alias dnfRemove='sudo dnf remove --allowerasing --assumeyes'
