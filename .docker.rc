@@ -45,19 +45,16 @@ dockerClearAll(){
 
   echo 'wait a while'
 
-  for i in {1..10}; do
+  for i in {1..5}; do
     echo "cleaning $i ..."
 
     docker container prune -f
     # docker system prune -f
     # docker volume prune -f
     # docker network prune -f
-
   done
-
   # docker image prune -f
   # docker image rm `docker images -qa`
-
 }
 
 dockerReset(){
@@ -66,7 +63,8 @@ dockerReset(){
   docker rmi -f `docker images -qa `
   docker volume rm $(docker volume ls -q)
   docker network rm `docker network ls -q`
-
+  docker system prune -f
+  docker container prune -f
 }
 
 droneCiHelloworld(){
