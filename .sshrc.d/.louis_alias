@@ -43,15 +43,15 @@ travisOpen(){
 
 }
 
-syncDotFiles(){
-  set -x
-  cd /home/logic
-    git pull
-    git add -f /home/logic/.louis_alias .gitignore
-    git commit -m"update dot files,"
-    git push
-  cd -
-}
+# syncDotFiles(){
+#   set -x
+#   cd $HOME
+#     # git pull
+#     # git add -f $HOME/.louis_alias .gitignore
+#     # git commit -m"update dot files,"
+#     # git push
+#   cd -
+# }
 
 initHusky(){
   yarn add -D husky @commitlint/{config-conventional,cli}

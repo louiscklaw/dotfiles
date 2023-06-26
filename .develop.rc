@@ -157,6 +157,9 @@ alias nr='npm run'
 alias nits='npm install $@ --save && npm install --dev --save $@'
 
 
+alias codeSongList='code ~/_workspace/dotfiles/.songlist.rc'
+
+
 gitCloneAllPlaylist(){
   gitCloneShallow git@github.com:louiscklaw/react-playlist.git  &
   gitCloneShallow git@github.com:louiscklaw/python-playlist.git  &
@@ -442,3 +445,6 @@ keepTry(){
   echo 'bye ... '
 
 }
+
+
+# echo '.develop.rc init done'

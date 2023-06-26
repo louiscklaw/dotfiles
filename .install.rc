@@ -4,9 +4,6 @@
 
 export DEBIAN_FRONTEND=noninteractive
 
-if [[ -e $HOME/.common.rc ]]; then
-  source $HOME/.common.rc
-fi
 
 installCUHKUbuntuRepo(){
 installTzdata

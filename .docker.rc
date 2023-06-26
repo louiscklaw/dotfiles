@@ -254,3 +254,5 @@ dockerRunTravisNodejs12(){
     logickee/travis_node12 \
     /bin/bash
 }
+
+# echo '.docker.rc init done'

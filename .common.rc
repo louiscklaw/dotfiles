@@ -99,9 +99,6 @@ codeFirefoxAlias(){
 }
 
 alias cdf='startCode -n /home/logic/_workspace/dotfiles/'
-codeDotFiles(){
-  startCode -n /home/logic/_workspace/dotfiles/
-}
 
 codeLouisAlias(){
   code /home/logic/_workspace/dotfiles/.louis_alias
@@ -192,3 +189,6 @@ random-string()
 {
   cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-32} | head -n 1
 }
+
+
+# echo '.common.rc init done'

@@ -2,10 +2,6 @@
 
 # set -x
 
-if [[ -e $HOME/.common.rc ]]; then
-  source $HOME/.common.rc
-fi
-
 travisConditionTests(){
   set -x
   travis-conditions eval "branch = master" --data '{"branch": "master"}'
