@@ -104,4 +104,5 @@ ASSUME_YES=1
 
 true
 
-echo '.louis_alias init done'
+testFlashBlueBackground '> .louis_alias init done 🎉️🎉️🎉️ '
+echo ''
