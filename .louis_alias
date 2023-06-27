@@ -22,7 +22,11 @@ alias ariaDownload='aria2c -x 16 -s 99999 --dht-listen-port=51000-51099'
 
 # 64*1024*1024
 startCode(){
-  code --disk-cache-size=65536 $@
+  code --disk-cache-size=8192 $@
+}
+
+codeDotFiles(){
+  startCode -n $DOTFILES_DIR/
 }
 
 alias googleChrome='/usr/bin/google-chrome-stable --disk-cache-size=68157440 --disable-web-security --use-gl=desktop --enable-features=VaapiVideoDecoder --ignore-gpu-blacklist --enable-gpu-rasterization --enable-parallel-downloading --smooth-scrolling --enable-zero-copy '

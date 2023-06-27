@@ -7,32 +7,32 @@ export BROWSER=none
 
 WEB_BROWSER=google-chrome
 
-alias chromeMom='mkdir -p /home/logic/_workspace/chrome_profile/mom && google-chrome-stable --user-data-dir=/home/logic/_workspace/chrome_profile/mom &'
-alias chromeLogic='mkdir -p /home/logic/_workspace/chrome_profile/logic && google-chrome-stable --user-data-dir=/home/logic/_workspace/chrome_profile/logic &'
-alias chromeLouis='mkdir -p /home/logic/_workspace/chrome_profile/louis && google-chrome-stable --user-data-dir=/home/logic/_workspace/chrome_profile/louis &'
-alias chromeDev='mkdir -p /home/logic/_workspace/chrome_profile/testhelloworld04 && google-chrome-stable --user-data-dir=/home/logic/_workspace/chrome_profile/testhelloworld04 &'
-alias chromePrivate='mkdir -p /home/logic/_workspace/chrome_profile/private && google-chrome-stable --user-data-dir=/home/logic/_workspace/chrome_profile/private &'
+alias chromeMom="mkdir -p $WORKSPACE_DIR/chrome_profile/mom && google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/mom &"
+alias chromeLogic="mkdir -p $WORKSPACE_DIR/chrome_profile/logic && google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/logic &"
+alias chromeLouis="mkdir -p $WORKSPACE_DIR/chrome_profile/louis && google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/louis &"
+alias chromeDev="mkdir -p $WORKSPACE_DIR/chrome_profile/testhelloworld04 && google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/testhelloworld04 &"
+alias chromePrivate="mkdir -p $WORKSPACE_DIR/chrome_profile/private && google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/private &"
 
-alias chromeUser1='mkdir -p /home/logic/_workspace/chrome_profile/user1 && google-chrome-stable --user-data-dir=/home/logic/_workspace/chrome_profile/user1 &'
-alias chromeUser2='mkdir -p /home/logic/_workspace/chrome_profile/user2 && google-chrome-stable --user-data-dir=/home/logic/_workspace/chrome_profile/user2 &'
-alias chromeUser3='mkdir -p /home/logic/_workspace/chrome_profile/user3 && google-chrome-stable --user-data-dir=/home/logic/_workspace/chrome_profile/user3 &'
-alias chromeUser4='mkdir -p /home/logic/_workspace/chrome_profile/user4 && google-chrome-stable --user-data-dir=/home/logic/_workspace/chrome_profile/user4 &'
-alias chromeUser5='mkdir -p /home/logic/_workspace/chrome_profile/user5 && google-chrome-stable --user-data-dir=/home/logic/_workspace/chrome_profile/user5 &'
-alias chromeUser6='mkdir -p /home/logic/_workspace/chrome_profile/user6 && google-chrome-stable --user-data-dir=/home/logic/_workspace/chrome_profile/user6 &'
+alias chromeUser1="mkdir -p $WORKSPACE_DIR/chrome_profile/user1 && google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/user1 &"
+alias chromeUser2="mkdir -p $WORKSPACE_DIR/chrome_profile/user2 && google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/user2 &"
+alias chromeUser3="mkdir -p $WORKSPACE_DIR/chrome_profile/user3 && google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/user3 &"
+alias chromeUser4="mkdir -p $WORKSPACE_DIR/chrome_profile/user4 && google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/user4 &"
+alias chromeUser5="mkdir -p $WORKSPACE_DIR/chrome_profile/user5 && google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/user5 &"
+alias chromeUser6="mkdir -p $WORKSPACE_DIR/chrome_profile/user6 && google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/user6 &"
 
 
-alias firefoxMom='mkdir -p /home/logic/_workspace/firefox_profile/mom && firefox --new-instance --profile /home/logic/_workspace/firefox_profile/mom &'
-alias firefoxLogic='mkdir -p /home/logic/_workspace/firefox_profile/logic && firefox --new-instance --profile /home/logic/_workspace/firefox_profile/logic &'
-alias firefoxLouis='mkdir -p /home/logic/_workspace/firefox_profile/louis && firefox --new-instance --profile /home/logic/_workspace/firefox_profile/louis &'
-alias firefoxDev='mkdir -p /home/logic/_workspace/firefox_profile/testhelloworld04 && firefox --new-instance --profile /home/logic/_workspace/firefox_profile/testhelloworld04 &'
-alias firefoxPrivate='mkdir -p /home/logic/_workspace/firefox_profile/private && firefox --new-instance --profile /home/logic/_workspace/firefox_profile/private &'
+alias firefoxMom="mkdir -p $WORKSPACE_DIR/firefox_profile/mom && firefox --new-instance --profile $WORKSPACE_DIR/firefox_profile/mom &"
+alias firefoxLogic="mkdir -p $WORKSPACE_DIR/firefox_profile/logic && firefox --new-instance --profile $WORKSPACE_DIR/firefox_profile/logic &"
+alias firefoxLouis="mkdir -p $WORKSPACE_DIR/firefox_profile/louis && firefox --new-instance --profile $WORKSPACE_DIR/firefox_profile/louis &"
+alias firefoxDev="mkdir -p $WORKSPACE_DIR/firefox_profile/testhelloworld04 && firefox --new-instance --profile $WORKSPACE_DIR/firefox_profile/testhelloworld04 &"
+alias firefoxPrivate="mkdir -p $WORKSPACE_DIR/firefox_profile/private && firefox --new-instance --profile $WORKSPACE_DIR/firefox_profile/private &"
 
-alias firefoxUser1='mkdir -p /home/logic/_workspace/firefox_profile/user1 && firefox --new-instance --profile /home/logic/_workspace/firefox_profile/user1 &'
-alias firefoxUser2='mkdir -p /home/logic/_workspace/firefox_profile/user2 && firefox --new-instance --profile /home/logic/_workspace/firefox_profile/user2 &'
-alias firefoxUser3='mkdir -p /home/logic/_workspace/firefox_profile/user3 && firefox --new-instance --profile /home/logic/_workspace/firefox_profile/user3 &'
-alias firefoxUser4='mkdir -p /home/logic/_workspace/firefox_profile/user4 && firefox --new-instance --profile /home/logic/_workspace/firefox_profile/user4 &'
-alias firefoxUser5='mkdir -p /home/logic/_workspace/firefox_profile/user5 && firefox --new-instance --profile /home/logic/_workspace/firefox_profile/user5 &'
-alias firefoxUser6='mkdir -p /home/logic/_workspace/firefox_profile/user6 && firefox --new-instance --profile /home/logic/_workspace/firefox_profile/user6 &'
+alias firefoxUser1="mkdir -p $WORKSPACE_DIR/firefox_profile/user1 && firefox --new-instance --profile $WORKSPACE_DIR/firefox_profile/user1 &"
+alias firefoxUser2="mkdir -p $WORKSPACE_DIR/firefox_profile/user2 && firefox --new-instance --profile $WORKSPACE_DIR/firefox_profile/user2 &"
+alias firefoxUser3="mkdir -p $WORKSPACE_DIR/firefox_profile/user3 && firefox --new-instance --profile $WORKSPACE_DIR/firefox_profile/user3 &"
+alias firefoxUser4="mkdir -p $WORKSPACE_DIR/firefox_profile/user4 && firefox --new-instance --profile $WORKSPACE_DIR/firefox_profile/user4 &"
+alias firefoxUser5="mkdir -p $WORKSPACE_DIR/firefox_profile/user5 && firefox --new-instance --profile $WORKSPACE_DIR/firefox_profile/user5 &"
+alias firefoxUser6="mkdir -p $WORKSPACE_DIR/firefox_profile/user6 && firefox --new-instance --profile $WORKSPACE_DIR/firefox_profile/user6 &"
 
 alias cloneGithubLouis='git clone git@github.com:louiscklaw/'
 alias clonePlaylist='git clone git@github.com:louiscklaw/js-playlist.git'
@@ -81,15 +81,15 @@ alias codeI3megaPlaylist='code ~/_workspace/i3mega-playlist'
 alias codeIonicPlaylist='code -n ~/_workspace/ionic-playlist'
 alias codeJob='code /media/logic/B829-3585/ws.code-workspace'
 alias codeJobQueuePlaylist='code -n ~/_workspace/job-queue-playlist'
-alias codeJobsDBPlaylist='code /home/logic/_workspace/jobsdb-playlist'
-alias codeJobSearchTryout='code /home/logic/_workspace/jobs_search_tryout'
+alias codeJobsDBPlaylist='code $WORKSPACE_DIR/jobsdb-playlist'
+alias codeJobSearchTryout='code $WORKSPACE_DIR/jobs_search_tryout'
 alias codeJsonPlaylist='code ~/_workspace/json-playlist'
 alias codeJsPlaylist='code ~/_workspace/js-playlist'
 alias codeWordpressPlaylist='code ~/_workspace/wordpress-playlist'
 alias codeKicadPlaylist='code ~/_workspace/kicad-playlist'
 alias codeLogseq='/home/logic/Appimage/Logseq.AppImage'
 alias codeLynkedBackup='code ~/_workspace/lynked-backup'
-alias codeLynkedTicket='code /home/logic/_workspace/LYNKED_QA_project/_tickets'
+alias codeLynkedTicket='code $WORKSPACE_DIR/LYNKED_QA_project/_tickets'
 alias codeM5stackPlaylist='code ~/_workspace/m5stack-playlist'
 alias codeMakefilePlaylist='code ~/_workspace/Makefile-playlist'
 alias codeMarpPlaylist='code ~/_workspace/marp-playlist'
@@ -126,7 +126,7 @@ alias codeVuePlaylist='code ~/_workspace/vue-playlist'
 alias codeWebpackPlaylist='code ~/_workspace/webpack-playlist'
 alias codeWebPlaylist='code ~/_workspace/web-playlist'
 alias codeWebScrapePlaylist='code ~/_workspace/web-scrape-playlist'
-alias codeWorkspace='code /home/logic/_workspace'
+alias codeWorkspace='code $WORKSPACE_DIR'
 alias codeWorkspace='code ~/_workspace'
 alias codeYahooFinancePlaylist='code ~/_workspace/yahoo-finance-playlist'
 alias codeYoutubePlaylist='code ~/_workspace/youtube-playlist'
@@ -175,11 +175,11 @@ gitCloneAllPlaylist(){
 
 codeLynkedQaProject(){
   code ~/_workspace/LYNKED_QA.code-workspace
-  code /home/logic/_workspace/LYNKED_QA_project/LYNKED_QA.code-workspace
+  code $WORKSPACE_DIR/LYNKED_QA_project/LYNKED_QA.code-workspace
 }
 
 meldToLynkedQaProject(){
-  meld $PWD /home/logic/_workspace/LYNKED_QA_project
+  meld $PWD $WORKSPACE_DIR/LYNKED_QA_project
 }
 
 
@@ -283,7 +283,7 @@ installDroneCli(){
 }
 
 buildDockerUbuntuLouis(){
-  cd /home/logic/_workspace/drone-ci-playlist/hello-ubuntu
+  cd $WORKSPACE_DIR/drone-ci-playlist/hello-ubuntu
     docker build -t logickee/ubuntu-basic .
   cd -
 }
@@ -334,7 +334,7 @@ initWorkspace(){
 }
 
 getDefaultCommitLintConfig(){
-  cp /home/logic/_workspace/travis-playlist/commitlint.config.js .
+  cp $WORKSPACE_DIR/travis-playlist/commitlint.config.js .
 }
 
 checkoutOrphanBranch(){
@@ -376,7 +376,7 @@ initNpm(){
 }
 
 gitCloneWork(){
-  cd /home/logic/_workspace
+  cd $WORKSPACE_DIR
     git clone --depth=10 $@ &
   cd -
 }
