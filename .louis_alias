@@ -104,5 +104,6 @@ ASSUME_YES=1
 
 true
 
-testFlashBlueBackground '> .louis_alias init done 🎉️🎉️🎉️ '
+CURRENT_COMMIT_FINGERPRINT=`git rev-parse HEAD`
+testFlashBlueBackground "> .louis_alias init done 🎉️🎉️🎉️ $CURRENT_COMMIT_FINGERPRINT"
 echo ''
