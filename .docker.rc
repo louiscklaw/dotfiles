@@ -58,13 +58,26 @@ dockerClearAll(){
 }
 
 dockerReset(){
+  echo "clear all docker"
   docker stop `docker ps -qa`
   docker rm `docker ps -qa`
-  docker rmi -f `docker images -qa `
+
   docker volume rm $(docker volume ls -q)
   docker network rm `docker network ls -q`
   docker system prune -f
   docker container prune -f
+}
+
+dockerResetImage(){
+  echo "clear all docker and image"
+  docker stop `docker ps -qa`
+  docker rm `docker ps -qa`
+  docker volume rm $(docker volume ls -q)
+  docker network rm `docker network ls -q`
+  docker container prune -f
+  docker system prune -f
+
+  docker rmi -f `docker images -qa `
 }
 
 droneCiHelloworld(){
