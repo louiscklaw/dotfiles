@@ -130,6 +130,9 @@ alias codeWorkspace='code $WORKSPACE_DIR'
 alias codeWorkspace='code ~/_workspace'
 alias codeYahooFinancePlaylist='code ~/_workspace/yahoo-finance-playlist'
 alias codeYoutubePlaylist='code ~/_workspace/youtube-playlist'
+alias codeApplicationFlowTryout='code /workspace/application-flow-tryout'
+
+
 alias createReactNativeApp='npx create-react-native-app'
 
 alias codeDadPlaylist='code ~/_workspace/dad-playlist'
