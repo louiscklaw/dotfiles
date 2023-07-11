@@ -21,18 +21,19 @@ alias chromeUser5="mkdir -p $WORKSPACE_DIR/chrome_profile/user5 && google-chrome
 alias chromeUser6="mkdir -p $WORKSPACE_DIR/chrome_profile/user6 && google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/user6 &"
 
 
-alias firefoxMom="mkdir -p $WORKSPACE_DIR/firefox_profile/mom && firefox --new-instance --profile $WORKSPACE_DIR/firefox_profile/mom &"
-alias firefoxLogic="mkdir -p $WORKSPACE_DIR/firefox_profile/logic && firefox --new-instance --profile $WORKSPACE_DIR/firefox_profile/logic &"
-alias firefoxLouis="mkdir -p $WORKSPACE_DIR/firefox_profile/louis && firefox --new-instance --profile $WORKSPACE_DIR/firefox_profile/louis &"
-alias firefoxDev="mkdir -p $WORKSPACE_DIR/firefox_profile/testhelloworld04 && firefox --new-instance --profile $WORKSPACE_DIR/firefox_profile/testhelloworld04 &"
-alias firefoxPrivate="mkdir -p $WORKSPACE_DIR/firefox_profile/private && firefox --new-instance --profile $WORKSPACE_DIR/firefox_profile/private &"
+alias firefoxMom="mkdir -p $WORKSPACE_DIR/firefox_profile/mom && firefox --profile $WORKSPACE_DIR/firefox_profile/mom &"
+alias firefoxLogic="mkdir -p $WORKSPACE_DIR/firefox_profile/logic && firefox --profile $WORKSPACE_DIR/firefox_profile/logic &"
+alias firefoxLouis="mkdir -p $WORKSPACE_DIR/firefox_profile/louis && firefox --profile $WORKSPACE_DIR/firefox_profile/louis &"
+alias firefoxDev="mkdir -p $WORKSPACE_DIR/firefox_profile/testhelloworld04 && firefox --profile $WORKSPACE_DIR/firefox_profile/testhelloworld04 &"
+alias firefoxPrivate="mkdir -p $WORKSPACE_DIR/firefox_profile/private && firefox --profile $WORKSPACE_DIR/firefox_profile/private &"
+alias firefoxLynked="mkdir -p $WORKSPACE_DIR/firefox_profile/lynked && firefox --profile $WORKSPACE_DIR/firefox_profile/lynked &"
 
-alias firefoxUser1="mkdir -p $WORKSPACE_DIR/firefox_profile/user1 && firefox --new-instance --profile $WORKSPACE_DIR/firefox_profile/user1 &"
-alias firefoxUser2="mkdir -p $WORKSPACE_DIR/firefox_profile/user2 && firefox --new-instance --profile $WORKSPACE_DIR/firefox_profile/user2 &"
-alias firefoxUser3="mkdir -p $WORKSPACE_DIR/firefox_profile/user3 && firefox --new-instance --profile $WORKSPACE_DIR/firefox_profile/user3 &"
-alias firefoxUser4="mkdir -p $WORKSPACE_DIR/firefox_profile/user4 && firefox --new-instance --profile $WORKSPACE_DIR/firefox_profile/user4 &"
-alias firefoxUser5="mkdir -p $WORKSPACE_DIR/firefox_profile/user5 && firefox --new-instance --profile $WORKSPACE_DIR/firefox_profile/user5 &"
-alias firefoxUser6="mkdir -p $WORKSPACE_DIR/firefox_profile/user6 && firefox --new-instance --profile $WORKSPACE_DIR/firefox_profile/user6 &"
+alias firefoxUser1="mkdir -p $WORKSPACE_DIR/firefox_profile/user1 && firefox --profile $WORKSPACE_DIR/firefox_profile/user1 &"
+alias firefoxUser2="mkdir -p $WORKSPACE_DIR/firefox_profile/user2 && firefox --profile $WORKSPACE_DIR/firefox_profile/user2 &"
+alias firefoxUser3="mkdir -p $WORKSPACE_DIR/firefox_profile/user3 && firefox --profile $WORKSPACE_DIR/firefox_profile/user3 &"
+alias firefoxUser4="mkdir -p $WORKSPACE_DIR/firefox_profile/user4 && firefox --profile $WORKSPACE_DIR/firefox_profile/user4 &"
+alias firefoxUser5="mkdir -p $WORKSPACE_DIR/firefox_profile/user5 && firefox --profile $WORKSPACE_DIR/firefox_profile/user5 &"
+alias firefoxUser6="mkdir -p $WORKSPACE_DIR/firefox_profile/user6 && firefox --profile $WORKSPACE_DIR/firefox_profile/user6 &"
 
 alias cloneGithubLouis='git clone git@github.com:louiscklaw/'
 alias clonePlaylist='git clone git@github.com:louiscklaw/js-playlist.git'
