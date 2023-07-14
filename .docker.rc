@@ -57,26 +57,22 @@ dockerClearAll(){
   # docker image rm `docker images -qa`
 }
 
+dockerResetVolume(){
+  echo "clear all volume"
+  docker volume rm $(docker volume ls -q)
+}
+
 dockerReset(){
   echo "clear all docker"
   docker stop `docker ps -qa`
   docker rm `docker ps -qa`
-
-  docker volume rm $(docker volume ls -q)
   docker network rm `docker network ls -q`
   docker system prune -f
   docker container prune -f
 }
 
 dockerResetImage(){
-  echo "clear all docker and image"
-  docker stop `docker ps -qa`
-  docker rm `docker ps -qa`
-  docker volume rm $(docker volume ls -q)
-  docker network rm `docker network ls -q`
-  docker container prune -f
-  docker system prune -f
-
+  docker image prune
   docker rmi -f `docker images -qa `
 }
 
@@ -111,6 +107,8 @@ dockerRun(){
     -v ~/.ssh/known_host:/home/node/.ssh/known_hosts:ro \
     -p 3000 \
     -p 8090:8090 \
+    -p 5000:5000 \
+    -p 9000:9000 \
     -p 5555-5560:5555 \
     --rm \
     $@
