@@ -3,6 +3,15 @@
 # git config --global user.name 'louiscklaw'
 # git config --global user.email 'louiscklaw@users.noreply.github.com'
 
+# https://developer.android.com/tools/variables
+export ANDROID_HOME=/home/logic/Android
+export ANDROID_USER_HOME=/home/logic/.android
+
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/bin
+
 export BROWSER=none
 
 WEB_BROWSER=google-chrome
