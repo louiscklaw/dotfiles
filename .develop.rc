@@ -5,6 +5,7 @@
 
 # https://developer.android.com/tools/variables
 export ANDROID_HOME=/home/logic/Android
+export ANDROID_SDK_ROOT=/home/logic/Android
 export ANDROID_USER_HOME=/home/logic/.android
 
 export PATH=$PATH:$ANDROID_HOME/tools
