@@ -52,13 +52,9 @@ alias firefoxUser5="mkdir -p $WORKSPACE_DIR/firefox_profile/user5 && firefox --p
 alias firefoxUser6="mkdir -p $WORKSPACE_DIR/firefox_profile/user6 && firefox --profile $WORKSPACE_DIR/firefox_profile/user6 &"
 
 alias firefoxProxied="mkdir -p $WORKSPACE_DIR/firefox_profile/proxied && firefox --profile $WORKSPACE_DIR/firefox_profile/proxied &"
-
-
+alias firefoxMitm="mkdir -p $WORKSPACE_DIR/firefox_profile/mitm && firefox --profile $WORKSPACE_DIR/firefox_profile/mitm &"
 
 alias edgeProxied="mkdir -p $WORKSPACE_DIR/edge_profile/proxied && microsoft-edge-stable --user-data-dir=$WORKSPACE_DIR/edge_profile/proxied &"
-
-
-
 
 alias cloneGithubLouis='git clone git@github.com:louiscklaw/'
 alias clonePlaylist='git clone git@github.com:louiscklaw/js-playlist.git'
