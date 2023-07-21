@@ -17,6 +17,9 @@ export BROWSER=none
 
 WEB_BROWSER=google-chrome
 
+alias appiumInspector="$HOME/AppImage/Appium-Inspector-linux-2023.7.1.AppImage &"
+
+
 alias chromeMom="mkdir -p $WORKSPACE_DIR/chrome_profile/mom && google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/mom &"
 alias chromeLogic="mkdir -p $WORKSPACE_DIR/chrome_profile/logic && google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/logic &"
 alias chromeLouis="mkdir -p $WORKSPACE_DIR/chrome_profile/louis && google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/louis &"
