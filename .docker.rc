@@ -40,41 +40,45 @@ dcipf(){
 
 dockerClearAll(){
   echo "clear all docker."
-
-  docker kill `docker ps -qa`  2>&1
-
-  echo 'wait a while'
-
-  for i in {1..5}; do
-    echo "cleaning $i ..."
-
-    docker container prune -f
-    # docker system prune -f
-    # docker volume prune -f
-    # docker network prune -f
+  for i in `docker ps -qa`; do
+    docker kill "$i" &
   done
-  # docker image prune -f
-  # docker image rm `docker images -qa`
+  wait
+
+  docker container prune -f 2>&1
 }
 
-dockerResetVolume(){
-  echo "clear all volume"
-  docker volume rm $(docker volume ls -q)
-}
 
-dockerReset(){
-  echo "clear all docker"
-  docker stop `docker ps -qa`
-  docker rm `docker ps -qa`
-  docker network rm `docker network ls -q`
-  docker system prune -f
+dockerResetAll(){
+  echo "clear all docker configuration ... "
+
+  for i in `docker ps -qa`; do
+    docker kill "$i" &
+    docker stop "$i" &
+  done
+
+  for i in `docker network ls -qa`; do
+    docker network rm "$i" &
+  done
+  for i in `docker volume ls -qa`; do
+    docker volume rm "$i" &
+  done
+  for i in `docker images ls -qa`; do
+    docker images rm "$i" &
+  done
+  for i in `docker image ls -qa`; do
+    docker image rm "$i" &
+  done
+  wait
+
   docker container prune -f
+  docker system prune -f
+  docker volume prune -f
+  docker network prune -f
+  docker image prune -f
+
 }
 
-dockerResetImage(){
-  docker image prune
-  docker rmi -f `docker images -qa `
-}
 
 droneCiHelloworld(){
   docker run \
