@@ -60,7 +60,7 @@ alias cloneGithubLouis='git clone git@github.com:louiscklaw/'
 alias clonePlaylist='git clone git@github.com:louiscklaw/js-playlist.git'
 alias cloneToWorkspace='cd ~/_workspace && git clone '
 
-
+alias codeRecovery='startCode /recovery'
 alias codeMyInventory='startCode ~/_workspace/my-inventory'
 alias codeNuc8i5behTryout='startCode ~/_workspace/logic-NUC8i5BEH-tryout'
 alias codeLaravelPlaylist='startCode ~/_workspace/laravel-playlist'
