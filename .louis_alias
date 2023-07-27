@@ -22,7 +22,7 @@ alias ariaDownload='aria2c -x 16 -s 99999 --dht-listen-port=51000-51099'
 
 # 64*1024*1024
 startCode(){
-  code --disk-cache-size=8192 $@
+  code --disk-cache-size=131072 $@
 }
 
 codeDotFiles(){
