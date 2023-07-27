@@ -41,7 +41,7 @@ alias firefoxMom="mkdir -p $WORKSPACE_DIR/firefox_profile/mom && firefox --profi
 alias firefoxLogic="mkdir -p $WORKSPACE_DIR/firefox_profile/logic && firefox --profile $WORKSPACE_DIR/firefox_profile/logic &"
 alias firefoxLouis="mkdir -p $WORKSPACE_DIR/firefox_profile/louis && firefox --profile $WORKSPACE_DIR/firefox_profile/louis &"
 alias firefoxDev="mkdir -p $WORKSPACE_DIR/firefox_profile/testhelloworld04 && firefox --profile $WORKSPACE_DIR/firefox_profile/testhelloworld04 &"
-alias firefoxPrivate="mkdir -p $WORKSPACE_DIR/firefox_profile/private && firefox --profile $WORKSPACE_DIR/firefox_profile/private &"
+alias firefoxDirty="mkdir -p $WORKSPACE_DIR/firefox_profile/dirty && firefox --profile $WORKSPACE_DIR/firefox_profile/dirty &"
 alias firefoxLynked="mkdir -p $WORKSPACE_DIR/firefox_profile/lynked && firefox --profile $WORKSPACE_DIR/firefox_profile/lynked &"
 
 alias firefoxUser1="mkdir -p $WORKSPACE_DIR/firefox_profile/user1 && firefox --profile $WORKSPACE_DIR/firefox_profile/user1 &"
@@ -60,6 +60,8 @@ alias cloneGithubLouis='git clone git@github.com:louiscklaw/'
 alias clonePlaylist='git clone git@github.com:louiscklaw/js-playlist.git'
 alias cloneToWorkspace='cd ~/_workspace && git clone '
 
+
+alias codeMyInventory='startCode ~/_workspace/my-inventory'
 alias codeNuc8i5behTryout='startCode ~/_workspace/logic-NUC8i5BEH-tryout'
 alias codeLaravelPlaylist='startCode ~/_workspace/laravel-playlist'
 alias codeResumePlaylist='startCode ~/_workspace/resume-playlist'
