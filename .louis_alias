@@ -16,6 +16,8 @@ export DEL_DIR=$HOME/_del
 
 export JAVA_TOOL_OPTIONS='-Xms2048m -Xmx4096m'
 
+alias ytDlp="yt-dlp -N 10"
+
 alias ariaDownload='aria2c -x 16 -s 99999 --dht-listen-port=51000-51099'
 
 # code='/usr/share/code/code --ignore-gpu-blacklist --enable-gpu-rasterization --enable-native-gpu-memory-buffers  --force-gpu-rasterization --enable-oop-rasterization  --enable-zero-copy   --no-sandbox --unity-launch'
