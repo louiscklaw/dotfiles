@@ -184,6 +184,7 @@ dockerRunNest(){
 }
 
 # alias dockerRunUbuntu1804='dockerRun logickee/ubuntu_1804'
+alias dockerRunMyUbuntu2204='dockerRun logickee/ubuntu_2204 bash'
 alias dockerRunUbuntu2204='dockerRun ubuntu:22.04 bash'
 alias dockerRunUbuntu2004='dockerRun ubuntu:20.04 bash'
 alias dockerRunUbuntu1804='dockerRun ubuntu:18.04 bash'
