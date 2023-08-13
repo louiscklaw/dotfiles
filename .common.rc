@@ -6,6 +6,8 @@ alias pi="pnpm i"
 alias ni="npm i"
 alias yi="yarn i"
 
+alias sudoDnfUpgrade="sudo dnf upgrade -y"
+
 gitCloneDel () {
   pushd ~/_workspace/_del
   # mkdir -p $1
