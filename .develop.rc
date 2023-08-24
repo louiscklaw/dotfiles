@@ -35,6 +35,11 @@ alias chromeUser6="mkdir -p $WORKSPACE_DIR/chrome_profile/user6 && google-chrome
 
 alias chromeProxied="mkdir -p $WORKSPACE_DIR/chrome_profile/proxied && google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/proxied &"
 
+alias firefoxIntel="mkdir -p $WORKSPACE_DIR/firefox_profile/testhelloworld04 && LIBVA_DRIVER_NAME=iHD firefox --profile $WORKSPACE_DIR/firefox_profile/testhelloworld04 & disown"
+alias firefoxNvidia="mkdir -p $WORKSPACE_DIR/firefox_profile/testhelloworld04 && NVD_BACKEND=direct MOZ_DISABLE_RDD_SANDBOX=1 firefox --profile $WORKSPACE_DIR/firefox_profile/testhelloworld04 & disown"
+
+
+
 
 alias firefoxDad="mkdir -p $WORKSPACE_DIR/firefox_profile/dad && firefox --profile $WORKSPACE_DIR/firefox_profile/dad & disown"
 alias firefoxMom="mkdir -p $WORKSPACE_DIR/firefox_profile/mom && firefox --profile $WORKSPACE_DIR/firefox_profile/mom & disown"
