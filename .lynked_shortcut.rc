@@ -27,10 +27,10 @@ codeMenyDbBackup(){
 export MENY_WK_DIR='/home/logic/_workspace/LynkedKK/lynked-demo-tryout/meny-light-demo'
 codeMenySrc(){
   set -x
-  startCode -n $MENY_WK_DIR/meny-admin  &
-  startCode -n $MENY_WK_DIR/meny-client  &
-  startCode -n $MENY_WK_DIR/meny-manage  &
-  startCode -n $MENY_WK_DIR/firebase  &
+  code $MENY_WK_DIR/meny-admin  &
+  code $MENY_WK_DIR/meny-client  &
+  code $MENY_WK_DIR/meny-manage  &
+  code $MENY_WK_DIR/firebase  &
 }
 
 

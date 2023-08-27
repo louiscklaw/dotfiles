@@ -63,9 +63,10 @@ mergeToMaster(){
   set +ex
 }
 
-codeQuotations(){
-  startCode $WORKSPACE_DIR/quotations
-}
+# codeQuotations(){
+#   code $WORKSPACE_DIR/quotations
+# }
+alias codeQuotations="code $WORKSPACE_DIR/quotations"
 
 # https://medium.com/@k21_79139/%E9%A6%99%E6%B8%AF%E9%9B%BB%E5%8F%B0%E7%9B%B4%E6%92%AD%E6%BA%90%E5%88%97%E8%A1%A8-29ddf6591c14
 radio_rthk1(){
@@ -562,9 +563,10 @@ editStock(){
   cd ~
 }
 
-codeStock(){
-  startCode $WORKSPACE_DIR/stock_buy_sell_sheet/fetch-yahoo-finance
-}
+# codeStock(){
+#   startCode $WORKSPACE_DIR/stock_buy_sell_sheet/fetch-yahoo-finance
+# }
+alias codeStock="code $WORKSPACE_DIR/stock_buy_sell_sheet/fetch-yahoo-finance"
 
 syncStock(){
   echo "sync stock"
@@ -668,9 +670,10 @@ configUbuntu(){
 
 }
 
-codeImWheelRc(){
-  startCode ~/.imwheelrc
-}
+# codeImWheelRc(){
+#   startCode ~/.imwheelrc
+# }
+alias codeImWheelRc="code ~/.imwheelrc"
 
 rsyncSsh(){
   rsync -avzhe ssh /home/pi/ pi@192.168.88.81:/home/pi
