@@ -48,6 +48,7 @@ alias firefoxLouis="mkdir -p $WORKSPACE_DIR/firefox_profile/louis && firefox --p
 alias firefoxDev="mkdir -p $WORKSPACE_DIR/firefox_profile/testhelloworld04 && firefox --profile $WORKSPACE_DIR/firefox_profile/testhelloworld04 & disown"
 alias firefoxDirty="mkdir -p $WORKSPACE_DIR/firefox_profile/dirty && firefox --profile $WORKSPACE_DIR/firefox_profile/dirty & disown"
 alias firefoxLynked="mkdir -p $WORKSPACE_DIR/firefox_profile/lynked && firefox --profile $WORKSPACE_DIR/firefox_profile/lynked & disown"
+alias firefoxDemo="rm -rf /tmp/firefox_demo && mkdir -p /tmp/firefox_demo && firefox --profile $WORKSPACE_DIR/firefox_profile/firefox_demo & disown"
 
 alias firefoxUser1="mkdir -p $WORKSPACE_DIR/firefox_profile/user1 && firefox --profile $WORKSPACE_DIR/firefox_profile/user1 & disown"
 alias firefoxUser2="mkdir -p $WORKSPACE_DIR/firefox_profile/user2 && firefox --profile $WORKSPACE_DIR/firefox_profile/user2 & disown"
