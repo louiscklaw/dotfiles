@@ -30,7 +30,7 @@ alias chromeUser1="mkdir -p $WORKSPACE_DIR/chrome_profile/user1 && google-chrome
 alias chromeUser2="mkdir -p $WORKSPACE_DIR/chrome_profile/user2 && google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/user2 & disown"
 alias chromeUser3="mkdir -p $WORKSPACE_DIR/chrome_profile/user3 && google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/user3 & disown"
 alias chromeUser4="mkdir -p $WORKSPACE_DIR/chrome_profile/user4 && google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/user4 & disown"
-alias chromeUser5="mkdir -p $WORKSPACE_DIR/chrome_profile/user5 && google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/user5 & disown"
+alias chromeUser5="mkdir -p $WORKSPACE_DIR/chrome_profile/user5 && google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/user5 --no-first-run & disown"
 alias chromeUser6="mkdir -p $WORKSPACE_DIR/chrome_profile/user6 && google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/user6 & disown"
 
 alias chromeProxied="mkdir -p $WORKSPACE_DIR/chrome_profile/proxied && google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/proxied &"
