@@ -38,14 +38,13 @@ alias chromeProxied="mkdir -p $WORKSPACE_DIR/chrome_profile/proxied && google-ch
 alias firefoxIntel="mkdir -p $WORKSPACE_DIR/firefox_profile/testhelloworld04 && LIBVA_DRIVER_NAME=iHD firefox --profile $WORKSPACE_DIR/firefox_profile/testhelloworld04 & disown"
 alias firefoxNvidia="mkdir -p $WORKSPACE_DIR/firefox_profile/testhelloworld04 && NVD_BACKEND=direct MOZ_DISABLE_RDD_SANDBOX=1 firefox --profile $WORKSPACE_DIR/firefox_profile/testhelloworld04 & disown"
 
-
-
-
 alias firefoxDad="mkdir -p $WORKSPACE_DIR/firefox_profile/dad && firefox --profile $WORKSPACE_DIR/firefox_profile/dad & disown"
 alias firefoxMom="mkdir -p $WORKSPACE_DIR/firefox_profile/mom && firefox --profile $WORKSPACE_DIR/firefox_profile/mom & disown"
 alias firefoxLogic="mkdir -p $WORKSPACE_DIR/firefox_profile/logic && firefox --profile $WORKSPACE_DIR/firefox_profile/logic & disown"
 alias firefoxLouis="mkdir -p $WORKSPACE_DIR/firefox_profile/louis && firefox --profile $WORKSPACE_DIR/firefox_profile/louis & disown"
 alias firefoxDev="mkdir -p $WORKSPACE_DIR/firefox_profile/testhelloworld04 && firefox --profile $WORKSPACE_DIR/firefox_profile/testhelloworld04 & disown"
+alias firefoxWork="mkdir -p $WORKSPACE_DIR/firefox_profile/work && firefox --profile $WORKSPACE_DIR/firefox_profile/work & disown"
+alias firefoxDiscord="mkdir -p $WORKSPACE_DIR/firefox_profile/firefox-discord && firefox --profile $WORKSPACE_DIR/firefox_profile/firefox-discord & disown"
 alias firefoxDirty="mkdir -p $WORKSPACE_DIR/firefox_profile/dirty && firefox --profile $WORKSPACE_DIR/firefox_profile/dirty & disown"
 alias firefoxLynked="mkdir -p $WORKSPACE_DIR/firefox_profile/lynked && firefox --profile $WORKSPACE_DIR/firefox_profile/lynked & disown"
 alias firefoxDemo="rm -rf /tmp/firefox_demo && mkdir -p /tmp/firefox_demo && firefox --profile $WORKSPACE_DIR/firefox_profile/firefox_demo & disown"
