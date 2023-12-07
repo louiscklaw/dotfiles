@@ -371,7 +371,7 @@ findAllHost() {
 cleanNodeModules(){
   testFlashGreenBackground 'starting to clean the node_modules directories ... '
 
-  find . -name "node_modules" -type d -prune -exec rm -rf '{}' +
+  sudo find . -name "node_modules" -type d -prune -exec rm -rf '{}' +
 
   testFlashGreenBackground 'done'
 }
