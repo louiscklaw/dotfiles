@@ -19,6 +19,8 @@ export BROWSER=none
 
 WEB_BROWSER=google-chrome
 
+alias dnfReinstall="sudo dnf reinstall -y kernel\* akmod\* nvidia\* gstreamer\*"
+
 alias appiumInspector="$HOME/AppImage/Appium-Inspector-linux-2023.7.1.AppImage &"
 
 
@@ -27,6 +29,8 @@ alias chromeLogic="mkdir -p $WORKSPACE_DIR/chrome_profile/logic && nice -15 goog
 alias chromeLouis="mkdir -p $WORKSPACE_DIR/chrome_profile/louis && nice -15 google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/louis & disown"
 alias chromeDev="mkdir -p $WORKSPACE_DIR/chrome_profile/testhelloworld04 && nice -15 google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/testhelloworld04 & disown"
 alias chromePrivate="mkdir -p $WORKSPACE_DIR/chrome_profile/private && nice -15 google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/private & disown"
+alias chromeLouisabsHi="mkdir -p $WORKSPACE_DIR/chrome_profile/louislabs_hi && nice -15 google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/louislabs_hi & disown"
+
 
 alias chromeUser1="mkdir -p $WORKSPACE_DIR/chrome_profile/user1 && nice -15 google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/user1 & disown"
 alias chromeUser2="mkdir -p $WORKSPACE_DIR/chrome_profile/user2 && nice -15 google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/user2 & disown"
@@ -35,31 +39,41 @@ alias chromeUser4="mkdir -p $WORKSPACE_DIR/chrome_profile/user4 && nice -15 goog
 alias chromeUser5="mkdir -p $WORKSPACE_DIR/chrome_profile/user5 && nice -15 google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/user5 --no-first-run & disown"
 alias chromeUser6="mkdir -p $WORKSPACE_DIR/chrome_profile/user6 && nice -15 google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/user6 & disown"
 
+alias chrome_dorothy="mkdir -p $WORKSPACE_DIR/chrome_profile/dorothy && nice -15 google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/dorothy -no-default-browser-check --no-first-run & disown"
+
 alias chromeProxied="mkdir -p $WORKSPACE_DIR/chrome_profile/proxied && google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/proxied &"
 
-alias firefoxIntel="mkdir -p $WORKSPACE_DIR/firefox_profile/testhelloworld04 && LIBVA_DRIVER_NAME=iHD nice -15 firefox --profile $WORKSPACE_DIR/firefox_profile/testhelloworld04 & disown"
-alias nice -15 firefoxNvidia="mkdir -p $WORKSPACE_DIR/firefox_profile/testhelloworld04 && NVD_BACKEND=direct MOZ_DISABLE_RDD_SANDBOX=1 nice -15 firefox --profile $WORKSPACE_DIR/firefox_profile/testhelloworld04 & disown"
+alias firefoxIntel="mkdir -p $WORKSPACE_DIR/firefox_profile/testhelloworld04 && LIBVA_DRIVER_NAME=iHD nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/testhelloworld04 & disown"
+alias firefoxNvidia="mkdir -p $WORKSPACE_DIR/firefox_profile/testhelloworld04 && NVD_BACKEND=direct MOZ_DISABLE_RDD_SANDBOX=1 nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/testhelloworld04 & disown"
 
-alias firefoxDad="mkdir -p $WORKSPACE_DIR/firefox_profile/dad  && nice -15 firefox --profile $WORKSPACE_DIR/firefox_profile/dad & disown"
-alias firefoxMom="mkdir -p $WORKSPACE_DIR/firefox_profile/mom  && nice -15 firefox --profile $WORKSPACE_DIR/firefox_profile/mom & disown"
-alias firefoxLogic="mkdir -p $WORKSPACE_DIR/firefox_profile/logic  && nice -15 firefox --profile $WORKSPACE_DIR/firefox_profile/logic & disown"
-alias firefoxLouis="mkdir -p $WORKSPACE_DIR/firefox_profile/louis  && nice -15 firefox --profile $WORKSPACE_DIR/firefox_profile/louis & disown"
-alias firefoxDev="mkdir -p $WORKSPACE_DIR/firefox_profile/testhelloworld04 && nice -20 firefox --profile $WORKSPACE_DIR/firefox_profile/testhelloworld04 & disown"
-alias firefoxWork="mkdir -p $WORKSPACE_DIR/firefox_profile/work  && nice -15 firefox --profile $WORKSPACE_DIR/firefox_profile/work & disown"
-alias firefoxDiscord="mkdir -p $WORKSPACE_DIR/firefox_profile/firefox-discord  && nice -15 firefox --profile $WORKSPACE_DIR/firefox_profile/firefox-discord & disown"
-alias firefoxDirty="mkdir -p $WORKSPACE_DIR/firefox_profile/dirty  && nice -15 firefox --profile $WORKSPACE_DIR/firefox_profile/dirty & disown"
-alias firefoxLynked="mkdir -p $WORKSPACE_DIR/firefox_profile/lynked  && nice -15 firefox --profile $WORKSPACE_DIR/firefox_profile/lynked & disown"
-alias firefoxDemo="rm -rf /tmp/firefox_demo && mkdir -p /tmp/firefox_demo  && nice -15 firefox --profile $WORKSPACE_DIR/firefox_profile/firefox_demo & disown"
+alias firefoxDad="mkdir -p $WORKSPACE_DIR/firefox_profile/dad  && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/dad & disown"
+alias firefoxMom="mkdir -p $WORKSPACE_DIR/firefox_profile/mom  && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/mom & disown"
+alias firefoxLogic="mkdir -p $WORKSPACE_DIR/firefox_profile/logic  && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/logic & disown"
+alias firefoxLouis="mkdir -p $WORKSPACE_DIR/firefox_profile/louis  && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/louis & disown"
+alias firefoxDev="mkdir -p $WORKSPACE_DIR/firefox_profile/testhelloworld04 && nice -20 firefox_dev --profile $WORKSPACE_DIR/firefox_profile/testhelloworld04 & disown"
+alias firefoxWork="mkdir -p $WORKSPACE_DIR/firefox_profile/work  && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/work & disown"
+alias firefoxDiscord="mkdir -p $WORKSPACE_DIR/firefox_profile/firefox-discord  && NVD_BACKEND=direct MOZ_DISABLE_RDD_SANDBOX=1 nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/firefox-discord & disown"
+alias firefoxDirty="mkdir -p $WORKSPACE_DIR/firefox_profile/dirty  && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/dirty & disown"
+alias firefoxLynked="mkdir -p $WORKSPACE_DIR/firefox_profile/lynked  && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/lynked & disown"
+alias firefoxDemo="rm -rf /tmp/firefox_demo && mkdir -p /tmp/firefox_demo  && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/firefox_demo & disown"
+alias firefoxInternal="mkdir -p $WORKSPACE_DIR/firefox_profile/internal && nice -20 firefox --profile $WORKSPACE_DIR/firefox_profile/internal & disown"
+alias firefoxWongcfubackup="mkdir -p $WORKSPACE_DIR/firefox_profile/wongcfubackup && nice -20 firefox --profile $WORKSPACE_DIR/firefox_profile/wongcfubackup & disown"
 
-alias firefoxUser1="mkdir -p $WORKSPACE_DIR/firefox_profile/user1 && nice -15 firefox --profile $WORKSPACE_DIR/firefox_profile/user1 & disown"
-alias firefoxUser2="mkdir -p $WORKSPACE_DIR/firefox_profile/user2 && nice -15 firefox --profile $WORKSPACE_DIR/firefox_profile/user2 & disown"
-alias firefoxUser3="mkdir -p $WORKSPACE_DIR/firefox_profile/user3 && nice -15 firefox --profile $WORKSPACE_DIR/firefox_profile/user3 & disown"
-alias firefoxUser4="mkdir -p $WORKSPACE_DIR/firefox_profile/user4 && nice -15 firefox --profile $WORKSPACE_DIR/firefox_profile/user4 & disown"
-alias firefoxUser5="mkdir -p $WORKSPACE_DIR/firefox_profile/user5 && nice -15 firefox --profile $WORKSPACE_DIR/firefox_profile/user5 & disown"
-alias firefoxUser6="mkdir -p $WORKSPACE_DIR/firefox_profile/user6 && nice -15 firefox --profile $WORKSPACE_DIR/firefox_profile/user6 & disown"
+alias firefoxTwitter="mkdir -p $WORKSPACE_DIR/firefox_profile/twitter  && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/twitter & disown"
 
-alias firefoxProxied="mkdir -p $WORKSPACE_DIR/firefox_profile/proxied && nice -15 firefox --profile $WORKSPACE_DIR/firefox_profile/proxied & disown"
-alias firefoxMitm="mkdir -p $WORKSPACE_DIR/firefox_profile/mitm && nice -15 firefox --profile $WORKSPACE_DIR/firefox_profile/mitm & disown"
+alias firefoxUser1="mkdir -p $WORKSPACE_DIR/firefox_profile/user1 && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/user1 & disown"
+alias firefoxUser2="mkdir -p $WORKSPACE_DIR/firefox_profile/user2 && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/user2 & disown"
+alias firefoxUser3="mkdir -p $WORKSPACE_DIR/firefox_profile/user3 && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/user3 & disown"
+alias firefoxUser4="mkdir -p $WORKSPACE_DIR/firefox_profile/user4 && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/user4 & disown"
+alias firefoxUser5="mkdir -p $WORKSPACE_DIR/firefox_profile/user5 && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/user5 & disown"
+alias firefoxUser6="mkdir -p $WORKSPACE_DIR/firefox_profile/user6 && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/user6 & disown"
+
+alias firefoxMlee="mkdir -p $WORKSPACE_DIR/firefox_profile/mlee && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/mlee & disown"
+alias firefoxTaobao="mkdir -p $WORKSPACE_DIR/firefox_profile/taobao && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/taobao & disown"
+
+
+alias firefoxProxied="mkdir -p $WORKSPACE_DIR/firefox_profile/proxied && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/proxied & disown"
+alias firefoxMitm="mkdir -p $WORKSPACE_DIR/firefox_profile/mitm && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/mitm & disown"
 
 alias edgeProxied="mkdir -p $WORKSPACE_DIR/edge_profile/proxied && nice -15 microsoft-edge-stable --user-data-dir=$WORKSPACE_DIR/edge_profile/proxied &"
 
