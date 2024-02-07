@@ -14,14 +14,5 @@
   "tabWidth": 2,
   "trailingComma": "all",
   "useTabs": false,
-  "overrides": [
-    {
-      "files": ["*.html"],
-      "options": {}
-    },
-    {
-      "files": ["*.{j,t}sx", "*.{j,t}s"],
-      "options": {}
-    }
-  ]
+  "overrides": []
 }
