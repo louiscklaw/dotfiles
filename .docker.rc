@@ -181,6 +181,7 @@ dockerRunNest(){
     -v ~/.ssh/id_rsa:/home/node/.ssh/id_rsa:ro \
     -v ~/.ssh/known_host:/home/node/.ssh/known_hosts:ro \
     -p 3001-3099:3000 \
+    -p 8001-8099:8080 \
     --user=1000 \
     --rm \
     $@

@@ -76,6 +76,29 @@ alias firefoxProxied="mkdir -p $WORKSPACE_DIR/firefox_profile/proxied && nice -1
 alias firefoxMitm="mkdir -p $WORKSPACE_DIR/firefox_profile/mitm && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/mitm & disown"
 
 alias edgeProxied="mkdir -p $WORKSPACE_DIR/edge_profile/proxied && nice -15 microsoft-edge-stable --user-data-dir=$WORKSPACE_DIR/edge_profile/proxied &"
+alias firefoxDad="mkdir -p $WORKSPACE_DIR/firefox_profile/dad && firefox --profile $WORKSPACE_DIR/firefox_profile/dad & disown"
+alias firefoxMom="mkdir -p $WORKSPACE_DIR/firefox_profile/mom && firefox --profile $WORKSPACE_DIR/firefox_profile/mom & disown"
+alias firefoxLogic="mkdir -p $WORKSPACE_DIR/firefox_profile/logic && firefox --profile $WORKSPACE_DIR/firefox_profile/logic & disown"
+alias firefoxLouis="mkdir -p $WORKSPACE_DIR/firefox_profile/louis && firefox --profile $WORKSPACE_DIR/firefox_profile/louis & disown"
+alias firefoxDev="mkdir -p $WORKSPACE_DIR/firefox_profile/testhelloworld04 && firefox --profile $WORKSPACE_DIR/firefox_profile/testhelloworld04 & disown"
+alias firefoxDirty="mkdir -p $WORKSPACE_DIR/firefox_profile/dirty && firefox --profile $WORKSPACE_DIR/firefox_profile/dirty & disown"
+alias firefoxLynked="mkdir -p $WORKSPACE_DIR/firefox_profile/lynked && firefox --profile $WORKSPACE_DIR/firefox_profile/lynked & disown"
+alias firefoxDemo="rm -rf /tmp/firefox_demo && mkdir -p /tmp/firefox_demo && firefox --profile $WORKSPACE_DIR/firefox_profile/firefox_demo & disown"
+
+alias firefoxPoe="mkdir -p $WORKSPACE_DIR/firefox_profile/Poe && firefox --profile $WORKSPACE_DIR/firefox_profile/Poe & disown"
+
+
+alias firefoxUser1="mkdir -p $WORKSPACE_DIR/firefox_profile/user1 && firefox --profile $WORKSPACE_DIR/firefox_profile/user1 & disown"
+alias firefoxUser2="mkdir -p $WORKSPACE_DIR/firefox_profile/user2 && firefox --profile $WORKSPACE_DIR/firefox_profile/user2 & disown"
+alias firefoxUser3="mkdir -p $WORKSPACE_DIR/firefox_profile/user3 && firefox --profile $WORKSPACE_DIR/firefox_profile/user3 & disown"
+alias firefoxUser4="mkdir -p $WORKSPACE_DIR/firefox_profile/user4 && firefox --profile $WORKSPACE_DIR/firefox_profile/user4 & disown"
+alias firefoxUser5="mkdir -p $WORKSPACE_DIR/firefox_profile/user5 && firefox --profile $WORKSPACE_DIR/firefox_profile/user5 & disown"
+alias firefoxUser6="mkdir -p $WORKSPACE_DIR/firefox_profile/user6 && firefox --profile $WORKSPACE_DIR/firefox_profile/user6 & disown"
+
+alias firefoxProxied="mkdir -p $WORKSPACE_DIR/firefox_profile/proxied && firefox --profile $WORKSPACE_DIR/firefox_profile/proxied & disown"
+alias firefoxMitm="mkdir -p $WORKSPACE_DIR/firefox_profile/mitm && firefox --profile $WORKSPACE_DIR/firefox_profile/mitm & disown"
+
+alias edgeProxied="mkdir -p $WORKSPACE_DIR/edge_profile/proxied && microsoft-edge-stable --user-data-dir=$WORKSPACE_DIR/edge_profile/proxied &"
 
 alias cloneGithubLouis='git clone git@github.com:louiscklaw/'
 alias clonePlaylist='git clone git@github.com:louiscklaw/js-playlist.git'

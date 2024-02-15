@@ -878,7 +878,7 @@ changeVoice(){
 
   pactl load-module module-null-sink
 
-  sox -t pulseaudio default -t pulseaudio null pitch +800
+  sox --buffer 2048 -t pulseaudio default -t pulseaudio null pitch +400
 
 }
 
