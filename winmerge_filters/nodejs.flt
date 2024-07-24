@@ -1,0 +1,21 @@
+## This is a directory/file filter for WinMerge
+## This filter lets through only files XML/HTML developer cares about
+name: javascript,nextjs
+desc: Lets through only files javascript,nextjs developer cares about
+
+## This is an inclusive (loose) filter
+## (it lets through everything not specified)
+def: include
+
+## Filters for filenames begin with f:
+## Filters for directories begin with d:
+## (Inline comments begin with " ##" and extend to the end of the line)
+
+## Ignore subversion housekeeping directories
+d: \\.svn$
+d: \\._svn$
+d: \\.git$
+d: \\*node_modules$
+d: \\*.next$
+
+
