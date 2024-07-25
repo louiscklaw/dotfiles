@@ -1,7 +1,32 @@
-Set-ExecutionPolicy Unrestricted
-
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
 choco feature enable -n allowGlobalConfirmation
+
+choco install vscode -v -y
+
+
+choco install vcredist140
+choco install jre8
+choco install python3
+choco install 7zip.install
+choco install git.install
+choco install ccleaner
+choco install vscode
+choco install autohotkey.portable
+choco install gnuwin32-coreutils.portable
+choco install filezilla
+choco install figma
+choco install github-desktop
+choco install localsend
+choco install genymotion
+choco install ferdium
+choco install xnview
+choco install microsoft-windows-terminal
+choco install kicad
+choco install docker-desktop
+choco install obs-studio.install
+choco install discord.install
+choco install nvm -v -y
 
 choco install 7zip.install -v -y
 choco install androidstudio -v -y
@@ -24,39 +49,29 @@ choco install hwmonitor -v -y
 choco install line -v -y
 choco install nodejs-lts -v -y
 choco install obs-studio -v -y
-
 # choco install oh-my-posh -v -y
 # choco install picpick.portable -v -y
 # choco install powershell.portable -v -y
-
 # choco install prusaslicer -v -y
 # choco install putty -v -y
-
 # choco install python3 -v -y
-
 # choco install rpi-imager -v -y
 choco install signal -v -y
 choco install slack -v -y
 choco install telegram -v -y
 choco install wechat -v -y
 choco install whatsapp -v -y
-
 # choco install sourcetree -v -y
 # choco install streamlabs-obs -v -y
-
 choco install virtualbox -v -y
 choco install visualstudio2022community -v -y
-
 choco install vlc -v -y
-
-choco install vscode -v -y
 
 choco install winscp -v -y
 choco install winsshterm -v -y
 choco install wsl-ssh-pageant -v -y
 choco install xnviewmp.install -v -y
 choco install gsudo --pre -v -y
-
 # @REM C:\tools\msys64\usr\bin
 # @REM C:\tools\msys64\mingw64\bin
 choco install msys2 -v -y
