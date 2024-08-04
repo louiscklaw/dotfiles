@@ -1,4 +1,4 @@
-$env:WORKSPACE_DIR = "D:\_workspace"
+$env:WORKSPACE_DIR = "G:\_workspace"
 
 $env:CHROME = "C:\Program Files\Google\Chrome\Application\chrome.exe"
 
@@ -40,7 +40,7 @@ function dockerClearAll {
 
 function updateLogseq {
   echo 'syncing logseq ...'
-  pushd D:\_workspace\logseq-helloworld 
+  pushd G:\_workspace\logseq-helloworld 
   git fetch --all
   git pull
     
@@ -144,6 +144,12 @@ Set-Alias -Name codeKicadPlaylist -Value code_kicad_playlist
 
 function code_dot_files { code $env:WORKSPACE_DIR\dotfiles }
 Set-Alias -Name codeDotFiles -Value code_dot_files
+
+function docker_reset_all { 
+    docker rm $(docker ps -a -q) -f
+    docker system prune -a
+}
+Set-Alias -Name dockerResetAll -Value docker_reset_all
 
 function code_inventor { code $env:WORKSPACE_DIR\inventor-tryout }
 Set-Alias -Name codeInventor -Value code_inventor
