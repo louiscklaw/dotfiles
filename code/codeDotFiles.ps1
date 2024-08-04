@@ -1,4 +1,4 @@
 
-pushd D:\_workspace\dotfiles
+pushd G:\_workspace\dotfiles
   code .
 popd

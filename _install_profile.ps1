@@ -1,1 +1,1 @@
-. D:\_workspace\dotfiles\profile.ps1 
+. G:\_workspace\dotfiles\profile.ps1 
