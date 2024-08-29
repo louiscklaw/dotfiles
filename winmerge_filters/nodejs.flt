@@ -18,4 +18,6 @@ d: \\.git$
 d: \\*node_modules$
 d: \\*.next$
 
+f: \\*.bak$
+f: \\*.del$
 
