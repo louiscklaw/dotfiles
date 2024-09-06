@@ -2,11 +2,11 @@
 # C:\tools\Cmder\config\user_profile.ps1
 # . G:\_workspace\dotfiles\profile.ps1
 
-. G:\_workspace\dotfiles\develop.ps1
-. G:\_workspace\dotfiles\alias.ps1
-. G:\_workspace\dotfiles\docker.ps1
+. C:\_workspace\dotfiles\develop.ps1
+. C:\_workspace\dotfiles\alias.ps1
+. C:\_workspace\dotfiles\docker.ps1
 
-Set-Alias syncDotFiles  G:\_workspace\dotfiles\sync\syncDotFiles.ps1
+Set-Alias syncDotFiles  C:\_workspace\dotfiles\sync\syncDotFiles.ps1
 
 # $Env:Path += ";G:\SysAdmin\scripts\PowerShellBasics"
 
