@@ -1,0 +1,5 @@
+[wsl2]
+memory=8GB                  # Limits VM memory to 4 GB
+processors=2                # Makes the WSL 2 VM use 2 virtual processors
+swap=8GB
+defaultVhdSize=512GB
