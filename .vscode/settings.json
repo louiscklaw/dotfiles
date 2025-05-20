@@ -1,0 +1,359 @@
+{
+  "security.workspace.trust.enabled": false,
+  //
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  //
+  "window.restoreWindows": "none",
+  "window.confirmSaveUntitledWorkspace": false,
+  //
+  "git.ignoreLimitWarning": true,
+  "git.autoRepositoryDetection": "openEditors",
+  "git.openRepositoryInParentFolders": "never",
+  //
+  "extensions.ignoreRecommendations": true,
+  //
+  "editor.trimAutoWhitespace": true,
+  "editor.fontSize": 17,
+  // "editor.fontLigatures": true,
+  "editor.minimap.enabled": false,
+  "editor.unicodeHighlight.invisibleCharacters": false,
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "editor.inlineSuggest.enabled": true,
+  "editor.inlineSuggest.suppressSuggestions": true,
+  "editor.tabCompletion": "on",
+  "editor.tabSize": 2,
+  "editor.selectionHighlight": true,
+  "editor.wordWrap": "on",
+  "editor.formatOnSave": true,
+  //
+  "baidu.comate.privateService": "",
+  "baidu.comate.username": "louiscklaw",
+  "baidu.comate.displayLanguage": "en",
+  "baidu.comate.license": "55529aba-1a59-49f5-91f6-5a8db4a36554",
+  "baidu.comate.enableSecurityEnhancement": false,
+  "baidu.comate.completionLength": "auto",
+  //
+  "deepseek.lang": "en",
+  //
+  "codingcopilot.commitMessageLanguage": "en",
+  "codingcopilot.modelResponseLanguage": "English",
+  "codingcopilot.modelDocumentLanguage": "English",
+  "codingcopilot.enableCodelens": false,
+  "codingcopilot.floatShortcut": false,
+  "codingcopilot.enableAutoCompletions": false,
+  "codingcopilot.enableNextEditSuggestions": false,
+  "codingcopilot.enableInlineChatAutoFormatCode": false,
+  "codingcopilot.enableCompletionLanguage": {
+    "scminput": false
+  },
+  //
+  "workbench.startupEditor": "none",
+  "workbench.commandPalette.history": 150,
+  "workbench.editor.pinnedTabSizing": "shrink",
+  "workbench.editor.pinnedTabsOnSeparateRow": true,
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.editor.empty.hint": "hidden",
+  "workbench.experimental.share.enabled": false,
+  "workbench.layoutControl.enabled": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.editorLargeFileConfirmation": 4096,
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  //
+  //  - legacy: Uses the legacy diffing algorithm.
+  //  - advanced: Uses the advanced diffing algorithm.
+  "diffEditor.diffAlgorithm": "advanced",
+  //
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  //
+  "remote.autoForwardPortsSource": "hybrid",
+  "remote.SSH.remotePlatform": {
+    "192.168.10.21": "linux",
+    "192.168.10.61": "linux"
+  },
+  //
+  "terminal.integrated.gpuAcceleration": "auto",
+  "terminal.integrated.fontFamily": "MesloLGM Nerd Font",
+  "terminal.integrated.enablePersistentSessions": false,
+  //
+  "json.format.enable": true,
+  "json.validate.enable": true,
+  //
+  "search.exclude": {
+    "**/vendor": true,
+    "**/.git": true,
+    "**/build": true,
+    "**/.next": true,
+    "**/node_modules": true
+  },
+  //
+  "cline.preferredLanguage": "English",
+  //
+  "codeium.enableCodeLens": false,
+  "codeium.indexingRetentionPeriod": 14,
+  "autoAlign.associations": {
+    "csv": ",",
+    "bsv": "|",
+    "js": ","
+  },
+  //
+  "files.associations": {
+    "env-example": "dotenv",
+    "*copy*": "plaintext",
+    "*del": "plaintext",
+    "*bak": "plaintext",
+    // "*.jsx": "javascriptreact",
+    // "*.tsx": "typescriptreact",
+    "Jenkinsfile*": "groovy"
+  },
+  "files.exclude": {
+    "**/.git/": true,
+    "**/.DS_Store": true,
+    ".build": true,
+    "**/build/": true
+  },
+  "files.watcherExclude": {
+    "**/_archive/": true,
+    "**/_del/": true,
+    "**/.next/": true,
+    "**/build/": true,
+    "**/dist/": true,
+    "**/node_modules/": true,
+    "**/vendor/": true,
+    "**/.git/": true
+  },
+  "[shellscript]": {
+    "files.eol": "\n",
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[dockerfile]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[json][jsonc]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[javascript][javascriptreact]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript][typescriptreact]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[lua]": {
+    "editor.tabSize": 4,
+    "diffEditor.ignoreTrimWhitespace": true
+  },
+  "[ssh_config]": {
+    "editor.tabSize": 2
+  },
+  "[markdown]": {
+    "editor.tabSize": 2,
+    "editor.wordWrap": "on",
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[yaml]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[php]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "DEVSENSE.phptools-vscode"
+  },
+  "[html]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[vue]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "Vue.volar"
+  },
+  "[github-actions-workflow]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "chat.commandCenter.enabled": false,
+  "coderider.codeLenses.enable": false,
+  "coderider.autocomplete.enable": true,
+  "coderider.autocompleteEnhance.enable": false,
+  "gitlab.customQueries": [
+    {
+      "name": "Issues assigned to me",
+      "type": "issues",
+      "scope": "assigned_to_me",
+      "state": "opened",
+      "noItemText": "There is no issue assigned to you."
+    },
+    {
+      "name": "Issues created by me",
+      "type": "issues",
+      "scope": "created_by_me",
+      "state": "opened",
+      "noItemText": "There is no issue created by you."
+    },
+    {
+      "name": "Merge requests assigned to me",
+      "type": "merge_requests",
+      "scope": "assigned_to_me",
+      "state": "opened",
+      "noItemText": "There is no MR assigned to you."
+    },
+    {
+      "name": "Merge requests I'm reviewing",
+      "type": "merge_requests",
+      "reviewer": "<current_user>",
+      "state": "opened",
+      "noItemText": "There is no MR for you to review."
+    },
+    {
+      "name": "Merge requests created by me",
+      "type": "merge_requests",
+      "scope": "created_by_me",
+      "state": "opened",
+      "noItemText": "There is no MR created by you."
+    },
+    {
+      "name": "All project merge requests",
+      "type": "merge_requests",
+      "scope": "all",
+      "state": "opened",
+      "noItemText": "The project has no merge requests"
+    }
+  ],
+  "coderider.commitMessage.language": "English",
+  "coderider.chat.language": "English",
+  "foam.files.ignore": [
+    "**/_archive/**",
+    "**/_*/**/*",
+    "**/_layouts/**/*",
+    "**/_site/**/*",
+    "**/.git/**",
+    "**/.next/*/**",
+    "**/.vscode/**/*",
+    "**/*.bundle.*",
+    "**/*bak/**",
+    "**/*del/**",
+    "**/*log/**",
+    "**/build/*/**",
+    "**/dist/*/**",
+    "**/node_modules/*/**",
+    //
+  ],
+  "git.confirmSync": false,
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[snippets]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "autoAlign.enabled": {
+    "csv": true,
+    "bsv": true,
+  },
+  "window.commandCenter": false,
+  "editor.fontFamily": "\"Maple Mono NF CN\"",
+  "todo-tree.filtering.excludeGlobs": [
+    "**/.vscode/**/*",
+    "**/_*/**/*",
+    "**/.git/**",
+    "**/.next/*/**",
+    "**/*.bundle.*",
+    "**/*bak/**",
+    "**/*del/**",
+    "**/*log/**",
+    "**/build/*/**",
+    "**/dist/*/**",
+    "**/node_modules/*/**",
+    //
+  ],
+  "todo-tree.general.debug": true,
+  "todo-tree.filtering.ignoreGitSubmodules": true,
+  "todo-tree.filtering.useBuiltInExcludes": "file and search excludes",
+  "todo-tree.highlights.useColourScheme": true,
+  "todo-tree.general.tagGroups": {
+    "PERF": [
+      "PERF",
+      "OPTIM"
+    ],
+    "FIX": [
+      "FIX",
+      "FIXIT",
+      "FIXME",
+      "BUG"
+    ],
+    "WARN": [
+      "WARNING",
+      "XXX"
+    ]
+  },
+  "todo-tree.highlights.defaultHighlight": {
+    "icon": "alert",
+    "type": "text",
+    "foreground": "red",
+    "background": "white",
+    "opacity": 50,
+    "iconColour": "blue"
+  },
+  "todo-tree.highlights.customHighlight": {
+    "TODO": {
+      "foreground": "#1a1b26",
+      "background": "#0db9d7",
+      "fontStyle": "italic",
+      "icon": "check-circle",
+      "iconColour": "#0db9d7",
+      "gutterIcon": true
+    },
+    "PERF": {
+      "foreground": "#1a1b26",
+      "background": "#bb9af7",
+      "fontStyle": "italic",
+      "icon": "stopwatch",
+      "iconColour": "#bb9af7",
+      "gutterIcon": true
+    },
+    "FIX": {
+      "foreground": "#ddd",
+      "background": "#db4b4b",
+      "fontStyle": "italic",
+      "icon": "bug",
+      "iconColour": "#db4b4b",
+      "gutterIcon": true
+    },
+    "HACK": {
+      "foreground": "#1a1b26",
+      "background": "#e0af68",
+      "fontStyle": "italic",
+      "icon": "flame",
+      "iconColour": "#e0af68"
+    },
+    "WARN": {
+      "foreground": "#1a1b26",
+      "background": "#e0af68",
+      "fontStyle": "italic",
+      "icon": "alert",
+      "iconColour": "#e0af68"
+    },
+    "NOTE": {
+      "foreground": "#1a1b26",
+      "background": "#1abc9c",
+      "fontStyle": "italic",
+      "icon": "note",
+      "iconColour": "#1abc9c"
+    }
+  },
+  "explorer.confirmPasteNative": false,
+}
