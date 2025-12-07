@@ -17,7 +17,15 @@ d: \\._svn$
 d: \\.git$
 d: \\*node_modules$
 d: \\*.next$
+d: \\android$
+d: \\dist$
+d: \\build$
+d: \\vendor$
+d: \\sessions$
+d: \\*.del$
+d: \\.vscode$
 
 f: \\*.bak$
 f: \\*.del$
+f: \\*.log$
 
