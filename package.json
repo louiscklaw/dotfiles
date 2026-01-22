@@ -1,0 +1,38 @@
+{
+  "name": "dotfiles",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install:clean": "rm -rf node_modules package-lock.json yarn.lock .next && npm install && npm run build:tailwind && npm run dev",
+    "format": "npx prettier --loglevel warn --write \"**/*.{js,css,html,jsx,tsx,ts,json}\"",
+    "gitUpdate": "git add . && git commit -m \"update fedora,\"",
+    "hello_run_p": "npx npm-run-all -p foo bar",
+    "dev": "npx npm-run-all -p dev:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/louiscklaw/dotfiles.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/louiscklaw/dotfiles/issues"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn format"
+    }
+  },
+  "homepage": "https://github.com/louiscklaw/dotfiles#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^9.1.2",
+    "@commitlint/config-conventional": "^9.1.2",
+    "husky": "^4.2.5"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "description": ""
+}

@@ -1,0 +1,1 @@
+alias openSslRandHex='openssl rand -hex'

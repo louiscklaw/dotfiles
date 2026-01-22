@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+goGnomeExtensions(){
+  cd $HOME/.local/share/gnome-shell/extensions
+}
+
+codePortfolioNotes(){
+  code $WORKSPACE_DIR/portfolio-gatsby/documentations/NOTES.md
+}
+
+# echo '.directory.rc init done'

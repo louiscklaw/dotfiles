@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Name=Touchpad Fix
+Exec=/usr/bin/synclient MinSpeed=1.8 MaxSpeed=4 AccelFactor=0.04 ClickPad=1 VertHysteresis=0.1 HorizHysteresis=0.1 HorizTwoFingerScroll=1 VertScrollDelta=-30 HorizScrollDelta=-30
+Icon=libinput-gestures
+Comment=synaptic touchpad fix
+Categories=GNOME;GTK;System;
+X-GNOME-Autostart-Phase=Applications
+X-GNOME-Autostart-Delay=2

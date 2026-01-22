@@ -1,0 +1,113 @@
+#!/usr/bin/env bash
+
+# set -x
+
+# export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
+
+# set -e
+
+export MOZ_ENABLE_WAYLAND=1
+export PATH=$PATH:$HOME/.yarn/bin:$HOME/node_modules/.bin:$HOME/.local/bin
+
+export WORKSPACE_DIR=/workspace
+export DOTFILES_DIR=$WORKSPACE_DIR/dotfiles
+export DOTCONFIG_DIR=$HOME/dotfiles
+export DEL_DIR=$HOME/_del
+
+export JAVA_TOOL_OPTIONS='-Xms2048m -Xmx4096m'
+
+alias ytDlp="yt-dlp -N 10"
+
+alias ariaDownload='aria2c -x 16 -s 99999 --dht-listen-port=51000-51099'
+
+# code='/usr/share/code/code --ignore-gpu-blacklist --enable-gpu-rasterization --enable-native-gpu-memory-buffers  --force-gpu-rasterization --enable-oop-rasterization  --enable-zero-copy   --no-sandbox --unity-launch'
+
+# 64*1024*1024
+startCode(){
+  code --disk-cache-size=131072 $@
+}
+
+# codeDotFiles(){
+#   code $DOTFILES_DIR/
+# }
+alias codeDotFiles='code $DOTFILES_DIR/'
+
+
+alias googleChrome='/usr/bin/google-chrome-stable --disk-cache-size=68157440 --disable-web-security --use-gl=desktop --enable-features=VaapiVideoDecoder --ignore-gpu-blacklist --enable-gpu-rasterization --enable-parallel-downloading --smooth-scrolling --enable-zero-copy '
+
+# source $DOTFILES_DIR/.android.rc
+source $DOTFILES_DIR/.common.rc
+source $DOTFILES_DIR/.date.rc
+source $DOTFILES_DIR/.github_action.rc
+source $DOTFILES_DIR/.lynked_shortcut.rc
+# source $DOTFILES_DIR/.python.rc
+# source $HOME/.credentials.rc
+
+if [[ -e $DOTFILES_DIR/.electronic.rc ]]; then
+  source $DOTFILES_DIR/.electronic.rc
+fi
+
+if [[ -e $DOTFILES_DIR/.secret.rc ]]; then
+  source $DOTFILES_DIR/.secret.rc
+fi
+
+if [[ -e $DOTFILES_DIR/.bash-palette.sh ]]; then
+  source $DOTFILES_DIR/.bash-palette.sh
+fi
+
+if [[ -e $DOTFILES_DIR/.raspi.rc ]]; then
+  source $DOTFILES_DIR/.raspi.rc
+fi
+
+if [[ -e $DOTFILES_DIR/.travis.rc ]]; then
+  source $DOTFILES_DIR/.travis.rc
+fi
+
+if [[ -e $DOTFILES_DIR/.drone.rc ]]; then
+  source $DOTFILES_DIR/.drone.rc
+fi
+
+if [[ -e $DOTFILES_DIR/.install.rc ]]; then
+  source $DOTFILES_DIR/.install.rc
+fi
+
+if [[ -e $DOTFILES_DIR/.ssh_alias.rc ]]; then
+  source $DOTFILES_DIR/.ssh_alias.rc
+fi
+
+source $DOTFILES_DIR/.develop.rc
+
+if [[ -e $DOTFILES_DIR/.firefox_alias.rc ]]; then
+  source $DOTFILES_DIR/.firefox_alias.rc
+fi
+
+if [[ -e $DOTFILES_DIR/.fabric.rc ]]; then
+  source $DOTFILES_DIR/.fabric.rc
+fi
+
+if [[ -e $DOTFILES_DIR/.js.rc ]]; then
+  source $DOTFILES_DIR/.js.rc
+fi
+
+source $DOTFILES_DIR/.docker.rc
+
+source $DOTFILES_DIR/.directory.rc
+
+source $WORKSPACE_DIR/github-playlist/gitignore-template/scripts.rc
+source $WORKSPACE_DIR/github-playlist/editorconfig/scripts.rc
+
+
+source $DOTFILES_DIR/.filesync.rc
+source $DOTFILES_DIR/.parking.rc
+
+alias sshM73="ssh logic@192.168.10.61"
+alias sshNUC="ssh logic@192.168.10.21"
+
+AUTOENV_ASSUME_YES=1
+ASSUME_YES=1
+
+true
+
+CURRENT_COMMIT_FINGERPRINT=`cd /workspace/dotfiles && git rev-parse HEAD`
+testFlashBlueBackground "> .louis_alias init done 🎉️🎉️🎉️ $CURRENT_COMMIT_FINGERPRINT"
+echo ''

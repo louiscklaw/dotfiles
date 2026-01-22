@@ -1,0 +1,280 @@
+#!/usr/bin/env bash
+
+alias systemctlStartDocker='sudo systemctl start docker'
+alias systemctlKillDocker='sudo systemctl kill docker'
+
+alias dcu='docker compose up -d'
+alias dcub='docker compose up -d --build'
+alias dcubl='docker compose up -d --build && docker compose logs -f'
+alias dck='docker compose kill'
+alias dce='docker compose exec -it'
+alias dcpa='docker compose ps -a'
+
+dka(){
+  docker kill `docker ps -qa` || true
+}
+
+dcf(){
+  docker kill `docker ps -qa` || true
+  sleep 0.1
+
+  for i in {1..2}; do
+    echo "docker compose flush -> $i"
+    docker container prune -f
+    docker system prune -f
+    docker volume prune -f
+    docker network prune -f
+    docker image rm `docker images -qa`
+  done
+}
+
+dclf (){
+  docker compose logs -f
+}
+
+dcipf(){
+  docker kill `docker ps -qa` || true
+  sleep 0.1
+  docker image prune -f
+}
+
+dockerClearAll(){
+  echo "clear all docker."
+  for i in `docker ps -qa`; do
+    docker kill "$i" &
+  done
+  wait
+
+  docker container prune -f 2>&1
+}
+
+
+dockerResetAll(){
+  echo "clear all docker configuration ... "
+
+  for i in `docker ps -qa`; do
+    docker kill "$i" &
+    docker stop "$i" &
+  done
+
+  for i in `docker network ls -qa`; do
+    docker network rm "$i" &
+  done
+  for i in `docker volume ls -qa`; do
+    docker volume rm "$i" &
+  done
+  for i in `docker images ls -qa`; do
+    docker images rm -f "$i" &
+  done
+  for i in `docker image ls -qa`; do
+    docker image rm -f "$i" &
+  done
+  wait
+
+  docker container prune -f
+  docker system prune -f
+  docker volume prune -f
+  docker network prune -f
+  docker image prune -f
+
+}
+
+
+droneCiHelloworld(){
+  docker run \
+  --volume=/var/lib/drone:/data \
+  --env=DRONE_GITHUB_CLIENT_ID={{DRONE_GITHUB_CLIENT_ID}} \
+  --env=DRONE_GITHUB_CLIENT_SECRET={{DRONE_GITHUB_CLIENT_SECRET}} \
+  --env=DRONE_RPC_SECRET={{DRONE_RPC_SECRET}} \
+  --env=DRONE_SERVER_HOST={{DRONE_SERVER_HOST}} \
+  --env=DRONE_SERVER_PROTO={{DRONE_SERVER_PROTO}} \
+  --publish=80:80 \
+  --publish=443:443 \
+  --restart=always \
+  --detach=true \
+  --name=drone \
+  drone/drone:1
+}
+
+dockerRun(){
+  touch .env.docker
+  TMP_DIR=$(mktemp -d)
+  TMP_BASH_HISTORY=$TMP_DIR/.bash_history
+  # -v $TMP_BASH_HISTORY:/root/.bash_history \
+
+  docker run -it \
+    --cpus="3" \
+    --env-file .env.docker \
+    -v $PWD:/app \
+    -w /app \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v ~/.ssh/id_rsa:/home/node/.ssh/id_rsa:ro \
+    -v ~/.ssh/known_host:/home/node/.ssh/known_hosts:ro \
+    -p 3000 \
+    -p 8090-8099:8090 \
+    -p 8060-8069:8060 \
+    -p 8080-8089:8080 \
+    -p 5000-5009:5000 \
+    -p 9000-9010:9000 \
+    -p 5555-5560:5555 \
+    --rm \
+    $@
+    # --user=1000 \
+}
+
+dockerRunPhpBase(){
+  touch .env.docker
+  TMP_DIR=$(mktemp -d)
+  TMP_BASH_HISTORY=$TMP_DIR/.bash_history
+  # -v $TMP_BASH_HISTORY:/root/.bash_history \
+
+  docker run -it \
+    --env-file .env.docker \
+    -v $PWD:/app \
+    -w /app \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v ~/.ssh/id_rsa:/home/node/.ssh/id_rsa:ro \
+    -v ~/.ssh/known_host:/home/node/.ssh/known_hosts:ro \
+    -u 1000:1000 \
+    -p 3000:3000 \
+    -p 8000:8000 \
+    -p 8090:8090 \
+    -p 5555-5560:5555 \
+    --rm \
+    $@
+    # --user=1000 \
+}
+
+
+dockerRunPython(){
+  touch .env.docker
+  TMP_DIR=$(mktemp -d)
+  TMP_BASH_HISTORY=$TMP_DIR/.bash_history
+  # -v $TMP_BASH_HISTORY:/root/.bash_history \
+
+  docker run -it \
+    -v $PWD:/app \
+    -w /app \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v ~/.ssh/id_rsa:/home/node/.ssh/id_rsa:ro \
+    -v ~/.ssh/known_host:/home/node/.ssh/known_hosts:ro \
+    -p 3000:3000 \
+    -p 8888:8888 \
+    --rm \
+    python:latest \
+    bash
+}
+
+
+
+dockerRunNest(){
+  touch .env.docker
+  TMP_DIR=$(mktemp -d)
+  TMP_BASH_HISTORY=$TMP_DIR/.bash_history
+  # -v $TMP_BASH_HISTORY:/root/.bash_history \
+
+  docker run -it \
+    --env-file .env.docker \
+    -v $PWD:/app \
+    -w /app \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v ~/.ssh/id_rsa:/home/node/.ssh/id_rsa:ro \
+    -v ~/.ssh/known_host:/home/node/.ssh/known_hosts:ro \
+    -p 3001-3099:3000 \
+    -p 8001-8099:8080 \
+    --user=1000 \
+    --rm \
+    $@
+}
+
+# alias dockerRunUbuntu1804='dockerRun logickee/ubuntu_1804'
+alias dockerRunMyUbuntu2204='dockerRun logickee/ubuntu_2204 bash'
+alias dockerRunUbuntu2204='dockerRun ubuntu:22.04 bash'
+alias dockerRunUbuntu2004='dockerRun ubuntu:20.04 bash'
+alias dockerRunUbuntu1804='dockerRun ubuntu:18.04 bash'
+alias dockerRunUbuntu='dockerRun ubuntu:latest bash'
+alias dockerRunFedora='dockerRun fedora:latest bash'
+# alias dockerRunPython='dockerRun python:latest bash'
+
+alias dockerRunNode='dockerRun node:latest bash'
+alias dockerRunNode22='dockerRun node:22-buster bash'
+alias dockerRunNode20='dockerRun node:20-buster bash'
+alias dockerRunNode18='dockerRun node:18-buster bash'
+alias dockerRunNode16='dockerRun node:16-buster bash'
+alias dockerRunNode14='dockerRun node:14-buster bash'
+alias dockerRunNode12='dockerRun node:12-buster bash'
+alias dockerRunNode10='dockerRun node:10-buster bash'
+alias dockerRunNode8='dockerRun node:8-buster bash'
+alias dockerRunNest16='dockerRunNest logickee/docker_nest16_tryout bash'
+
+alias dockerRunHugoDev='docker run -it -v $PWD:/app -p 1313:1313 -w /app logickee/hugo_dev:latest bash'
+
+alias dockerRunPhp='dockerRunPhpBase php bash'
+alias dockerRunComposer='dockerRunPhpBase composer bash'
+
+
+GET_FULL_REPOSITORY(){
+  git remote get-url origin
+}
+
+GET_SHORT_REPOSITORY(){
+  GET_FULL_REPOSITORY|cut -c16-99|awk -F"." '{print $1}'
+}
+
+
+dockerRunGithub(){
+  touch ./.env.docker
+  TMP_DIR=$(mktemp -d)
+
+  TMP_BASH_HISTORY=$TMP_DIR/.bash_history
+  touch $TEMP_BASH_HISTORY
+
+  NODE_REPL_HISTORY=$TMP_DIR/.node_repl_history
+  touch $NODE_REPL_HISTORY
+
+  DOT_CONFIG=$TMP_DIR/.dot_config
+  mkdir $DOT_CONFIG
+
+  DOT_NPM=$TMP_DIR/.dot_npm
+  mkdir $DOT_NPM
+
+  docker run -it \
+    --user runner \
+    --env-file /home/logic/.credentials/.env.docker \
+    --env-file .env.docker \
+    -v $PWD:/home/runner/work_dir \
+    -v $TMP_BASH_HISTORY:/home/runner/.bash_history \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v $NODE_REPL_HISTORY:/root/.node_repl_history \
+    -v $DOT_CONFIG:/home/runner/.config/ \
+    -v $DOT_NPM:/home/runner/.npm \
+    -v /tmp:/tmp \
+    --rm \
+    $@
+}
+
+alias dockerRunGithubActionsNode='dockerRunGithub logickee/github_node'
+alias dockerRunGithubActionsUbuntu='dockerRunGithub logickee/github_ubuntu'
+alias dockerRunGithubActionsPython='dockerRunGithub logickee/github_python'
+alias dockerRunGithubActionsGnome='dockerRunGithub logickee/docker_gnome'
+alias dockerRunGithubSeleniumClient='dockerRunGithub logickee/github_ubuntu'
+alias dockerRunTravisUbuntuSystemd1804='runTravisDockerImage travisci/ubuntu-systemd:18.04'
+alias dockerRunTravisUbuntuSystemd1604='runTravisDockerImage travisci/ubuntu-systemd:16.04'
+alias dockerRunTravisUbuntu1804='runTravisDockerImage travisci/ci-ubuntu-1804:packer-1593521720-ca42795e'
+alias dockerRunTravisUbuntu2004='runTravisDockerImage travisci/ci-ubuntu-2004:packer-1593521720-ca42795e'
+
+# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+
+
+dockerRunTravisNodejs12(){
+  touch .env.docker
+  docker run -it \
+    --env-file .env.docker \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v $PWD:/root/work_dir \
+    --rm \
+    logickee/travis_node12 \
+    /bin/bash
+}
+
+# echo '.docker.rc init done'

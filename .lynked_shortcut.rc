@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+# set -x
+
+DEFAULT_BROWSER=$START_CHROME
+
+meldMenySrc(){
+  meld \
+    /home/logic/_del/lynked-demo-tryout/meny-light-demo \
+    /home/logic/_workspace/LynkedKK/lynked-demo-tryout/meny-light-demo
+}
+
+codeMenyDbFiles(){
+  code /home/logic/_workspace/LynkedKK/db_backup
+
+}
+
+codeMenyTest(){
+  code /home/logic/_workspace/LynkedKK/lynked-demo-test-script-tryout
+}
+
+codeMenyDbBackup(){
+  code /home/logic/_workspace/LynkedKK/db_backup
+}
+
+
+export MENY_WK_DIR='/home/logic/_workspace/LynkedKK/lynked-demo-tryout/meny-light-demo'
+codeMenySrc(){
+  set -x
+  code $MENY_WK_DIR/meny-admin  &
+  code $MENY_WK_DIR/meny-client  &
+  code $MENY_WK_DIR/meny-manage  &
+  code $MENY_WK_DIR/firebase  &
+}
+
+
+codeMenyFirebase(){
+  code /home/logic/_workspace/LynkedKK/lynked-demo-tryout/meny-light-demo/firebase
+}
+
+
+codeMenyGo(){
+  code /home/logic/_workspace/LynkedKK/meny-go/meny-light-demo
+}
+
+goMenyTicket(){
+  googleChrome  https://lynked.atlassian.net/browse/$1 "${BROWSER_OPTS[@]}" &
+}
+
+goMenyQuotation(){
+  open /home/logic/_workspace/louislabs/quotations/lynked-quote &
+}

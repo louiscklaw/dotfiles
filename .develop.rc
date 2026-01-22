@@ -1,0 +1,522 @@
+#!/usr/bin/env bash
+
+# git config --global user.name 'louiscklaw'
+# git config --global user.email 'louiscklaw@users.noreply.github.com'
+
+# https://developer.android.com/tools/variables
+export ANDROID_HOME=/home/logic/Android/Sdk
+export ANDROID_SDK_ROOT=/home/logic/Android/Sdk
+export ANDROID_USER_HOME=/home/logic/.android
+
+export PATH=$ANDROID_HOME/emulator:$PATH
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$PATH
+
+export PATH=$ANDROID_HOME/tools:$PATH
+export PATH=$ANDROID_HOME/tools/bin:$PATH
+
+export BROWSER=none
+
+WEB_BROWSER=google-chrome
+
+alias dnfReinstall="sudo dnf reinstall -y kernel\* akmod\* nvidia\* gstreamer\*"
+
+alias appiumInspector="$HOME/AppImage/Appium-Inspector-linux-2023.7.1.AppImage &"
+
+
+alias chromeMom="mkdir -p $WORKSPACE_DIR/chrome_profile/mom && nice -15 google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/mom & disown"
+alias chromeLogic="mkdir -p $WORKSPACE_DIR/chrome_profile/logic && nice -15 google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/logic & disown"
+alias chromeLouis="mkdir -p $WORKSPACE_DIR/chrome_profile/louis && nice -15 google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/louis & disown"
+alias chromeDev="mkdir -p $WORKSPACE_DIR/chrome_profile/testhelloworld04 && nice -15 google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/testhelloworld04 & disown"
+alias chromePrivate="mkdir -p $WORKSPACE_DIR/chrome_profile/private && nice -15 google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/private & disown"
+alias chromeLouisabsHi="mkdir -p $WORKSPACE_DIR/chrome_profile/louislabs_hi && nice -15 google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/louislabs_hi & disown"
+
+
+alias chromeUser1="mkdir -p $WORKSPACE_DIR/chrome_profile/user1 && nice -15 google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/user1 & disown"
+alias chromeUser2="mkdir -p $WORKSPACE_DIR/chrome_profile/user2 && nice -15 google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/user2 & disown"
+alias chromeUser3="mkdir -p $WORKSPACE_DIR/chrome_profile/user3 && nice -15 google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/user3 & disown"
+alias chromeUser4="mkdir -p $WORKSPACE_DIR/chrome_profile/user4 && nice -15 google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/user4 & disown"
+alias chromeUser5="mkdir -p $WORKSPACE_DIR/chrome_profile/user5 && nice -15 google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/user5 --no-first-run & disown"
+alias chromeUser6="mkdir -p $WORKSPACE_DIR/chrome_profile/user6 && nice -15 google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/user6 & disown"
+
+alias chrome_dorothy="mkdir -p $WORKSPACE_DIR/chrome_profile/dorothy && nice -15 google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/dorothy -no-default-browser-check --no-first-run & disown"
+
+alias chromeProxied="mkdir -p $WORKSPACE_DIR/chrome_profile/proxied && google-chrome-stable --user-data-dir=$WORKSPACE_DIR/chrome_profile/proxied &"
+
+alias firefoxIntel="mkdir -p $WORKSPACE_DIR/firefox_profile/testhelloworld04 && LIBVA_DRIVER_NAME=iHD nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/testhelloworld04 & disown"
+alias firefoxNvidia="mkdir -p $WORKSPACE_DIR/firefox_profile/testhelloworld04 && NVD_BACKEND=direct MOZ_DISABLE_RDD_SANDBOX=1 nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/testhelloworld04 & disown"
+
+alias firefoxDad="mkdir -p $WORKSPACE_DIR/firefox_profile/dad  && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/dad & disown"
+alias firefoxMom="mkdir -p $WORKSPACE_DIR/firefox_profile/mom  && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/mom & disown"
+alias firefoxLogic="mkdir -p $WORKSPACE_DIR/firefox_profile/logic  && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/logic & disown"
+alias firefoxLouis="mkdir -p $WORKSPACE_DIR/firefox_profile/louis  && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/louis & disown"
+alias firefoxDev="mkdir -p $WORKSPACE_DIR/firefox_profile/testhelloworld04 && nice -20 firefox_dev --profile $WORKSPACE_DIR/firefox_profile/testhelloworld04 & disown"
+alias firefoxWork="mkdir -p $WORKSPACE_DIR/firefox_profile/work  && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/work & disown"
+alias firefoxDiscord="mkdir -p $WORKSPACE_DIR/firefox_profile/firefox-discord  && NVD_BACKEND=direct MOZ_DISABLE_RDD_SANDBOX=1 nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/firefox-discord & disown"
+alias firefoxDirty="mkdir -p $WORKSPACE_DIR/firefox_profile/dirty  && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/dirty & disown"
+alias firefoxLynked="mkdir -p $WORKSPACE_DIR/firefox_profile/lynked  && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/lynked & disown"
+alias firefoxDemo="rm -rf /tmp/firefox_demo && mkdir -p /tmp/firefox_demo  && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/firefox_demo & disown"
+alias firefoxInternal="mkdir -p $WORKSPACE_DIR/firefox_profile/internal && nice -20 firefox --profile $WORKSPACE_DIR/firefox_profile/internal & disown"
+alias firefoxWongcfubackup="mkdir -p $WORKSPACE_DIR/firefox_profile/wongcfubackup && nice -20 firefox --profile $WORKSPACE_DIR/firefox_profile/wongcfubackup & disown"
+
+alias firefoxTwitter="mkdir -p $WORKSPACE_DIR/firefox_profile/twitter  && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/twitter & disown"
+
+alias firefoxUser1="mkdir -p $WORKSPACE_DIR/firefox_profile/user1 && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/user1 & disown"
+alias firefoxUser2="mkdir -p $WORKSPACE_DIR/firefox_profile/user2 && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/user2 & disown"
+alias firefoxUser3="mkdir -p $WORKSPACE_DIR/firefox_profile/user3 && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/user3 & disown"
+alias firefoxUser4="mkdir -p $WORKSPACE_DIR/firefox_profile/user4 && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/user4 & disown"
+alias firefoxUser5="mkdir -p $WORKSPACE_DIR/firefox_profile/user5 && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/user5 & disown"
+alias firefoxUser6="mkdir -p $WORKSPACE_DIR/firefox_profile/user6 && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/user6 & disown"
+
+alias firefoxMlee="mkdir -p $WORKSPACE_DIR/firefox_profile/mlee && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/mlee & disown"
+alias firefoxTaobao="mkdir -p $WORKSPACE_DIR/firefox_profile/taobao && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/taobao & disown"
+
+
+alias firefoxProxied="mkdir -p $WORKSPACE_DIR/firefox_profile/proxied && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/proxied & disown"
+alias firefoxMitm="mkdir -p $WORKSPACE_DIR/firefox_profile/mitm && nice -15 firefox-wayland --profile $WORKSPACE_DIR/firefox_profile/mitm & disown"
+
+alias edgeProxied="mkdir -p $WORKSPACE_DIR/edge_profile/proxied && nice -15 microsoft-edge-stable --user-data-dir=$WORKSPACE_DIR/edge_profile/proxied &"
+alias firefoxDad="mkdir -p $WORKSPACE_DIR/firefox_profile/dad && firefox --profile $WORKSPACE_DIR/firefox_profile/dad & disown"
+alias firefoxMom="mkdir -p $WORKSPACE_DIR/firefox_profile/mom && firefox --profile $WORKSPACE_DIR/firefox_profile/mom & disown"
+alias firefoxLogic="mkdir -p $WORKSPACE_DIR/firefox_profile/logic && firefox --profile $WORKSPACE_DIR/firefox_profile/logic & disown"
+alias firefoxLouis="mkdir -p $WORKSPACE_DIR/firefox_profile/louis && firefox --profile $WORKSPACE_DIR/firefox_profile/louis & disown"
+alias firefoxDev="mkdir -p $WORKSPACE_DIR/firefox_profile/testhelloworld04 && firefox --profile $WORKSPACE_DIR/firefox_profile/testhelloworld04 & disown"
+alias firefoxDirty="mkdir -p $WORKSPACE_DIR/firefox_profile/dirty && firefox --profile $WORKSPACE_DIR/firefox_profile/dirty & disown"
+alias firefoxLynked="mkdir -p $WORKSPACE_DIR/firefox_profile/lynked && firefox --profile $WORKSPACE_DIR/firefox_profile/lynked & disown"
+alias firefoxDemo="rm -rf /tmp/firefox_demo && mkdir -p /tmp/firefox_demo && firefox --profile $WORKSPACE_DIR/firefox_profile/firefox_demo & disown"
+
+alias firefoxPoe="mkdir -p $WORKSPACE_DIR/firefox_profile/Poe && firefox --profile $WORKSPACE_DIR/firefox_profile/Poe & disown"
+
+
+alias firefoxUser1="mkdir -p $WORKSPACE_DIR/firefox_profile/user1 && firefox --profile $WORKSPACE_DIR/firefox_profile/user1 & disown"
+alias firefoxUser2="mkdir -p $WORKSPACE_DIR/firefox_profile/user2 && firefox --profile $WORKSPACE_DIR/firefox_profile/user2 & disown"
+alias firefoxUser3="mkdir -p $WORKSPACE_DIR/firefox_profile/user3 && firefox --profile $WORKSPACE_DIR/firefox_profile/user3 & disown"
+alias firefoxUser4="mkdir -p $WORKSPACE_DIR/firefox_profile/user4 && firefox --profile $WORKSPACE_DIR/firefox_profile/user4 & disown"
+alias firefoxUser5="mkdir -p $WORKSPACE_DIR/firefox_profile/user5 && firefox --profile $WORKSPACE_DIR/firefox_profile/user5 & disown"
+alias firefoxUser6="mkdir -p $WORKSPACE_DIR/firefox_profile/user6 && firefox --profile $WORKSPACE_DIR/firefox_profile/user6 & disown"
+
+alias firefoxProxied="mkdir -p $WORKSPACE_DIR/firefox_profile/proxied && firefox --profile $WORKSPACE_DIR/firefox_profile/proxied & disown"
+alias firefoxMitm="mkdir -p $WORKSPACE_DIR/firefox_profile/mitm && firefox --profile $WORKSPACE_DIR/firefox_profile/mitm & disown"
+
+alias edgeProxied="mkdir -p $WORKSPACE_DIR/edge_profile/proxied && microsoft-edge-stable --user-data-dir=$WORKSPACE_DIR/edge_profile/proxied &"
+
+alias cloneGithubLouis='git clone git@github.com:louiscklaw/'
+alias clonePlaylist='git clone git@github.com:louiscklaw/js-playlist.git'
+alias cloneToWorkspace='cd ~/_workspace && git clone '
+
+alias codeRecovery="code /recovery"
+alias codeMyInventory="code ~/_workspace/my-inventory"
+alias codeNuc8i5behTryout="code ~/_workspace/logic-NUC8i5BEH-tryout"
+alias codeLaravelPlaylist="code ~/_workspace/laravel-playlist"
+alias codeResumePlaylist="code ~/_workspace/resume-playlist"
+alias code3dPrintTryout="code ~/_workspace/3d-print-tryout"
+alias codeAiPlaylist="code ~/_workspace/ai-playlist"
+alias codeAppiumPlaylist="code ~/_workspace/appium-playlist"
+alias codeAppiumPlaylist1="code -n ~/_workspace/appium-playlist"
+alias codeAR9331Playlist="code ~/_workspace/AR9331-playlist"
+alias codeArduinoPlaylist="code ~/_workspace/arduino-playlist"
+alias codeBotPlaylist="code ~/_workspace/bot-playlist"
+alias codeBuildkitePlaylist="code ~/_workspace/buildkite-playlist"
+alias codeCalibrePlaylist="code ~/_workspace/calibre-playlist"
+alias codeCapacitorPlaylist="code -n ~/_workspace/capacitor-playlist"
+alias codeCarousellPlaylist="code ~/_workspace/carousell-playlist"
+alias codeCiPlaylist="code ~/_workspace/ci-playlist"
+alias codeCNCPlaylist="code ~/_workspace/CNC-playlist"
+alias codeCubieboard2Playlist="code ~/_workspace/cubieboard-playlist"
+alias codeCubieboardPlaylist="code ~/_workspace/cubieboard2-playlist"
+alias codeCypressPlaylist="code ~/_workspace/cypress-playlist"
+alias codeD3Playlist="code ~/_workspace/d3-playlist"
+alias codeDashboardTryout="code ~/_workspace/dashboard-tryout"
+alias codeDel="code ~/_del"
+alias codeDenoPlaylist="code ~/_workspace/deno-playlist"
+alias codeDockerPlaylist="code ~/_workspace/docker-playlist"
+alias codeDocsifyPlaylist="code ~/_workspace/docsify-playlist"
+alias codeDoczPlaylist="code ~/_workspace/docz-playlist"
+alias codeDroneCiPlaylist="code ~/_workspace/drone-ci-playlist"
+alias codeEleventyPlaylist="code ~/_workspace/eleventy-playlist"
+alias codeEsp32CamPlaylist="code ~/_workspace/esp32-cam-playlist"
+alias codeEsp32Playlist="code ~/_workspace/esp32-playlist"
+alias codeExpoPlaylist="code ~/_workspace/expo-playlist"
+alias codeFirebasePlaylist="code ~/_workspace/firebase-playlist"
+alias codeFirewallConfig="code ~/_workspace/firewall-config"
+alias codeFreecadPlaylist="code ~/_workspace/freecad-playlist"
+alias codeGatsbyjsPlaylist="code ~/_workspace/gatsbyjs-playlist"
+alias codeGithubPlaylist="code ~/_workspace/github-playlist"
+alias codeGnomeExtensionsTryout="code ~/_workspace/gnome-extensions-tryout"
+alias codeGoPlaylist="code ~/_workspace/go-playlist"
+alias codeGulpPlaylist="code ~/_workspace/gulp-playlist"
+alias codeHugoPlaylist="code ~/_workspace/hugo-playlist"
+alias codeI3megaPlaylist="code ~/_workspace/i3mega-playlist"
+alias codeIonicPlaylist="code -n ~/_workspace/ionic-playlist"
+alias codeJob="code /media/logic/B829-3585/ws.code-workspace"
+alias codeJobQueuePlaylist="code -n ~/_workspace/job-queue-playlist"
+alias codeJobsDBPlaylist="code $WORKSPACE_DIR/jobsdb-playlist"
+alias codeJobSearchTryout="code $WORKSPACE_DIR/jobs_search_tryout"
+alias codeJsonPlaylist="code ~/_workspace/json-playlist"
+alias codeJsPlaylist="code ~/_workspace/js-playlist"
+alias codeWordpressPlaylist="code ~/_workspace/wordpress-playlist"
+alias codeKicadPlaylist="code ~/_workspace/kicad-playlist"
+alias codeLogseq='/home/logic/Appimage/Logseq.AppImage'
+alias codeLynkedBackup="code ~/_workspace/lynked-backup"
+alias codeLynkedTicket="code $WORKSPACE_DIR/LYNKED_QA_project/_tickets"
+alias codeM5stackPlaylist="code ~/_workspace/m5stack-playlist"
+alias codeMakefilePlaylist="code ~/_workspace/Makefile-playlist"
+alias codeMarpPlaylist="code ~/_workspace/marp-playlist"
+alias codeMicropythonPlaylist="code ~/_workspace/micropython-playlist"
+alias codeNestJsPlaylist="code ~/_workspace/nestjs-playlist"
+alias codeNextjsPlaylist="code ~/_workspace/nextjs-playlist"
+alias codeNmapPlaylist="code ~/_workspace/nmap-playlist"
+alias codeOrangePiZeroPlaylist="code ~/_workspace/orange-pi-zero-playlist"
+alias codePaidThemePlaylist="code ~/_workspace/paid_theme_playlist"
+alias codePcbantPlaylist="code ~/_workspace/pcbant-playlist"
+alias codePlatformioPlaylist="code ~/_workspace/platformio-playlist"
+alias codePoc="code ~/_poc"
+alias codePortfolio="code ~/_workspace/louiscklaw.github.io"
+alias codePreactjsPlaylist="code ~/_workspace/preactjs-playlist"
+alias codePuppeteerPlaylist="code ~/_workspace/puppeteer-playlist"
+alias codePythonPlaylist="code ~/_workspace/python-playlist"
+alias codeRaspberryPiPlaylist="code ~/_workspace/raspberry-pi-playlist"
+alias codeReactNativePlaylist="code ~/_workspace/react-native-playlist"
+alias codeReactPlaylist="code -n ~/_workspace/react-playlist"
+alias codeRestaurantCmsTryout="code -n ~/_workspace/restaurant_cms_tryout"
+alias codeRoutineCheck="code ~/_workspace/routine_check"
+alias codeRustPlaylist="code ~/_workspace/rust-playlist"
+alias codeSeleniumPlaylist="code ~/_workspace/selenium-playlist"
+alias codeSeoPlaylist="code ~/_workspace/seo-playlist"
+alias codeSfxPowerSupplyPlaylist="code ~/_workspace/sfx-power-supply-playlist"
+alias codeSherlock="code ~/_workspace/sherlock"
+alias codeFirebaseShowcase="code ~/_workspace/firebase-showcase"
+alias codeStorybook="code -n ~/_workspace/storybook-playlist"
+alias codeTaobaoPlaylist="code ~/_workspace/taobao-playlist"
+alias codeTraefikPlaylist="code ~/_workspace/traefik-playlist"
+alias codeTravisPlaylist="code ~/_workspace/travis-playlist"
+alias codeUptimePlaylist="code ~/_workspace/upptime-playlist"
+alias codeVuePlaylist="code ~/_workspace/vue-playlist"
+alias codeWebpackPlaylist="code ~/_workspace/webpack-playlist"
+alias codeWebPlaylist="code ~/_workspace/web-playlist"
+alias codeWebScrapePlaylist="code ~/_workspace/web-scrape-playlist"
+alias codeWorkspace="code $WORKSPACE_DIR"
+alias codeWorkspace="code ~/_workspace"
+alias codeYahooFinancePlaylist="code ~/_workspace/yahoo-finance-playlist"
+alias codeYoutubePlaylist="code ~/_workspace/youtube-playlist"
+alias codeApplicationFlowTryout="code /workspace/application-flow-tryout"
+
+
+alias createReactNativeApp='npx create-react-native-app'
+
+alias codeDadPlaylist="code ~/_workspace/dad-playlist"
+alias codeMomPlaylist="code ~/_workspace/mom-playlist"
+
+alias gitCloneShallow='git clone --depth=3'
+
+alias goFastMac='$WEB_BROWSER https://github.com/louiscklaw/fastmac'
+
+alias MDNHTTPHeaders='firefox https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers'
+
+alias updateDashboard='pushd ~/_workspace/dashboard-tryout && yarn gitUpdate && popd'
+alias updateLogseq='pushd ~/_workspace/logseq-helloworld && yarn gitUpdate && popd'
+alias updatePortfolio='pushd ~/_workspace/louiscklaw.github.io && yarn gitUpdate && popd'
+alias updateRoutineCheck='pushd ~/_workspace/routine_check && yarn gitUpdate && popd'
+
+alias reYarn='rm -rf package-lock.json && rm -rf yarn.lock && rm -rf node_modules && yarn'
+
+alias initCodeWorkspace='touch ./ws.code-workspace'
+
+alias goGist='$DEFAULT_BROWSER https://gist.github.com/louiscklaw &'
+alias goGithubNewRepo='$DEFAULT_BROWSER https://github.com/new &'
+
+alias nr='npm run'
+alias nits='npm install $@ --save && npm install --dev --save $@'
+
+
+alias codeSongList="code ~/_workspace/dotfiles/.songlist.rc"
+
+
+gitCloneAllPlaylist(){
+  gitCloneShallow git@github.com:louiscklaw/react-playlist.git  &
+  gitCloneShallow git@github.com:louiscklaw/python-playlist.git  &
+  gitCloneShallow git@github.com:louiscklaw/preactjs-playlist.git  &
+  gitCloneShallow git@github.com:louiscklaw/nextjs-playlist.git  &
+  gitCloneShallow git@github.com:louiscklaw/gatsbyjs-playlist.git  &
+  gitCloneShallow git@github.com:louiscklaw/selenium-playlist.git  &
+  gitCloneShallow git@github.com:louiscklaw/marp-playlist.git  &
+  gitCloneShallow git@github.com:louiscklaw/docker-playlist.git  &
+
+  wait
+}
+
+codeLynkedQaProject(){
+  code ~/_workspace/LYNKED_QA.code-workspace
+  code $WORKSPACE_DIR/LYNKED_QA_project/LYNKED_QA.code-workspace
+}
+
+meldToLynkedQaProject(){
+  meld $PWD $WORKSPACE_DIR/LYNKED_QA_project
+}
+
+
+goGithubPage(){
+  REMOTE_GET_URL=$(git remote get-url origin 2>&1)
+  if [[ $REMOTE_GET_URL =~ .*fatal.* ]]; then
+    echo "cannot find remote origin"
+  else
+    echo "remote origin " $REMOTE_GET_URL
+
+REMOTE_GET_URL=$REMOTE_GET_URL python3 << END
+import os,sys
+import subprocess
+
+REMOTE_GET_URL=os.environ['REMOTE_GET_URL']
+repo = REMOTE_GET_URL.split('/')[-1].replace('.git','')
+github_page_address = 'https://louiscklaw.github.io/{}/'.format(repo)
+firefox_command = '$DEFAULT_BROWSER  {}'.format(github_page_address)
+subprocess.Popen(firefox_command.split(' '))
+END
+  fi
+}
+
+echoDefaultPackagejson(){
+
+    echo '"format": "prettier --loglevel warn --write \"**/*.{js,css,html,jsx,tsx,ts,json}\"",'
+    echo '"gitSync": "git fetch --all && git pull --all ",'
+    echo '"gitUpdate": "git add . && git commit -m \"update fedora,\" && yarn gitSync && git push",'
+}
+
+cloneAndNpm(){
+  git clone --depth=1 $1 $2
+  pushd $2
+  npm i -D
+  echo "done"
+}
+
+goGithubSettings(){
+  remote_get_url=$(git remote get-url origin 2>&1)
+  if [[ $remote_get_url =~ .*fatal.* ]]; then
+    echo "cannot find remote origin"
+  else
+    echo "remote origin " $remote_get_url
+    http_link=${remote_get_url/git@/https://}
+    http_link=${http_link/.com:/.com/}
+    http_link=${http_link/.git/\/settings/}
+    $DEFAULT_BROWSER  $http_link &
+  fi
+}
+
+goGithubSettingsSecrets(){
+  remote_get_url=$(git remote get-url origin 2>&1)
+  if [[ $remote_get_url =~ .*fatal.* ]]; then
+    echo "cannot find remote origin"
+  else
+    echo "remote origin " $remote_get_url
+    http_link=${remote_get_url/git@/https://}
+    http_link=${http_link/.com:/.com/}
+    http_link=${http_link/.git/\/settings/}
+    $DEFAULT_BROWSER  $http_link/secrets &
+  fi
+}
+
+goGithubRepo(){
+  remote_get_url=$(git remote get-url origin 2>&1)
+  if [[ $remote_get_url =~ .*fatal.* ]]; then
+    echo "cannot find remote origin"
+  else
+    echo "remote origin " $remote_get_url
+    http_link=${remote_get_url/git@/https://}
+    http_link=${http_link/.com:/.com/}
+    http_link=${http_link/.git//}
+    $DEFAULT_BROWSER  $http_link &
+  fi
+}
+
+goGithubActions(){
+  remote_get_url=$(git remote get-url origin 2>&1)
+  if [[ $remote_get_url =~ .*fatal.* ]]; then
+    echo "cannot find remote origin"
+  else
+    echo "remote origin " $remote_get_url
+    http_link=${remote_get_url/git@/https://}
+    http_link=${http_link/.com:/.com/}
+    http_link=${http_link/.git//}
+    http_link=("${http_link}actions")
+    $DEFAULT_BROWSER  $http_link
+  fi
+}
+
+goCoverallReport(){
+  REPO_NAME=$(basename $PWD)
+  $DEFAULT_BROWSER https://coveralls.io/github/louiscklaw/$REPO_NAME
+}
+
+
+installDroneCli(){
+  aria2c -x 16 -s 99999 https://github.com/drone/drone-cli/releases/latest/download/drone_linux_amd64.tar.gz
+  tar -xf drone_linux_amd64.tar.gz
+  sudo install -t /usr/local/bin drone
+}
+
+buildDockerUbuntuLouis(){
+  cd $WORKSPACE_DIR/drone-ci-playlist/hello-ubuntu
+    docker build -t logickee/ubuntu-basic .
+  cd -
+}
+
+dockerNodeLts(){
+  # node:lts
+  touch .env.docker
+  docker run -it --env-file .env.docker -v $PWD:/root --rm node:lts bash
+  sudo rm -rf .bash_history
+  sudo rm -rf .ssh
+  sudo rm -rf .local
+  sudo rm -rf .python_history
+}
+
+dockerUbuntuLouis(){
+  # dockerRun logickee/ubuntu-basic bash
+  dockerRun logickee/ubuntu-with-systemd bash
+}
+
+initGhPages(){
+  git checkout --orphan gh-pages
+  rm .git/index
+  git clean -fdx
+  echo "My GitHub Page" > index.html
+  git add .
+  git commit -a -m "First pages commit"
+  git push origin gh-pages
+}
+
+
+goJSONToJs(){
+  $DEFAULT_BROWSER  https://json-to-js.com/ &
+}
+
+goGithubIssueTemplate(){
+  $DEFAULT_BROWSER  https://github.com/stevemao/github-issue-templates &
+}
+
+
+travisRoutine() {
+  $DEFAULT_BROWSER  https://travis-ci.com/github/louiscklaw/github-playlist/branches &
+  $DEFAULT_BROWSER  https://travis-ci.com/github/louiscklaw/travis-playlist/branches &
+  wait
+}
+
+initWorkspace(){
+  touch ws.code-workspace
+}
+
+getDefaultCommitLintConfig(){
+  cp $WORKSPACE_DIR/travis-playlist/commitlint.config.js .
+}
+
+checkoutOrphanBranch(){
+
+  git checkout --orphan $1
+  git rm -rf .
+  rm '.gitignore' | true
+  echo "# this is orphan branch" > README.md
+  git add README.md
+  git commit -a -m "init commit,"
+  git push origin $1
+  # echo 'not implemented'
+}
+
+initPipenv(){
+  touch Pipfile
+  pipenv lock
+  pipenv shell --three
+
+}
+
+initXXXSh(){
+  touch ./$@
+  chmod +x ./$@
+  code ./$@
+}
+
+initRunSh(){
+  initXXXSh run.sh
+}
+
+initBuildSh(){
+  initXXXSh build.sh
+}
+
+initNpm(){
+  npm init -y
+  yarn
+}
+
+gitCloneWork(){
+  cd $WORKSPACE_DIR
+    git clone --depth=10 $@ &
+  cd -
+}
+
+
+
+initPyProj(){
+
+  mkdir -p src
+  mkdir -p src/lib
+  mkdir -p test
+
+  touch src/main.py
+  touch src/lib/common.py
+
+  touch test/main.py
+  touch test/common.py
+
+  touch run.sh
+  touch test.sh
+
+  chmod +x run.sh
+  chmod +x test.sh
+
+}
+
+mergeToMasterObsolete(){
+  set -ex
+  git fetch --all
+
+  CURRENT_BRANCH_RAW=`git branch |grep -i \* -`
+  CURRENT_BRANCH=`echo $CURRENT_BRANCH_RAW | sed 's/* //' - `
+
+  git merge --ff-only master
+  git merge --ff-only develop
+
+  git merge --ff-only origin/master
+  git merge --ff-only origin/develop
+
+  git checkout develop
+  git pull
+
+  git merge --ff-only  $CURRENT_BRANCH
+
+  git push &
+
+  git checkout master
+  git pull
+  git merge --ff-only develop
+
+  git push &
+
+  git checkout $CURRENT_BRANCH
+  wait
+  set +ex
+}
+
+keepTry(){
+  while true; do
+    $@
+
+    echo 'will retry '$@
+    sleep 1
+  done
+
+  echo 'bye ... '
+
+}
+
+
+# echo '.develop.rc init done'
