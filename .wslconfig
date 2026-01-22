@@ -1,5 +1,30 @@
+# https://learn.microsoft.com/en-us/windows/wsl/wsl-config
+
+
 [wsl2]
-memory=8GB                  # Limits VM memory to 4 GB
-processors=2                # Makes the WSL 2 VM use 2 virtual processors
-swap=8GB
+memory=16GB                 # Limits VM memory to 16 GB
+
+processors=4                # Makes the WSL2 VM use 4 virtual processors
+
+# Sets amount of swap storage space to 8GB, default is 25% of available RAM
+swap=16GB
+
+# Sets swapfile path location, default is %UserProfile%\AppData\Local\Temp\swap.vhdx
+swapfile=C:\\temp\\wsl-swap.vhdx
+
+# Sets the maximum number of crash dump files to retain (default is 5)
+maxCrashDumpCount=3
+
 defaultVhdSize=512GB
+
+# Turn on default connection to bind WSL 2 localhost to Windows localhost.
+# Setting is ignored when networkingMode=mirrored
+localhostforwarding=true
+
+
+[experimental]
+# Enable experimental features
+
+sparseVhd=true
+
+
