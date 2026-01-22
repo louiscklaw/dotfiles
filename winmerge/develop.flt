@@ -1,0 +1,13 @@
+name: My develop filter 
+desc: This is my develop filter 
+
+## Ignore Java class and jar files
+f: \.class$
+f: \.jar$
+
+## Ignore subversion housekeeping directories
+d: \\.svn$
+d: \\._svn$
+d: \\.git$
+d: \\.next$
+d: \\node_modules$
